@@ -12,6 +12,9 @@ init python:
     gui.init(1280, 720)
     renpy.music.register_channel("creepy")
 
+    def n(what):
+        narrator(what)
+
 
 
 ################################################################################

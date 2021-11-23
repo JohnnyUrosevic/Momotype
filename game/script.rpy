@@ -25,7 +25,7 @@ label start:
 
     # These display lines of dialogue.
 
-    "Your neighborhood, New Ribosome City"
+    $ n("Your neighborhood, New Ribosome City")
 
     scene background
     show momo_dna at top with fade
