@@ -1,0 +1,40 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+After initialization, but before game start.
+  File "renpy/common/00start.rpy", line 80, in _init_language
+    renpy.change_language(language)
+  File "game/screens.rpy", line 171, in <module>
+    line_spacing gui.dialogue_line_spacing
+AttributeError: 'StoreModule' object has no attribute 'dialogue_line_spacing'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/bootstrap.py", line 326, in bootstrap
+    renpy.main.main()
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/main.py", line 617, in main
+    run(restart)
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/main.py", line 78, in run
+    renpy.translation.init_translation()
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/translation/__init__.py", line 561, in init_translation
+    renpy.store._init_language() # @UndefinedVariable
+  File "renpy/common/00start.rpy", line 80, in _init_language
+    renpy.change_language(language)
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/translation/__init__.py", line 645, in change_language
+    new_change_language(tl, language)
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/translation/__init__.py", line 607, in new_change_language
+    i.apply()
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/ast.py", line 2669, in apply
+    value = renpy.python.py_eval(expr)
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/python.py", line 2249, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "D:\Desktop\renpy-7.4.6-sdk/renpy/python.py", line 2242, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/screens.rpy", line 171, in <module>
+    line_spacing gui.dialogue_line_spacing
+AttributeError: 'StoreModule' object has no attribute 'dialogue_line_spacing'
+
+Windows-10-10.0.22000
+Ren'Py 7.4.6.1693
+Momotype 1.0
+Sat Nov 20 11:52:45 2021
