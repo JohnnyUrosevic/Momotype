@@ -37,6 +37,10 @@ init python:
         for line in lines:
             narrator(line)
 
+    def m(choices):
+        i = len(persistent.endings)
+
+        return choices[i]
 
 
 ################################################################################

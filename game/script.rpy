@@ -98,7 +98,10 @@ label start:
         pass
 
     scene background
-    show momo_nightmare_1 at top with fade
+    if ending_count:
+        show momo_ad_real at top with fade
+    else:
+        show momo_nightmare_1 at top with fade
 
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
@@ -299,11 +302,17 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    "A collection of particles circle around. They are diluted with a heavy substance, though you can't tell what. In your dream, the particles attempt to create form, and in doing so, assemble into a storm."
+    $ n([
+        [
+            "A collection of particles circle around. They are diluted with a heavy substance, though you can't tell what. In your dream, the particles attempt to create form, and in doing so, assemble into a storm."
 
-    "Inside the storm there is no one and nothing, except small spaces where it's immeasurably dark. Your vision recedes."
+            "Inside the storm there is no one and nothing, except small spaces where it's immeasurably dark. Your vision recedes."
 
-    "You look from a bird's eye view into the storm, hoping to get a better look. As soon as you think you spot a person, the particles scatter. You repeat this process until finally, you realize you're completely alone. The dream ends."
+            "You look from a bird's eye view into the storm, hoping to get a better look. As soon as you think you spot a person, the particles scatter. You repeat this process until finally, you realize you're completely alone. The dream ends."
+        ],
+        "You are dreaming of Momo. Which Momo is it, though?",
+        "\"It's tough living. I think it's the greatest challenge anyone could face. It's already such a lonely experience. You may not believe it, but I understand, parent, I really do.\"",
+    ])
 
     $ renpy.pause (2.5, hard=True)
     $ renpy.music.set_volume(1.00, delay=0, channel='music')
@@ -316,31 +325,84 @@ label start:
 
     "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo already knows the answer.\""
 
+    $ yes = m([
+        "I love Momo.",
+        "I really do love Momo.",
+        "I love Momo to absolute bits.",
+    ])
+
+    $ maybe = m([
+        "I love Momo.",
+        "This is too much, Momo.",
+        "Love does not exist. Atleast, not in the way we're talking about.",
+    ])
+
     menu:
-        "I love Momo.":
+        "[yes]":
             $ points += 1
 
-            "Momo has received this well. Your answer was never in question. After all, he's cute."
+            $ n([
+                [
+                    "Momo has received this well. Your answer was never in question. After all, he's cute.",
 
-            "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to eat. Or speak for that matter?"
+                    "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to eat. Or speak for that matter?",
+                ],
+                [
+                    "It looks like a weight has been unburdened from Momo.",
 
-        "I barely know you. Take it slow?":
-            "Momo stares at you. The words do not register nor does it seem Momo derives any meaning from them. It's as if you spoke in a different language."
+                    "A moment passes. Momo's stomach begins grumbling.",
+                ],
+                [
+                    "\"Yay!\"",
 
-            "\"Does that matter? In the first place, you are my designated parent. Nothing can change this fact.\""
+                    "You grab Momo and throw him in the air. It's a new day, a new you!",
 
-            "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to speak?"
+                    "A moment passes. Momo's stomach begins grumbling.",
+                ],
+            ])
+        "[maybe]":
+            $ n([
+                [
+                    "Momo stares at you. The words do not register nor does it seem Momo derives any meaning from them. It's as if you spoke in a different language.",
+
+                    "\"Does that matter? In the first place, you are my designated parent. Nothing can change this fact.\"",
+
+                    "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to speak?",
+                ],
+                [
+                    "Momo stares at you. The words do not register nor does it seem Momo derives any meaning from them.",
+
+                    "Momo twitches violently. His body is like a muscle which has contracted too hard.",
+
+                    "The moment passes. Momo's stomach begins grumbling.",
+                ],
+                [
+                    "\"Wow, very philosophical.\"",
+
+                    "The moment passes. Momo's stomach begins grumbling.",
+                ],
+            ])
 
         "No.":
             $ points -= 1
 
-            "\"That is incorrect parent. Please do not lie to Momo.\" Momo speaks plainly."
+            $ n([
+                [
+                    "\"That is incorrect parent. Please do not lie to Momo.\" Momo speaks plainly."
 
-            "\"It's true, Momo. I don't know you very well. How could I love you immediately?\" you respond."
+                    "\"It's true, Momo. I don't know you very well. How could I love you immediately?\" you respond."
 
-            "Momo examines you. \"You gave me life. I am not correct?\""
+                    "Momo examines you. \"You gave me life. I am not correct?\""
+                ],
+                "\"That is incorrect parent. If you lie to Momo,\" he pauses, \"well, he'll remember,\" he finishes.",
+                "\"Liar liar, pants on fire\"",
+            ])
 
-            "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to speak?"
+            $ n([
+                "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to speak?",
+                None,
+                "A moment passes. Momo's stomach begins grumbling.",
+            ])
 
     menu:
         "Head to hallway":
@@ -349,17 +411,44 @@ label start:
     scene background
     show momo_hall at top with fade
 
-    "\"Momo thinks you have good taste in interior design. Very post-modern...By the way, what does post-modern mean? Momo saw it on a book from your shelf\""
+    $ n([
+        [
+            "\"Momo thinks you have good taste in interior design. Very post-modern...By the way, what does post-modern mean? Momo saw it on a book from your shelf\""
 
-    "Truthfully, you don't know."
+            "Truthfully, you don't know."
 
-    "Momo is now humming the Imitato. Corp jingle."
+            "Momo is now humming the Imitato. Corp jingle."
+        ],
+        [
+            "\"Momo does not like your interior design, frankly. You cannot see anything. Very little natural light, aside from the street. It's a little dated. Depressing even.\"",
+
+            "For some reason, Momo does not like to be in the shadows. He stays in the light.",
+
+            "Momo hums the Imitato. Corp jingle, but when you look at him, he stops.",
+        ],
+        [
+            "\"Momo really loves benches.\"",
+
+            "Momo hums the Imitato. Corp jingle, and when you look at him, he continues, happily.",
+        ]
+    ])
 
     scene background
     show momo_pancake at top with fade
 
-    "Is Momo herbivorous? A carnivore? You don't know yet, but he seems to like pancakes. He's now full of energy."
+    $ n([
+        "Is Momo herbivorous? A carnivore? You don't know yet, but he seems to like pancakes. He's now full of energy.",
+        [
+            "Is Momo herbivorous? A carnivore? You have some ideas. Momo seems to like pancakes, same as last time.",
 
+            "\"Pancakes really are the best. Better than any other food. Simple. Straightforward.\"",
+        ],
+        [
+            "You don't know how many pancakes you've made at this point.",
+
+            "\"Pancakes, pancakes, we all love pancakes.\"",
+        ]
+    ])
     menu:
         "Play with Momo":
             pass
@@ -367,44 +456,114 @@ label start:
     scene background
     show momo_throw at top with fade
 
-    "Momo flies into the air. They're surprisingly heavy. \"Keep going parent!\". After 30 minutes of using Momo like an exercise ball, you're tired. You drop him onto the floor, and while he lays there absently, you take a moment to catch your breath."
+    $ n([
+        "Momo flies into the air. They're surprisingly heavy. \"Keep going parent!\". After 30 minutes of using Momo like an exercise ball, you're tired. You drop him onto the floor, and while he lays there absently, you take a moment to catch your breath.",
+        None,
+        "\"Don't drop me parent!\" Momo is laughing.",
+    ])
 
-    "This results in some confusion. Momo seems fidgety. \"Parent. Momo still wants to play.\""
+    $ n([
+        "This results in some confusion. Momo seems fidgety. \"Parent. Momo still wants to play.\"",
+        "This results in some confusion. Momo seems fidgety. \"Parent. Can we play again? I really want to play.\"",
+        "You drop Momo, same as last time. \"Parent, I understand if you're tired. Could we play again?\"",
+    ])
 
     menu:
         "Continue":
             $ points += 1
+            $ n([
+                [
+                    "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling, and to your surprise, he is unaffected. He requests that you keep going."
 
-            "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling, and to your surprise, he is unaffected. He requests that you keep going."
+                    "This process is repeated until your arms give out."
 
-            "This process is repeated until your arms give out."
+                    "\"Thank you, parent. Could you cook pancakes tomorrow?\" Momo asks. Then, he hops off. You lay crumpled on the floor. Upstairs, you can hear small thuds in the hallway. They eventually lead to your bedroom, and soon enough, the noise stops."
+                ],
+                [
+                    "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling.",
 
-            "\"Thank you, parent. Could you cook pancakes tomorrow?\" Momo asks. Then, he hops off. You lay crumpled on the floor. Upstairs, you can hear small thuds in the hallway. They eventually lead to your bedroom, and soon enough, the noise stops."
+                    "He tells you throw him as hard as you can. He can take it, you remember.",
 
+                    "This process is repeated until your arms give out.",
+
+                    "\"Thank you, parent. Please only cook pancakes tomorrow. Only pancakes,\" Momo has ordered.",
+
+                    "Then, he hops off. You lay crumpled on the floor.",
+                ],
+                [
+                    "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling.",
+
+                    "\"Thank you, parent! You're my favorite parent!\" Momo has hopped off.",
+
+                    "You lay crumpled on the floor.",
+                ]
+            ])
         "Refuse":
             "\"Why not parent?\" he asks."
 
             "\"I'm tired. Let's call it quits. I don't wanna do this,\" you respond."
 
-            "Momo looks up to you. From your linoleum floor, you see an expression of frustration. \"One more time,\" he says."
+            $ n([
+                "Momo looks up to you. From your linoleum floor, you see an expression of frustration. \"One more time,\" he says.",
+                "Momo looks up to you. From your linoleum floor, you see an expression of frustration. \"Is it so hard to throw Momo a few more times? Really, is it that hard for parent? I'm not asking for much.\" he says.",
+                "Momo looks up to you. \"If I ask another time, will you do it?\""
+            ])
 
             menu:
                 "Accept":
-                    "You assume that Momo is young. You don't want do be a dick.  Momo is thrown into the air exactly one more time. \"Time for bed\", you say."
+                    $ n([
+                            "You assume that Momo is young. You don't want do be a dick. Momo is thrown into the air exactly one more time.",
+                            [
+                                "Does Momo have a point?",
+
+                                "You throw him. When he lands, he looks up to you. \"They say the greatest expression of love is action. Is that true for me?\"",
+
+                                "Momo thinks for a second. \"Most likely, yes.\"",
+                            ],
+                            [
+                                "You fling Momo into the air.",
+
+                                "\"You're so nice, parent.\"",
+
+                                "There is something inexplicable about Momo's words that makes you anxious. You're not actually nice.",
+                            ],
+                    ])
+
+                    "\"Time for bed\", you say."
 
                 "Refuse":
                     $ points -= 1
 
-                    "\"Sorry to say, but it's not happening.\""
+                    $ n([
+                        "\"Sorry to say, but it's not happening.\"",
+                        None,
+                        "\"Sorry. I can't do it.\""
+                    ])
 
-                    "For a moment, there is silence. Momo does not say anything. Their face reminds you of a toddler's."
+                    $ n([
+                        "For a moment, there is silence. Momo does not say anything. Their face reminds you of a toddler's.",
+                        "For a moment, there is silence. Momo does not say anything. Their face reminds you of a toddler's, only, a little more grown up.",
+                        [
+                            "\"Momo understands. You are very tired. You have a job. Momo wishs he had passive income, so he could never work.\"",
 
-                    "He looks through you, and after some thinking, hops back to your room to get ready for bed."
+                            "\"That's smart of you Momo. What would you do to get that money in the future?\" you ask.",
+                        ],
+                    ])
+
+                    $ n([
+                        "He looks through you, and after some thinking, hops back to your room to get ready for bed.",
+                        "Momo sighs and is already heading upstairs.",
+                        "Momo thinks for a second. He then hops upstairs without replying to you.",
+                    ])
 
     scene background
     show momo_bed_sleep at top with fade
 
-    "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but to your surprise, his body is taut. Underneath is a muscle-bound creature."
+    $ n([
+        "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but to your surprise, his body is taut. Underneath is a muscle-bound creature.",
+        "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but same as before, his body is taut. He's especially high-strung.",
+        "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but to your surprise, his body is soft. Momo is relaxed.",
+    ])
 
     menu:
         "Go to bed":
@@ -413,23 +572,44 @@ label start:
     scene background
     show momo_dream at top with fade
 
-    "In the theater of Momo's mind, there is nothing. The only thing that can be made out is the appearance of a person. Momo is dreaming about someone, and it's most likely you."
+    $ n([
+        "In the theater of Momo's mind, there is nothing. The only thing that can be made out is the appearance of a person. Momo is dreaming about someone, and it's most likely you.",
+        "In the theater of Momo's mind, he is having a nightmare.",
+        "In the theater of Momo's mind, he is thinking about you.",
+    ])
 
     scene background
-    show momo_nightmare_2 at top with fade
+    if ending_count:
+        show momo_ad_real at top with fade
+    else:
+        show momo_nightmare_2 at top with fade
 
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    "You're back in the desert, still in bird's eye view. The particles have ceased to move. You know that you've been waiting a long time, longer than you've waited in real life. You want something to happen."
+    $ n([
+        [
+            "You're back in the desert, still in bird's eye view. The particles have ceased to move. You know that you've been waiting a long time, longer than you've waited in real life. You want something to happen.",
 
-    "You know this a dream, but the particles, your buoyed vision, the endless wait: years could pass without contradiction. For now, this is everything."
+            "You know this a dream, but the particles, your buoyed vision, the endless wait: years could pass without contradiction. For now, this is everything.",
 
-    "As you've been waiting, the particles have started moving. They scatter like dust. Above you, even higher than where you currently are, it starts raining to an innumerable degree. You ascend."
+            "As you've been waiting, the particles have started moving. They scatter like dust. Above you, even higher than where you currently are, it starts raining to an innumerable degree. You ascend.",
 
-    "You are now in the clouds. The rain is below you. You are looking down from an even higher position. Finally and without your own observation, the particles begin assembling. They seem to form something definite."
+            "You are now in the clouds. The rain is below you. You are looking down from an even higher position. Finally and without your own observation, the particles begin assembling. They seem to form something definite.",
 
-    "You don't notice the figure below you until you see a hand waving."
+            "You don't notice the figure below you until you see a hand waving.",
+        ],
+        [
+            "\"...\"",
+
+            "\"What did you say?\"",
+
+            "\"...\"",
+
+            "It's an empty space. You cannot hear anything.",
+        ],
+        "\"We're all thinking about you!\"",
+    ])
 
     $ renpy.pause (2.5, hard=True)
     $ renpy.music.set_volume(1.00, delay=0, channel='music')
@@ -448,17 +628,35 @@ label start:
 
     scene background
     show momo_hall at top with fade
+    $ n([
+        [
+            "\"Momo heard that this country's GDP is on the fritz. Soon, nobody will be making babies anymore. Banks will go under, food will be short, mass suicides all around. Will Momo be there for it?",
 
-    "\"Momo heard that this country's GDP is on the fritz. Soon, nobody will be making babies anymore. Banks will go under, food will be short, mass suicides all around. Will Momo be there for it?"
+            "No, Momo has a bunker out in Southwest Ribo City. Very safe. Well stocked. How does Momo know so much about the world? Intuition. Does Momo know where bunker is?",
 
-    "No, Momo has a bunker out in Southwest Ribo City. Very safe. Well stocked. How does Momo know so much about the world? Intuition. Does Momo know where bunker is?"
+            "No, and he does not like revealing such details. Parent, can Momo ask you a question? What is GDP?\"",
 
-    "No, and he does not like revealing such details. Parent, can Momo ask you a question? What is GDP?\""
+            "Momo pauses.",
 
-    "Momo pauses."
+            "\"Momo does not know what a bunker is, to tell you the truth. Is it a type of pancake?\"",
+        ],
+        [
+            "\"Momo has to find his bunker. In bunker, Momo is safe. No one can hurt him. Maybe they can yell bad words at Momo outside of a metal door. But Momo does not care. Momo will not face the end. There is no end if Momo is in his bunker. Where is this bunker, you ask?\"",
 
-    "\"Momo does not know what a bunker is, to tell you the truth. Is it a type of pancake?\""
+            "Momo stops to think for a second. \"I know it's here. There's an invisible trail only Momo can see.\"",
 
+            "Momo pauses.",
+
+            "\"It doesn't smell like pancakes.\"",
+        ],
+        [
+            "\"Momo always keeps hearing about some bunker. Momo's already visited. It's pretty rad. They have their own pool. Not much food though.\"",
+
+            "Momo pauses.",
+
+            "\"It smells like food right now! That's why I love living here.\"",
+        ]
+    ])
     menu:
         "Head to kitchen":
             pass
@@ -503,7 +701,20 @@ label start:
     scene background
     show momo_wake at top with fade
 
-    "Life with Momo is relatively simple. They are a crude mix between a child and a virtual pet. Concerning this, you don't have any particular feelings. However, this does make it difficult when asked questions concerning Momo's identity."
+    $ n([
+        "Life with Momo is relatively simple. They are a crude mix between a child and a virtual pet. Concerning this, you don't have any particular feelings. However, this does make it difficult when asked questions concerning Momo's identity.",
+        "\"Is Momo human?\" he asks. \"Momo wishes for you to be straight with him. Momo already knows he is, but he needs confirmation from another source.\"",
+        "\"Momo would like to watch television. Momo believes their show is on.\"",
+    ])
+
+    $ hippo = True
+
+    $ dragon = True
+
+    $ sheriff = True
+
+    if ending_count == 2:
+        jump tv
 
     menu:
         "\"Is Momo human?\" he asks."
@@ -514,26 +725,42 @@ label start:
             "Momo considers this for a moment. They are hopping around the room in thought."
 
             menu:
-                "\"Where did Momo come from?\""
+                "\"Where did Momo come from? Where is the source?\""
 
                 "A magical stork":
                     scene background
                     show momo_wake_blush at top with fade
 
-                    "\"Whoa\". Momo looks to the ceiling in a vague wonder."
+                    $ n([
+                        "\"Whoa\". Momo looks to the ceiling in a vague wonder.",
+                        "Momo looks to the ceiling with resolve.",
+                    ])
 
-                    "\"Someday, I will meet this stork and thank him.\""
+                    $ n([
+                        "\"Someday, I will meet this stork and thank him.\"",
+                        "\"Maybe one day, I can grow wings and meet Mr. Stork.\"",
+                    ])
 
                 "God":
                     scene background
                     show momo_wake_blush at top with fade
 
-                    "\"Is human God?\""
+                    $ n([
+                        "\"Is human God?\"",
+                        "\"Momo has one faith. Humanism. Momo is a humanist. Everything that will ever exist cannot truly exist unless there is a human to witness or perceive it. The universe ends when a human dies.\"",
+                    ])
 
-                    "You immediately deny such a thing. You can't help but feel, however, that Momo now thinks of you as such."
+                    $ n([
+                        "You immediately deny such a thing. You can't help but feel, however, that Momo now thinks of you as such.",
+                        "You don't know if this is the right application of humanism.",
+                    ])
 
         "No":
-            "\"If I'm not human, then why does parent take care of me?\""
+
+            $ n([
+                "\"If I'm not human, then why does parent take care of me?\"",
+                "\"Stop. None of this matters. What matters is if Momo is human. Why should you even think about caring for other things?\"",
+            ])
 
             menu:
                 "Because you should care for all living things. Wouldn't you agree?":
@@ -542,25 +769,40 @@ label start:
 
                     $ points += 1
 
-                    "Momo looks up at you from the ground. \"Momo thought care was only 		reserved for humans. That humans could accomplish such a thing. I never thought of it that way.\""
+                    "Momo looks up at you from the ground. \"Momo thought care was only reserved for humans. That humans could accomplish such a thing. I never thought of it that way.\""
 
                     "Reserved for humans? At this line, you take a pause. \"Why would it be reserved for humans?\" you ask."
 
-                    "\"Humans are everything. Wouldn't you agree?\" he responds."
+                    $ n([
+                        "\"Humans are everything. Wouldn't you agree?\" he responds.",
+                        "\"Humans are everything. They always have been and always will be.\"",
+                    ])
 
                 "Because it's mutually beneficial. You get food and room. I get a pet.":
                     $ points -= 1
                     menu:
-                        "\"...Is this...everything? Is Momo a pet?\""
+                        $ n([
+                            "\"...Is this...everything? Is Momo a pet?\"",
+                            "\"Momo is a pet. Not a human. A pet?\"",
+                        ])
 
                         "Yes Momo":
                             $ points -= 1
 
-                            "Momo has ceased asking questions. You can feel they were hurt by your answer."
+                            $ n([
+                                "Momo has ceased asking questions. You can feel they were hurt by your answer.",
+                                [
+                                    "Momo has ceased asking questions. You can feel he was deeply hurt by your answer, though he has tried not to show it.",
+
+                                    "Outside, you can hear the noise of cars.",
+                                ]
+                            ])
 
                         "No Momo":
-                            "Momo has ceased asking questions."
-
+                            $ n([
+                                "Momo has ceased asking questions.",
+                                "\"Liar,\" Momo says.",
+                            ])
 
     $ hippo = True
 
