@@ -12,8 +12,19 @@ init python:
     gui.init(1280, 720)
     renpy.music.register_channel("creepy")
 
+    if persistent.endings is None:
+        persistent.endings = set()
+
+    def merge_endings(old, new, current):
+        current.update(old)
+        current.update(new)
+        return current
+
+    renpy.register_persistent('endings', merge_endings)
+
     def n(what):
-        narrator(what[0])
+        i = len(persistent.endings)
+        narrator(what[i])
 
 
 
