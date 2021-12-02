@@ -13,7 +13,7 @@ init python:
     renpy.music.register_channel("creepy")
 
     def n(what):
-        narrator(what)
+        narrator(what[0])
 
 
 

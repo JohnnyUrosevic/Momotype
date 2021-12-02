@@ -25,7 +25,7 @@ label start:
 
     # These display lines of dialogue.
 
-    $ n("Your neighborhood, New Ribosome City")
+    $ n(["Your neighborhood, New Ribosome City"])
 
     scene background
     show momo_dna at top with fade
@@ -1107,6 +1107,8 @@ label start:
     show momo_hall_empty at top with fade
 
     "You run to the hallway. It is empty. The light from the streets reflects into the space. Though you cannot see well, you can make out what is behind you." 
+
+    play music "audio/momo_main.wav"
 
     scene background
     show momo_crazy_1 at top with fade
