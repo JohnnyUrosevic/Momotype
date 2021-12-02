@@ -24,7 +24,18 @@ init python:
 
     def n(what):
         i = len(persistent.endings)
-        narrator(what[i])
+
+        lines = None
+        while lines is None:
+            lines = what[i]
+            i -= 1
+
+        # horrible, but lets me not have to make everything a singleton list
+        if type(lines) is str:
+            lines = [lines]
+
+        for line in lines:
+            narrator(line)
 
 
 

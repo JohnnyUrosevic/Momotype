@@ -18,14 +18,16 @@ label start:
 
     define fade = Fade(0.5, 0.0, 0.5, color="#3F221C")
 
+    $ ending_count = len(persistent.endings)
+    if ending_count:
+        jump repeat_playthroughs
+
     scene background
     show momo_city at top with fade
 
-    play music "audio/momo_music_begin.mp3"
-
     # These display lines of dialogue.
 
-    $ n(["Your neighborhood, New Ribosome City"])
+    "Your neighborhood, New Ribosome City"
 
     scene background
     show momo_dna at top with fade
@@ -92,31 +94,121 @@ label start:
 
     "Your home, New Ribosome City"
 
+    label repeat_playthroughs:
+        pass
+
     scene background
     show momo_nightmare_1 at top with fade
 
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    "A dust storm. Lead in the air. You are in a desert-like area. There is nothing around you besides the sound of your thoughts. You cannot find any-"
+    $ n([
+        "A dust storm. Lead in the air. You are in a desert-like area. There is nothing around you besides the sound of your thoughts. You cannot find any-",
+        None,
+        "A dust storm. Lead in the air. You are in a desert-like area. The sound of your thoughts bang on the hollow mould of your head. You will break if it doesn't stop.",
+    ])
 
-    "A friend tomorrow is a friend for life. Supplies limited."
+    $ n([
+        "A friend tomorrow is a friend for life. Supplies limited.",
+        [
+            "\"Please love me?\"",
+
+            "You're awake. You feel your neck.",
+        ],
+        [
+            "\"The last time,\" you hear a voice say.",
+
+            "You're awake.",
+        ]
+    ])
 
     $ renpy.pause (2.5, hard=True)
     $ renpy.music.set_volume(1.00, delay=0, channel='music')
     $ renpy.music.stop(channel="creepy")
 
+    if ending_count:
+        play music "audio/momo_music_begin.mp3"
+
     scene background
     show momo_city at top with fade
 
-    "You're awake. Remnants of the dream pass and fade into static. You're back to your show."
+    $ n([
+        [
+            "You're awake. Remnants of the dream pass and fade into static. You're back to your show.",
 
-    "You're going to watch television until you hear noise outside your door. Someone has left something on your porch. It's for you."
+            "You're going to watch television until you hear noise outside your door. Someone has left something on your porch. It's for you.",
+        ],
+        [
+            "Though it has healed, your throat has marks lining the circumfrence of your skin. They are deep and sallow. The marks will not go away.",
+
+            "A voice playbacks in your head.",
+
+            "\"Most variables, your house for example, or the lining of the furniture.\" The lab head had been focused on the monitor the entire time.",
+
+            "\"These will be our control. What you decide to do with him, those are the independent variables.\"",
+
+            "The Imitato Corp. logo with its trademark helix is adorned on the mantle of the lab.",
+
+            "\"Why does everything need to be the same?\"",
+
+            "The lab head has looked up.",
+
+            "\"Trial and error? I assume you know what that means.\" The lab head is being genuine.",
+
+            "\"Mapping a neural network begins with specificity. Only then can we generalize patterns on the macro level. Your case,\" she stops for a moment, \"was the most promising.\"",
+
+            "She continues.",
+
+            "\"Remember, and this is important, we're trying to collect new data. Not old. Those new permutations are what we need, and there's no point if you raise this one the same.\" The lab head finishes.",
+
+            "\"Do I have a choice, you ask?\"",
+
+            "The lab head smiles. \"Insofar as you control how the monotype is raised, yes. Whatever style you choose, keep it consistent.\"",
+
+            "She looks back to her monitor.",
+        ],
+        [
+            "Your memories are in an incipient state, like the portions of bacteria which brought life to a lifeless Earth. It only takes some time for the catalyst to appear. You hear the jingle. You remember.",
+
+            "You see the Imitato Corp. logo.",
+
+            "\"I'm sorry. I really am sorry,\" the brows of the lab head, cleanly plucked, are furrowed.",
+
+            "\"Our agents were told to interfere after a certain point. When we noticed that change in your vitals, we gave the order.\"",
+
+            "She seems apologetic.",
+
+            "\"I can't imagine how taxing this is for you.\" She puts her hands together. \"It's okay if you feel tired. We'll provide you with any psychotherapeutic treatment at no cost to yourself.\"",
+
+            "She turns her head, not wanting to look at you.",
+
+            "\"None of this is fair, but I'm not going to mince my words. We need the data.\"",
+
+            "There is a stone in your torso that has descended through your leg, past the popliteal artery, and,finally, into your feet. You are stuck.",
+
+            "She looks straight at you. \"Your compensation, your safety, everything is guranteed.\" She points to the code on the screen. \"The monotype can't harm you. Atleast fatally. This is by design. He's just an AI.\"",
+
+            "She sighs.",
+
+            "\"It'll be over soon. You're doing more for us than you could ever possibly know, and we do appreciate it, genuinely.\"",
+        ]
+    ])
 
     scene background
     show momo_basket_down at top with fade
 
-    "When you open the door, there it is: a small creature laying in a basket. It's sleeping soundly."
+    $ n([
+        "When you open the door, there it is: a small creature laying in a basket. It's sleeping soundly.",
+        [
+            "You're back in your room. You hear a noise.",
+
+            "You open the door to your apartment complex.",
+
+            "There it is: a new monotype laying in a basket. It's sleeping soundly.",
+        ],
+        "Momo has returned home. You thought he was gone for good, but he's back. Great news!",
+    ])
 
     menu:
         "Turn it over":
@@ -125,54 +217,79 @@ label start:
     scene background
     show momo_basket_up at top with fade
 
-    "The \"monotype\" you ordered has arrived. It has soft skin. Its ears are pointed. They feel like bean bags upon further inspection. It's a monotype but in physical form, as per the ad."
+    if ending_count == 0:
+        "The \"monotype\" you ordered has arrived. It has soft skin. Its ears are pointed. They feel like bean bags upon further inspection. It's a monotype but in physical form, as per the ad."
 
-    "You want to assume it's plushie. To your surprise, however, the 'monotype' is warm. The terms of your purchase have not been released."
+        "You want to assume it's plushie. To your surprise, however, the 'monotype' is warm. The terms of your purchase have not been released."
 
-    menu:
-        "Keep it?"
+        menu:
+            "Keep it?"
 
-        "Yes":
-            pass
+            "Yes":
+                pass
 
-        "No. Leave it outside":
-            scene background
-            show momo_city at top with fade
+            "No. Leave it outside":
+                scene background
+                show momo_city at top with fade
 
-            play music "audio/momo_music_middle.mp3"
+                play music "audio/momo_music_middle.mp3"
 
-            "You leave the creature outside. The night ends. You sleep to a blank dream. "
+                "You leave the creature outside. The night ends. You sleep to a blank dream. "
 
-            scene background
-            show momo_basket_down at top with fade
+                scene background
+                show momo_basket_down at top with fade
 
-            "The next morning, you open your door to see the monotype on your porch. Its body is still. Upon touching the creature, you realize that it's cold. It has frozen to death."
+                "The next morning, you open your door to see the monotype on your porch. Its body is still. Upon touching the creature, you realize that it's cold. It has frozen to death."
 
-            "You pick up the basket, and after some inspection, throw it and the monotype in the trash. You will be fired the next day."
+                "You pick up the basket, and after some inspection, throw it and the monotype in the trash. You will be fired the next day."
 
-            scene background
-            show momo_deathscreen at top with fade
+                scene background
+                show momo_deathscreen at top with fade
 
-            "Your manager's reasoning, in his words, was that \"this wasn't optional.\" He then wonders \"how could you be so heartless and leave the creature out in the cold?\" He continues, shaking his fist in the air."
+                "Your manager's reasoning, in his words, was that \"this wasn't optional.\" He then wonders \"how could you be so heartless and leave the creature out in the cold?\" He continues, shaking his fist in the air."
 
-            "\"Corporate did not like this. I didn't like this."
+                "\"Corporate did not like this. I didn't like this."
 
-            "I can't trust you anymore, and neither can your coworkers. You're gone.\""
+                "I can't trust you anymore, and neither can your coworkers. You're gone.\""
 
-            "In his lap is a monotype of his own. It will stare at you inquisitively. \"Isn't that right Momo, we don't want this bad person in our office.\" He points at you."
+                "In his lap is a monotype of his own. It will stare at you inquisitively. \"Isn't that right Momo, we don't want this bad person in our office.\" He points at you."
 
-            "The monotype asks you a question. You can't hear it."
+                "The monotype asks you a question. You can't hear it."
 
-            return
+                return
+    elif ending_count == 1:
+        "It's virtually the same as the monotype you previously had."
+
+        menu:
+            "Keep it?"
+
+            "Can't just let him freeze to death.":
+                pass
+    else:
+        "Momo is so cute."
+
+        menu:
+            "Keep it?"
+
+            "He's my little buddy. Of course I will.":
+                pass
 
     scene background
     show momo_bed_sleep at top with fade
 
     "You take the creature inside."
 
-    "\"Monotypes live for approximately seven days.\" A note has been packed in the basket. \"Take care of them, and they will grow. Monotypes love humans, so give them some love back. It's essential for their well-being.\""
+    $ n([
+        "\"Monotypes live for approximately seven days.\" A note has been packed in the basket. \"Take care of them, and they will grow. Monotypes love humans, so give them some love back. It's essential for their well-being.\"",
+        "\"Please love them for the best results. Or don't. It's your decision.\"",
+        "\"Please love them for the best results. Or don't. It's your decision.\"",
+    ])
 
-    "The note ends. There is nothing else by way of instructions."
+    $ n([
+        "The note ends. There is nothing else by way of instructions.",
+        "\"Love, Imitato Corp.\"",
+        "\"Love and kisses xoxoxo, Imitato Corp.\"",
+    ])
 
     "You decide it's time for bed."
 
