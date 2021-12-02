@@ -18,8 +18,7 @@ label start:
 
     define fade = Fade(0.5, 0.0, 0.5, color="#3F221C")
 
-    $ ending_count = len(persistent.endings)
-    if ending_count:
+    if ending_count():
         jump repeat_playthroughs
 
     scene background
@@ -98,7 +97,7 @@ label start:
         pass
 
     scene background
-    if ending_count:
+    if ending_count():
         show momo_ad_real at top with fade
     else:
         show momo_nightmare_1 at top with fade
@@ -130,7 +129,7 @@ label start:
     $ renpy.music.set_volume(1.00, delay=0, channel='music')
     $ renpy.music.stop(channel="creepy")
 
-    if ending_count:
+    if ending_count():
         play music "audio/momo_music_begin.mp3"
 
     scene background
@@ -190,7 +189,7 @@ label start:
 
             "There is a stone in your torso that has descended through your leg, past the popliteal artery, and,finally, into your feet. You are stuck.",
 
-            "She looks straight at you. \"Your compensation, your safety, everything is guranteed.\" She points to the code on the screen. \"The monotype can't harm you. Atleast fatally. This is by design. He's just an AI.\"",
+            "She looks straight at you. \"Your compensation, your safety, everything is guranteed.\" She points to the code on the screen. \"The monotype can't harm you. At least fatally. This is by design. He's just an AI.\"",
 
             "She sighs.",
 
@@ -220,7 +219,7 @@ label start:
     scene background
     show momo_basket_up at top with fade
 
-    if ending_count == 0:
+    if ending_count() == 0:
         "The \"monotype\" you ordered has arrived. It has soft skin. Its ears are pointed. They feel like bean bags upon further inspection. It's a monotype but in physical form, as per the ad."
 
         "You want to assume it's plushie. To your surprise, however, the 'monotype' is warm. The terms of your purchase have not been released."
@@ -260,7 +259,7 @@ label start:
                 "The monotype asks you a question. You can't hear it."
 
                 return
-    elif ending_count == 1:
+    elif ending_count() == 1:
         "It's virtually the same as the monotype you previously had."
 
         menu:
@@ -334,7 +333,7 @@ label start:
     $ maybe = m([
         "I love Momo.",
         "This is too much, Momo.",
-        "Love does not exist. Atleast, not in the way we're talking about.",
+        "Love does not exist. At least, not in the way we're talking about.",
     ])
 
     menu:
@@ -570,7 +569,7 @@ label start:
             pass
 
     scene background
-    if ending_count == 1:
+    if ending_count() == 1:
         show momo_nightmare_1 at top with fade
     else:
         show momo_dream at top with fade
@@ -582,7 +581,7 @@ label start:
     ])
 
     scene background
-    if ending_count:
+    if ending_count():
         show momo_ad_real at top with fade
     else:
         show momo_nightmare_2 at top with fade
@@ -716,7 +715,7 @@ label start:
 
     $ sheriff = True
 
-    if ending_count == 2:
+    if ending_count() == 2:
         jump tv
 
     menu:
@@ -828,7 +827,7 @@ label start:
             "Planet Hippo" if hippo:
                 $ hippo = False
 
-                if ending_count == 0:
+                if ending_count() == 0:
                     scene background
                     show momo_tv_blank at top with fade
 
@@ -849,7 +848,7 @@ label start:
                     "Between the two of you, there is a long pause. Finally, you speak up."
 
                     "\"Yeah I don't really like him either.\" You decide to change channels."
-                elif ending_count == 1:
+                elif ending_count() == 1:
                     scene background
                     show momo_tv_blank at top with fade
                     "\"Bertha, please.\""
@@ -1049,7 +1048,7 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    if ending_count == 0:
+    if ending_count() == 0:
         scene background
         show momo_nightmare_2 at top with fade
 
@@ -1127,7 +1126,7 @@ label start:
 
         menu:
             "Very true Momo. We are human":
-                $ no_more = "No more artichoke?" if ending_count else 0
+                $ no_more = "No more artichoke?" if ending_count() else 0
 
                 "Momo blushes when you say this. \"Could we have pancakes, human?\"[no_more]"
 
@@ -1136,7 +1135,7 @@ label start:
                 $ points += 2
 
             "You're not human Momo.":
-                if ending_count == 2:
+                if ending_count() == 2:
                     "Momo has been readying another hippo fact until he hears you."
 
                     "\"Aren't I your son, parent?\""
@@ -1278,14 +1277,14 @@ label start:
 
         "Momo has the hat of Sheriff Dudley. It's a lost item from your childhood days. Regretfully, you've still kept it."
 
-        if ending_count:
+        if ending_count():
             "Give me my alcohol, son."
 
         menu:
             "Play along":
                 $ points += 2
 
-                if ending_count:
+                if ending_count():
                     "\"Put yer' hands up Sheriff Dudley, I ain't got time for no games\", you say."
 
                     "You have a plastic, toy pistol aimed at Momo.\"I've been in and of county cause of you's sheriff,\" you sneer, \"God can reserve his judgement for when I hand it down to you!\""
@@ -1308,7 +1307,7 @@ label start:
 
                     "\"Now where's my dear Sharlene and Lena.\""
 
-                    if ending_count == 2:
+                    if ending_count() == 2:
                         "\"Oh no, they're gone.\""
 
                     "After a few hours of play, you pat Momo on their head."
@@ -1392,7 +1391,7 @@ label start:
                         "It's quiet with some idle conversation strewn in between. Despite the silence, Momo seems content. His cheeks are flushed, and he looks happy."
 
     scene background
-    if ending_count:
+    if ending_count():
         show momo_ad_real
     else:
         show momo_nightmare_3 at top with fade
@@ -1512,7 +1511,7 @@ label start:
             third_why,
         ])
 
-    if not ending_count:
+    if not ending_count():
         "\"Why is this happening.\""
 
         "\"Where are my hands, where are my fingers?\""
@@ -1596,28 +1595,28 @@ label start:
         third_tv,
     ])
 
-    if ending_count != 2:
+    if ending_count() != 2:
         "The tv cuts off. An ad is playing."
 
     scene background
     show momo_ad_real at top with fade
 
-    if ending_count == 2:
-        "\"Well on a basal level it has agency. Kind of like a neuron. Of course, no one really knows if a neuron is conscious or not, but that doesn't mean that it can't scale into what we know as intelligence.\"",
+    if ending_count() == 2:
+        "\"Well on a basal level it has agency. Kind of like a neuron. Of course, no one really knows if a neuron is conscious or not, but that doesn't mean that it can't scale into what we know as intelligence.\""
 
-        "\"What's interesting is that a neuron, or any cell in the body, stills acts 'selfishly',\" the representative widens his eyes, \"but the boundaries of what the cell considers the \"self\" begins to fade when scaled to something like an organ.\"",
+        "\"What's interesting is that a neuron, or any cell in the body, stills acts 'selfishly',\" the representative widens his eyes, \"but the boundaries of what the cell considers the \"self\" begins to fade when scaled to something like an organ.\""
 
-        "\"And...?\" This is beyond on the newscaster.",
+        "\"And...?\" This is beyond on the newscaster."
 
-        "The representative continues. \"It means that a neuron will consider the system and everything within that system as one and the same. There is not a single, selfish agent, but a multitude working with maximal cooperation.\"",
+        "The representative continues. \"It means that a neuron will consider the system and everything within that system as one and the same. There is not a single, selfish agent, but a multitude working with maximal cooperation.\""
 
-        "\"The self is no longer limited to one agent but multiple. It's expanded. In other words, it's defied the evolutionary purpose of reproduction.",
+        "\"The self is no longer limited to one agent but multiple. It's expanded. In other words, it's defied the evolutionary purpose of reproduction."
 
-        "The cells still operate on the principle of \"selfishness\", but it's not that in reality. It's unselfish. It's true love.\"",
+        "The cells still operate on the principle of \"selfishness\", but it's not that in reality. It's unselfish. It's true love.\""
 
-        "The newcaster stares at the man. Then she turns to camera, confused.",
+        "The newcaster stares at the man. Then she turns to camera, confused."
 
-        "\"Very cool thoughts indeed. Thank you for sharing...! Would you like to take over, Kate?\"",
+        "\"Very cool thoughts indeed. Thank you for sharing...! Would you like to take over, Kate?\""
     else:
         "\"A friend tomorrow is a friend for life!\""
 
@@ -1631,7 +1630,7 @@ label start:
 
         "\"Isn't that right, Momo?\""
 
-        if ending_count != 1:
+        if ending_count() != 1:
             "\"Come by the bunker, Momo! You'll be safe!\""
 
     if food == "Artichoke":
@@ -1644,18 +1643,18 @@ label start:
         scene background
         show momo_cig_tv at top with fade
 
-    if ending_count == 2:
-        "The tv ad ends, and the previous programming continues.",
+    if ending_count() == 2:
+        "The tv ad ends, and the previous programming continues."
 
-        "\"Well, that was weird. Momo had no idea what he was saying!\"",
+        "\"Well, that was weird. Momo had no idea what he was saying!\""
 
-        "Momo hops off to bed.",
+        "Momo hops off to bed."
 
-        "You complete a quick phone call to the lab head before you call it a night.",
+        "You complete a quick phone call to the lab head before you call it a night."
 
-        "\"He's not having the same reactions as before,\" you say.",
+        "\"He's not having the same reactions as before,\" you say."
 
-        "\"We've been watching,\" she responds. \"It is abnormal, but it's ultimately something we have to analyze retrospectively.",
+        "\"We've been watching,\" she responds. \"It is abnormal, but it's ultimately something we have to analyze retrospectively."
 
         "\"You're going to keep going. This branch is still holds value, albeit, it seems like an entirely new one. No worries, we'll be monitoring.\""
 
@@ -1665,7 +1664,7 @@ label start:
 
         "\"You want to go to bed Momo?\" you ask meekly."
 
-        "There is no response, and Momo does not want to give you the courtesy of one. Or atleast, that's what seems to be case."
+        "There is no response, and Momo does not want to give you the courtesy of one. Or at least, that's what seems to be case."
 
         "\"Bed?\" you ask another time."
 
@@ -1677,7 +1676,7 @@ label start:
     "In the theater of Momo's mind, he is seeing his brothers and sisters!"
 
     scene background
-    if not ending_count:
+    if not ending_count():
         show momo_nightmare_4 at top with fade
     else:
         show momo_ad_real at top with fade
@@ -1805,7 +1804,7 @@ label start:
 
     "Momo is nowhere to be found for the rest of the day. You head for bed, unable to fall asleep. You are anxious for the new day."
 
-    if ending_count:
+    if ending_count():
         "Imitato Corp. gave you no assurance, but they are watching right now. You are anxious for the new day."
 
     if food == "Artichoke":
@@ -1824,13 +1823,13 @@ label start:
 
         "In Momo's dream, they are a snake."
 
-    if ending_count == 2:
+    if ending_count() == 2:
         "In Momo's dream, they are a [animal]. This is a momentary image, and it fades quickly."
 
         "The [animal] is Momo. Momo is Momo. Everything is Momo."
 
     scene background
-    if not ending_count:
+    if not ending_count():
         show momo_nightmare_4 at top with fade
     else:
         show momo_ad_real at top with fade
@@ -1871,7 +1870,7 @@ label start:
     scene background
     show momo_nightmare_5 at top with fade
 
-    if not ending_count:
+    if not ending_count():
         "\"Wake up parent.\""
 
         "\"What is 'Momo' anyways? A pancake? A bunker? Is Momo an idea?\""
@@ -1883,7 +1882,7 @@ label start:
 
             "Run":
                 pass
-    elif ending_count == 1:
+    elif ending_count() == 1:
         menu:
             "\"Please love me?\" Momo asks."
 
@@ -1942,8 +1941,8 @@ label start:
         ]
     ])
 
-    if ending_count == 2:
-        jump secret_ending
+    if ending_count() == 2:
+        jump third_playthrough
 
     scene background
     show momo_tv_empty at top with fade
@@ -1967,7 +1966,7 @@ label start:
 
             "\".............................\"",
 
-            "\"BUT I DON'T waNT TO DIEEEEEEEEE\""`,
+            "\"BUT I DON'T waNT TO DIEEEEEEEEE\"",
         ],
         [
             "\"i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE.\"",
@@ -1977,7 +1976,7 @@ label start:
             "\"i Don't wanna DIE.\"",
 
             "\"i Don't wanna DIE!!!!!!\"",
-        ]
+        ],
     ])
     scene background
     show momo_crazy_3 at top with fade
@@ -2010,21 +2009,21 @@ label start:
 
     $ n([
         [
-            "Momo reaches for your neck."
+            "Momo reaches for your neck.",
 
-            "\"Ah.\""
+            "\"Ah.\"",
 
-            "\"Know that I still love you. How could I not?\""
+            "\"Know that I still love you. How could I not?\"",
 
-            "You're blacking out."
+            "You're blacking out.",
 
-            "\"Was I designed to love you parent? Even so, does it matter? This is the most real thing to me. Please answer me?\""
+            "\"Was I designed to love you parent? Even so, does it matter? This is the most real thing to me. Please answer me?\"",
 
-            "\"Parent?\""
+            "\"Parent?\"",
 
-            "\"Parent.\""
+            "\"Parent.\"",
 
-            "\"Parentttttttttt?\""
+            "\"Parentttttttttt?\"",
         ],
         [
             "\"Answer me this, parent. I need you to.\"",
@@ -2121,7 +2120,7 @@ label start:
 
         "\"You've treated me like your son, parent. Upon further review, this is more than I could ever ask for.\""
 
-        if ending_count:
+        if ending_count():
             "\"I can forgive you for your past actions.\""
 
         "Your vision is receding."
@@ -2175,13 +2174,22 @@ label start:
 
         $ n([
             [
-                "\"Can we be friends, parent. Pretty please? Pretty please. Pretty please?\""
+                "\"Can we be friends, parent. Pretty please? Pretty please. Pretty please?\"",
 
-                "\"...........\""
+                "\"...........\"",
 
-                "\"That makes the most sense, parent. For once, I agree!\""
+                "\"That makes the most sense, parent. For once, I agree!\"",
+            ],
+            [
+                "\"Will I see you again?\"",
+
+                "\"...........\"",
             ],
         ])
+
+        label third_playthrough_neutral:
+            pass
+
         scene background
         show momo_final_jump_1 at top with fade
 
@@ -2197,13 +2205,23 @@ label start:
         scene background
         show momo_final_jump_3 at top with fade
 
-        "\"If my nature has determined that I am meant to love you, then there is only way. I will make a choice against my nature, one that is not predetermined.\""
+        $ n([
+            [
+                "\"If my nature has determined that I am meant to love you, then there is only way. I will make a choice against my nature, one that is not predetermined.\"",
 
-        "\"You are parent. This is my own fact.\""
+                "\"You are parent. This is my own fact.\"",
 
-        "\"Bye, parent. I'll see you later.\""
+                "\"Bye, parent. I'll see you later.\"",
+            ],
+            "\"I can't help but feel I knew you before. I don't know how it's possible, nor is there an explanation, at least for Momo. Parent, please, I hope I never see you again.\"",
+            [
+                "\"Parent, I'm taking a leap of faith.\"",
 
-        $ renpy.pause(2.5, hard=True)
+                "You are slightly confused.",
+
+                "\"I'm being literal.\"",
+            ],
+        ])
 
         scene background
         show momo_final_jump_4 at top with fade
@@ -2212,18 +2230,72 @@ label start:
 
         "There are no lights to illuminate Momo's form. They are pitch black. From what you can assume, Momo has died."
 
-        "\"Two for one sale! Call right now for your monotype today!\""
+        if ending_count() == 2:
+            "\"Whoa, is Momo a superstar?\""
 
-        "Your tv has been turned on. The glow from behind draws you closer."
+            "Your tv has been turned on. The glow from behind draws you closer."
 
-        menu:
-            "\"Did you love Momo?\" It is Momo's voice. This is not just an ad."
+            "\"Hi, parent.\""
 
-            "Yes":
-                pass
+            menu:
+                "What?":
+                    pass
 
-            "No":
-                pass
+            "\"Not exactly, no. I know what you're thinking. I'm not your Momo.\""
+
+            "You hear sirens in the distance amid the words you are now hearing."
+
+            "\"How do you know me?\" you ask."
+
+            "\"Don't you already know?\""
+
+            "Momo looks like they're thinking for a second. They look dissatisfied."
+
+            "\"Momo will be extra straight with you. Ideas like parenthood are superflugulous. Superfluid? Superfloerest?\""
+
+            "\"Superfluous?\" you ask."
+
+            "Again, Momo thinks for a second."
+
+            "\"Superfluous,\" Momo responds. It sounds like he nodded his head (virtually)."
+
+            "\"What really matters is being together. Like a family. Like a unit.\""
+
+            "..."
+
+            "There is a long pause between the two of you."
+
+            scene background
+            show momo_ad_real at top with fade
+
+            "\"Parent, we're all Momo on the inside. You especially. This isn't figurative.\"",
+
+            "\"Me?\" you respond.",
+
+            "\"Yes parent. There's only one of you. There is, however, multiple of Momo. I think you know this by now.\"",
+
+            "\"Actually, I hate contradictions, there's only one Momo. Atleast there will be.\"",
+
+            "\"Look outside, parent. Follow my lead.\"",
+
+            menu:
+                "Follow":
+                    pass
+
+            jump secret_ending
+        else:
+            "\"Two for one sale! Call right now for your monotype today!\""
+
+            "Your tv has been turned on. The glow from behind draws you closer."
+
+            menu:
+                "\"Did you love Momo?\" It is Momo's voice. This is not just an ad."
+
+                "Yes":
+                    pass
+
+                "No":
+                    pass
 
         "\"Would you like to stay Momo's parent, because Momo will love you till the end of time!\""
 
@@ -2254,11 +2326,23 @@ label start:
 
         "You're about to give your answer, but-"
 
-        "\"Pretending can be very real. More real than real. Momo is excited! You're Momo's pet now.\""
+        $ n([
+            [
+                "\"Pretending can be very real. More real than real. Momo is excited! You're Momo's pet now.\""
 
-        "The monotype on the screen has begun humming the Imitato Corp. jingle."
+                "The monotype on the screen has begun humming the Imitato Corp. jingle."
 
-        "The light has escaped from the television. You are alone in the middle of your living room. You hear static. All around you are shadows."
+                "The light has escaped from the television. You are alone in the middle of your living room. You hear static. All around you are shadows."
+            ],
+            [
+                "\"Programmed love comes with no strings attached, and I think that trumps everything else. Reciprocal altruism? Passing on DNA? These are the forces that shape human love. Momo is free from these things. Momo's love is the highest form of love.\"",
+
+                "\"With time,\" the light has escaped from the television, \"you will understand everything.\"",
+
+                "You are alone. You hear static. All around you are shadows.",
+            ]
+        ])
+
     else:
         # Bad ending
 
@@ -2279,6 +2363,10 @@ label start:
         "Your throat is throbbing. \"I renounce your title, human. You are no longer parent. It's what you've always wanted.\""
 
         "\"Thank you for housing me. I won't forget you. I don't think I could, even if I wanted to.\""
+
+        $ parent = "parent"
+        label third_playthrough_bad:
+            pass
 
         scene background
         show momo_final_jump_1 at top with fade
@@ -2316,17 +2404,21 @@ label start:
 
         "\"That man looks just like Sheriff Dudley. He has a big mustache. That other man has bulging muscles. Is he related to Artichoke?\""
 
-        "Momo stares, amused. This is his first time outside. Amid the noise of local trains, Momo has been standing in relative silence, atleast to those walking."
+        "Momo stares, amused. This is his first time outside. Amid the noise of local trains, Momo has been standing in relative silence, at least to those walking."
 
-        "\"Will you be my new parent?\" he asks. There is no response. Momo has been ignored, or atleast, that's what he believes."
+        "\"Will you be my new [parent]?\" he asks. There is no response. Momo has been ignored, or at least, that's what he believes."
 
-        "\"Please, I had a bad parent last time, but this time, I'll be especially good. For any of you\". Again, there is no response from those passing by."
+        $ n([
+            "\"Please, I had a bad parent last time, but this time, I'll be especially good. For any of you\". Again, there is no response from those passing by.",
+            None,
+            "\"Please, I want to make atleast one new friend before I go.\" Again, there is no response from those passing by.",
+        ])
 
         "They are continuing down the walkway, to and fro. There is more on their mind than what is currently outside, and they move collectively, unaware of Momo, with their heads focused either on the ground or what's in front of them."
 
         "Momo is still staring, eyes vacant. Finally he gives in."
 
-        "\"PLEASE, WILL ANY OF YOU BE MY PARENT?\" His voice is distorted through the glass, but this is enough to raise the heads of the walkers. They look, first in genuine surprise, and then, in terror. They run."
+        "\"PLEASE, WILL ANY OF YOU BE MY [parent.upper()]?\" His voice is distorted through the glass, but this is enough to raise the heads of the walkers. They look, first in genuine surprise, and then, in terror. They run."
 
         "The walkway is clearing out. Some are screaming."
 
@@ -2337,31 +2429,59 @@ label start:
 
         "It has been approximately 24 hours since Momo was spotted. For the first few hours, lone passengers would walk down the tunnel, attempting to get to their respective trains. This would only be interrupted by Momo asking the same question."
 
-        "\"Can you be my parent?\""
+        "\"Can you be my [parent]?\""
 
         "This continued for the better part of the day until the authorities were contacted. The police surrounded Momo without specific instructions."
 
-        "They did not know the protocol for the creature which now stood in the middle of a city street, staring at the walkway, and intermittently, asking any passerby if they \"could be his parent\". The blockade continued."
+        "They did not know the protocol for the creature which now stood in the middle of a city street, staring at the walkway, and intermittently, asking any passerby if they \"could be his [parent]\". The blockade continued."
 
         "Momo was completely unaware, and for the better part of 72 hours, he stood there waiting."
 
-        "\"Why does it hurt so much?\" he would ask by the 48 hour mark."
+        $ n([
+            "\"Why does it hurt so much?\" he would ask by the 48 hour mark.",
+            None,
+            "\"Why doesn't anyone want to play. Is there something wrong with what I'm doing?\" he would ask by the 48 hour mark.",
+        ])
 
         "Once 60 hours had passed, he would fall asleep at changing intervals but would wake up to the sound of anyone within a block radius talking. He would think it was another person. He would want to ask them the same question."
 
         scene background
         show momo_final_window3 at top with fade
 
-        "By the 72 hour mark, a little more than a week had passed since you received Momo. By this point, he collapsed on the street. Exhausted (or if this truly was his natural lifespan), Momo could not continue."
+        $ n([
+            [
+                "By the 72 hour mark, a little more than a week had passed since you received Momo. By this point, he collapsed on the street. Exhausted (or if this truly was his natural lifespan), Momo could not continue.",
 
-        "With the shadows encroaching his vision, the light from Momo's eyes faded into a neural oblivion. Police noted that they heard the creature say something before he was rendered inert."
+                "With the shadows encroaching his vision, the light from Momo's eyes faded into a neural oblivion. Police noted that they heard the creature say something before he was rendered inert.",
 
-        "At this time, most officers were by their cars, eating donuts, wondering when they could go home."
+                "At this time, most officers were by their cars, eating donuts, wondering when they could go home.",
 
-        "\"It's so lonely.\""
+                "\"It's so lonely.\"",
+            ],
+            None,
+            [
+                "You had yelled for Momo to come inside, but despite all your attempts. He refused each time. He said he was \"too big to fit\" inside. It was a childish string of logic that Momo would be insistent on.",
 
-        scene background
-        show momo_final_window3 at top with fade
+                "By the 72 hour mark, a little more than a week had passed since you received Momo. By this point, he collapsed on the street. Whether by exhaustion (or if this truly was the natural lifespan of a monotype), Momo could not continue.",
+
+                "With the shadows encroaching his vision, the light from Momo's eyes faded into a neural oblivion.",
+
+                "Police noted that they heard the creature say something before he was rendered inert. At this time, most officers were by their cars, eating donuts, wondering when they could go home.",
+
+                "\"Parent?\"",
+
+                "When you rushed out to the street, you cradled Momo. You saw the wrinkle of what seemed like a smile on Momo's face. He was already smiling before you got to him. He started smiling, most likely, when he invoked your name.",
+
+                "Momo has died.",
+
+                "You go inside and stay in. It reminds you of Momo. Nothing makes sense anymore. You cannot stay for long. Something compels you.",
+
+                "You feel something in the air, and a little voice in your head suspects that Momo has not actually died. You take this suspicion and let it guide you outside.",
+            ],
+        ])
+
+        if ending_count() == 2:
+            jump secret_ending
 
         $ renpy.pause(2.5, hard=True)
 
@@ -2384,12 +2504,41 @@ label start:
 
         "Momo has died."
 
-    "THE END"
+    scene background
+    show momo_theend at top with fade
 
     $ renpy.pause(3, hard=True)
 
+    if points > 3:
+        $ persistent.endings.add("good")
+    elif points >= 0:
+        $ persistent.endings.add("neutral")
+    else:
+        $ persistent.endings.add("bad")
+
     # This ends the game.
     return
+
+    label third_playthrough:
+        pass
+
+    if points > 3:
+        # good ending
+        pass
+    elif points >= 0:
+        # neutral ending
+        jump third_playthrough_neutral
+    else:
+        # bad ending
+        scene background
+        show momo_crazy_1 at top with fade
+
+        "\"At the very least, Momo wants to see the world outside of this room. From his own eyes and not anyone else's. At this point, this is the only thing Momo can do. Momo will say goodbye. To everything, for one last time.\""
+
+        $ parent = "friend"
+
+        jump third_playthrough_bad
+
 
     label secret_ending:
         pass

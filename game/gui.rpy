@@ -42,6 +42,9 @@ init python:
 
         return choices[i]
 
+    def ending_count():
+        return len(persistent.endings)
+
 
 ################################################################################
 ## GUI Configuration Variables
