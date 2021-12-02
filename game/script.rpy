@@ -780,11 +780,13 @@ label start:
 
                 "Because it's mutually beneficial. You get food and room. I get a pet.":
                     $ points -= 1
+
+                    $ pet = m([
+                        "\"...Is this...everything? Is Momo a pet?\"",
+                        "\"Momo is a pet. Not a human. A pet?\"",
+                    ])
                     menu:
-                        $ n([
-                            "\"...Is this...everything? Is Momo a pet?\"",
-                            "\"Momo is a pet. Not a human. A pet?\"",
-                        ])
+                        "[pet]"
 
                         "Yes Momo":
                             $ points -= 1
@@ -810,6 +812,10 @@ label start:
 
     $ sheriff = True
 
+    "Today, you've decided to show Momo the world. Through your television. A reflection of the real world."
+
+    "You've placed Momo onto the couch where they can browse a selection of different shows. Momo does not know what television is, however. You turn on your cable box."
+
     label tv:
         scene background
         show momo_tv_neutral at top with fade
@@ -817,27 +823,78 @@ label start:
             "Which program should you tune into?"
 
             "Planet Hippo" if hippo:
-                scene background
-                show momo_tv_blank at top with fade
                 $ hippo = False
 
-                "\"Look at the size of this one, mate.\" A man with an accent is pointing to a hippo. \"What a pretty little lady we got here.\" Along with his camera crew, the presenter is hiding in a bush. He wears a pair of binoculars and khaki shorts."
+                if ending_count == 0:
+                    scene background
+                    show momo_tv_blank at top with fade
 
-                "\"Ol' Bertha's put on a couple hundred. Oh but she's ripe. Gorgeous,\" he licks his lips. The presenter then exits the shade of the bush and runs to the sandy bank where the hippo lies. \"C'MERE BERTHA YOU SLY GAL.\""
+                    "\"Look at the size of this one, mate.\" A man with an accent is pointing to a hippo. \"What a pretty little lady we got here.\" Along with his camera crew, the presenter is hiding in a bush. He wears a pair of binoculars and khaki shorts."
 
-                "He enters the water, lifting his legs as fast as he can go. The mother hippo stares the man down, nostrils above water."
+                    "\"Ol' Bertha's put on a couple hundred. Oh but she's ripe. Gorgeous,\" he licks his lips. The presenter then exits the shade of the bush and runs to the sandy bank where the hippo lies. \"C'MERE BERTHA YOU SLY GAL.\""
 
-                $ renpy.pause (2.5, hard=True)
+                    "He enters the water, lifting his legs as fast as he can go. The mother hippo stares the man down, nostrils above water."
 
-                "\"Why does he run?\" Momo asks."
+                    $ renpy.pause (2.5, hard=True)
 
-                "\"For footage of the hippo,\" you respond."
+                    "\"Why does he run?\" Momo asks."
 
-                "Momo takes a moment. \"What does he want to do with hippo?\" The man on the screen grabs the hippo, and subsequently is flung into the air. He is then pulled down into the water. He does not resurface."
+                    "\"For footage of the hippo,\" you respond."
 
-                "Between the two of you, there is a long pause. Finally, you speak up."
+                    "Momo takes a moment. \"What does he want to do with hippo?\" The man on the screen grabs the hippo, and subsequently is flung into the air. He is then pulled down into the water. He does not resurface."
 
-                "\"Yeah I don't really like him either.\" You decide to change channels."
+                    "Between the two of you, there is a long pause. Finally, you speak up."
+
+                    "\"Yeah I don't really like him either.\" You decide to change channels."
+                elif ending_count == 1:
+                    scene background
+                    show momo_tv_blank at top with fade
+                    "\"Bertha, please.\""
+
+                    "This is a documentary about the man \"from down under\", a hardened survivalist who is now being divorced by his wife. He is commonly known for his series on hippos."
+
+                    "\"I didn't mean it like that.\""
+
+                    "\"Ted, this is a thrill. I can't go to bed without you talking some shit. 'Here have some more cake, babe. Don't lose them handles, babe, you know it'll be over, babe?' Do you know how toxic this is?\""
+
+                    "The man is quiet."
+
+                    "\"I mean, what am I to you?\" she asks."
+
+                    "\"..ie\", he mumbles."
+
+                    "\"What Ted?\""
+
+                    "\"My little banana cream pie\""
+
+                    "The woman, Ted's wife, stands there, staring."
+                else:
+                    scene background
+                    show momo_tv_interest at top with fade
+
+                    "This is a documentary."
+
+                    "A ring of men sit around each other in plastic chairs. The light is low, but the entrance, which has been propped open, brings a soft glow into the room. It has stayed open for the past hour."
+
+                    "\"So Charles, how do you feel when you get these urges?\""
+
+                    "The man looks up to the ceiling and blows some air out. He looks at the ground for a few seconds, then, begins to give his response. He stutters at first."
+
+                    "\"I don't...I don't know. Out of control? It's the worst part because I convinced myself that I couldn't do anything about it.\""
+
+                    "\"It's very hard Charles.\" The man in the chair looks with sympathetic eyes. \"I completely understand.\""
+
+                    "Charles continues. \"Sometimes, I'd put a whole stack of butter into my wife's food. Soon it became 2 stacks, then 3. It gave me a rush.\" Charles wipes his face. \"But then afterwards, when she found out, she'd feel betrayed, and I'd sit there like a knob. I kept doing it, and well, here I am, alone."
+
+                    "The man talking to Charles is Ted, the man from down under."
+
+                    "\"Charles, you are not alone. The key in all of this is whether you act on your thoughts, and everyone here,\" Ted gestures to the other men in the room, \"struggles with that everyday. We're with you Charles, through all your struggles. We're all trying to be better.\""
+
+                    "Charles nods his head."
+
+                    "Ted continues. \"My kid is going to college soon. It took years, but she's finally willing to talk to me again. I'm doing it for her. She's the reason I keep going. God Bless.\""
+
+                    "The men continue talking in the low light."
 
                 if not hippo and not dragon and not sheriff:
                     jump after_tv
@@ -849,24 +906,45 @@ label start:
                 show momo_tv_interest at top with fade
                 $ dragon = False
 
-                "\"You'll pay for this, Freemza. On my life, I swear to destroy you. THIS ENDS NOW.\""
+                $ n([
+                    [
+                        "\"You'll pay for this, Freemza. On my life, I swear to destroy you. THIS ENDS NOW.\"",
 
-                "A man with rippling muscles stands on screen. He looks like he's squatting, like he's using the toilet. In actuality, he's powering up."
+                        "A man with rippling muscles stands on screen. He looks like he's squatting, like he's using the toilet. In actuality, he's powering up.",
 
-                "\"Super Angry! That's the stuff of legends. Artichoke, of all people? Blast it all!,\" yells Vegenta to no one in particular."
+                        "\"Super Angry! That's the stuff of legends. Artichoke, of all people? Blast it all!,\" yells Vegenta to no one in particular.",
 
-                "Artichoke, the other man yelling, has been in one position for the past 15 minutes. Rocks levitate, thunderstorms form, and lava erupts from the ground. In the meantime, Freemza, who is awestruck, stares at his rippling muscles."
+                        "Artichoke, the other man yelling, has been in one position for the past 15 minutes. Rocks levitate, thunderstorms form, and lava erupts from the ground. In the meantime, Freemza, who is awestruck, stares at his rippling muscles.",
 
-                "This continues for another 20 minutes."
+                        "This continues for another 20 minutes.",
 
-                "In this time, Artichoke and Freemza only manage to make grunt at each other."
+                        "In this time, Artichoke and Freemza only manage to make grunt at each other.",
 
-                "At the 40th minute mark, Artichoke finally releases his energy, and his hair turns blonde. His muscles are bigger now. Freemza, from what you can tell, is in awe of his bulging chest."
+                        "At the 40th minute mark, Artichoke finally releases his energy, and his hair turns blonde. His muscles are bigger now. Freemza, from what you can tell, is in awe of his bulging chest.",
 
-                "There's silence until Artichoke breaks it by speaking. He says but one thing."
+                        "There's silence until Artichoke breaks it by speaking. He says but one thing.",
 
-                "\"Now I'm really angry.\" Freemza blushes. The episode ends."
+                        "\"Now I'm really angry.\" Freemza blushes. The episode ends.",
+                    ],
+                    [
+                        "Artichoke, the main character, is screaming. His muscles are the size of a boulder.",
 
+                        "\"I have ascended. I am the ultimate creature.\" He blasts an energy wave to the Earth. The Earth explodes. It has now been wiped away from its place in the solar system, like it never even existed.",
+
+                        "\"The fruit of one's labor is so sweet.\"",
+                    ],
+                    [
+                        "Vegenta stands over Artichoke's dead body. He has finally surpassed his rival.",
+
+                        "A tear falls from his eye. In the cold wind that sweeps the wasteland, there is no sound.",
+
+                        "\"All of this for what, Artichoke? What has this all been for?\"",
+
+                        "For two weeks straight, Vegenta sits by Artichoke's body. He does not move a muscle. By the 14th day, he wipes his eyes for the last time and stands with limp legs.",
+
+                        "Vegenta has taken his place as the strongest in the universe, but he feels as if he's lost something greater.",
+                    ],
+                ])
                 if not hippo and not dragon and not sheriff:
                     jump after_tv
 
@@ -877,24 +955,51 @@ label start:
                 show momo_tv_interest at top with fade
                 $ sheriff = False
 
-                "\"I ain't having a swig of this,\" a mustachioed man fitted with a cowboy hat spits on the ground. \"Tastes like my mother's burnt boot.\" The bartender hides his frustration. \"Just give me that whiskey.\""
+                $ n([
+                    [
+                    "\"I ain't having a swig of this,\" a mustachioed man fitted with a cowboy hat spits on the ground. \"Tastes like my mother's burnt boot.\" The bartender hides his frustration. \"Just give me that whiskey.\"",
 
-                "Suddenly, the door opens. From the sunlight emerges a shadowy figure. It looks to a be a man in his early forties, tan, and with multiple scars. \"Sheriff Dudley, snake in the bush, sin incarnate,\" his hand waves in a grand gesture."
+                    "Suddenly, the door opens. From the sunlight emerges a shadowy figure. It looks to a be a man in his early forties, tan, and with multiple scars. \"Sheriff Dudley, snake in the bush, sin incarnate,\" his hand waves in a grand gesture.",
 
-                "\"How many holes could I press into that suit of yours before you bleed?\""
+                    "\"How many holes could I press into that suit of yours before you bleed?\"",
 
-                "The tan man pulls out his revolver. \"And lord did he know, despite all my guilts and sorrows, iron cuts deep.\" \"You will know what it means to-\""
+                    "The tan man pulls out his revolver. \"And lord did he know, despite all my guilts and sorrows, iron cuts deep.\" \"You will know what it means to-\"",
 
-                "\"Bottle to the right. Yes, there,\" Sheriff Dudley flicks his wrist to the whiskey bottle in the corner. The bartender does not move. \"Well get a move on.\" When nothing happens, Sheriff Dudley slaps his fingers on the table."
+                    "\"Bottle to the right. Yes, there,\" Sheriff Dudley flicks his wrist to the whiskey bottle in the corner. The bartender does not move. \"Well get a move on.\" When nothing happens, Sheriff Dudley slaps his fingers on the table.",
 
-                "\"Dudley!\" the tan man says. \"The devil welcomes a new man into his hearth. You will pay for your crimes against me!\" Dudley stares down, then, sucks his teeth. The tan man has cocked his gun."
+                    "\"Dudley!\" the tan man says. \"The devil welcomes a new man into his hearth. You will pay for your crimes against me!\" Dudley stares down, then, sucks his teeth. The tan man has cocked his gun.",
 
-                "\"Well dog?\". The sheriff does not move. \"Gonna get up or you a cock with no bal-\""
+                    "\"Well dog?\". The sheriff does not move. \"Gonna get up or you a cock with no bal-\"",
 
-                "The whistle of a bullet is proceeded by a hole appearing in the tan man's head. The words do not exit his mouth, and his face drops his expression. He falls to the floor."
+                    "The whistle of a bullet is proceeded by a hole appearing in the tan man's head. The words do not exit his mouth, and his face drops his expression. He falls to the floor.",
 
-                "\"Language there, friend.\" Sheriff Dudley turns to the bartender, a grimace on his face, \"How many times I gotta ask, son?\""
+                    "\"Language there, friend.\" Sheriff Dudley turns to the bartender, a grimace on his face, \"How many times I gotta ask, son?\"",
+                    ],
+                    [
+                        "Sheriff Dudley, the main character, has been drinking at the bar. It's 5am. This is the 7th season of a Sheriff in Town.",
 
+                        "His wife barges in through the wood gates, and twists her head, searching for her husband.",
+
+                        "\"Dudley what in God's name?\"",
+
+                        "Dudley, clearly drunk, is unable to say anything. It's not out of embarrassment, it's because he physically can't.",
+
+                        "\"You lout. You no good, worthless bum.\"",
+
+                        "Sheriff Dudley can only look into his wife's eyes. There are tears from hers.",
+
+                        "\"Oh lord. Please, almighty God. When are you gonna pay that banker? We don't got any for the loans; I can barely get by with Sharlene here.\"",
+
+                        "There is a baby in her arms.",
+
+                        "\"There's nothing here for me.\" She's started crying. \"And I'm all alone; that's the worst part.\" There is no response. \"Please Dudley, say anything.\"",
+
+                        "Dudley cannot say a word. In his mind, however, he already knows he can't climb out of this hole.",
+
+                        "His wife waits, but when nothing comes out, she leaves. She does not turn around.",
+                    ],
+                    "Sheriff Dudley is on the side of the road. He is dead from liver failure.",
+                ])
                 if not hippo and not dragon and not sheriff:
                     jump after_tv
 
@@ -904,41 +1009,65 @@ label start:
         scene background
         show momo_bed_sleep at top with fade
 
-    "After watching tv, you decide it's time for bed. Momo hobbles up the stairs. You cook something for yourself before deciding that it's a good time for bed. Momo sleeps soundly."
+    $ n([
+        "After watching tv, you decide it's time for bed. Momo hobbles up the stairs. You cook something for yourself before deciding that it's a good time for bed. Momo sleeps soundly.",
+        "After watching tv, you decide it's time for bed.",
+        None
+    ])
 
     if food == "Artichoke":
         scene background
         show momo_artichoke_dream at top with fade
 
-        "In the theater of Momo's mind, they are are studying hippos. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
+        $ n([
+            "In the theater of Momo's mind, they are are studying hippos. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
+            "In the theater of Momo's mind, they are are studying hippos. For Momo, their vision has collapsed on this image. They wish to be like Ted. It is all they are currently dreaming of.",
+            None
+        ])
     elif food == "Steak":
         scene background
         show momo_steak_dream at top with fade
 
-        "In the theater of Momo's mind, they are Artichoke. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
+        $ n([
+            "In the theater of Momo's mind, they are Artichoke. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
+            "In the theater of Momo's mind, they are Vegenta. Momo likes how strong Vegenta is. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
+            None
+        ]
     else:
         scene background
         show momo_cig_dream at top with fade
 
-        "In the theater of Momo's mind, they are a sheriff. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
-
-    scene background
-    show momo_nightmare_2 at top with fade
+        $ n([
+            "In the theater of Momo's mind, they are a sheriff. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
+            "In the theater of Momo's mind, they are a sheriff. He admires Sheriff Dudley for his consistency. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
+            None
+        ]
 
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    "In your dream, the particles have formed a shadow. From your height, you believe the shadow to be your own. It is overcast. There is no available light."
+    if ending_count == 0:
+        scene background
+        show momo_nightmare_2 at top with fade
 
-    "A question arises and presents a contradiction. How can shadows exist if there is no light? You already know why."
+        "In your dream, the particles have formed a shadow. From your height, you believe the shadow to be your own. It is overcast. There is no available light."
 
-    "You descend to the earth. The shadow mimics your movement and rises up. It is not a shadow. It is face to face to you now."
+        "A question arises and presents a contradiction. How can shadows exist if there is no light? You already know why."
 
-    "When you move your right arm, it moves its right arm. When you move your left, it does the same. This dark formation mimics your every move. You find it unnerving."
+        "You descend to the earth. The shadow mimics your movement and rises up. It is not a shadow. It is face to face to you now."
 
-    "You decide to dig into the earth and to hide until the shadow goes away."
+        "When you move your right arm, it moves its right arm. When you move your left, it does the same. This dark formation mimics your every move. You find it unnerving."
 
-    "As you descend, the shadow rises into the air and becomes the object projecting its figure onto the earth. You realize that you are the shadow, and the dark formation, by contrast, has become you. You have switched positions. You feel a tinge of regret."
+        "You decide to dig into the earth and to hide until the shadow goes away."
+
+        "As you descend, the shadow rises into the air and becomes the object projecting its figure onto the earth. You realize that you are the shadow, and the dark formation, by contrast, has become you. You have switched positions. You feel a tinge of regret."
+    else:
+        scene background
+        show momo_ad_real at top with fade
+
+        "\"There's a bunker in Southwest Ribo City. Very safe. Well-guarded. A paradise. Can I see you there, friend?\""
+
+        "For some reason, Momo is talking to you in your dreams. Again. And again."
 
     $ renpy.pause (2.5, hard=True)
     $ renpy.music.set_volume(1.00, delay=0, channel='music')
@@ -995,34 +1124,54 @@ label start:
 
         menu:
             "Very true Momo. We are human":
-                "Momo blushes when you say this. \"Could we have pancakes, human?\""
+                $ no_more = "No more artichoke?" if ending_count else 0
+
+                "Momo blushes when you say this. \"Could we have pancakes, human?\"[no_more]"
 
                 "\"Sure thing.\" you reply."
 
                 $ points += 2
 
             "You're not human Momo.":
-                "Momo has been readying another hippo fact until he hears you. He stops scanning the book, and his body is furrowed."  with fade
+                if ending_count == 2:
+                    "Momo has been readying another hippo fact until he hears you."
 
-                "\"What do you mean? Momo is not what? Not human?\""
+                    "\"Aren't I your son, parent?\""
+                else:
+                    "Momo has been readying another hippo fact until he hears you. He stops scanning the book, and his body is furrowed."
 
-                "You thought you had already established this, or that Momo had already known this. It seems that raising Momo as a human has been confusing. Is his identity still forming? Is Momo actually just a child?"
+                    "\"What do you mean? Momo is not what? Not human?\""
 
-                "\"You are parent.\" Momo stares at his non-existent feet. \"You are parent. I am your son.\""
+                    "You thought you had already established this, or that Momo had already known this. It seems that raising Momo as a human has been confusing. Is his identity still forming? Is Momo actually just a child?"
 
-                "He says a final time, \"You are my parent, and I am your son.\" This time he looks up to you."
+                    "\"You are parent.\" Momo stares at his non-existent feet. \"You are parent. I am your son.\""
 
+                    $ n([
+                        "He says a final time, \"You are my parent, and I am your son.\" This time he looks up to you.",
+                        "He says a final time, \"This is one fact that you can't contradict, parent.\""
+                    ])
                 menu:
                     "Yes, you are Momo! Basically a son!":
-                        "\"Good. I'm happy you stopped playing tricks.\" Momo blushes, as he knows you were only just joking. \"Could we have pancakes, human?\"" with fade
+                        $ n([
+                            "\"Good. I'm happy you stopped playing tricks.\" Momo blushes, as he knows you were only just joking. \"Could we have pancakes, human?\"",
+                            "\"Good. I'm happy you stopped playing tricks. But Momo will remember this lie.\" Momo blushes, as he knows you were only just joking. \"Could we have pancakes, human?\"",
+                            None
+                        ])
 
                         "\"Sure thing, bud.\" you reply."
 
                     "I am not your parent. Didn't we already establish this?":
-                        "Momo spasms. He puts down the book about hippo facts, and for a moment, stares into blank space. He does not say anything for 5 minutes. He does not move therefafter."
+                        $ n([
+                            "Momo spasms. He puts down the book about hippo facts, and for a moment, stares into blank space. He does not say anything for 5 minutes. He does not move therefafter.",
+                            None,
+                            "\"Hmmm... Momo had his suspiscion, but even so, this is a slap to his face. You've dropped a reality bomb on Momo.\"",
+                        ])
 
+                        $ n([
                         "Then, as if nothing had happened, Momo picks up the book."
-
+                            None,
+                            "Momo pauses and thinks for a moment. He seems to have emotionally accepted this reality.",
+                        ])
                         menu:
                             "\"Hey parent, would you like to know another Hippo fact?\""
 
@@ -1035,13 +1184,21 @@ label start:
 
         "Momo has the hair of Artichoke. It's a lost item from your cosplay days. Regretfully, you've still kept it."
 
-        "\"PREPARE TO BE VANQUISHED FREEMZA!\" Momo looks at you vengefully. His hair is a bright yellow and his limbs non-existent."
+        $ n([
+            "\"PREPARE TO BE VANQUISHED FREEMZA!\" Momo looks at you vengefully. His hair is a bright yellow and his limbs non-existent.",
+            "\"I am the ultimate creature. The paragon of all mortal beings.\" Momo stares at you. His hair is a bright yellow and his limbs non-existent.",
+            None
+        ])
 
         menu:
             "Play along":
                 $ points += 2
 
-                "\"How dare you try to cross the great emperor Freemza on his march of conquest! Prepare to be annihilated, worm.\" You charge at Momo."
+                $ n([
+                    "\"How dare you try to cross the great emperor Freemza on his march of conquest! Prepare to be annihilated, worm.\" You charge at Momo.",
+                    "You charge at Momo. \"You won't get away with this, Artichoke. I swear on all the lives you've taken!\"",
+                    None
+                ])
 
                 $ renpy.pause (2.5, hard=True)
 
@@ -1050,16 +1207,21 @@ label start:
             "Ignore Momo":
                 $ points -= 1
 
-                "Momo has been building up an energy wave, but as soon as he releases it. You don't react. You turn away from him and start making lunch."
+                $ n([
+                    [
+                    "Momo has been building up an energy wave, but as soon as he releases it. You don't react. You turn away from him and start making lunch."
 
-                "Momo stares at you from behind. He keeps yelling and unleashing energy waves, but you don't respond. \"Parent, please, could you play with me?\" You ignore Momo."
+                    "Momo stares at you from behind. He keeps yelling and unleashing energy waves, but you don't respond. \"Parent, please, could you play with me?\" You ignore Momo."
 
-                "After awhile, Momo stops trying to roleplay. He stays silent and his eyes downcast. This is one of the few times that Momo has visibly felt bad." with fade
+                    "After awhile, Momo stops trying to roleplay. He stays silent and his eyes downcast. This is one of the few times that Momo has visibly felt bad."
 
-                "\"Parent, Momo has come to understand that Momo asks a lot from you, and Momo is sorry.\" His eyes linger."
+                    "\"Parent, Momo has come to understand that Momo asks a lot from you, and Momo is sorry.\" His eyes linger."
 
-                "\"Did Momo do anything wrong?\""
-
+                    "\"Did Momo do anything wrong?\""
+                    ],
+                    None,
+                    "\"Would you like to play energy blasts with Momo? Come on parent, it's fun.\"",
+                ])
                 menu:
 
                     "You're part of a work assignment so let's keep the interaction to a miniumum, okay?":
@@ -1068,10 +1230,25 @@ label start:
                         scene background
                         show momo_deathscreen at top with fade
 
-                        "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?"
+                        $ n([
+                            [
+                                "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?"
 
-                        "You respond, \"Yes, you are. I'm adopting you as part of work from my company. I don't have a choice in this.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
+                                "You respond, \"Yes, you are. I'm adopting you as part of work from my company. I don't have a choice in this.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
+                            ],
+                            [
+                                "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?"
 
+                                "You respond, \"Yes, you are. I'm adopting you as part of work from my, uh, office. I don't have a choice in this. I really don't.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
+                            ],
+                            [
+                                "\"For work?\"",
+
+                                "You respond, \"I'm adopting you as part of work from my, uh, office. I don't have a choice in this. Please understand Momo.\"",
+
+                                "\"It's okay parent, Momo understands. You have taken care of Momo all day. Momo understands.\"",
+                            ],
+                        ])
                         menu:
                             "Go to bed":
                                 pass
@@ -1082,7 +1259,11 @@ label start:
                         scene background
                         show momo_kitchen_front at top with fade
 
-                        "No, I'm just tired. Could we take a break. \"Okay\", Momo responds."
+                        $ n([
+                            "\"Okay\", Momo responds.",
+                            None,
+                            "\"Sure\", Momo responds.",
+                        ])
 
                         "You make a few pancakes, some for you and some for Momo. You both eat together, side-by-side, on the kitchen table."
 
@@ -1094,24 +1275,40 @@ label start:
 
         "Momo has the hat of Sheriff Dudley. It's a lost item from your childhood days. Regretfully, you've still kept it."
 
+        if ending_count:
+            "Give me my alcohol, son."
+
         menu:
             "Play along":
                 $ points += 2
 
-                "\"Put yer' hands up Sheriff Dudley, I ain't got time for no games\", you say."
+                if ending_count:
+                    "\"Put yer' hands up Sheriff Dudley, I ain't got time for no games\", you say."
 
-                "You have a plastic, toy pistol aimed at Momo.\"I've been in and of county cause of you's sheriff,\" you sneer, \"God can reserve his judgement for when I hand it down to you!\""
+                    "You have a plastic, toy pistol aimed at Momo.\"I've been in and of county cause of you's sheriff,\" you sneer, \"God can reserve his judgement for when I hand it down to you!\""
 
-                "Momo blushes. Their hat is tilted, and their mustache large."
+                    "Momo blushes. Their hat is tilted, and their mustache large."
 
-                "\"My m-my, son, I'm just tryna h-have a drink.\" Momo is still blushing."
+                    "\"My m-my, son, I'm just tryna h-have a drink.\" Momo is still blushing."
 
-                "Momo makes a whooshing noise, and you fall to the ground. You've been shot by  Momo's trigger finger."
+                    "Momo makes a whooshing noise, and you fall to the ground. You've been shot by  Momo's trigger finger."
 
-                "\"Almost had me there. Glad that's s-settled. That w-whiskey ain't gonna p-pour itself. On the r-rocks, please.\""
+                    "\"Almost had me there. Glad that's s-settled. That w-whiskey ain't gonna p-pour itself. On the r-rocks, please.\""
 
-                "After a few hours of play, you pat Momo on their head. He enjoys this."
+                    "After a few hours of play, you pat Momo on their head. He enjoys this."
+                else:
+                    "\"That w-whiskey ain't gonna p-pour itself. On the r-rocks, please.\""  ,
 
+                    "Momo, to really fit the role of Sheriff Dudley, takes a swig from an imaginary glass." ,
+
+                    "\"This tastes terrible. But you know, it just might work.\"" ,
+
+                    "\"Now where's my dear Sharlene and Lena.\"",
+
+                    if ending_count == 2:
+                        "\"Oh no, they're gone.\"",
+
+                    "After a few hours of play, you pat Momo on their head.",
                 menu:
                     "Go to bed":
                         pass
@@ -1119,15 +1316,31 @@ label start:
             "Ignore Momo":
                 $ points -= 1
 
-                "Momo has been ready to draw, but you don't move. You turn away from him and start making your lunch."
+                $ n([
+                    [
+                        "Momo has been ready to draw, but you don't move. You turn away from him and start making your lunch.",
 
-                "Momo stares at you from behind. He keeps his trigger finger ready, but you don't respond. \"Parent, please, could you play with me?\" You ignore Momo."
+                        "Momo stares at you from behind. He keeps his trigger finger ready, but you don't respond. \"Parent, please, could you play with me?\" You ignore Momo.",
 
-                "After awhile, Momo stops trying to roleplay. He stays silent and his eyes are cast down. This is one of the few times that Momo has visibly felt bad." with fade
+                        "After awhile, Momo stops trying to roleplay. He stays silent and his eyes are cast down. This is one of the few times that Momo has visibly felt bad.",
 
-                "\"Parent, Momo has come to understand that my behavior is child-like, and Momo is sorry.\" His eyes linger."
+                        "\"Parent, Momo has come to understand that my behavior is child-like, and Momo is sorry.\" His eyes linger.",
 
-                "\"Did Momo do anything wrong?\""
+                        "\"Did Momo do anything wrong?\"",
+                    ],
+                    [
+                        "Momo has been ready to take an imaginary swig. However, you turn away from him and start making your lunch.",
+
+                        "\"Parent, please, could you play with me?\" You ignore Momo.",
+
+                        "After awhile, Momo stops trying to roleplay. He stays silent and his eyes are cast down. This is one of the few times that Momo has visibly felt bad.",
+
+                        "\"Parent, Momo has come to understand that my behavior is child-like, and Momo is sorry.\" His eyes linger.",
+
+                        "\"Did Momo do anything wrong?\"",
+                    ],
+                    "Have a shot with your ole' drinking pal, parent.",
+                ])
                 menu:
 
                     "You're part of a work assignment so let's keep the interaction to a miniumum, okay?":
@@ -1136,10 +1349,25 @@ label start:
                         scene background
                         show momo_deathscreen at top with fade
 
-                        "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?"
+                        $ n([
+                            [
+                                "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?"
 
-                        "You respond, \"Yes, you are. I'm adopting you as part of work from my company. I don't have a choice in this.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
+                                "You respond, \"Yes, you are. I'm adopting you as part of work from my company. I don't have a choice in this.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
+                            ],
+                            [
+                                "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?"
 
+                                "You respond, \"Yes, you are. I'm adopting you as part of work from my, uh, office. I don't have a choice in this. I really don't.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
+                            ],
+                            [
+                                "\"For work?\"",
+
+                                "You respond, \"I'm adopting you as part of work from my, uh, office. I don't have a choice in this. Please understand Momo.\"",
+
+                                "\"It's okay parent, Momo understands. You have taken care of Momo all day. Momo understands.\"",
+                            ],
+                        ])
                         menu:
                             "Go to bed":
                                 pass
@@ -1150,7 +1378,11 @@ label start:
                         scene background
                         show momo_kitchen_front at top with fade
 
-                        "No, I'm just tired. Could we take a break. \"Okay\", Momo responds."
+                        $ n([
+                            "\"Okay\", Momo responds.",
+                            None,
+                            "\"Sure\", Momo responds.",
+                        ])
 
                         "You make a few pancakes, some for you and some for Momo. You both eat together, side-by-side, on the kitchen table."
 
