@@ -2125,6 +2125,9 @@ label start:
 
         "Your vision is receding."
 
+        label third_playthrough_good:
+            pass
+
         "\"Maybe I can become human? Maybe we can be together, joined at the hip, as a unit? Not father and son, but something different.\""
 
         "Particles. Lead in the air. In Momo's eyes, you begin to see a tunnel."
@@ -2151,6 +2154,23 @@ label start:
         "You are the same as Momo, and Momo is the same as you. There are no shadows. And finally, there is no light."
 
         "For once, you do not feel alone. You will never feel alone."
+
+        if ending_count() == 2:
+            "You wake up. You're in your kitchen."
+
+            "Momo is gone and nowhere to be found. When you search across around your room you cannot find him hiding. You're frantic."
+
+            "\"Momo!\" you yell."
+
+            "But there is no response. You look outside. Something is calling you outside, though you can't tell what."
+
+            "It's a irresistable urge. Then, you remember the words."
+
+            "\"Come to the bunker.\""
+
+            menu:
+                "Head outside":
+                    jump secret_ending
 
     elif points >= 0 and points <= 3:
         # Nuetral ending
@@ -2268,15 +2288,15 @@ label start:
             scene background
             show momo_ad_real at top with fade
 
-            "\"Parent, we're all Momo on the inside. You especially. This isn't figurative.\"",
+            "\"Parent, we're all Momo on the inside. You especially. This isn't figurative.\""
 
-            "\"Me?\" you respond.",
+            "\"Me?\" you respond."
 
-            "\"Yes parent. There's only one of you. There is, however, multiple of Momo. I think you know this by now.\"",
+            "\"Yes parent. There's only one of you. There is, however, multiple of Momo. I think you know this by now.\""
 
-            "\"Actually, I hate contradictions, there's only one Momo. Atleast there will be.\"",
+            "\"Actually, I hate contradictions, there's only one Momo. Atleast there will be.\""
 
-            "\"Look outside, parent. Follow my lead.\"",
+            "\"Look outside, parent. Follow my lead.\""
 
             menu:
                 "Follow":
@@ -2524,15 +2544,18 @@ label start:
 
     if points > 3:
         # good ending
-        pass
+        scene background
+        show momo_final_eating at top with fade
+        "\"I don't wana lose you, parent.\""
+
+        "\"Maybe we can be together?\""
+
+        jump third_playthrough_good
     elif points >= 0:
         # neutral ending
         jump third_playthrough_neutral
     else:
         # bad ending
-        scene background
-        show momo_crazy_1 at top with fade
-
         "\"At the very least, Momo wants to see the world outside of this room. From his own eyes and not anyone else's. At this point, this is the only thing Momo can do. Momo will say goodbye. To everything, for one last time.\""
 
         $ parent = "friend"
