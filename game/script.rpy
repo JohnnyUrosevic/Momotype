@@ -294,7 +294,10 @@ label start:
     "You decide it's time for bed."
 
     scene background
-    show momo_nightmare_1 at top with fade
+    if ending_count:
+        show momo_ad_real at top with fade
+    else:
+        show momo_nightmare_1 at top with fade
 
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
@@ -320,7 +323,15 @@ label start:
 
     "Your hear shuffling by your bed. You wake up to see what is moving. The monotype is by your feet."
 
-    "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo already knows the answer.\""
+    $ n([
+        "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo already knows the answer.\"",
+        [
+            "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo wishes to know your answer?\"",
+
+            "There is some hesitation in the new Momo's voice.",
+        ],
+        "\"Parent?\" Momo is staring at you, same as last time. \"Do you love me?\""
+        ])
 
     $ yes = m([
         "I love Momo.",
@@ -1029,8 +1040,8 @@ label start:
         show momo_artichoke_dream at top with fade
 
         $ n([
-            "In the theater of Momo's mind, they are are studying hippos. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
-            "In the theater of Momo's mind, they are are studying hippos. For Momo, their vision has collapsed on this image. They wish to be like Ted. It is all they are currently dreaming of.",
+            "In the theater of Momo's mind, they are studying hippos. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
+            "In the theater of Momo's mind, they are studying hippos. For Momo, their vision has collapsed on this image. They wish to be like Ted. It is all they are currently dreaming of.",
             None
         ])
     elif food == "Steak":
@@ -1291,7 +1302,7 @@ label start:
             "Play along":
                 $ points += 2
 
-                if ending_count():
+                if not ending_count():
                     "\"Put yer' hands up Sheriff Dudley, I ain't got time for no games\", you say."
 
                     "You have a plastic, toy pistol aimed at Momo.\"I've been in and of county cause of you's sheriff,\" you sneer, \"God can reserve his judgement for when I hand it down to you!\""
@@ -2537,7 +2548,34 @@ label start:
                 "You had yelled for Momo to come inside, but despite all your attempts. He refused each time. He said he was \"too big to fit\" inside. It was a childish string of logic that Momo would be insistent on.",
 
                 "By the 72 hour mark, a little more than a week had passed since you received Momo. By this point, he collapsed on the street. Whether by exhaustion (or if this truly was the natural lifespan of a monotype), Momo could not continue.",
+            ]
+        ])
 
+        $ renpy.pause(2.5, hard=True)
+
+        scene background
+        show momo_final_window4 at top with fade
+
+        $ renpy.pause(2.5, hard=True)
+
+        scene background
+        show momo_final_window5 at top with fade
+
+        $ renpy.pause(2.5, hard=True)
+
+        scene background
+        show momo_final_window6 at top with fade
+
+        $ n([
+            [
+            "By the 73rd hour, Momo was smaller than his original size.",
+
+            "Now the 74th hour has just arrived",
+
+            "Momo has died.",
+            ],
+            None,
+            [
                 "With the shadows encroaching his vision, the light from Momo's eyes faded into a neural oblivion.",
 
                 "Police noted that they heard the creature say something before he was rendered inert. At this time, most officers were by their cars, eating donuts, wondering when they could go home.",
@@ -2556,27 +2594,6 @@ label start:
 
         if ending_count() == 2:
             jump secret_ending
-
-        $ renpy.pause(2.5, hard=True)
-
-        scene background
-        show momo_final_window4 at top with fade
-
-        $ renpy.pause(2.5, hard=True)
-
-        scene background
-        show momo_final_window5 at top with fade
-
-        $ renpy.pause(2.5, hard=True)
-
-        scene background
-        show momo_final_window6 at top with fade
-
-        "By the 73rd hour, Momo was smaller than his original size."
-
-        "Now the 74th hour has just arrived"
-
-        "Momo has died."
 
     $ renpy.pause(3, hard=True)
 
@@ -2667,9 +2684,11 @@ label start:
 
     "It is a giant Momo."
 
+    "Your mind is running in loops. At this point, you have no decision to accept what's in front of you, though, you don't even know if it's real."
+
     "\"I'm glad I lived long enough to see you. It hurt Momo's feet to walk all the way here (he does not have feet).\""
 
-    "\"Isn't it so peaceful?\""
+    "\"Isn't it so peaceful? Very cinematic. Momo could be a filmmaker one day! He's watched enough to be good at it.\""
 
     "The path of monotypes leads to a small pond which, by the looks of it, has formed adjacently to an arms factory. It has been relatively undisturbed, abandoned for who knows how many years."
 
@@ -2752,6 +2771,12 @@ label start:
             "You are Momo the human."
 
             "You have to sit down for a moment. You're about to throw up."
+
+            "\"I do still wonder whether that explains everything, though. You may have seen me in your dreams before you were even eaten, and there is no apparent explanation for that.\""
+
+            "\"Is there a kind of ambient effect Momo gives off or is it something else...Maybe it's...\""
+
+            "Momo begins mumbling. They are genuinely interested in this question."
 
         "How many Momos are there?" if many:
             $ many = False
@@ -2906,9 +2931,11 @@ label start:
 
     "\"I think you should know by now, parent.\" There are no other monotypes in the direct vicinity. They have all entered the large figure that is the 'Momo' talking to you."
 
-    "\"You are also a monotype,\" Momo says, \"And by all accounts, you're the only one capable of understanding what we go through. You're closer than any other parent. The only one who has access to both experiences,\" Momo finishes."
+    "\"By all accounts, you're the only one who understands what we go through. You're closer than any other parent. The only one who has seen all of Momo's sides. Good and bad. The only one who was willing to, even if you were coerced.\""
 
-    "\"As such, we love you especially. That's why we grew especially attached to you. It's why, by the end, we had come to accept our fate.\""
+    "\"And now, since you were eaten, the only one who has access to both experiences. Monotype and the human,\" Momo finishes."
+
+    "\"As such, we love you especially. That's why we're attached to you. It's why you see us now. We wanted to say goobye to you.\""
 
     "Momo is getting ready to depart."
 
