@@ -15,13 +15,6 @@ init python:
     if persistent.endings is None:
         persistent.endings = set()
 
-    def merge_endings(old, new, current):
-        current.update(old)
-        current.update(new)
-        return current
-
-    renpy.register_persistent('endings', merge_endings)
-
     def n(what):
         i = ending_count()
 
