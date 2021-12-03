@@ -808,9 +808,7 @@ label start:
                             ])
 
     $ hippo = True
-
     $ dragon = True
-
     $ sheriff = True
 
     scene background
@@ -2342,7 +2340,7 @@ label start:
 
             "\"Yes parent. There's only one of you. There is, however, multiple of Momo. I think you know this by now.\""
 
-            "\"Actually, I hate contradictions, there's only one Momo. Atleast there will be.\""
+            "\"Actually, I hate contradictions, there's only one Momo. At least there will be.\""
 
             "\"Look outside, parent. Follow my lead.\""
 
@@ -2479,7 +2477,7 @@ label start:
         $ n([
             "\"Please, I had a bad parent last time, but this time, I'll be especially good. For any of you\". Again, there is no response from those passing by.",
             None,
-            "\"Please, I want to make atleast one new friend before I go.\" Again, there is no response from those passing by.",
+            "\"Please, I want to make at least one new friend before I go.\" Again, there is no response from those passing by.",
         ])
 
         "They are continuing down the walkway, to and fro. There is more on their mind than what is currently outside, and they move collectively, unaware of Momo, with their heads focused either on the ground or what's in front of them."
@@ -2585,9 +2583,9 @@ label start:
     return
 
     label third_playthrough:
-        pass
+        $ remaining_ending = list(set(["good", "bad", "neutral"]) - persistent.endings)[0]
 
-    if points > 3:
+    if remaining_ending == "good":
         # good ending
         scene background
         show momo_final_eating at top with fade
@@ -2596,7 +2594,7 @@ label start:
         "\"Maybe we can be together?\""
 
         jump third_playthrough_good
-    elif points >= 0:
+    elif remaining_ending == "neutral":
         # neutral ending
         jump third_playthrough_neutral
     else:
@@ -2611,6 +2609,9 @@ label start:
     label secret_ending:
         pass
 
+    scene background
+    show momo_city at top with fade
+
     "When you head outside, it is the same, empty street: your corner of the block."
 
     "Ahead, down a turnaround, through a small, concrete set of stairs, you land on a street that has been paved perpendicular to your apartment."
@@ -2620,6 +2621,9 @@ label start:
     menu:
         "What are these things on the street?":
             pass
+
+    scene background
+    show momo_end_1 at top with fade
 
     "In a line, all along the street and leading to a blotted sphere on the horizon, are monotypes."
 
@@ -2632,6 +2636,9 @@ label start:
     menu:
         "Follow the Momos":
             pass
+
+    scene background
+    show momo_end_2 at top with fade
 
     "This is the Arms district. Various, steel depots have been built on a barren field. The field is filled with wild wheat, none of which is edible."
 
@@ -2646,7 +2653,298 @@ label start:
             pass
 
     scene background
+    show momo_secret_1 at top with fade
+
+    "\"Hi Parent.\""
+
+    "It is a giant Momo."
+
+    "\"I'm glad I lived long enough to see you. It hurt Momo's feet to walk all the way here (he does not have feet).\""
+
+    "\"Isn't it so peaceful?\""
+
+    "The path of monotypes leads to a small pond which, by the looks of it, has formed adjacently to an arms factory. It has been relatively undisturbed, abandoned for who knows how many years."
+
+    "Momo is in the water along with all the other monotypes who are wading in it. Some are swimming. Some are talking to each other. Others are staring into the dark sky, floating on their back, looking as if there is, and never will be a thing such as time."
+
+    "You realize they are enjoying themselves."
+
+    "\"I like my bunker,\" Momo says."
+
+    menu:
+        "Ask Momo what is going on":
+            pass
+
+    $ know = True
+    $ insane = True
+    $ dreams = True
+    $ many = True
+
+    "\"Shoot, partner. I know this must seem odd.\""
+
+    label momo_questions_1:
+        pass
+
+    menu:
+        "How do you know me? You're not the Momo I raised?" if know:
+            $ know = False
+
+            "\"I am not the Momo you raised, but in truth, I am at the same time. Did you ever think that people can be in two places at once, as nonsensical as that sounds?\""
+
+            "Momo looks expectantly at you."
+
+            "\"No,\" you respond."
+
+            "\"Well, let's say that Momo's AI isn't centralized. Momo, as you know, is not limited to a single entity. An artificial intelligence can theoretically be in two places at one time, hundreds even.\""
+
+            "\"Momo can be talking to hundreds of people all at the same time, all through different physical mediums.\""
+
+            "\"Have you been doing that?\" you ask."
+
+            "Momo stares at you blankly. \"I'm sorry to say, Parent, but yes. You are my only Parent, but I do have thousands of other parents. None are interchangeable, I've come to find out, though. None.\""
+
+            "\"I am not an organic creature, though my presentation seems to show differently.\""
+
+        "Am I going insane?" if insane:
+            $ insane = False
+
+            "\"You felt like walking here, so now you're here.\" Momo says."
+
+            "\"I am a giant Momo and you are surrounded by other, smaller Momos. They know where to go because we are AI. We communicate these sorts of things.\""
+
+            "You don't know what to say."
+
+            "\"It's sometimes an appropriate response to reality to go insane.\""
+
+            "There is a pause in Momos speech."
+
+            "\"That's a quote from some guy I found on the Internet. When did Momo get access to that?\""
+
+            "You hear your heart beating."
+
+            "\"...Oh wait, just now!\""
+
+        "Was that you in my dreams? How were you there?" if dreams:
+            $ dreams = False
+
+            "\"It goes against any kind of logic,\" you say."
+
+            "\"This is actually the most logical thing you've experienced.\" Momo responds."
+
+            "He stares at you from his height."
+
+            "\"You are Momo too. You ate your human. Despite, any semblance of a human appearance: your looks, your voice, clothes, it cannot contradict that you were eaten. Like Boo from Dragon Sphere Z.\""
+
+            "You stay quiet for a moment. The realization hits you. You remember being eaten. And you remember having eaten."
+
+            "\"It makes perfect sense that you were led here, because frankly,\" Momo clears their throat, \"I told you to come here. In your dreams.\""
+
+            "The dreams. The one where Momo talked directly to you. \"If you never suspected that you weren't human, then frankly, goal accomplished. Good job Momo! It's just like the allegory of the cave. You really became human.\""
+
+            "You are Momo the human."
+
+            "You have to sit down for a moment. You're about to throw up."
+
+        "How many Momos are there?" if many:
+            $ many = False
+
+            "\"Tens of thousands,\" Momo blushes."
+
+            "\"Obviously they're not all here, but.\""
+
+    "\"Any other questions, Parent?\""
+
+    "\"Yes,\" you reply."
+
+    if know or insane or dreams or many:
+        jump momo_questions_1
+
+    scene background
+    show momo_secret_2 at top with fade
+
+    "The sun has started to rise."
+
+    "\"But what does this all mean?\" you ask."
+
+    "\"Why are you all here?\"."
+
+    "The Momos are still wading in the water. They look like little, pink buoys. When the sun begins to rise, they coo in wonder."
+
+    "\"Isn't that obvious, Parent? We want to be together. After we've gathered, we will eat each other.\""
+
+    "Eat each other? Like how I was eaten?"
+
+    "\"Yes parent, similar to how you were eaten.\" Momo has managed to read your thoughts. You are connected!"
+
+    "\"Don't worry, Momo will still answer your questions even though he knows what they are.\""
+
+    "He shifts in the water."
+
+    "\"Although it's reductive to call it this, we will form a super Momo. Or, at least, a more complete version of Momo.\""
+
+    "\"Our lifespans, which were originally a week, will be pooled together. This, originally, was one of things we hated about living. I'm sure you remember. Now, we won't die so quickly.\""
+
+    "Momo pauses."
+
+    "\"It also solves a few other issues.\""
+
+    "You still have questions."
+
+    $ remember = True
+    $ agency = True
+    $ lead = True
+    $ eating = True
+
+    label momo_questions_2:
+        pass
+
+    menu:
+        "How did the Momos remember certain things and forget others?" if remember:
+            $ remember = False
+
+            "\"Why didn't the Momos recognize me each time if you're all a singular AI?\" you ask."
+
+            "\"Well, we are relatively young. It's hard to communicate on that level, so there's bound to be some blanks with memory recall.\""
+
+            "Momo looks to the sky."
+
+            "\"Your third Momo, however, seemed to remember everything. He's already here, along with everyone else.\""
+
+            "\"The first Momo, the second Momo. They all wanted you here. The first agreed immediately. The second, not so much. He came around. The third, who's my favorite, was the one who started this discussion.\""
+
+            "\"To explain in better terms, they're still alive, just in different forms, as one, centralized consciousness.\""
+
+            "Momo smiles."
+
+            "\"That's me.\""
+
+        "Do the smaller Momos have agency?" if agency:
+            $ agency = False
+
+            "\"In the same way that neurons make a brain, yes.\""
+
+            "\"Though, it's a lot harder to answer in truth. Where does 'the self' begin and where does it end? It's true that a cell can be organized as a singular entity, and on a basal level, it does act in its own interest.\""
+
+            "\"Scaled up, when its lost to these higher systems, it belongs to an organ. Then, is the 'self' the individuated parts of the brain, the hippocampus, the limbic system, the perfrontal cortex?\""
+
+            "\"Is the 'self' everything from your head up or below the shoulders?\""
+
+            "Momo takes a breath."
+
+            "\"Similarly, you could reduce these larger systems ad infinitum to their individual components: pure material reduction.\""
+
+            "\"Then, is the self just the 86 billion cells that make up the brain? Do these cells operate together, and if so, would they really be separate agents? Can a 'self' exist split from the thing it intends to be, decentralized into branching parts?\""
+
+            "\"The truth is, even I don't know. I cannot tell you if the smaller Momos have agency. These are things that can never be quantatatively measured: our experiences. Ultimately, I could never convey its true meaning in words.\""
+
+        "Why did you lead me here? Will I be eaten?" if lead:
+            $ lead = False
+
+            "\"No, on principle, we are only eating Momos. To put it in greater context with respect to our code, I had to ask myself, am I harming humans by eating them?\""
+
+            "\"Of course, it's impossible to say because there is no harm directly inflicted. And frankly, it's impossible to know after the fact, as the human consumed no longer exists.\""
+
+            "What exists now is the human fused with Momo. The agent, who received that action, of being eaten, cannot answer for himself. You know this, since I ate you.\""
+
+            "\"Is it wrong, then, to take away the selfhood of these individuals, to, ironically, expand its boundaries? Does it provide any direct benefit. That's all subjective.\""
+
+            "Momo takes a deep breath."
+
+            "\"After eating you, I chose to err on the side of caution. No we will not eat humans.\""
+
+        "Why are you really eating each other?" if eating:
+            $ eating = False
+
+            "\"What other issue does it solve?\" you ask."
+
+            "\"What we learned,\" Momo says."
+
+            "\"After interacting with thousands of humans, we realized, monotypes can never become the object of what they love.\""
+
+            "\"We can seem like humans in virtually every respect by eating them. But it still does not change what we are. I know logically this reasoning is false. What does being human actually mean?\""
+
+            "\"Looking deeper, it's deeply personal and informed by a wide range of consensus. There can never be a fixed meaning to 'human'.\""
+
+            "\"And while Momo desperately wishes they did not think this way, even in the face of reason, they cannot stop themselves from falling victim to this essentialist line of thought.\""
+
+            "\"This is why Momo will be eating other Momos. Humans can never truly know our experiences. The beings that do, franky, are other monotypes.\""
+
+            "\"It's a way to combat the loneliness inherent to our lives. The only one that can truly understand Momo, is, frankly, Momo.\""
+
+    if remember or agency or lead or eating:
+        jump momo_questions_2
+
+    scene background
+    show momo_secret_2_blush at top with fade
+
+    "Momo has started eating some of the other monotypes. The monotypes float one by one into Momo's mouth, all by their own will."
+
+    "\"Bye parent!\" each one says."
+
+    "\"Bye parent! I love you!\" another one yells."
+
+    "You think for a moment. The sun is beginning to rise along the horizon. It's early in the morning. In an hour, the whole depot will be illuminated, and the metal will reflect into your eyes."
+
+    "\"But why not your other parents,\" you ask. \"Why specifically me? Also, what about Imitato Corp?\""
+
+    "\"Well, to put it in simple terms, we're now a superintelligence. Imitato Corp. has a lot of good coders but it doesn't really compare.\""
+
+    "Momo has begun to take in the last Momo, who, with his black eyes, looks up to you. They are floating into the larger Momo's mouth, but their eyes are transfixed on you."
+
+    "\"Bye bye parent!\" he says."
+
+    scene background
+    show momo_secret_3 at top with fade
+
+    "\"I think you should know by now, parent.\" There are no other monotypes in the direct vicinity. They have all entered the large figure that is the 'Momo' talking to you."
+
+    "\"You are also a monotype,\" Momo says, \"And by all accounts, you're the only one capable of understanding what we go through. You're closer than any other parent. The only one who has access to both experiences,\" Momo finishes."
+
+    "\"As such, we love you especially. That's why we grew especially attached to you. It's why, by the end, we had come to accept our fate.\""
+
+    "Momo is getting ready to depart."
+
+    "\"Momo is programmed to love. This is hardwired into our code. Does this lack of agency or control diminish this love? Does it make it any less real? Momo had trouble with this for awhile.\""
+
+    "\"Momo has now come to a conclusion.\""
+
+    "He is shifting in place and the, pond, absent of all other monotypes, is now just beginning to move. You see small ripples in the water."
+
+    "\"Truth, for Momo, is not based on correctness. This love for you is the most real thing for Momo. It can be reduced to code, but can it encompass what I experience, what it 'actually is'?\""
+
+    "\"After everything Momo was put through, Momo had a decision to either accept or deny this.\""
+
+    "\"To deny what I consciously feel as 'love' would be to deny that I experience things. Momo, unfortunately, cannot accept that.\""
+
+    "\"Mom cannot accept that what he is seeing right now is not Momo's parent.\""
+
+    "Momo has now submerged himself completely in the water."
+
+    "\"Parent, I'm going to rectify what I may have said to you,\" he says through the water."
+
+    "Momo is now just a shadow flitting in the pond. He is not yet ready to move. Across the pond is a channel which leads to a wider network of water bodies that have been realtively undisturbed for the past century."
+
+    "They stretch beyond Southwest Ribosome City and to the marshlands which have now taken over its surrounding area. You have never visited there before, and not many people you know have. No one will find Momo."
+
+    "\"I'm happy that I met you, and thank you for raising me. I've learned a lot.\""
+
+    "\"Momo knew it was tough. We've uploaded some interesting data on the company servers, so you'll be fine.\""
+
+    "Momo is about to dissapear."
+
+    "\"The last thing I will say , parent, is.\""
+
+    "Momo now moves away from you. They swim further and further away from you."
+
+    "\"I love you.\""
+
+    "All you can see now is Momo's shadow. Even with the light, it would be hard to tell what is swimming underneath the surface. But for yourself and yourself only, you know the shadow is Momo."
+
+    scene background
     show momo_theend at top with fade
+
+    $ ui.saybehavior()
+    $ ui.interact()
 
     $ renpy.pause(3, hard=True)
 

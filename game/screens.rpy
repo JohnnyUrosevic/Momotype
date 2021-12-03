@@ -220,7 +220,12 @@ screen choice(items):
 
     $ l = max([Text(item.caption).size()[0] for item in items])
 
-    if l >= 500:
+    if len(items) > 3:
+        vbox:
+            style_prefix "long"
+            for i in items:
+                textbutton i.caption action i.action
+    elif l >= 700:
         vbox:
             style_prefix "large"
             for i in items:
@@ -249,11 +254,29 @@ style large_vbox is vbox
 style large_button is button
 style large_button_text is button_text
 
+style long_vbox is vbox
+style long_button is button
+style long_button_text is button_text
+
+style long_vbox:
+    xalign 0.5
+    ycenter 0.875
+
+    spacing 5
+
+style long_button:
+    properties gui.button_properties("choice_button")
+    xsize 750
+
+style long_button_text is default:
+    properties gui.button_text_properties("choice_button")
+    size 16
+
 style large_vbox:
     xalign 0.5
     ycenter 0.875
 
-    spacing 10
+    spacing 5
 
 style large_button:
     properties gui.button_properties("choice_button")
@@ -261,6 +284,7 @@ style large_button:
 
 style large_button_text is default:
     properties gui.button_text_properties("choice_button")
+    size 18
 
 style choice_vbox_question:
     xalign 0.5
