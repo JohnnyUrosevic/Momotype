@@ -1431,7 +1431,7 @@ label start:
 
             "Light comes from the sphere. It has a dark center. A moment of clarity arrives, and you realize that the sphere is the sun.",
 
-            "\"Would you like to get out?\"\ the sun asks.",
+            "\"Would you like to get out?\" the sun asks.",
         ],
         "2 for 1 sale on all monotypes! 2 for 1! Buy one get one free. Courtesy of your local Momo supplier.",
         [
