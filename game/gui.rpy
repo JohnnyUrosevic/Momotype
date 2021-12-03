@@ -45,6 +45,9 @@ init python:
     def ending_count():
         return len(persistent.endings)
 
+    def reset_endings():
+        persistent.endings = set()
+
 
 ################################################################################
 ## GUI Configuration Variables

@@ -452,9 +452,8 @@ screen main_menu():
             imagebutton auto "gui/menu_button_%s.png" xpos 793 ypos 489 focus_mask True action [Play("sound", "audio/button_click.mp3"),
                 Quit(confirm=not main_menu)] hovered [Play("sound", "audio/button_hover.mp3")]
 
-            # """
-            # 456 402
-            # """
+            imagebutton auto "gui/menu_button_%s.png" xpos 616 ypos 492 focus_mask True action [Play("sound", "audio/button_click.mp3"),
+                Confirm("Reset progress?", reset_endings)] hovered [Play("sound", "audio/button_hover.mp3")]
 
         else:
 

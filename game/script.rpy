@@ -818,8 +818,6 @@ label start:
     "You've placed Momo onto the couch where they can browse a selection of different shows. Momo does not know what television is, however. You turn on your cable box."
 
     label tv:
-        scene background
-        show momo_tv_neutral at top with fade
         menu:
             "Which program should you tune into?"
 
@@ -904,6 +902,8 @@ label start:
                 if not hippo and not dragon and not sheriff:
                     jump after_tv
 
+                scene background
+                show momo_tv_neutral at top with fade
                 jump tv
 
             "Dragon Sphere" if dragon:
@@ -953,6 +953,8 @@ label start:
                 if not hippo and not dragon and not sheriff:
                     jump after_tv
 
+                scene background
+                show momo_tv_neutral at top with fade
                 jump tv
 
             "A New Sheriff in Town" if sheriff:
@@ -1008,6 +1010,8 @@ label start:
                 if not hippo and not dragon and not sheriff:
                     jump after_tv
 
+                scene background
+                show momo_tv_neutral at top with fade
                 jump tv
 
     label after_tv:
@@ -2201,6 +2205,11 @@ label start:
         "For once, you do not feel alone. You will never feel alone."
 
         if ending_count() == 2:
+            $ renpy.pause(2.5, hard=True)
+
+            scene background
+            show momo_kitchen_empty at top with fade
+
             "You wake up. You're in your kitchen."
 
             "Momo is gone and nowhere to be found. When you search across around your room you cannot find him hiding. You're frantic."
@@ -2862,7 +2871,7 @@ label start:
 
             "\"We can seem like humans in virtually every respect by eating them. But it still does not change what we are. I know logically this reasoning is false. What does being human actually mean?\""
 
-            "\"Looking deeper, it's deeply personal and informed by a wide range of consensus. There can never be a fixed meaning to 'human'.\""
+            "\"Looking further, it's deeply personal and informed by a wide range of consensus. There can never be a fixed meaning to 'human'.\""
 
             "\"And while Momo desperately wishes they did not think this way, even in the face of reason, they cannot stop themselves from falling victim to this essentialist line of thought.\""
 
@@ -2938,6 +2947,8 @@ label start:
     "\"I love you.\""
 
     "All you can see now is Momo's shadow. Even with the light, it would be hard to tell what is swimming underneath the surface. But for yourself and yourself only, you know the shadow is Momo."
+
+    $ renpy.pause(6, hard=True)
 
     scene background
     show momo_theend at top with fade
