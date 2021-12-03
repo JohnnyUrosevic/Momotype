@@ -8,7 +8,6 @@
 # The game starts here.
 
 label start:
-    $ persistent.endings = set(["good","bad"])
     $ points = 0
 
     # Show a background. This uses a placeholder by default, but you can
