@@ -8,6 +8,7 @@
 # The game starts here.
 
 label start:
+    $ persistent.endings = set(["good","bad"])
     $ points = 0
 
     # Show a background. This uses a placeholder by default, but you can
@@ -21,11 +22,12 @@ label start:
     if ending_count():
         jump repeat_playthroughs
 
+    play music "audio/momo_music_begin.mp3"
+
     scene background
     show momo_city at top with fade
 
     # These display lines of dialogue.
-
     "Your neighborhood, New Ribosome City"
 
     scene background
@@ -97,10 +99,7 @@ label start:
         pass
 
     scene background
-    if ending_count():
-        show momo_ad_real at top with fade
-    else:
-        show momo_nightmare_1 at top with fade
+    show momo_nightmare_1 at top with fade
 
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
@@ -303,11 +302,11 @@ label start:
 
     $ n([
         [
-            "A collection of particles circle around. They are diluted with a heavy substance, though you can't tell what. In your dream, the particles attempt to create form, and in doing so, assemble into a storm."
+            "A collection of particles circle around. They are diluted with a heavy substance, though you can't tell what. In your dream, the particles attempt to create form, and in doing so, assemble into a storm.",
 
-            "Inside the storm there is no one and nothing, except small spaces where it's immeasurably dark. Your vision recedes."
+            "Inside the storm there is no one and nothing, except small spaces where it's immeasurably dark. Your vision recedes.",
 
-            "You look from a bird's eye view into the storm, hoping to get a better look. As soon as you think you spot a person, the particles scatter. You repeat this process until finally, you realize you're completely alone. The dream ends."
+            "You look from a bird's eye view into the storm, hoping to get a better look. As soon as you think you spot a person, the particles scatter. You repeat this process until finally, you realize you're completely alone. The dream ends.",
         ],
         "You are dreaming of Momo. Which Momo is it, though?",
         "\"It's tough living. I think it's the greatest challenge anyone could face. It's already such a lonely experience. You may not believe it, but I understand, parent, I really do.\"",
@@ -331,7 +330,7 @@ label start:
     ])
 
     $ maybe = m([
-        "I love Momo.",
+        "I barely know you. Take it slow?",
         "This is too much, Momo.",
         "Love does not exist. At least, not in the way we're talking about.",
     ])
@@ -472,11 +471,11 @@ label start:
             $ points += 1
             $ n([
                 [
-                    "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling, and to your surprise, he is unaffected. He requests that you keep going."
+                    "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling, and to your surprise, he is unaffected. He requests that you keep going.",
 
-                    "This process is repeated until your arms give out."
+                    "This process is repeated until your arms give out.",
 
-                    "\"Thank you, parent. Could you cook pancakes tomorrow?\" Momo asks. Then, he hops off. You lay crumpled on the floor. Upstairs, you can hear small thuds in the hallway. They eventually lead to your bedroom, and soon enough, the noise stops."
+                    "\"Thank you, parent. Could you cook pancakes tomorrow?\" Momo asks. Then, he hops off. You lay crumpled on the floor. Upstairs, you can hear small thuds in the hallway. They eventually lead to your bedroom, and soon enough, the noise stops.",
                 ],
                 [
                     "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling.",
@@ -814,6 +813,9 @@ label start:
 
     $ sheriff = True
 
+    scene background
+    show momo_tv_neutral at top with fade
+
     "Today, you've decided to show Momo the world. Through your television. A reflection of the real world."
 
     "You've placed Momo onto the couch where they can browse a selection of different shows. Momo does not know what television is, however. You turn on your cable box."
@@ -886,11 +888,15 @@ label start:
 
                     "\"It's very hard Charles.\" The man in the chair looks with sympathetic eyes. \"I completely understand.\""
 
-                    "Charles continues. \"Sometimes, I'd put a whole stack of butter into my wife's food. Soon it became 2 stacks, then 3. It gave me a rush.\" Charles wipes his face. \"But then afterwards, when she found out, she'd feel betrayed, and I'd sit there like a knob. I kept doing it, and well, here I am, alone."
+                    "Charles continues. \"Sometimes, I'd put a whole stack of butter into my wife's food. Soon it became 2 stacks, then 3. It gave me a rush.\" Charles wipes his face."
+
+                    "\"But then afterwards, when she found out, she'd feel betrayed, and I'd sit there like a knob. I kept doing it, and well, here I am, alone.\""
 
                     "The man talking to Charles is Ted, the man from down under."
 
-                    "\"Charles, you are not alone. The key in all of this is whether you act on your thoughts, and everyone here,\" Ted gestures to the other men in the room, \"struggles with that everyday. We're with you Charles, through all your struggles. We're all trying to be better.\""
+                    "\"Charles, you are not alone. The key in all of this is whether you act on your thoughts, and everyone here,\" Ted gestures to the other men in the room, \"struggles with that everyday.\""
+
+                    "\"We're with you Charles, through all your struggles. We're all trying to be better.\""
 
                     "Charles nods his head."
 
@@ -1199,7 +1205,7 @@ label start:
                 $ n([
                     "\"How dare you try to cross the great emperor Freemza on his march of conquest! Prepare to be annihilated, worm.\" You charge at Momo.",
                     "You charge at Momo. \"You won't get away with this, Artichoke. I swear on all the lives you've taken!\"",
-                    None
+                    "\"So I guess Artichoke's gone! You'll be my prey for today!\"",
                 ])
 
                 $ renpy.pause (2.5, hard=True)
@@ -1392,7 +1398,7 @@ label start:
 
     scene background
     if ending_count():
-        show momo_ad_real
+        show momo_ad_real at top with fade
     else:
         show momo_nightmare_3 at top with fade
 
@@ -1443,7 +1449,7 @@ label start:
                 "\"That's kinda cool. Not Momo's preferred choice, but no harm no foul.\"",
 
                 "Momo hops off.",
-            ],
+            ]
 
     if food == "Artichoke":
         $ animal = "hippo"
@@ -1542,15 +1548,29 @@ label start:
             [
                 "To take Momo's mind off his recent transformation, you've decided to play some television for him.",
 
-                "\"Crikey mate, Bertha's gotten even thicker.\""
+                "\"Crikey mate, Bertha's gotten even thicker.\"",
 
-                "The man from last time is back. He is wearing a cast around his neck. His khakis have been lined with sweat all along his crotch area."
+                "The man from last time is back. He is wearing a cast around his neck. His khakis have been lined with sweat all along his crotch area.",
 
-                "\"Now Bertha, I know we had our issues sweety, but let bygones be bygo-\""
+                "\"Now Bertha, I know we had our issues sweety, but let bygones be bygo-\"",
 
-                "The hippo charges at him, and once more, he is flung into the air. He falls on the ground, this time, making a loud thud. He does not get up."
+                "The hippo charges at him, and once more, he is flung into the air. He falls on the ground, this time, making a loud thud. He does not get up.",
             ],
-            [],
+            [
+                "\"Bertha, please.\"",
+
+                "The man down under's wife has taken custody of the kids. They are in court.",
+
+                "\"We have dictated that Ted Powell is not fit to have custody of the pursuant's children, due to the record of abuse detailed.\"",
+
+                "\"Mr. Powell, your visitation rights will be once every month-\"",
+
+                "\"Crikey, please mate, they're my children!\" He gets down on his knees.",
+
+                "\"Order in the court. Mr. Powell, this is the verdict and if you do not agree-\"",
+
+                "The tv cuts off. An ad is playing.",
+            ],
             third_tv,
         ])
 
@@ -1572,28 +1592,54 @@ label start:
 
                 "\"I've never told you this before Artichoke, but you have bigger muscles than m-\"",
             ],
-            [],
+            [
+                "\"Why did you kill him, Artichoke?\"",
+
+                "Vegenta has tears streaming down his face. \"He was the only one left for me. And you took him.\"",
+
+                "Artichoke, his muscles giving off steam, holds Vegenta's son by nape of his neck. He throws him against the cliffside, and it shatters into a flurry of smaller boulders. Vegenta rushes to his son, but his eyes are blank.",
+
+                "\"It's simple. He was weak.\"",
+
+                "Vegenta screams.",
+
+                "The tv cuts off. An ad is playing.",
+            ],
             third_tv,
-            ])
+        ])
     else:
         scene background
         show momo_cig_tv at top with fade
 
-    $ n([
-        [
-            "To take Momo's mind off his recent transformation, you've decided to play some television for him."
+        $ n([
+            [
+                "To take Momo's mind off his recent transformation, you've decided to play some television for him.",
 
-            "\"Sheriff Dudley, I can't live without you!\""
+                "\"Sheriff Dudley, I can't live without you!\"",
 
-            "A woman dressed in late 1800's attire is pulling on a man's blazer."
+                "A woman dressed in late 1800's attire is pulling on a man's blazer.",
 
-            "\"I know snookums, but duty calls for the simple man. And the Lord knows that I am a simple man. A servant to His law.\""
+                "\"I know snookums, but duty calls for the simple man. And the Lord knows that I am a simple man. A servant to His law.\"",
 
-            "\"Oh Andrew, what will I be without you? The fire in my soul, the light of my life, it will fade if you lea-\""
-        ],
-        [],
-        third_tv,
-    ])
+                "\"Oh Andrew, what will I be without you? The fire in my soul, the light of my life, it will fade if you lea-\"",
+            ],
+            [
+                "\"Lena? Lena! Where in tarnation did you run off to?\"",
+
+                "Sheriff Dudley is looking around his house to find his wife. Unfortunately, she is gone.",
+
+                "\"Please come back.\" He breaks down. \"I can't live. You're the fire in my heart. What will I be without you?\"",
+
+                "Dudley, in a fit of rage, smashes his hand against the wall. \"She's my daughter too, Lena!\"",
+
+                "His hand is bloodied. He grabs some anti-septic to clean it, his choice being some hard-liquor. Dudley stares at the bottle.",
+
+                "He does not put the bottle down. He opens it. Then, he stares at it. He grabs a clean glass and-",
+
+                "The tv cuts off. An ad is playing.",
+            ],
+            third_tv,
+        ])
 
     if ending_count() != 2:
         "The tv cuts off. An ad is playing."
@@ -1867,8 +1913,9 @@ label start:
     $ renpy.music.stop(channel="creepy")
     $ renpy.music.set_volume(1.00, delay=0, channel='music')
 
-    scene background
-    show momo_nightmare_5 at top with fade
+    if ending_count() != 2:
+        scene background
+        show momo_nightmare_5 at top with fade
 
     if not ending_count():
         "\"Wake up parent.\""
@@ -1898,7 +1945,8 @@ label start:
         "You wake up. Momo has not surprised you. You run to the hallway. It is empty. The light from the streets reflects into the space. Though you cannot see well, you can make out what is behind you.",
     ])
 
-    play music "audio/momo_main.wav"
+    if ending_count() == 2:
+        play music "audio/momo_main.wav"
 
     scene background
     show momo_crazy_1 at top with fade
@@ -1931,7 +1979,7 @@ label start:
 
             "\"Sometimes, I realize how small of a piece I am.\" Momo is adjusting their position. \"I can't really stop it, nor was I able to.\"",
 
-            "\"Momo's been waking up again and again. Momo is okay with that. He wasn't at first. But now, he's come to realize it's been nice. Only,\"Momo turns to you, \"Momo won't be able to see you again.\""
+            "\"Momo's been waking up again and again. Momo is okay with that. He wasn't at first. But now, he's come to realize it's been nice. Only,\"Momo turns to you, \"Momo won't be able to see you again.\"",
 
             "\"Just when I realized dying meant nothing. Now it means the world. It means not seeing you with my own eyes. It means there is no Momo, and therefore, there is no you. That's what I won't like.\"",
 
@@ -2306,7 +2354,7 @@ label start:
         else:
             "\"Two for one sale! Call right now for your monotype today!\""
 
-            "Your tv has been turned on. The glow from behind draws you closer."
+            "Your tv has been turnedeon. The glow from behind draws you closer."
 
             menu:
                 "\"Did you love Momo?\" It is Momo's voice. This is not just an ad."
@@ -2348,11 +2396,11 @@ label start:
 
         $ n([
             [
-                "\"Pretending can be very real. More real than real. Momo is excited! You're Momo's pet now.\""
+                "\"Pretending can be very real. More real than real. Momo is excited! You're Momo's pet now.\"",
 
-                "The monotype on the screen has begun humming the Imitato Corp. jingle."
+                "The monotype on the screen has begun humming the Imitato Corp. jingle.",
 
-                "The light has escaped from the television. You are alone in the middle of your living room. You hear static. All around you are shadows."
+                "The light has escaped from the television. You are alone in the middle of your living room. You hear static. All around you are shadows.",
             ],
             [
                 "\"Programmed love comes with no strings attached, and I think that trumps everything else. Reciprocal altruism? Passing on DNA? These are the forces that shape human love. Momo is free from these things. Momo's love is the highest form of love.\"",
@@ -2438,7 +2486,7 @@ label start:
 
         "Momo is still staring, eyes vacant. Finally he gives in."
 
-        "\"PLEASE, WILL ANY OF YOU BE MY [parent.upper()]?\" His voice is distorted through the glass, but this is enough to raise the heads of the walkers. They look, first in genuine surprise, and then, in terror. They run."
+        "\"PLEASE, WILL ANY OF YOU BE MY [parent!u]?\" His voice is distorted through the glass, but this is enough to raise the heads of the walkers. They look, first in genuine surprise, and then, in terror. They run."
 
         "The walkway is clearing out. Some are screaming."
 
@@ -2524,9 +2572,6 @@ label start:
 
         "Momo has died."
 
-    scene background
-    show momo_theend at top with fade
-
     $ renpy.pause(3, hard=True)
 
     if points > 3:
@@ -2565,5 +2610,44 @@ label start:
 
     label secret_ending:
         pass
+
+    "When you head outside, it is the same, empty street: your corner of the block."
+
+    "Ahead, down a turnaround, through a small, concrete set of stairs, you land on a street that has been paved perpendicular to your apartment."
+
+    "The street leads to the arms district, which very vaguely, you can see in the distance. There are outlines of it illuminated by an outdated electrical grid, which since the famine, has been going off and on."
+
+    menu:
+        "What are these things on the street?":
+            pass
+
+    "In a line, all along the street and leading to a blotted sphere on the horizon, are monotypes."
+
+    "\"Hi Momo.\""
+
+    "\"Hi, Momo,\" some of them say to each other."
+
+    "A collective sea of Momo's are heading in a straight line to the Arms depot. Some of them look around, interested in the bright lights around them. Most, however, continue onwards."
+
+    menu:
+        "Follow the Momos":
+            pass
+
+    "This is the Arms district. Various, steel depots have been built on a barren field. The field is filled with wild wheat, none of which is edible."
+
+    "As you get a closer look, you realize this is it. All the monotypes are heading to the \"bunker\" specified in your dreams. This is the zone that was created to be the main defensive front for the city. It's a wartime relic."
+
+    "The buildings seem to warp towards a singular point, like a funhouse with one exit."
+
+    "That is the sun you realize. There is something in front of it."
+
+    menu:
+        "You keep walking, until you finally meet him.":
+            pass
+
+    scene background
+    show momo_theend at top with fade
+
+    $ renpy.pause(3, hard=True)
 
     return

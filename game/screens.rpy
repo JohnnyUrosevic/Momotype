@@ -218,7 +218,9 @@ screen choice(items):
     style_prefix "choice"
     zorder 10
 
-    if len(items[0].caption) >= 65:
+    $ l = max([Text(item.caption).size()[0] for item in items])
+
+    if l >= 500:
         vbox:
             style_prefix "large"
             for i in items:
@@ -255,7 +257,7 @@ style large_vbox:
 
 style large_button:
     properties gui.button_properties("choice_button")
-    xsize 650
+    xsize 750
 
 style large_button_text is default:
     properties gui.button_text_properties("choice_button")
