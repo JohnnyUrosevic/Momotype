@@ -2595,6 +2595,8 @@ label start:
         if ending_count() == 2:
             jump secret_ending
 
+    "THE END"
+
     $ renpy.pause(3, hard=True)
 
     if points > 3:
@@ -2608,7 +2610,17 @@ label start:
     return
 
     label third_playthrough:
-        $ remaining_ending = list(set(["good", "bad", "neutral"]) - persistent.endings)[0]
+        $ remaining_endings = list(set(["good", "bad", "neutral"]) - persistent.endings)
+        if len(remaining_endings):
+            $ remaining_ending = remaining_endings[0]
+        else:
+            if points > 3:
+                $ remaining_ending = "good"
+            elif points >= 0:
+                $ remaining_ending = "neutral"
+            else:
+                $ remaining_ending = "bad"
+
 
     if remaining_ending == "good":
         # good ending
@@ -2633,6 +2645,8 @@ label start:
 
     label secret_ending:
         pass
+
+    $ persistent.endings.add(remaining_ending)
 
     scene background
     show momo_city at top with fade

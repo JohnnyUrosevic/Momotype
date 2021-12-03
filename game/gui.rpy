@@ -23,7 +23,7 @@ init python:
     renpy.register_persistent('endings', merge_endings)
 
     def n(what):
-        i = len(persistent.endings)
+        i = ending_count()
 
         lines = None
         while lines is None:
@@ -38,12 +38,12 @@ init python:
             narrator(line)
 
     def m(choices):
-        i = len(persistent.endings)
+        i = ending_count()
 
         return choices[i]
 
     def ending_count():
-        return len(persistent.endings)
+        return min(2, len(persistent.endings))
 
     def reset_endings():
         persistent.endings = set()
