@@ -18,6 +18,8 @@ label start:
 
     define fade = Fade(0.5, 0.0, 0.5, color="#3F221C")
 
+    $ _game_menu_screen = "preferences"
+
     if ending_count():
         jump repeat_playthroughs
 
@@ -771,6 +773,7 @@ label start:
             $ n([
                 "\"If I'm not human, then why does parent take care of me?\"",
                 "\"Stop. None of this matters. What matters is if Momo is human. Why should you even think about caring for other things?\"",
+                None,
             ])
 
             menu:

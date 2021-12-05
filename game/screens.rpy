@@ -370,9 +370,10 @@ screen navigation():
 
         else:
 
-            textbutton _("Save") action ShowMenu("save")
+            # textbutton _("Save") action ShowMenu("save")
+            pass
 
-        textbutton _("Load") action ShowMenu("load")
+        # textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -457,7 +458,8 @@ screen main_menu():
 
         else:
 
-            textbutton _("Save") action ShowMenu("save")
+            # textbutton _("Save") action ShowMenu("save")
+            pass
 
         if _in_replay:
 
