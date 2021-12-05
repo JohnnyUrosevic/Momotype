@@ -441,20 +441,20 @@ screen main_menu():
 
             image At("gui/title.png", logo_transform)
 
-            imagebutton auto "gui/menu_button_%s.png" xpos 437 ypos 486 focus_mask True action [Play("sound", "audio/button_click.mp3"),
+            imagebutton auto "gui/menu_button_%s.png" xpos 456 ypos 479 focus_mask True action [Play("sound", "audio/button_click.mp3"),
                 Start()] hovered [Play("sound", "audio/button_hover.mp3")]
 
-            imagebutton auto "gui/menu_button_%s.png" xpos 523 ypos 489 focus_mask True action [Play("sound", "audio/button_click.mp3"),
-                ShowMenu("load")] hovered [Play("sound", "audio/button_hover.mp3")]
+            # imagebutton auto "gui/menu_button_%s.png" xpos 554 ypos 489 focus_mask True action [Play("sound", "audio/button_click.mp3"),
+            #     ShowMenu("load")] hovered [Play("sound", "audio/button_hover.mp3")]
 
-            imagebutton auto "gui/menu_button_%s.png" xpos 705 ypos 489 focus_mask True action [Play("sound", "audio/button_click.mp3"),
+            imagebutton auto "gui/menu_button_%s.png" xpos 554 ypos 484 focus_mask True action [Play("sound", "audio/button_click.mp3"),
+                Confirm("Reset progress?", reset_endings)] hovered [Play("sound", "audio/button_hover.mp3")]
+
+            imagebutton auto "gui/menu_button_%s.png" xpos 669 ypos 484 focus_mask True action [Play("sound", "audio/button_click.mp3"),
                 ShowMenu("preferences")] hovered [Play("sound", "audio/button_hover.mp3")]
 
-            imagebutton auto "gui/menu_button_%s.png" xpos 793 ypos 489 focus_mask True action [Play("sound", "audio/button_click.mp3"),
+            imagebutton auto "gui/menu_button_%s.png" xpos 771 ypos 479 focus_mask True action [Play("sound", "audio/button_click.mp3"),
                 Quit(confirm=not main_menu)] hovered [Play("sound", "audio/button_hover.mp3")]
-
-            imagebutton auto "gui/menu_button_%s.png" xpos 616 ypos 492 focus_mask True action [Play("sound", "audio/button_click.mp3"),
-                Confirm("Reset progress?", reset_endings)] hovered [Play("sound", "audio/button_hover.mp3")]
 
         else:
 
