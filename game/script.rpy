@@ -1,11 +1,21 @@
-﻿# The script of the game goes in this file.
+﻿label n(what):
+    $ i = ending_count()
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+    $ lines = None
+    while lines is None:
+        $ lines = what[i]
+        $ i -= 1
 
-# define e = Character("Eileen")
+    # horrible, but lets me not have to make everything a singleton list
+    if type(lines) is str:
+        $ lines = [lines]
 
-# The game starts here.
+    $ i = 0
+    while i < len(lines):
+        $ narrator(lines[i])
+        $ i += 1
+
+    return
 
 label start:
     $ points = 0
@@ -105,13 +115,13 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    $ n([
+    call n([
         "A dust storm. Lead in the air. You are in a desert-like area. There is nothing around you besides the sound of your thoughts. You cannot find any-",
         None,
         "A dust storm. Lead in the air. You are in a desert-like area. The sound of your thoughts bang on the hollow mould of your head. You will break if it doesn't stop.",
     ])
 
-    $ n([
+    call n([
         "A friend tomorrow is a friend for life. Supplies limited.",
         [
             "\"Please love me?\"",
@@ -135,7 +145,7 @@ label start:
     scene background
     show momo_city at top with fade
 
-    $ n([
+    call n([
         [
             "You're awake. Remnants of the dream pass and fade into static. You're back to your show.",
 
@@ -200,7 +210,7 @@ label start:
     scene background
     show momo_basket_down at top with fade
 
-    $ n([
+    call n([
         "When you open the door, there it is: a small creature laying in a basket. It's sleeping soundly.",
         [
             "You're back in your room. You hear a noise.",
@@ -281,13 +291,13 @@ label start:
 
     "You take the creature inside."
 
-    $ n([
+    call n([
         "\"Monotypes live for approximately seven days.\" A note has been packed in the basket. \"Take care of them, and they will grow. Monotypes love humans, so give them some love back. It's essential for their well-being.\"",
         "\"Please love them for the best results. Or don't. It's your decision.\"",
         "\"Please love them for the best results. Or don't. It's your decision.\"",
     ])
 
-    $ n([
+    call n([
         "The note ends. There is nothing else by way of instructions.",
         "\"Love, Imitato Corp.\"",
         "\"Love and kisses xoxoxo, Imitato Corp.\"",
@@ -304,7 +314,7 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    $ n([
+    call n([
         [
             "A collection of particles circle around. They are diluted with a heavy substance, though you can't tell what. In your dream, the particles attempt to create form, and in doing so, assemble into a storm.",
 
@@ -325,7 +335,7 @@ label start:
 
     "Your hear shuffling by your bed. You wake up to see what is moving. The monotype is by your feet."
 
-    $ n([
+    call n([
         "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo already knows the answer.\"",
         [
             "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo wishes to know your answer?\"",
@@ -351,7 +361,7 @@ label start:
         "[yes]":
             $ points += 1
 
-            $ n([
+            call n([
                 [
                     "Momo has received this well. Your answer was never in question. After all, he's cute.",
 
@@ -371,7 +381,7 @@ label start:
                 ],
             ])
         "[maybe]":
-            $ n([
+            call n([
                 [
                     "Momo stares at you. The words do not register nor does it seem Momo derives any meaning from them. It's as if you spoke in a different language.",
 
@@ -396,7 +406,7 @@ label start:
         "No.":
             $ points -= 1
 
-            $ n([
+            call n([
                 [
                     "\"That is incorrect parent. Please do not lie to Momo.\" Momo speaks plainly."
 
@@ -408,7 +418,7 @@ label start:
                 "\"Liar liar, pants on fire\"",
             ])
 
-            $ n([
+            call n([
                 "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to speak?",
                 None,
                 "A moment passes. Momo's stomach begins grumbling.",
@@ -421,7 +431,7 @@ label start:
     scene background
     show momo_hall at top with fade
 
-    $ n([
+    call n([
         [
             "\"Momo thinks you have good taste in interior design. Very post-modern...By the way, what does post-modern mean? Momo saw it on a book from your shelf\""
 
@@ -446,7 +456,7 @@ label start:
     scene background
     show momo_pancake at top with fade
 
-    $ n([
+    call n([
         "Is Momo herbivorous? A carnivore? You don't know yet, but he seems to like pancakes. He's now full of energy.",
         [
             "Is Momo herbivorous? A carnivore? You have some ideas. Momo seems to like pancakes, same as last time.",
@@ -466,13 +476,13 @@ label start:
     scene background
     show momo_throw at top with fade
 
-    $ n([
+    call n([
         "Momo flies into the air. They're surprisingly heavy. \"Keep going parent!\". After 30 minutes of using Momo like an exercise ball, you're tired. You drop him onto the floor, and while he lays there absently, you take a moment to catch your breath.",
         None,
         "\"Don't drop me parent!\" Momo is laughing.",
     ])
 
-    $ n([
+    call n([
         "This results in some confusion. Momo seems fidgety. \"Parent. Momo still wants to play.\"",
         "This results in some confusion. Momo seems fidgety. \"Parent. Can we play again? I really want to play.\"",
         "You drop Momo, same as last time. \"Parent, I understand if you're tired. Could we play again?\"",
@@ -481,7 +491,7 @@ label start:
     menu:
         "Continue":
             $ points += 1
-            $ n([
+            call n([
                 [
                     "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling, and to your surprise, he is unaffected. He requests that you keep going.",
 
@@ -513,7 +523,7 @@ label start:
 
             "\"I'm tired. Let's call it quits. I don't wanna do this,\" you respond."
 
-            $ n([
+            call n([
                 "Momo looks up to you. From your linoleum floor, you see an expression of frustration. \"One more time,\" he says.",
                 "Momo looks up to you. From your linoleum floor, you see an expression of frustration. \"Is it so hard to throw Momo a few more times? Really, is it that hard for parent? I'm not asking for much.\" he says.",
                 "Momo looks up to you. \"If I ask another time, will you do it?\""
@@ -521,7 +531,7 @@ label start:
 
             menu:
                 "Accept":
-                    $ n([
+                    call n([
                             "You assume that Momo is young. You don't want do be a dick. Momo is thrown into the air exactly one more time.",
                             [
                                 "Does Momo have a point?",
@@ -544,13 +554,13 @@ label start:
                 "Refuse":
                     $ points -= 1
 
-                    $ n([
+                    call n([
                         "\"Sorry to say, but it's not happening.\"",
                         None,
                         "\"Sorry. I can't do it.\""
                     ])
 
-                    $ n([
+                    call n([
                         "For a moment, there is silence. Momo does not say anything. Their face reminds you of a toddler's.",
                         "For a moment, there is silence. Momo does not say anything. Their face reminds you of a toddler's, only, a little more grown up.",
                         [
@@ -560,7 +570,7 @@ label start:
                         ],
                     ])
 
-                    $ n([
+                    call n([
                         "He looks through you, and after some thinking, hops back to your room to get ready for bed.",
                         "Momo sighs and is already heading upstairs.",
                         "Momo thinks for a second. He then hops upstairs without replying to you.",
@@ -569,7 +579,7 @@ label start:
     scene background
     show momo_bed_sleep at top with fade
 
-    $ n([
+    call n([
         "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but to your surprise, his body is taut. Underneath is a muscle-bound creature.",
         "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but same as before, his body is taut. He's especially high-strung.",
         "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but to your surprise, his body is soft. Momo is relaxed.",
@@ -585,7 +595,7 @@ label start:
     else:
         show momo_dream at top with fade
 
-    $ n([
+    call n([
         "In the theater of Momo's mind, there is nothing. The only thing that can be made out is the appearance of a person. Momo is dreaming about someone, and it's most likely you.",
         "In the theater of Momo's mind, he is having a nightmare.",
         "In the theater of Momo's mind, he is thinking about you.",
@@ -600,7 +610,7 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    $ n([
+    call n([
         [
             "You're back in the desert, still in bird's eye view. The particles have ceased to move. You know that you've been waiting a long time, longer than you've waited in real life. You want something to happen.",
 
@@ -641,7 +651,7 @@ label start:
 
     scene background
     show momo_hall at top with fade
-    $ n([
+    call n([
         [
             "\"Momo heard that this country's GDP is on the fritz. Soon, nobody will be making babies anymore. Banks will go under, food will be short, mass suicides all around. Will Momo be there for it?",
 
@@ -714,7 +724,7 @@ label start:
     scene background
     show momo_wake at top with fade
 
-    $ n([
+    call n([
         "Life with Momo is relatively simple. They are a crude mix between a child and a virtual pet. Concerning this, you don't have any particular feelings. However, this does make it difficult when asked questions concerning Momo's identity.",
         "\"Is Momo human?\" he asks. \"Momo wishes for you to be straight with him. Momo already knows he is, but he needs confirmation from another source.\"",
         "\"Momo would like to watch television. Momo believes their show is on.\"",
@@ -744,12 +754,12 @@ label start:
                     scene background
                     show momo_wake_blush at top with fade
 
-                    $ n([
+                    call n([
                         "\"Whoa\". Momo looks to the ceiling in a vague wonder.",
                         "Momo looks to the ceiling with resolve.",
                     ])
 
-                    $ n([
+                    call n([
                         "\"Someday, I will meet this stork and thank him.\"",
                         "\"Maybe one day, I can grow wings and meet Mr. Stork.\"",
                     ])
@@ -758,19 +768,19 @@ label start:
                     scene background
                     show momo_wake_blush at top with fade
 
-                    $ n([
+                    call n([
                         "\"Is human God?\"",
                         "\"Momo has one faith. Humanism. Momo is a humanist. Everything that will ever exist cannot truly exist unless there is a human to witness or perceive it. The universe ends when a human dies.\"",
                     ])
 
-                    $ n([
+                    call n([
                         "You immediately deny such a thing. You can't help but feel, however, that Momo now thinks of you as such.",
                         "You don't know if this is the right application of humanism.",
                     ])
 
         "No":
 
-            $ n([
+            call n([
                 "\"If I'm not human, then why does parent take care of me?\"",
                 "\"Stop. None of this matters. What matters is if Momo is human. Why should you even think about caring for other things?\"",
                 None,
@@ -787,7 +797,7 @@ label start:
 
                     "Reserved for humans? At this line, you take a pause. \"Why would it be reserved for humans?\" you ask."
 
-                    $ n([
+                    call n([
                         "\"Humans are everything. Wouldn't you agree?\" he responds.",
                         "\"Humans are everything. They always have been and always will be.\"",
                     ])
@@ -805,7 +815,7 @@ label start:
                         "Yes Momo":
                             $ points -= 1
 
-                            $ n([
+                            call n([
                                 "Momo has ceased asking questions. You can feel they were hurt by your answer.",
                                 [
                                     "Momo has ceased asking questions. You can feel he was deeply hurt by your answer, though he has tried not to show it.",
@@ -815,7 +825,7 @@ label start:
                             ])
 
                         "No Momo":
-                            $ n([
+                            call n([
                                 "Momo has ceased asking questions.",
                                 "\"Liar,\" Momo says.",
                             ])
@@ -925,7 +935,7 @@ label start:
                 show momo_tv_interest at top with fade
                 $ dragon = False
 
-                $ n([
+                call n([
                     [
                         "\"You'll pay for this, Freemza. On my life, I swear to destroy you. THIS ENDS NOW.\"",
 
@@ -976,7 +986,7 @@ label start:
                 show momo_tv_interest at top with fade
                 $ sheriff = False
 
-                $ n([
+                call n([
                     [
                     "\"I ain't having a swig of this,\" a mustachioed man fitted with a cowboy hat spits on the ground. \"Tastes like my mother's burnt boot.\" The bartender hides his frustration. \"Just give me that whiskey.\"",
 
@@ -1032,7 +1042,7 @@ label start:
         scene background
         show momo_bed_sleep at top with fade
 
-    $ n([
+    call n([
         "After watching tv, you decide it's time for bed. Momo hobbles up the stairs. You cook something for yourself before deciding that it's a good time for bed. Momo sleeps soundly.",
         "After watching tv, you decide it's time for bed.",
         None
@@ -1042,7 +1052,7 @@ label start:
         scene background
         show momo_artichoke_dream at top with fade
 
-        $ n([
+        call n([
             "In the theater of Momo's mind, they are studying hippos. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
             "In the theater of Momo's mind, they are studying hippos. For Momo, their vision has collapsed on this image. They wish to be like Ted. It is all they are currently dreaming of.",
             None
@@ -1051,7 +1061,7 @@ label start:
         scene background
         show momo_steak_dream at top with fade
 
-        $ n([
+        call n([
             "In the theater of Momo's mind, they are Artichoke. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
             "In the theater of Momo's mind, they are Vegenta. Momo likes how strong Vegenta is. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
             None
@@ -1060,7 +1070,7 @@ label start:
         scene background
         show momo_cig_dream at top with fade
 
-        $ n([
+        call n([
             "In the theater of Momo's mind, they are a sheriff. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
             "In the theater of Momo's mind, they are a sheriff. He admires Sheriff Dudley for his consistency. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of.",
             None
@@ -1169,13 +1179,13 @@ label start:
 
                     "\"You are parent.\" Momo stares at his non-existent feet. \"You are parent. I am your son.\""
 
-                    $ n([
+                    call n([
                         "He says a final time, \"You are my parent, and I am your son.\" This time he looks up to you.",
                         "He says a final time, \"This is one fact that you can't contradict, parent.\""
                     ])
                 menu:
                     "Yes, you are Momo! Basically a son!":
-                        $ n([
+                        call n([
                             "\"Good. I'm happy you stopped playing tricks.\" Momo blushes, as he knows you were only just joking. \"Could we have pancakes, human?\"",
                             "\"Good. I'm happy you stopped playing tricks. But Momo will remember this lie.\" Momo blushes, as he knows you were only just joking. \"Could we have pancakes, human?\"",
                             None
@@ -1184,13 +1194,13 @@ label start:
                         "\"Sure thing, bud.\" you reply."
 
                     "I am not your parent. Didn't we already establish this?":
-                        $ n([
+                        call n([
                             "Momo spasms. He puts down the book about hippo facts, and for a moment, stares into blank space. He does not say anything for 5 minutes. He does not move therefafter.",
                             None,
                             "\"Hmmm... Momo had his suspiscion, but even so, this is a slap to his face. You've dropped a reality bomb on Momo.\"",
                         ])
 
-                        $ n([
+                        call n([
                             "Then, as if nothing had happened, Momo picks up the book.",
                             None,
                             "Momo pauses and thinks for a moment. He seems to have emotionally accepted this reality.",
@@ -1207,7 +1217,7 @@ label start:
 
         "Momo has the hair of Artichoke. It's a lost item from your cosplay days. Regretfully, you've still kept it."
 
-        $ n([
+        call n([
             "\"PREPARE TO BE VANQUISHED FREEMZA!\" Momo looks at you vengefully. His hair is a bright yellow and his limbs non-existent.",
             "\"I am the ultimate creature. The paragon of all mortal beings.\" Momo stares at you. His hair is a bright yellow and his limbs non-existent.",
             None
@@ -1217,7 +1227,7 @@ label start:
             "Play along":
                 $ points += 2
 
-                $ n([
+                call n([
                     "\"How dare you try to cross the great emperor Freemza on his march of conquest! Prepare to be annihilated, worm.\" You charge at Momo.",
                     "You charge at Momo. \"You won't get away with this, Artichoke. I swear on all the lives you've taken!\"",
                     "\"So I guess Artichoke's gone! You'll be my prey for today!\"",
@@ -1230,7 +1240,7 @@ label start:
             "Ignore Momo":
                 $ points -= 1
 
-                $ n([
+                call n([
                     [
                         "Momo has been building up an energy wave, but as soon as he releases it. You don't react. You turn away from him and start making lunch.",
 
@@ -1253,7 +1263,7 @@ label start:
                         scene background
                         show momo_deathscreen at top with fade
 
-                        $ n([
+                        call n([
                             [
                                 "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?",
 
@@ -1282,7 +1292,7 @@ label start:
                         scene background
                         show momo_kitchen_front at top with fade
 
-                        $ n([
+                        call n([
                             "\"Okay\", Momo responds.",
                             None,
                             "\"Sure\", Momo responds.",
@@ -1339,7 +1349,7 @@ label start:
             "Ignore Momo":
                 $ points -= 1
 
-                $ n([
+                call n([
                     [
                         "Momo has been ready to draw, but you don't move. You turn away from him and start making your lunch.",
 
@@ -1372,7 +1382,7 @@ label start:
                         scene background
                         show momo_deathscreen at top with fade
 
-                        $ n([
+                        call n([
                             [
                                 "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?",
 
@@ -1401,7 +1411,7 @@ label start:
                         scene background
                         show momo_kitchen_front at top with fade
 
-                        $ n([
+                        call n([
                             "\"Okay\", Momo responds.",
                             None,
                             "\"Sure\", Momo responds.",
@@ -1420,7 +1430,7 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    $ n([
+    call n([
         [
             "It is the dream.",
 
@@ -1479,7 +1489,7 @@ label start:
 
         "Momo has been staring at the mirror since morning. They have not left."
 
-        $ n([
+        call n([
             [
             "\"Why have I grown feet?\" They shuffle in the mirror. \"Why do I look like this?\"",
 
@@ -1499,7 +1509,7 @@ label start:
 
         scene background
         show momo_steak_mirror at top with fade
-        $ n([
+        call n([
             [
             "Momo has been staring at the mirror since morning. They have not left.",
 
@@ -1520,7 +1530,7 @@ label start:
 
         scene background
         show momo_cig_mirror at top with fade
-        $ n([
+        call n([
             [
                 "Momo has been staring at the mirror since morning. They have not left.",
 
@@ -1559,7 +1569,7 @@ label start:
         scene background
         show momo_artichoke_tv at top with fade
 
-        $ n([
+        call n([
             [
                 "To take Momo's mind off his recent transformation, you've decided to play some television for him.",
 
@@ -1593,7 +1603,7 @@ label start:
         scene background
         show momo_steak_tv at top with fade
 
-        $ n([
+        call n([
             [
                 "\"You'll....YOU'LL PAY FOR THIS BOOOOOOOO\"",
 
@@ -1626,7 +1636,7 @@ label start:
         scene background
         show momo_cig_tv at top with fade
 
-        $ n([
+        call n([
             [
                 "To take Momo's mind off his recent transformation, you've decided to play some television for him.",
 
@@ -1745,7 +1755,7 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    $ n([
+    call n([
         [
             "The sky is bright in your dream. A cold chill has found itself in the air, and wherever you are, you feel it.",
 
@@ -1798,7 +1808,7 @@ label start:
         scene background
         show momo_cig_mirror_2 at top with fade
 
-    $ n([
+    call n([
         [
             "You find Momo in front of the mirror. He is staring at himself.",
 
@@ -1898,7 +1908,7 @@ label start:
     $ renpy.music.set_volume(0.00, delay=0, channel='music')
     $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    $ n([
+    call n([
         [
             "With the absence of your shadow, the sun has since dissapeared. Time has continued to pass.",
 
@@ -1954,7 +1964,7 @@ label start:
     scene background
     show momo_hall_empty at top with fade
 
-    $ n([
+    call n([
         "You run to the hallway. It is empty. The light from the streets reflects into the space. Though you cannot see well, you can make out what is behind you.",
         None,
         "You wake up. Momo has not surprised you. You run to the hallway. It is empty. The light from the streets reflects into the space. Though you cannot see well, you can make out what is behind you.",
@@ -1966,7 +1976,7 @@ label start:
     scene background
     show momo_crazy_1 at top with fade
 
-    $ n([
+    call n([
         [
             "\"I don't actually love you? hUH, WHat's that? You DoN'T LOve mE??? WhyYYYYYYYY don'T u LOve Me?\"",
 
@@ -2015,7 +2025,7 @@ label start:
     scene background
     show momo_crazy_2 at top with fade
 
-    $ n([
+    call n([
         [
             "\"If oNly i Was bOrN in a different body.\"",
 
@@ -2044,7 +2054,7 @@ label start:
     scene background
     show momo_crazy_3 at top with fade
 
-    $ n([
+    call n([
         [
             "\"You make me vomit. No human could be this cruel. To raise me as his plaything? I reject it.\"",
 
@@ -2070,7 +2080,7 @@ label start:
     scene background
     show momo_crazy_4 at top with fade
 
-    $ n([
+    call n([
         [
             "Momo reaches for your neck.",
 
@@ -2111,7 +2121,7 @@ label start:
     scene background
     show momo_deathscreen at top with fade
 
-    $ n([
+    call n([
         [
             "A dust storm. Lead in the air. You are in a desert-like area. There is nothing around you besides the sound of your thoughts. You cannot find anyone. It is very lonely.",
 
@@ -2158,7 +2168,7 @@ label start:
 
         "\"...\""
 
-        $ n([
+        call n([
             [
                 "\"Do you think we could still be together?\"",
 
@@ -2260,7 +2270,7 @@ label start:
 
         "All you can see are vague shadows crossing your line of sight. One of the shadows is Momo. They are large and warm. Your leg grazes his body, and to your surprise, he is soft."
 
-        $ n([
+        call n([
             [
                 "\"Can we be friends, parent. Pretty please? Pretty please. Pretty please?\"",
 
@@ -2293,7 +2303,7 @@ label start:
         scene background
         show momo_final_jump_3 at top with fade
 
-        $ n([
+        call n([
             [
                 "\"If my nature has determined that I am meant to love you, then there is only way. I will make a choice against my nature, one that is not predetermined.\"",
 
@@ -2414,7 +2424,7 @@ label start:
 
         "You're about to give your answer, but-"
 
-        $ n([
+        call n([
             [
                 "\"Pretending can be very real. More real than real. Momo is excited! You're Momo's pet now.\"",
 
@@ -2496,7 +2506,7 @@ label start:
 
         "\"Will you be my new [parent]?\" he asks. There is no response. Momo has been ignored, or at least, that's what he believes."
 
-        $ n([
+        call n([
             "\"Please, I had a bad parent last time, but this time, I'll be especially good. For any of you\". Again, there is no response from those passing by.",
             None,
             "\"Please, I want to make at least one new friend before I go.\" Again, there is no response from those passing by.",
@@ -2525,7 +2535,7 @@ label start:
 
         "Momo was completely unaware, and for the better part of 72 hours, he stood there waiting."
 
-        $ n([
+        call n([
             "\"Why does it hurt so much?\" he would ask by the 48 hour mark.",
             None,
             "\"Why doesn't anyone want to play. Is there something wrong with what I'm doing?\" he would ask by the 48 hour mark.",
@@ -2536,7 +2546,7 @@ label start:
         scene background
         show momo_final_window3 at top with fade
 
-        $ n([
+        call n([
             [
                 "By the 72 hour mark, a little more than a week had passed since you received Momo. By this point, he collapsed on the street. Exhausted (or if this truly was his natural lifespan), Momo could not continue.",
 
@@ -2569,7 +2579,7 @@ label start:
         scene background
         show momo_final_window6 at top with fade
 
-        $ n([
+        call n([
             [
             "By the 73rd hour, Momo was smaller than his original size.",
 
