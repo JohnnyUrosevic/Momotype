@@ -270,6 +270,7 @@ label start:
 
                 $ renpy.pause(3, hard=True)
                 $ achievement.grant("COLD_ENDING")
+                $ achievement.sync()
 
                 return
     elif ending_count() == 1:
@@ -2624,7 +2625,7 @@ label start:
     else:
         $ persistent.endings.add("bad")
         $ achievement.grant("BAD_ENDING")
-
+    $ achievement.sync()
     # This ends the game.
     return
 
@@ -2667,6 +2668,7 @@ label start:
 
     $ persistent.endings.add(remaining_ending)
     $ achievement.grant("{0}_ENDING".format(remaining_ending.upper()))
+    $ achievement.sync()
 
     scene background
     show momo_city at top with fade
@@ -3018,5 +3020,8 @@ label start:
     $ ui.interact()
 
     $ renpy.pause(3, hard=True)
+
+    $ achievement.grant("SECRET_ENDING")
+    $ achievement.sync()
 
     return
