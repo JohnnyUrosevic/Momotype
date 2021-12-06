@@ -151,6 +151,7 @@ define config.save_directory = "Momotype-1633596703"
 
 define config.window_icon = "gui/window_icon.png"
 
+define config.hard_rollback_limit = 5
 
 ## Build configuration #########################################################
 ##

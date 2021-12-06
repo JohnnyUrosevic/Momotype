@@ -12,6 +12,12 @@ init python:
     gui.init(1280, 720)
     renpy.music.register_channel("creepy")
 
+    achievement.register("GOOD_ENDING")
+    achievement.register("NEUTRAL_ENDING")
+    achievement.register("BAD_ENDING")
+    achievement.register("COLD_ENDING")
+    achievement.register("SECRET_ENDING")
+
     if persistent.endings is None:
         persistent.endings = set()
 

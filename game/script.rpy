@@ -268,6 +268,9 @@ label start:
 
                 "The monotype asks you a question. You can't hear it."
 
+                $ renpy.pause(3, hard=True)
+                $ achievement.grant("COLD_ENDING")
+
                 return
     elif ending_count() == 1:
         "It's virtually the same as the monotype you previously had."
@@ -2614,10 +2617,13 @@ label start:
 
     if points > 3:
         $ persistent.endings.add("good")
+        $ achievement.grant("GOOD_ENDING")
     elif points >= 0:
         $ persistent.endings.add("neutral")
+        $ achievement.grant("NEUTRAL_ENDING")
     else:
         $ persistent.endings.add("bad")
+        $ achievement.grant("BAD_ENDING")
 
     # This ends the game.
     return
@@ -2660,6 +2666,7 @@ label start:
         pass
 
     $ persistent.endings.add(remaining_ending)
+    $ achievement.grant("{0}_ENDING".format(remaining_ending.upper()))
 
     scene background
     show momo_city at top with fade
