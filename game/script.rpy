@@ -269,8 +269,8 @@ label start:
                 "The monotype asks you a question. You can't hear it."
 
                 $ renpy.pause(3, hard=True)
-                $ achievement.grant("COLD_ENDING")
-                $ achievement.sync()
+                # $ achievement.grant("COLD_ENDING")
+                # $ achievement.sync()
 
                 return
     elif ending_count() == 1:

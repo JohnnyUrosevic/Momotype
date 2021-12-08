@@ -15,7 +15,7 @@ init python:
     achievement.register("GOOD_ENDING")
     achievement.register("NEUTRAL_ENDING")
     achievement.register("BAD_ENDING")
-    achievement.register("COLD_ENDING")
+    achievement.register("RESET")
     achievement.register("SECRET_ENDING")
 
     if persistent.endings is None:
@@ -45,6 +45,8 @@ init python:
         return min(2, len(persistent.endings))
 
     def reset_endings():
+        achievement.grant("RESET")
+        achievement.sync()
         persistent.endings = set()
 
 
