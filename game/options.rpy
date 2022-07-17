@@ -153,6 +153,8 @@ define config.window_icon = "gui/window_icon.png"
 
 define config.hard_rollback_limit = 5
 
+define config.enable_language_autodetect = True
+
 ## Build configuration #########################################################
 ##
 ## This section controls how Ren'Py turns your project into distribution files.

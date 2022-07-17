@@ -18,6 +18,9 @@
     return
 
 label start:
+    if _preferences.language == "japanese":
+        jump start_j
+
     $ points = 0
 
     # Show a background. This uses a placeholder by default, but you can

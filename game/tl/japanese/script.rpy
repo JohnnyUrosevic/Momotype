@@ -1,4593 +1,3014 @@
-﻿# TODO: Translation updated at 2022-07-16 21:00
+﻿label start_j:
+    $ points = 0
 
-# game/script.rpy:42
-translate japanese2 start_dc2d9aa0:
+    # Show a background. This uses a placeholder by default, but you can
+    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # images directory to show it.
 
-    # "Your neighborhood, New Ribosome City"
+    image background = Solid("#3F221C")
+
+    define fade = Fade(0.5, 0.0, 0.5, color="#3F221C")
+
+    $ _game_menu_screen = "preferences"
+
+    if ending_count():
+        jump repeat_playthroughs_j
+
+    play music "audio/momo_music_begin.mp3"
+
+    scene background
+    show momo_city at top with fade
+
+    # These display lines of dialogue.
     "あなたの住む街、 ニューリボソームシティ"
 
-# game/script.rpy:47
-translate japanese2 start_6c885ae7:
+    scene background
+    show momo_dna at top with fade
 
-    # "The chains of DNA spin on your screen. They make a web of helices until the logo of Imitato Corp. appears in a white font. The ad has begun."
     "画面に回転するDNAの鎖が現れます。DNAは螺旋の網となり、やがて白い文字で書かれたImitato Corp.のロゴとなります。CMが始まりました。"
 
-# game/script.rpy:52
-translate japanese2 start_b5b46dbb:
+    scene background
+    show momo_ad at top with fade
 
-    # "They were all the rage in the 2100's. You knew them as monotypes, your digital, pocket friend. You'd feed them, play games with them, and watch them grow. Mom and Dad liked them because there was no cleanup. You liked them because they seemed real!"
     "モノタイプは2100年代に大流行した、ポケットサイズのデジタルフレンド。餌をあげて、一緒にゲームをして、成長を見守りましたよね。手間いらずだから、お父さんもお母さんも大満足。あなたもリアルなお友だちが大好きだったはず！"
 
-# game/script.rpy:54
-translate japanese2 start_7fdc76e3:
-
-    # "With the advent of the digital age, we at Imitato Corp. have noticed society changing."
     "あれからデジタル時代が到来し、私たちImitato Corp.は社会の変化に気づきました。"
 
-# game/script.rpy:56
-translate japanese2 start_5faa6d0a:
-
-    # "Birth rates in this country have hit an all time low, not seen since the plague. Soon, our workforce will be depleted and unemployed. Once this occurs, industry will fail."
     "この国の出生率は、あの疫病以来、過去最低を記録しています。まもなく労働力は枯渇し、大量の失業者が発生し、経済は破綻へと至るでしょう。"
 
-# game/script.rpy:58
-translate japanese2 start_97e97537:
-
-    # "As you all know, this is an existential threat not only to ourselves, but importantly, our GDP."
     "これは私たちだけではなく、大変重要なこと、GDP存亡の危機なのです。"
 
-# game/script.rpy:60
-translate japanese2 start_ec3f2d3b:
-
-    # "Monotypes, our digital, pocket pets, have supported this decline."
     "私たちの提供するデジタルペット、モノタイプは、衰退していく環境での支えとなってきました。"
 
-# game/script.rpy:62
-translate japanese2 start_8f9aa459:
+    "『子どもを持ちたい』\n残念ながら、その願いはこれまでのデジタルペットでは叶えることができませんでした。\nしかし、叶うのです。我々の新製品なら。"
 
-    # "We want people to have kids. This, unfortunately, cannot be accomplished through digital software. It can, however, be accomplished through our new product."
-    "『子どもを持ちたい』"
+    scene background
+    show momo_ad_real at top with fade
 
-    "残念ながら、その願いはこれまでのデジタルペットでは叶えることができませんでした。"
+    "本日、モノタイプの新製品の発売をお知らせします。\nモノタイプが本物に。デジタルがフィジカルに。\n本物のペットのように、抱きしめてください。本物のペットのように、一緒に遊んでください。\n彼らの成長と変化を見届けましょう！"
 
-    "しかし、叶うのです。我々の新製品なら。"
+    "親となる喜びを知りましょう！\n今なら無料でご注文いただけます。\n数量に限りがありますのでお早めに！"
 
-# game/script.rpy:67
-translate japanese2 start_e1578349:
+    menu:
+        "注文しますか？"
 
-    # "Today, we're excited to announce the shipment of our new line of monotypes. The real monotype. The digital enters the physical. Cuddle them like real pets. Play with them like real pets. Watch them grow and change!"
-    "本日、モノタイプの新製品の発売をお知らせします。"
+        "はい":
+            scene background
+            show momo_city at top with fade
 
-    "モノタイプが本物に。デジタルがフィジカルに。"
+            "注文した品は予定より早く届きました。郵便局はモノタイプの注文をあっという間に処理しています。翌日出勤すると、これは政府の支援プログラムであったことがわかります。上司がチームを集め、ミーティングを始めます。"
 
-    "本物のペットのように、抱きしめてください。本物のペットのように、一緒に遊んでください。"
+            "ああ、君の注文はキャンセルになったから。仕事用のものを用意しといたよ。"
 
-    "彼らの成長と変化を見届けましょう！"
-# game/script.rpy:69
-translate japanese2 start_8d49d781:
+            "上司から、社員全員がモノタイプを受け取ることになったと、説明があります。"
 
-    # "Know the joys of parenthood! Order now at no cost. Supplies limited."
-    "親となる喜びを知りましょう！"
+            "『Imitato Corp.と提携しているんですか。』とある従業員が尋ねると、 『その通りだ。』 と上司は答えます。"
 
-    "今なら無料でご注文いただけます。"
+            "『私たちはこの国を動かし続けなければならないんだよ、会社はその変革のための手段となるんだ。』上司は拳を振り上げながら言います。"
 
-    "数量に限りがありますのでお早めに！"
-# game/script.rpy:78
-translate japanese2 start_2255264c:
+            "『給料は支払われないが、1週間などあっという間だ。金曜日にはピザパーティーだ！』"
 
-    # "Your order is coming sooner than expected. The postal service is expediting all monotype orders. When you head to work the next day, you find out that this is a government sponsored program. Your manager corrals your team into a huddle."
-    "注文した品は予定より早く届きました。郵便局はモノタイプの注文をあっという間に処理しています。翌日出勤すると、これは政府の支援プログラムであったことがわかります。上司がチームを集め、ミーティングを始めます。"
+        "いいえ":
+            scene background
+            show momo_city at top with fade
 
-# game/script.rpy:80
-translate japanese2 start_b2f73694:
+            # should we just make the dialogue be spoken by whatever character?
 
-    # "Yup, your order's been canceled. We'll be providing work-issued ones."
-    "ああ、君の注文はキャンセルになったから。仕事用のものを用意しといたよ。"
+            "翌日出勤すると、これが政府の支援プログラムであることがわかります。上司がチームを集め、ミーティングを始めます。上司から、社員全員がモノタイプを受け取ることになった　と、説明があります。"
 
-# game/script.rpy:82
-translate japanese2 start_9788c25a:
+            "『Imitato Corp.と提携しているんですか。』とある従業員が尋ねると、 『その通りだ。』 と上司は答えます。"
 
-    # "He explains that everyone will be receiving a monotype."
-    "上司から、社員全員がモノタイプを受け取ることになったと、説明があります。"
+            "『私たちはこの国を動かし続けなければならないんだよ、会社はその変革のための手段となるんだ。』上司は拳を振り上げながら言います。"
 
-# game/script.rpy:84
-translate japanese2 start_61d5edb7:
+            "『給料は支払われないが、1週間などあっという間だ。金曜日にはピザパーティーだ！』"
 
-    # "\"Has a partnership formed between Imitato Corp?\" an employee asks. \"You're right on the money Christine,\" your manager says."
-    "『Imitato Corp.と提携しているんですか。』とある従業員が尋ねると、 『その通りだ。』 と上司は答えます。"
+    scene background
+    show momo_city at top with fade
 
-# game/script.rpy:86
-translate japanese2 start_9c276dfc:
-
-    # "\"We have to get this country moving, and corporate wants to be that vehicle of change.\" he says, shaking his fist in the air."
-    "『私たちはこの国を動かし続けなければならないんだよ、会社はその変革のための手段となるんだ。』上司は拳を振り上げながら言います。"
-
-# game/script.rpy:88
-translate japanese2 start_a6cefc07:
-
-    # "\"Your hours will be unpaid, but a week will pass by like nothing. Pizza party's on Friday!\""
-    "『給料は支払われないが、1週間などあっという間だ。金曜日にはピザパーティーだ！』"
-
-# game/script.rpy:96
-translate japanese2 start_2f496313:
-
-    # "It turns out that this is a government sponsored program. When you head to work the next day, your manager corrals your team into a huddle. He explains that everyone will be receiving a monotype. "
-    "翌日出勤すると、これが政府の支援プログラムであることがわかります。上司がチームを集め、ミーティングを始めます。上司から、社員全員がモノタイプを受け取ることになった　と、説明があります。"
-
-# game/script.rpy:98
-translate japanese2 start_61d5edb7_1:
-
-    # "\"Has a partnership formed between Imitato Corp?\" an employee asks. \"You're right on the money Christine,\" your manager says."
-    "『Imitato Corp.と提携しているんですか。』とある従業員が尋ねると、 『その通りだ。』 と上司は答えます。"
-
-# game/script.rpy:100
-translate japanese2 start_6b81551e:
-
-    # "\"We have to get this country moving and corporate wants to be that vehicle of change,\" he says, shaking his fist in the air."
-    "『私たちはこの国を動かし続けなければならないんだよ、会社はその変革のための手段となるんだ。』上司は拳を振り上げながら言います。"
-
-# game/script.rpy:102
-translate japanese2 start_a6cefc07_1:
-
-    # "\"Your hours will be unpaid, but a week will pass by like nothing. Pizza party's on Friday!\""
-    "『給料は支払われないが、1週間などあっという間だ。金曜日にはピザパーティーだ！』"
-
-# game/script.rpy:107
-translate japanese2 start_76d5ca3d:
-
-    # "Your home, New Ribosome City"
     "あなたの住む街、 ニューリボソームシティ"
-    
-# game/script.rpy:233
-translate japanese2 repeat_playthroughs_2bc85a66:
 
-    # "The \"monotype\" you ordered has arrived. It has soft skin. Its ears are pointed. They feel like bean bags upon further inspection. It's a monotype but in physical form, as per the ad."
-    ""
+    label repeat_playthroughs_j:
+        pass
 
-# game/script.rpy:235
-translate japanese2 repeat_playthroughs_0ae8301c:
+    scene background
+    show momo_nightmare_1 at top with fade
 
-    # "You want to assume it's a plushie. To your surprise, however, the 'monotype' is warm. The terms of your purchase have not been released."
-    ""
+    $ renpy.music.set_volume(0.00, delay=0, channel='music')
+    $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-# game/script.rpy:249
-translate japanese2 repeat_playthroughs_aec47a2f:
+    call n([
+        "砂嵐だ。空気中に鉛が漂う。\nあなたがいるのは砂漠のような場所。自分の思考の音以外、何の音もしない。何も見えない…",
+        None,
+        "砂嵐だ。空気中に鉛が漂う。\nあなたがいるのは砂漠のような場所。頭の中の空洞で思考がぶつかり合う音だけが響く。鳴り止まなければ、頭が壊れてしまいそうだ。",
+    ]) from _call_n_j
 
-    # "You leave the creature outside. The night ends. You sleep to a blank dream. "
-    ""
+    call n([
+        "明日の友だちは一生の友だち！\n数量限定ですのでお早めに。",
+        [
+            "『僕のこと、愛してくれる？』",
 
-# game/script.rpy:254
-translate japanese2 repeat_playthroughs_7bac6d34:
+            "目が覚めると、首の感覚があります。",
+        ],
+        [
+            "『今回で最後だよ。』\n頭の中で声が聞こえます。",
 
-    # "The next morning, you open your door to see the monotype on your porch. Its body is still. Upon touching the creature, you realize that it's cold. It has frozen to death."
-    ""
+            "あなたは目覚めます。",
+        ]
+    ]) from _call_n_1_j
 
-# game/script.rpy:256
-translate japanese2 repeat_playthroughs_dda0d15f:
+    $ renpy.pause (2.5, hard=True)
+    $ renpy.music.set_volume(1.00, delay=0, channel='music')
+    $ renpy.music.stop(channel="creepy")
 
-    # "You pick up the basket, and after some inspection, throw it and the monotype in the trash. You will be fired the next day."
-    ""
+    if ending_count():
+        play music "audio/momo_music_begin.mp3"
 
-# game/script.rpy:261
-translate japanese2 repeat_playthroughs_16cf6f97:
+    scene background
+    show momo_city at top with fade
 
-    # "Your manager's reasoning, in his words, was that \"this wasn't optional.\" He then wonders \"how you could be so heartless and leave him out in the cold?\" He continues, shaking his fist in the air."
-    ""
+    call n([
+        [
+            "あなたは目覚めます。夢の名残りは過ぎ去り、静寂の中に消えていきます。\n視界が戻ってきます。",
 
-# game/script.rpy:263
-translate japanese2 repeat_playthroughs_d9a2b1b5:
+            "あなたがテレビを見ていると、ドアから物音がします。\n玄関に届け物が来ています。あなた宛てです。",
+        ],
+        [
+            "治ったとはいえ、あなたの喉の皮膚には深く赤黒く、消えることのない痕がぐるりと残っています。",
 
-    # "\"Corporate did not like this. I didn't like this."
-    ""
+            "頭の中で声がします。",
 
-# game/script.rpy:265
-translate japanese2 repeat_playthroughs_7ad9d006:
+            "『たくさんの変数が影響を及ぼすの。例えばあなたの家とか、家具の配置とか。』研究室の室長はずっとモニターを見ています。",
 
-    # "I can't trust you anymore, and neither can your coworkers. You're gone.\""
-    ""
+            "『これは私たちのコントロール下にある。あなたが彼をどうするか、それは独立変数になるの。』",
 
-# game/script.rpy:267
-translate japanese2 repeat_playthroughs_da19e33b:
+            "研究室の白衣には螺旋のシンボルをあしらったImitato Corp.のロゴが縫い付けられています。",
 
-    # "In his lap is a monotype of his own. It will stare at you inquisitively. \"Isn't that right Momo, we don't want this bad person in our office.\" He points at you."
-    ""
+            "『なぜ同じことを繰り返す必要がある？』",
 
-# game/script.rpy:269
-translate japanese2 repeat_playthroughs_aaa33af8:
+            "室長が顔を上げます。",
 
-    # "The monotype asks you a question. You can't hear it."
-    ""
+            "『トライアンドエラー。あなたならその意味、わかるでしょう？』 室長の言葉は本当です。",
 
-# game/script.rpy:277
-translate japanese2 repeat_playthroughs_deaca8c9:
+            "『ニューラルネットワークのマッピングは特異性から始まる。そうすることで初めてマクロレベルの一般化ができるようになる。あなたのケースが、』 彼女は少し息継ぎして続けます。 『最も見込みがあった。』",
 
-    # "It's virtually the same as the monotype you previously had."
-    ""
+            "彼女は続けます。",
 
-# game/script.rpy:285
-translate japanese2 repeat_playthroughs_8d2673af:
+            "『忘れないで、これは重要なことよ。私たちは古いデータではなく、新しいデータを収集しようとしている。新しい配列が必要なの、前と同じものはもう必要ない。』室長が締めくくります。",
 
-    # "Momo is so cute."
-    ""
+            "『で、拒否権はあるのか？』",
 
-# game/script.rpy:296
-translate japanese2 repeat_playthroughs_2c520db9:
+            "室長は微笑みます。 『モノタイプの起動をコントロールする限りはね。どんなスタイルを選ぶにせよ、一貫性を持つのが大事よ。』",
 
-    # "You take the creature inside."
-    ""
+            "彼女はモニターへと振り返ります。",
+        ],
+        [
+            "あなたの記憶は生命のない地球に生命をもたらしたバクテリアの一部のように、初期状態にあります。触媒が現れるには、ある程度の時間が必要です。\nあのジングルが聞こえます。\nさあ思い出して。",
 
-# game/script.rpy:310
-translate japanese2 repeat_playthroughs_a1ef5db3:
+            "Imitato Corp. のロゴが見えます。",
 
-    # "You decide it's time for bed."
-    ""
+            "『ほんとに申し訳ないけれど、』 室長のきれいに整えられた眉がひそめられます。",
 
-# game/script.rpy:340
-translate japanese2 repeat_playthroughs_e20f003b:
+            "『代理人からは、特定のポイントでのみ干渉するように言われている。あなたのバイタルに変化があった時、指令が出るの。』",
 
-    # "Your hear shuffling by your bed. You wake up to see what is moving. The monotype is by your feet."
-    ""
+            "彼女は申し訳なさそうです。",
 
-# game/script.rpy:526
-translate japanese2 repeat_playthroughs_caac8853:
+            "『お気持ち、お察しするわ。』彼女は手を合わせます。\n 『疲れてると思うけど、精神科との面談は無料で提供するから。』",
 
-    # "\"Why not parent?\" he asks."
-    ""
+            "彼女はあなたを見ないように振り返ります。",
 
-# game/script.rpy:528
-translate japanese2 repeat_playthroughs_9eb45b40:
+            "『フェアじゃないのはわかってる。取り繕うつもりもない。でも、私たちにはデータが必要なの。』",
 
-    # "\"I'm tired. Let's call it quits. I don't wanna do this,\" you respond."
-    ""
+            "体の中にある石が、足を通って動脈を通りすぎ、最後には足の裏まで降りてきます。あなたは動けません。",
 
-# game/script.rpy:556
-translate japanese2 repeat_playthroughs_00b28eef:
+            "彼女はまっすぐあなたを見ます。 『あなたの報酬も安全も、すべて補償されているわ。』スクリーンに映ったコードを指さします。『モノタイプがあなたに傷を負わせることはない、少なくとも致命傷はね。これは設計された、ただのAIだから。』",
 
-    # "\"Time for bed\", you say."
-    ""
+            "そしてため息を吐きます。",
 
-# game/script.rpy:694
-translate japanese2 repeat_playthroughs_b9976841:
+            "『もうすぐ終わるわ。あなたは自分で思う以上に、私たちのため頑張ってくれている。本当に感謝してる。』",
+        ]
+    ]) from _call_n_2_j
 
-    # "Momo has not yet decided what to eat. You want him to try new foods."
-    ""
+    scene background
+    show momo_basket_down at top with fade
 
-# game/script.rpy:705
-translate japanese2 repeat_playthroughs_808bd80b:
+    call n([
+        "扉を開けるとそこには、カゴに入った小さな生き物がぐっすりと眠っています。",
+        [
+            "あなたが部屋に戻ると物音が聞こえます。",
 
-    # "According to Momo The artichoke heart looks like a \"flower\", and because flowers are \"pretty\" (his words not yours) he graciously eats it. \"Why is this food shaped this way? Is all food shaped this way? Why do we eat, parent?\""
-    ""
+            "アパートのドアを開けると…",
 
-# game/script.rpy:707
-translate japanese2 repeat_playthroughs_9406318c:
+            "新品のモノタイプがカゴの中で寝ています。ぐっすり眠っています。",
+        ],
+        "モモが家に帰ってきました。もう帰ってこないものだと思っていたのに。\n素晴らしいニュースです！",
+    ]) from _call_n_3_j
 
-    # "You do not have reasonable answers to these queries. \"The world truly is strange,\" Momo says."
-    ""
+    menu:
+        "裏返す":
+            pass
 
-# game/script.rpy:715
-translate japanese2 repeat_playthroughs_fddf03e3:
+    scene background
+    show momo_basket_up at top with fade
 
-    # "\"This was made from a cow? Where do they live?\" Once you explain that they live in mass industrialized farms, Momo stares at his plate. \"Is it okay to eat cows?\" The actual answer is probably not, but humans do so anyways."
-    ""
+    if ending_count() == 0:
+        " 注文した\"モノタイプ\" が届きました。皮は柔らかく、耳は三角です。よく調べてみると、ビーズクッションのような触り心地がします。広告通り、触れることのできるモノタイプです。"
 
-# game/script.rpy:717
-translate japanese2 repeat_playthroughs_bc909f30:
+        "ぬいぐるみのように見えますが、驚いたことに、この「モノタイプ」は暖かいのです。購入条件は明らかではありませんが。"
 
-    # "\"That does not make sense, parent,\" Momo responds. He eats the steak anyways. \"It makes no sense.\""
-    ""
+        menu:
+            "持っていきますか？"
 
-# game/script.rpy:725
-translate japanese2 repeat_playthroughs_1d1147ac:
+            "はい。":
+                pass
 
-    # "Momo does not smoke from the cigarette, but instead, eats the tobacco. From what Imitato Corp. mentioned, monotypes are biodegradable. This comment didn't initially make sense, and even now, as Momo eats through a 12 pack, it still does not."
-    ""
+            "いいえ。外に放置する":
+                scene background
+                show momo_city at top with fade
 
-# game/script.rpy:752
-translate japanese2 repeat_playthroughs_8929e4da:
+                play music "audio/momo_music_middle.mp3"
 
-    # "\"You are human Momo, as human as ever one could be.\""
-    ""
+                "あなたはこの生き物を外に放置します。\n夜が終わります。あなたはまっさらな夢の中で眠ります。"
 
-# game/script.rpy:754
-translate japanese2 repeat_playthroughs_20808e01:
+                scene background
+                show momo_basket_down at top with fade
 
-    # "Momo considers this for a moment. They are hopping around the room in thought."
-    ""
+                "翌朝、モノタイプの様子を見に玄関のドアを開けると、動く様子がありません。触ると、冷たくなっています。凍死しています。"
 
-# game/script.rpy:802
-translate japanese2 repeat_playthroughs_40eace05:
+                "あなたはカゴを拾い上げ、すこし確認した後、カゴとモノタイプをゴミ箱に捨てました。\n翌日、あなたは会社をクビになります。"
 
-    # "Momo looks up at you from the ground. \"Momo thought care was only reserved for humans. That only humans could accomplish such a thing. I never thought of it that way.\""
-    ""
+                scene background
+                show momo_deathscreen at top with fade
 
-# game/script.rpy:804
-translate japanese2 repeat_playthroughs_164df36b:
+                "上司の言い分はこうです。\n『君に選択肢はない。』\n『いったいどうして、君は生き物を寒空の中に放置するなんて、心ない真似ができるんだい？』 上司は拳を振り上げて続けます。"
 
-    # "Reserved for humans? At this line, you take a pause. \"Why would it be reserved for humans?\" you ask."
-    ""
+                "『会社はこういうことを好まない。私もね。』"
 
-# game/script.rpy:846
-translate japanese2 repeat_playthroughs_1d6e09e8:
+                "『私はもう、君を信用することはできない。君の同僚もな。去りたまえ。』"
 
-    # "Today, you've decided to show Momo the world. Through your television. A reflection of the real world."
-    ""
+                "彼の膝の上には、彼のモノタイプがいます。それは興味深そうにあなたを見つめています。\n『だよね、モモ。こんな悪い人とは一緒に働けないよね。』 上司があなたを指さします。"
 
-# game/script.rpy:848
-translate japanese2 repeat_playthroughs_a7479ba1:
+                "モノタイプがあなたに何か問いかけますが、あなたには聞こえません。"
 
-    # "You've placed Momo onto the couch where they can browse a selection of different shows. Momo does not know what television is, however. You turn on your cable box."
-    ""
+                $ renpy.pause(3, hard=True)
+                # $ achievement.grant("COLD_ENDING")
+                # $ achievement.sync()
 
-# game/script.rpy:861
-translate japanese2 tv_33ce4e2e:
+                return
+    elif ending_count() == 1:
+        "これは、前に持っていたモノタイプとほとんど同じものです。"
 
-    # "\"Look at the size of this one, mate.\" A man with an accent is pointing to a hippo. \"What a pretty little lady we got here.\" Along with his camera crew, the presenter is hiding in a bush. He wears a pair of binoculars and khaki shorts."
-    ""
+        menu:
+            "持ち帰る？"
 
-# game/script.rpy:863
-translate japanese2 tv_2cd18f4b:
+            "外で凍え死にさせることはできない":
+                pass
+    else:
+        "モモはとっても可愛いです。"
 
-    # "\"Ol' Bertha's put on a couple hundred. Oh but she's ripe. Gorgeous,\" he licks his lips. The presenter then exits the shade of the bush and runs to the sandy bank where the hippo lies. \"C'MERE BERTHA YOU SLY GAL.\""
-    ""
+        menu:
+            "持ち帰る？"
 
-# game/script.rpy:865
-translate japanese2 tv_56e0db0d:
+            "この子は小さな相棒だ。もちろん持ち帰る。":
+                pass
 
-    # "He enters the water, lifting his legs as fast as he can go. The mother hippo stares the man down, nostrils above water."
-    ""
+    scene background
+    show momo_bed_sleep at top with fade
 
-# game/script.rpy:869
-translate japanese2 tv_92d83700:
+    "あなたはこの生き物を家の中に入れます。"
 
-    # "\"Why does he run?\" Momo asks."
-    ""
+    call n([
+        "『モノタイプの寿命は７日程度です。』\nカゴの中には説明書が入っています。 \n『大切に育てて、成長を見守ってください。モノタイプは人間が大好き。愛情を注ぎ、愛情を返してあげてください。愛情は、モノタイプの幸福に不可欠なものなのです。』",
+        "『最善の結末のため、彼らを愛してください。あるいは愛さないでください。決めるのはあなたです。』",
+        "『最善の結末のため、彼らを愛してください。あるいは愛さないでください。決めるのはあなたです。』",
+    ]) from _call_n_4_j
 
-# game/script.rpy:871
-translate japanese2 tv_ec747db9:
+    call n([
+        "説明書はここまでです。他の説明はありません。",
+        "『愛を込めて。 Imitato Corp.』",
+        "『たくさんの愛とキスとハグをあなたに。 Imitato Corp.』",
+    ]) from _call_n_5_j
 
-    # "\"For footage of the hippo,\" you respond."
-    ""
+    "もう寝る時間です。"
 
-# game/script.rpy:873
-translate japanese2 tv_5161982b:
+    scene background
+    if ending_count:
+        show momo_ad_real at top with fade
+    else:
+        show momo_nightmare_1 at top with fade
 
-    # "Momo takes a moment. \"What does he want to do with hippo?\" The man on the screen grabs the hippo, and subsequently is flung into the air. He is then pulled down under. He does not resurface."
-    ""
+    $ renpy.music.set_volume(0.00, delay=0, channel='music')
+    $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-# game/script.rpy:875
-translate japanese2 tv_be08e3fc:
+    call n([
+        [
+            "粒子の集まりが円を描く。重い物質にかき混ぜられるようだが、それが何かはわからない。\n夢の中で、粒子は形を作ろうとし、振る舞い、やがて嵐へと集まる。",
 
-    # "Between the two of you, there is a long pause. Finally, you speak up."
-    ""
+            "嵐の中には誰もいない。何もない。\nただ、計り知れないほど暗い小さな空間があるだけ。\n視界が遠ざかっていく。",
 
-# game/script.rpy:877
-translate japanese2 tv_5e7d6bd9:
+            "あなたは嵐の中をもっとよく見ようと俯瞰する。人影を見つけたと思うと、すぐに粒子が散ってしまう。繰り返すうちに、ついに自分が完全に孤独であることに気づく。\nそして夢は終わる。",
+        ],
+        "モモの夢を見たんだね。\nで、どのモモだった？",
+        "『生きるのって大変だね。それは誰もが直面する最大の難関だと思うんだ。ほら、こんなにも孤独でしょう。あなたは信じないかもしれないけど、ねえご主人、僕にはほんとうにそれがわかるんだよ。』",
+    ]) from _call_n_6_j
 
-    # "\"Yeah I don't really like him either.\" You decide to change channels."
-    ""
+    $ renpy.pause (2.5, hard=True)
+    $ renpy.music.set_volume(1.00, delay=0, channel='music')
+    $ renpy.music.stop(channel="creepy")
 
-# game/script.rpy:881
-translate japanese2 tv_7d43af46:
+    scene background
+    show momo_wake at top with fade
 
-    # "\"Bertha, please.\""
-    ""
+    "ベッドから物音が聞こえます。\nあなたは起き上がり、なにが動いているのか確かめます。\nモノタイプが足元にいます。"
 
-# game/script.rpy:883
-translate japanese2 tv_d1f53117:
+    call n([
+        "『おはよう、ご主人。モモは一生あなたのそばにいるよ。あなたはモモを愛してる？答えはもう知ってるよ。』",
+        [
+            "『おはよう、ご主人。モモは一生あなたのそばにいるよ。あなたはモモを愛してる？\nねえ、僕はほんとにその答えを知りたいのかな？』",
 
-    # "This is a documentary about the man \"from down under\", a hardened survivalist who is now being divorced by his wife. He is commonly known for his series on hippos."
-    ""
+            "新しいモモの声には迷いがあります。",
+        ],
+        "『ご主人』\nモモは前回と同じように、あなたをじっと見つめます。\n『僕のこと、愛してる？』"
+        ]) from _call_n_7_j
 
-# game/script.rpy:885
-translate japanese2 tv_f3428a0c:
+    $ yes = m([
+        "愛してるよ。",
+        "ほんとに愛してるよ。",
+        "絶対に、心から愛してるよ。",
+    ])
 
-    # "\"I didn't mean it like that.\""
-    ""
+    $ maybe = m([
+        "まだ君のことをほとんど知らない。もっとゆっくりでいい？",
+        "求めすぎだよ、モモ。",
+        "愛は存在しない。少なくとも君の言うような形では。",
+    ])
 
-# game/script.rpy:887
-translate japanese2 tv_cb0b552f:
+    menu:
+        "[yes]":
+            $ points += 1
 
-    # "\"Ted, this is a thrill. I can't go to bed without you talking some shit. 'Here have some more cake, babe. Don't lose them handles, babe, you know it'll be over, babe?' Do you know how toxic this is?\""
-    ""
+            call n([
+                [
+                    "モモはあなたの答えをしっかり聞いていました。でも、なんと答えるかは問題ではありません。\nなんてったってモモは可愛いですから！",
 
-# game/script.rpy:889
-translate japanese2 tv_3eac738e:
+                    "一瞬、モモのお腹がぐぅと鳴ります。\nそういえば、モモはどうやって食べるのでしょう？どうやって喋るのでしょう？",
+                ],
+                [
+                    "まるでモモから肩（肩？）の荷が降りていくようです。",
 
-    # "The man is quiet."
-    ""
+                    "時間が経つと、モモのお腹はぐうぐう鳴り始めます。",
+                ],
+                [
+                    "『よし！』",
 
-# game/script.rpy:891
-translate japanese2 tv_e86ab4d2:
+                    "あなたはモモを掴み、宙へ放り投げます。\n新しい日を、新しい自分として始めるのです！",
 
-    # "\"I mean, what am I to you?\" she asks."
-    ""
+                    "しばらくしてまた、モモのお腹はぐうぐう鳴り始めます。",
+                ],
+            ]) from _call_n_8_j
+        "[maybe]":
+            call n([
+                [
+                    "モモはあなたをじっと見つめます。その単語が登録されてないか、言葉から意味を得ていないように見えます。まるで違う言語を話しているようです。",
 
-# game/script.rpy:893
-translate japanese2 tv_4f80b2d4:
+                    "『でも関係ないでしょ？だいじなのは、あなたが親と定められたってこと。この事実は変えられないよね？』",
 
-    # "\"..ie\", he mumbles."
-    ""
+                    "一瞬、モモのお腹がぐぅと鳴ります。\n思えば、モモはどうやって喋ってるのでしょう？",
+                ],
+                [
+                    "モモはあなたをじっと見つめます。その単語が登録されてないか、言葉から意味を得ていないように見えます。まるで違う言語を話しているようです。",
 
-# game/script.rpy:895
-translate japanese2 tv_302ec07a:
+                    "モモが激しく痙攣します。その体はまるで強く収縮しすぎた筋肉のようです。",
 
-    # "\"What Ted?\""
-    ""
+                    "そしてまた、モモのお腹はぐうぐう鳴り始めます。",
+                ],
+                [
+                    "『わあ、すごく哲学的。』",
 
-# game/script.rpy:897
-translate japanese2 tv_752a16b6:
+                    "そしてまた、モモのお腹はぐうぐう鳴り始めます。",
+                ],
+            ]) from _call_n_9_j
 
-    # "\"My little banana cream pie\""
-    ""
+        "いいえ。":
+            $ points -= 1
 
-# game/script.rpy:899
-translate japanese2 tv_a41143b2:
+            call n([
+                [
+                    "『それは親として間違ってる。モモに嘘つかないで。』モモは淡々と話します。"
 
-    # "The woman, Ted's wife, stands there, staring."
-    ""
+                    "『本当だよ、モモ。私は君をよく知らないし、そんなにすぐに誰かを愛したりしないだろう？』 あなたは答えます。"
 
-# game/script.rpy:904
-translate japanese2 tv_25d97d7e:
+                    "モモがまじまじと見つめます。 \n『あなたが僕に命を与えてくれたんでしょう、違うの？』"
+                ],
+                "『それは親として間違ってる。もしモモに嘘つくなら、』 モモは息継ぎします。\n『覚えてるから。』",
+                "    『うそつき、うそつき、キツネつき！』",
+            ]) from _call_n_10_j
 
-    # "This is a documentary."
-    ""
+            call n([
+                "一瞬、モモのお腹がぐぅと鳴ります。思えば、モモはどうやって喋ってるのでしょう？",
+                None,
+                "そしてまた、モモのお腹はぐうぐう鳴り始めます。",
+            ]) from _call_n_11_j
 
-# game/script.rpy:906
-translate japanese2 tv_738b63ed:
+    menu:
+        "廊下に出る":
+            pass
 
-    # "A ring of men sit around each other in plastic chairs. The light is low, but the entrance, which has been propped open, brings a soft glow into the room. It has stayed open for the past hour."
-    ""
+    scene background
+    show momo_hall at top with fade
 
-# game/script.rpy:908
-translate japanese2 tv_08a329b8:
+    call n([
+        [
+            "『すてきなインテリアセンスだね。すごくポストモダンで…でも、ポストモダンってなあに？本棚にあった本で見たんだけど。』"
 
-    # "\"So Charles, how do you feel when you get these urges?\""
-    ""
+            "ほんとのところ、それが何かあなたにも分かりません。"
 
-# game/script.rpy:910
-translate japanese2 tv_0505769d:
+            "モモはImitate. Corpのジングルをハミングしています。"
+        ],
+        [
+            "『ほんとはこのインテリアデザイン、好きじゃない。見にくいし、自然の光もほとんど入らないし。通りからの光は入るけど。古臭いし、辛気臭いよ。』",
 
-    # "The man looks up to the ceiling and blows some air out. He looks at the ground for a few seconds, then, begins to give his response. He stutters at first."
-    ""
+            "モモはなぜか影が好きではありません。いつも明るいところにいます。",
 
-# game/script.rpy:912
-translate japanese2 tv_7f71577d:
+            "モモはImitate. Corpのジングルをハミングしていますが、あなたがモモを見ると、口ずさむのを止めてしまいます。",
+        ],
+        [
+            "『モモはベンチが大好きなの。』",
 
-    # "\"I don't...I don't know. Out of control? It's the worst part because I convinced myself that I couldn't do anything about it.\""
-    ""
+            "モモはImitate. Corpのジングルをハミングしています。あなたが見つめても、モモは楽しそうに続けます。",
+        ]
+    ]) from _call_n_12_j
 
-# game/script.rpy:914
-translate japanese2 tv_bac7a817:
+    scene background
+    show momo_pancake at top with fade
 
-    # "\"It's very hard Charles.\" The man in the chair looks with sympathetic eyes. \"I completely understand.\""
-    ""
+    call n([
+        "モモは草食？肉食？\nわかりませんが、パンケーキは好きみたいです。モモは元気いっぱいです。",
+        [
+            "モモは草食？肉食？\n心当たりはあります。パンケーキが好きなはずです、前回と同じなら。",
 
-# game/script.rpy:916
-translate japanese2 tv_4e27435e:
+            "『パンケーキが一番！他のどんなものより美味しい食べ物なんだ。シンプルで、単純で。』",
+        ],
+        [
+            "あなたはもう何枚パンケーキを作ったかわかりません。",
 
-    # "Charles continues. \"Sometimes, I'd put a whole stack of butter into my wife's food. Soon it became 2 stacks, then 3. It gave me a rush.\" Charles wipes his face."
-    ""
+            "『パンケーキ、パンケーキ、みんな大好きパンケーキ』",
+        ]
+    ]) from _call_n_13_j
+    menu:
+        "モモと遊ぶ":
+            pass
 
-# game/script.rpy:918
-translate japanese2 tv_77c05329:
+    scene background
+    show momo_throw at top with fade
 
-    # "\"But then afterwards, when she found out, she'd feel betrayed, and I'd sit there like a knob. I kept doing it, and well, here I am, alone.\""
-    ""
+    call n([
+        "モモが宙を舞います。モモは驚くほど重いです。\n『もっと続けて！』\n30分程モモをエキササイズボールのように放り投げてやると、あなたは疲れてしまいました。モモを床に落とすと、そのまま転がっていきます。あなたは息を整えます。",
+        None,
+        "『落とさないでよ、ご主人！』 モモは笑っています。",
+    ]) from _call_n_14_j
 
-# game/script.rpy:920
-translate japanese2 tv_9d6fc169:
+    call n([
+        "どういう状況なのでしょう。モモはそわそわしています。\n 『ご主人、モモはまだ遊びたいんだけど。』",
+        "どういう状況なのでしょう。モモはそわそわしています。\n 『ご主人、もう一回遊べない？もうちょっとだけ。』",
+        "あなたはモモを落としてしまいます、前回と同じように。\n 『ご主人、疲れてるのにごめんね。もう一回遊べる？』",
+    ]) from _call_n_15_j
 
-    # "The man talking to Charles is Ted, the man from down under."
-    ""
+    menu:
+        "続ける":
+            $ points += 1
+            call n([
+                [
+                    "モモをまた宙に放り投げます。ある時、モモの頭（からだ）が天井にぶつかってあなたはびっくりしますが、モモは平気なようです。モモは続けるようお願いします。",
 
-# game/script.rpy:922
-translate japanese2 tv_54139b4f:
+                    "腕が限界になるまで、この動作を繰り返します。",
 
-    # "\"Charles, you are not alone. The key in all of this is whether you act on your thoughts, and everyone here,\" Ted gestures to the other men in the room, \"struggles with that everyday.\""
-    ""
+                    "『ありがとう、ご主人。明日もパンケーキ作ってくれる？』 モモはそう言うと、跳ねていってしまいました。 \nあなたは床に突っ伏します。上の階の廊下から小さくぴょんぴょん跳ねる音が聞こえます。音は寝室へと続き、やがて止まります。",
+                ],
+                [
+                    "モモをまた宙に放り投げます。ある時、モモの頭（からだ）が天井にぶつかります。",
 
-# game/script.rpy:924
-translate japanese2 tv_61c913aa:
+                    "モモは思いっきり放り上げるよう言います。",
 
-    # "\"We're with you Charles, through all your struggles. We're all trying to be better.\""
-    ""
+                    "腕が限界になるまで、この動作を繰り返します。",
 
-# game/script.rpy:926
-translate japanese2 tv_b209dace:
+                    "『ありがとう、ご主人。明日もパンケーキ作ってね。パンケーキだけだよ。』モモが注文します。",
 
-    # "Charles nods his head."
-    ""
+                    "そして、モモは跳ねていってしまいました。\nあなたは床に突っ伏します。",
+                ],
+                [
+                    "またモモを宙に放り投げます。ある時、モモの頭（からだ）が天井にぶつかります。",
 
-# game/script.rpy:928
-translate japanese2 tv_b345cd07:
+                    "『ありがとう、ご主人！最高のご主人だね！』 モモはぴょんぴょん跳んでいきます。",
 
-    # "Ted continues. \"My kid is going to college soon. It took years, but she's finally willing to talk to me again. I'm doing it for her. She's the reason I keep going. God Bless.\""
-    ""
+                    "あなたは床に突っ伏します。",
+                ]
+            ]) from _call_n_16_j
+        "拒否する":
+            "『どうしたの、ご主人？』モモが尋ねます。"
 
-# game/script.rpy:930
-translate japanese2 tv_1a48fb99:
+            "『疲れたよ。もうやめよう、もう無理だ。』あなたは答えます。"
 
-    # "The men continue talking in the low light."
-    ""
+            call n([
+                "モモはリノリウムの床からあなたを見上げます。不満そうな表情が見えます。\n『もう一回だけ。』",
+                "モモはリノリウムの床からあなたを見上げます。不満そうな表情が見えます。\n 『モモを放るのそんなに大変？ほんとに疲れちゃった、ご主人？僕、無理なこと言ってる？』",
+                "モモはあなたを見上げます\n『もう一回ってお願いしたら、やってくれる？』"
+            ]) from _call_n_17_j
 
-# game/script.rpy:1092
-translate japanese2 after_tv_9a6fcf41:
+            menu:
+                "頷く":
+                    call n([
+                            "あなたはモモは子どもなんだからと思い直します。嫌な奴にはなりたくありません。モモはもう一回だけ宙を舞います。",
+                            [
+                                "モモの言うとおりにする？",
 
-    # "In your dream, the particles have formed a shadow. From your height, you believe the shadow to be your own. It is overcast. There is no available light."
-    ""
+                                "あなたはモモを放ります。モモは着地すると、あなたを見上げます。\n『もっとも素晴らしい愛の表現は、行動することなんだって。それって僕にも当てはまるかな？』",
 
-# game/script.rpy:1094
-translate japanese2 after_tv_2dde0cae:
+                                "モモはしばらく考え込みます。\n『たぶんそう、だね。』",
+                            ],
+                            [
+                                "あなたはモモを宙へ抛ります。",
 
-    # "A question arises and presents a contradiction. How can shadows exist if there is no light? You already know why."
-    ""
+                                "『優しいんだね、ご主人。』",
 
-# game/script.rpy:1096
-translate japanese2 after_tv_d9b014f8:
+                                "モモの言葉に含まれているなにか不可解なものが、あなたを不安にさせます。心の底では、優しくなんてないとわかってるみたいです。",
+                            ],
+                    ]) from _call_n_18_j
 
-    # "You descend to the earth. The shadow mimics your movement and rises up. It is not a shadow. It is face to face to you now."
-    ""
+                    "『もう寝る時間だよ。』あなたは言います。"
 
-# game/script.rpy:1098
-translate japanese2 after_tv_c61a2021:
+                "拒否する":
+                    $ points -= 1
 
-    # "When you move your right arm, it moves its right arm. When you move your left, it does the same. This dark formation mimics your every move. You find it unnerving."
-    ""
+                    call n([
+                        "『残念だけど、もう無理だ。』",
+                        None,
+                        "『ごめん、もうできない。』"
+                    ]) from _call_n_19_j
 
-# game/script.rpy:1100
-translate japanese2 after_tv_c3820938:
+                    call n([
+                        "しばし沈黙が流れます。モモはなにも言いません。その顔は幼児を思わせます。",
+                        "しばし沈黙が流れます。モモはなにも言いません。その顔は幼児のようですが、少しだけ大人びています。",
+                        [
+                            "『モモはわかってるよ、すごく疲れてるんだよね。お仕事があるし。モモは不労所得がほしいから、働かないでおこうと思ってるの。』",
 
-    # "You decide to dig into the earth. You want to hide until it goes away."
-    ""
+                            "『さすがだね、モモ。将来どうやってお金を稼ぐつもりだい？』 あなたは尋ねます。",
+                        ],
+                    ]) from _call_n_20_j
 
-# game/script.rpy:1102
-translate japanese2 after_tv_411ca2a9:
+                    call n([
+                        "モモはあなたを見透かすように少し考えた後、ベッドに行くため部屋へと飛び跳ねて行きます。",
+                        "モモは溜め息をつくと、もう２階へ向かっています。",
+                        "モモはしばらく考え込み、返事をすることなく二階へと飛び跳ねていきます。",
+                    ]) from _call_n_21_j
 
-    # "As you descend, the shadow rises into the air and becomes the object projecting its figure onto the earth. You realize that you are the shadow, and the dark formation, by contrast, has become you. You have switched positions. You feel a tinge of regret."
-    ""
+    scene background
+    show momo_bed_sleep at top with fade
 
-# game/script.rpy:1107
-translate japanese2 after_tv_f04d2054:
+    call n([
+        "モモの体はぬいぐるみのようです。べったり寝そべっている体を撫でてあげようとすると、驚いたことにピンと緊張しています。皮膚の下には筋肉が躍動する生物がいます。",
+        "モモの体はぬいぐるみのようです。べったり寝そべっている体を撫でてあげようとしますが、前回と同じくピンと緊張しています。モモはとても神経質なようです。",
+        "モモの体はぬいぐるみのようです。べったり寝そべっている体を撫でてあげようとすると、驚いたことに柔らかくなっています。モモはリラックスしています。",
+    ]) from _call_n_22_j
 
-    # "\"There's a bunker in Southwest Ribo City. Very safe. Well-guarded. A paradise. Can I see you there, friend?\""
-    ""
+    menu:
+        "眠る":
+            pass
 
-# game/script.rpy:1109
-translate japanese2 after_tv_dd7de852:
+    scene background
+    if ending_count() == 1:
+        show momo_nightmare_1 at top with fade
+    else:
+        show momo_dream at top with fade
 
-    # "For some reason, Momo is talking to you in your dreams. Again. And again."
-    ""
+    call n([
+        "モモの心のシアターには何もありません。わかるのは人の影だけ。\nモモは誰かの、おそらくあなたの夢を見ています。",
+        "モモは心のシアターで、悪夢を見ています。",
+        "モモは心のシアターで、あなたのことを考えています。",
+    ]) from _call_n_23_j
 
-# game/script.rpy:1118
-translate japanese2 after_tv_b2e1d3a7:
+    scene background
+    if ending_count():
+        show momo_ad_real at top with fade
+    else:
+        show momo_nightmare_2 at top with fade
 
-    # "Momo has woken up excited. \"Could we try something new?\" he asks."
-    ""
+    $ renpy.music.set_volume(0.00, delay=0, channel='music')
+    $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-# game/script.rpy:1142
-translate japanese2 after_tv_9c659a16:
+    call n([
+        [
+            "あなたはまた砂漠に戻る。俯瞰している。粒子は動きを止めている。\n現実の時間より長く、あなたはずっと待っている。何かが起こるのを待っている。",
 
-    # "In the far corners of your room, Momo has picked up a copy of \"100 facts about Hippos\". You do not know how this book appeared in your house. He has been reading since daytime."
-    ""
+            "これは夢だ。\nけれど粒子、浮遊する視界、果てしない待ち時間のなか、何事もなく何年も過ぎていく。今はこれがすべてだ。",
 
-# game/script.rpy:1148
-translate japanese2 after_tv_0547e987:
+            "待っていたとばかりに、ようやく粒子が動き出す。塵のように散らばっていく。頭上、今いる場所よりもさらに高いところで無数の雨が降り始める。\nあなたは昇っていく。",
 
-    # "\"Hippos can hold their breath for approximately 5 minutes. They cannot swim. Instead, they bound through the water using the force of their feet. Incredible, don't you think?\""
-    ""
+            "あなたは今、雲の中にいる。あなたの下で雨が降る。さらに高い位置から見下ろす。\nついにあなたが観察していないうちに、粒子が集まり始まる。何か明確なものを形成するように見える。",
 
-# game/script.rpy:1154
-translate japanese2 after_tv_188501c1:
+            "手を振っている姿を見て初めて、眼下の姿に気づく。",
+        ],
+        [
+            "『...』",
 
-    # "\"Hippos are known to live in small herds of up to 10 to 20 other hippos. They are led by a dominant hippo, while the others are submissive to him. Essentially, it's a harem. By the way, what is a harem?\""
-    ""
+            "『なんて？』",
 
-# game/script.rpy:1160
-translate japanese2 after_tv_25fc427a:
+            "『...』",
 
-    # "\"According to this researcher, hippos may have consciousness, like that of a human. Some even say that because of their brain size and neural connectivity, it may be similar to that of a pig or a whale."
-    ""
+            "そこは空っぽの空間で、なにも聞こえない。",
+        ],
+        "『僕たちみんなあなたのことを考えてる！』",
+    ]) from _call_n_24_j
 
-# game/script.rpy:1162
-translate japanese2 after_tv_34eb62dd:
+    $ renpy.pause (2.5, hard=True)
+    $ renpy.music.set_volume(1.00, delay=0, channel='music')
+    $ renpy.music.stop(channel="creepy")
 
-    # "Although it's impossible to tell, because as you know, we're not hippos. We're human.\""
-    ""
+    play music "audio/momo_music_middle.mp3"
 
-# game/script.rpy:1168
-translate japanese2 after_tv_7d115beb:
+    scene background
+    show momo_city at top with fade
 
-    # "Momo blushes when you say this. \"Could we have pancakes, human?\"[no_more]"
-    ""
+    menu:
+        "次の日です。"
 
-# game/script.rpy:1170
-translate japanese2 after_tv_6f7a0925:
+        "廊下へ出る":
+            pass
 
-    # "\"Sure thing.\" you reply."
-    ""
+    scene background
+    show momo_hall at top with fade
+    call n([
+        [
+            "『モモはこの国のGDPがおかしくなってるって聞いたよ。もうすぐ、誰も子供を作れなくなるって。銀行は破綻して、食料は不足して、あちこちで集団自殺が起こるんだって。\nそうしたらモモはどこに行けばいいの？",
 
-# game/script.rpy:1176
-translate japanese2 after_tv_b96e28fd:
+            "そうだ、リボシティの南西に避難壕のバンカーがあるんだ。すごく安全だし、備蓄も十分なんだよ。\nどうしてそんなに詳しいのって？\n直感だよ。バンカーの場所を知ってる？",
 
-    # "Momo has been readying another hippo fact until he hears you."
-    ""
+            "教えない。そういう細かいことを話すのはやなんだ。\nねえご主人、質問していい？GDPってなに？』",
 
-# game/script.rpy:1178
-translate japanese2 after_tv_8dcd1a49:
+            "モモはいったん停止します。",
 
-    # "\"Aren't I your son, parent?\""
-    ""
+            "『モモは、実はバンカーが何なのか知らないんだ。パンケーキの一種かな？』",
+        ],
+        [
+            "『モモはバンカーを探さなきゃ。バンカーなら、モモは安全なんだ。誰もモモを傷つけることはできない。金属製のドアの外で誰かがモモの悪口を言うかもしれないけど、モモは気にしないんだ。そこなら大丈夫。バンカーにいればモモは大丈夫。バンカーはどこにあると思う？』",
 
-# game/script.rpy:1180
-translate japanese2 after_tv_4985e77c:
+            "モモは少し考えて立ち止まります。\n『ここだよ。モモにしか見えない道があるんだ。』",
 
-    # "Momo has been readying another hippo fact until he hears you. He stops scanning the book, and his body is furrowed."
-    ""
+            "モモはいったん停止します。",
 
-# game/script.rpy:1182
-translate japanese2 after_tv_52098ad3:
+            "『パンケーキの匂いはしないね。』",
+        ],
+        [
+            "『モモはいつもバンカーの話を聞いてるよ。もう行ったこともあるんだ。すごいんだよ、プールもあるし。食べ物はあまりないけどね。』",
 
-    # "\"What do you mean? Momo is not what? Not human?\""
-    ""
+            "モモはいったん停止します。",
 
-# game/script.rpy:1184
-translate japanese2 after_tv_2f3b5eb0:
+            "『ご飯のにおいがする！ここに住んでて良かった！』",
+        ]
+    ]) from _call_n_25_j
+    menu:
+        "キッチンに向かう":
+            pass
 
-    # "You thought you had already established this, or that Momo had already known this. It seems that raising Momo as a human has been confusing. Is his identity still forming? Is Momo actually just a child?"
-    ""
+    scene background
+    show momo_kitchen_front at top with fade
 
-# game/script.rpy:1186
-translate japanese2 after_tv_edd40463:
+    "モモはまだ何を食べるか決めていません。あなたはモモに新しい食べ物をあげようと思います。"
 
-    # "\"You are parent.\" Momo stares at his non-existent feet. \"You are parent. I am your son.\""
-    ""
+    menu:
+        "モモに何をあげますか？"
 
-# game/script.rpy:1200
-translate japanese2 after_tv_b6ec4c42:
+        "アーティチョーク":
+            scene background
+            show momo_artichoke_food at top with fade
 
-    # "\"Sure thing, bud.\" you reply."
-    ""
+            $ food = "Artichoke"
 
-# game/script.rpy:1224
-translate japanese2 after_tv_91529f76:
+            "モモにはアーティチョークの芯が \"花\"に見えるようです。それに花は \"カワイイ\" (あなたじゃなくモモが言ったんです) から、優しく食べなければダメだと言います。\n『なんでこんな形をしてるの？食べ物って、みんなこんな形なの？なんで僕らは食べるの、ねえご主人？』"
 
-    # "Momo has the hair of Artichoke. It's a lost item from your cosplay days. Regretfully, you've still kept it."
-    ""
+            "あなたは質問に対して、合理的な答えを返せません。\n 『世の中ってほんとに変なの』"
 
-# game/script.rpy:1244
-translate japanese2 after_tv_a1f854db:
+        "ステーキ":
+            scene background
+            show momo_steak_food at top with fade
 
-    # "After numerous energy waves and manly screams, both of you are beat."
-    ""
+            $ food = "Steak"
 
-# game/script.rpy:1307
-translate japanese2 after_tv_4ea0e3d7:
+            "『これって牛からできてるの？牛はどこで暮らしてるの？』 \nあなたが牛は大量生産の農場に暮らしていることを説明すると、モモは皿をじっと見つめます。\n『牛って食べてもいいの？』 \n本当の答えはダメなのかもしれません。けれど、どちらにせよ人間は牛を食べます。"
 
-    # "You make a few pancakes, some for you and some for Momo. You both eat together, side-by-side, on the kitchen table."
-    ""
+            "『そんなの変だよ、ご主人。』 \nモモは問い返します。でも、モモはステーキを食べました。\n『こんなの変だよ。』"
 
-# game/script.rpy:1309
-translate japanese2 after_tv_93be9d28:
+        "煙草":
+            scene background
+            show momo_cig_food at top with fade
 
-    # "It's quiet with some idle conversation strewn in between. Despite the silence, Momo seems content. His cheeks are flushed, and he looks happy."
-    ""
+            $ food = "Cigarette"
 
-# game/script.rpy:1315
-translate japanese2 after_tv_168de875:
+            "モモは煙草を吸いません。その代わりに、タバコを食べます。\nImitato Corp. の言うところによると、モノタイプは生分解性だそうです。この説明の意味は当初わかりませんでした。\nモモがタバコ12パックを食べきった今も、正直わかりません。"
 
-    # "Momo has the hat of Sheriff Dudley. It's a lost item from your childhood days. Regretfully, you've still kept it."
-    ""
 
-# game/script.rpy:1318
-translate japanese2 after_tv_b7e45e50:
+    scene background
+    show momo_wake at top with fade
 
-    # "Give me my alcohol, son."
-    ""
+    call n([
+        "モモとの暮らしは比較的シンプルです。\nモモは子どもとバーチャルペットを粗雑に混ぜたような存在で、特別な感情を抱くことはありませんが、その分、モモの正体を問われると困ってしまいます。",
+        "『モモは人間なの？』 \nモモが聞いてきます。\n『正直に答えて。答えはもう知ってるけど、別のひとから確認する必要があるの。』",
+        "『モモはテレビが見たいな。なにか番組がやってるはずだよ。』",
+    ]) from _call_n_26_j
 
-# game/script.rpy:1325
-translate japanese2 after_tv_10efc96a:
+    $ hippo = True
 
-    # "\"Put yer' hands up Sheriff Dudley, I ain't got time for no games\", you say."
-    ""
+    $ dragon = True
 
-# game/script.rpy:1327
-translate japanese2 after_tv_03f4d0ff:
+    $ sheriff = True
 
-    # "You have a plastic, toy pistol aimed at Momo.\"I've been in and of county cause of you's sheriff,\" you sneer, \"God can reserve his judgement for when I hand it down to you!\""
-    ""
+    if ending_count() == 2:
+        scene background
+        show momo_tv_neutral at top with fade
+        jump tv_j
 
-# game/script.rpy:1329
-translate japanese2 after_tv_56f2c7b8:
+    menu:
+        "『モモは人間なの？』\nモモが聞いてきます。"
 
-    # "Momo blushes. Their hat is tilted, and their mustache large."
-    ""
+        "はい":
+            "『君は人間だよ、モモ。これ以上ないくらい。』"
 
-# game/script.rpy:1331
-translate japanese2 after_tv_17e05b43:
+            "モモはこの答えについてしばらく考えこみます。 じっと考えながら、部屋の中を跳び回ります。"
 
-    # "\"My m-my, son, I'm just tryna h-have a drink.\" Momo is still blushing."
-    ""
+            menu:
+                "『モモはどこから来たの？　モモはどこから生まれてきたの？』"
 
-# game/script.rpy:1333
-translate japanese2 after_tv_dc4d6188:
+                "魔法のコウノトリ":
+                    scene background
+                    show momo_wake_blush at top with fade
 
-    # "Momo makes a whooshing noise. You look down to see a hole in your chest. You fall to the ground. You've been shot by Momo's trigger finger."
-    ""
+                    call n([
+                        "『ふぅん。』\nモモはぼんやりと不思議そうに天井を見つめます。",
+                        "モモはきりっと天井を見つめます。",
+                    ]) from _call_n_27_j
 
-# game/script.rpy:1335
-translate japanese2 after_tv_2cc854dd:
+                    call n([
+                        "『いつかそのコウノトリに会ったら、ありがとうって言わなくちゃ。』",
+                        "『それならいつか羽根が生えて、コウノトリさんに会えるかもね。』",
+                    ]) from _call_n_28_j
 
-    # "\"Almost had me there. Glad that's s-settled. That w-whiskey ain't gonna p-pour itself. On the r-rocks, please.\""
-    ""
+                "神さま":
+                    scene background
+                    show momo_wake_blush at top with fade
 
-# game/script.rpy:1337
-translate japanese2 after_tv_f0dd4271:
+                    call n([
+                        "『人間は神さまなの？』",
+                        "『モモはヒューマニズムを信じてるんだ。僕はヒューマニストだから。存在するすべてのものは、それを目撃したり感じたりする人間がいなければ、真に存在することはできないの。人間が死んだら、宇宙は終わる。』",
+                    ]) from _call_n_29_j
 
-    # "After a few hours of play, you pat Momo on their head. He enjoys this."
-    ""
+                    call n([
+                        "そんなことはないと、あなたは即座に否定します。ですがモモは、今、あなたのことをそう思っているような気がしてなりません。",
+                        "それが正しいヒューマニズムの解釈なのか、あなたには判断できません。",
+                    ]) from _call_n_30_j
 
-# game/script.rpy:1339
-translate japanese2 after_tv_0b3b89dc:
+        "いいえ":
 
-    # "\"That w-whiskey ain't gonna p-pour itself. On the r-rocks, please.\""
-    ""
+            call n([
+                "『僕が人間じゃなかったら、どうしてご主人は僕のこと面倒みてくれるの？』",
+                "『やめて、違うよ。大事なのはモモが人間だってこと。どうして他の存在なんか気にする必要があるの？』",
+                None,
+            ]) from _call_n_31_j
 
-# game/script.rpy:1341
-translate japanese2 after_tv_824d2276:
+            menu:
+                "なぜなら、生きとし生けるものすべてを大切にするべきだからだよ。そうだろう？":
+                    scene background
+                    show momo_wake_blush at top with fade
 
-    # "Momo, to really fit the role of Sheriff Dudley, takes a swig from an imaginary glass."
-    ""
+                    $ points += 1
 
-# game/script.rpy:1343
-translate japanese2 after_tv_9522f044:
+                    "モモは地面からあなたをじっと見上げます。\n 『モモは、誰かを大切に思うっていうのは人間だけのことだと思ってた。そんなことができるのは、人間だけだって。僕はそんなこと、考えてみたことがない。』"
 
-    # "\"This tastes terrible. But you know, it just might work.\""
-    ""
+                    "人間だけとは？\nあなたはモモの言葉に、立ち止まります。\n『どうして人間だけだなんて思ったんだい？』"
 
-# game/script.rpy:1345
-translate japanese2 after_tv_b97343f6:
+                    call n([
+                        "『人間がすべて。そうでしょう？』 モモが答えます。",
+                        "『人間がすべて、でしょ。これまでも、これからも。』",
+                    ]) from _call_n_32_j
 
-    # "\"Now where's my dear Sharlene and Lena.\""
-    ""
+                "それは、お互いにメリットがあるからだよ。君は食事と部屋を手に入れる。私はペットを手に入れる。":
+                    $ points -= 1
 
-# game/script.rpy:1348
-translate japanese2 after_tv_aeb2d707:
+                    $ pet = m([
+                        "『...それ ...だけ？モモは、ペットなの？』",
+                        "『モモはペット。人間じゃない。…ペット？』",
+                    ])
+                    menu:
+                        "[pet]"
 
-    # "\"Oh no, they're gone.\""
-    ""
+                        "そうだよ、モモ":
+                            $ points -= 1
 
-# game/script.rpy:1350
-translate japanese2 after_tv_2503d617:
+                            call n([
+                                "モモは質問をやめます。あなたの答えに傷ついたように見えます。",
+                                [
+                                    "モモは質問をやめます。あなたの答えに深く傷ついたのに、それを見せまいとしているように見えます。",
 
-    # "After a few hours of play, you pat Momo on their head."
-    ""
+                                    "外から、車の音が聞こえます。",
+                                ]
+                            ]) from _call_n_33_j
 
-# game/script.rpy:1426
-translate japanese2 after_tv_4ea0e3d7_1:
+                        "違うよ、モモ":
+                            call n([
+                                "モモは質問をやめます。",
+                                "『嘘つき。』",
+                            ]) from _call_n_34_j
 
-    # "You make a few pancakes, some for you and some for Momo. You both eat together, side-by-side, on the kitchen table."
-    ""
+    $ hippo = True
+    $ dragon = True
+    $ sheriff = True
 
-# game/script.rpy:1428
-translate japanese2 after_tv_93be9d28_1:
+    scene background
+    show momo_tv_neutral at top with fade
 
-    # "It's quiet with some idle conversation strewn in between. Despite the silence, Momo seems content. His cheeks are flushed, and he looks happy."
-    ""
+    "今日はモモに、世の中のことを見せることにします。テレビを通じて。それは現実の世界の反射です。"
 
-# game/script.rpy:1491
-translate japanese2 after_tv_e0490185:
+    "あなたはいろんなチャンネルを見られるよう、モモをソファに置きます。けれどモモはテレビがなんなのか知りません。あなたはテレビのスイッチを入れます。"
 
-    # "Congratulations! Momo has evolved. They have grown hippo feet."
-    ""
+    label tv_j:
+        menu:
+            "どのチャンネルに合わせますか？"
 
-# game/script.rpy:1496
-translate japanese2 after_tv_94154273:
+            "プラネット・カバ" if hippo:
+                $ hippo = False
 
-    # "Momo has been staring at the mirror since morning. They have not left."
-    ""
+                if ending_count() == 0:
+                    scene background
+                    show momo_tv_blank at top with fade
 
-# game/script.rpy:1514
-translate japanese2 after_tv_6202cf46:
+                    "\"この大きさを見てくれよ\" 訛り混じりの男がカバを指さします。 \"なんて可愛らしいお嬢さんなんだ！\" カメラマンの後を付いて、リポーターも藪の中に隠れます。彼は双眼鏡を身に着け、カーキ色のシャツを着ています。"
 
-    # "Congratulations! Momo has evolved. They have grown crab arms."
-    ""
+                    "\"ベルサはなんと200キロもあるんだ。熟れた肉体、セクシーだぜ。\" 彼は舌なめずりをします。そしてリポーターは茂みの陰から、カバのいる砂浜へと走っていきます。 \"出てきな、ベルサ。かわい子ちゃんよお！\""
 
-# game/script.rpy:1535
-translate japanese2 after_tv_6246bb4b:
+                    "彼は水に入り、できるだけ早く足をバタバタさせます。お母さんカバは、水から鼻の穴を出して男をじっと見下ろします。"
 
-    # "Congratulations! Momo has evolved. They have grown a snake tail."
-    ""
+                    $ renpy.pause (2.5, hard=True)
 
-# game/script.rpy:1552
-translate japanese2 after_tv_270c9fee:
+                    "『なんであの人、走ってるの？』モモが尋ねます。"
 
-    # "\"Why is this happening.\""
-    ""
+                    "『カバを撮影するためだよ。』あなたは答えます。"
 
-# game/script.rpy:1554
-translate japanese2 after_tv_8d5f361d:
+                    "モモはちょっと考えます。『あの人はカバと何をするつもりなの？』画面に映った男はカバを掴み、次の瞬間に宙に投げ出されます。そして、水の中へと引きずり込まれました。浮かんできません。"
 
-    # "\"Where are my hands, where are my fingers?\""
-    ""
+                    "あなたたちふたりの間に、長い沈黙が流れます。\nそしてついに、あなたは口を開きます。"
 
-# game/script.rpy:1556
-translate japanese2 after_tv_05933162:
+                    "『そうだね、自分もあんまり彼のこと好きじゃないんだ。』\nあなたはチャンネルを変えることにします。"
+                elif ending_count() == 1:
+                    scene background
+                    show momo_tv_blank at top with fade
+                    "\"頼むよ、ベルサ。\""
 
-    # "\"What happened, parent?\""
-    ""
+                    "これは妻から離婚を切り出された男、そして幾多のサバイバルを繰り広げてきた男のドキュメンタリー \"地球の裏側から来た男\"です。\n彼はカバの事件で有名になりました。"
 
-# game/script.rpy:1676
-translate japanese2 after_tv_180db4d4:
+                    "\"そんなつもりじゃなかったんだ。\""
 
-    # "The tv cuts off. An ad is playing."
-    ""
+                    "\"テッド、ほんとうにうんざりなのよ。あなたのくだらないお喋りを聞かないと、ベッドにも行けないなんて。「もっとケーキを食べろよ、ベイビー」「ハンドルを失くすなよ、ベイビー」「終わりそうかい、ベイビー」 こっちがどんなにしんどいか、あなたにわかる？ \""
 
-# game/script.rpy:1682
-translate japanese2 after_tv_e98491cf:
+                    "男は黙っています。"
 
-    # "\"Well on a basal level it has agency. Like a neuron. Of course, no one really knows if a neuron is conscious or not, but that doesn't mean that it can't scale into what we know as intelligence.\""
-    ""
+                    "\"つまり、あなたにとって私ってなんなの？\" 彼女が尋ねます。"
 
-# game/script.rpy:1684
-translate japanese2 after_tv_d750d934:
+                    "\"..イ\", 彼は呟きます。"
 
-    # "\"What's interesting is that a neuron, or any cell in the body, stills acts 'selfishly',\" the representative widens his eyes, \"but the boundaries of what the cell considers the \"self\" begins to fade when scaled to something like an organ.\""
-    ""
+                    "\"なんですって、テッド？\""
 
-# game/script.rpy:1686
-translate japanese2 after_tv_a6c81f56:
+                    "\"俺のかわいいバナナクリームパイ\""
 
-    # "\"And...?\" This is beyond on the newscaster."
-    ""
+                    "その女性、テッドの妻は立ちすくみ、じっと見つめています。"
+                else:
+                    scene background
+                    show momo_tv_interest at top with fade
 
-# game/script.rpy:1688
-translate japanese2 after_tv_1920d9b2:
+                    "これはドキュメンタリーです。"
 
-    # "The representative continues. \"It means that a neuron will consider the system and everything within that system as one and the same. There is not a single, selfish agent, but a multitude working with maximal cooperation.\""
-    ""
+                    "プラスチックの椅子に座った男性が、円形に並んでいます。明かりは薄暗いですが、開け放たれた入口から柔らかな光が部屋に差し込んでいます。入口はこの1時間、ずっと開けっ放しです。"
 
-# game/script.rpy:1690
-translate japanese2 after_tv_2e6b8a3b:
+                    "\"じゃあ、チャールズ。君は衝動を感じたときに、どう対処している？\""
 
-    # "\"The self is no longer limited to one agent but multiple. It's expanded. In other words, it's defied the evolutionary purpose of reproduction."
-    ""
+                    "男は天井を見上げ、息を吐き出します。何秒間か地面を見て、それから話し出します。最初は、たどたどしい様子で話します。"
 
-# game/script.rpy:1692
-translate japanese2 after_tv_7a1226ad:
+                    "\"僕は...わからないんだよ。制御できないのかな？自分は何もできないと、納得させるしかないんだ。最悪だよ。\""
 
-    # "The cells still operate on the principle of \"selfishness\", but it's not that in reality. It's unselfish. It's true love.\""
-    ""
+                    "\"それは大変だね、チャールズ。\" 椅子に座った男性は同情的な目で彼を見ます。 \"よく分かるよ。\""
 
-# game/script.rpy:1694
-translate japanese2 after_tv_fc0cfa67:
+                    "チャールズは続けます。 \"時々、妻の食事にバターをまるごと入れてたんだ。それはすぐに2個に増え、3個に増えて…。止められなくなった。\" チャールズは袖で顔を拭います。"
 
-    # "The newcaster stares at the man. Then she turns to camera, confused."
-    ""
+                    "\"でも結局、彼女にバレて、裏切ったんだと思われて、僕はただそこに座ってるのが精一杯だった。そんなことを続けてたら、ここで独りで座ることになってたんだ。\""
 
-# game/script.rpy:1696
-translate japanese2 after_tv_22e872c4:
+                    "チャールズと話しているのはテッド、地球の裏側から来た男です。"
 
-    # "\"Very cool thoughts indeed. Thank you for sharing...! Would you like to take over, Kate?\""
-    ""
+                    "\"チャールズ、君だけじゃない。大事なのは、考えを行動に移せるかだ。ここにいる皆もな。\" テッドは部屋にいる他の男たちを示します。 \"みんな、日々闘っているんだ。\""
 
-# game/script.rpy:1698
-translate japanese2 after_tv_ba69892c:
+                    "\"我々は苦難をともに乗り越える仲間なんだ、チャールズ。私たちみんな、より良くなるために努力しているのさ。\""
 
-    # "\"A friend tomorrow is a friend for life!\""
-    ""
+                    "チャールズは頷きます。"
 
-# game/script.rpy:1700
-translate japanese2 after_tv_6c15e34e:
+                    "テッドは続けます。 \"俺の子供はもうすぐ大学生なんだよ。何年もかかったが、あの子もようやくまた俺と話してくれるようになった。彼女がいるから続けられるんだ。なあ。\""
 
-    # "\"Order a monotype today! The digital meets the physical. The most real, organic creation of Imitato Corp. Almost like a human child!\""
-    ""
+                    "男たちは薄明かりのなか、話し続けています。"
 
-# game/script.rpy:1702
-translate japanese2 after_tv_5e8322c7:
+                if not hippo and not dragon and not sheriff:
+                    jump after_tv_j
 
-    # "Momo has been staring at the screen. They have not moved, whether by intention or not. You realize your mistake before it's too late."
-    ""
+                scene background
+                show momo_tv_neutral at top with fade
+                jump tv_j
 
-# game/script.rpy:1704
-translate japanese2 after_tv_e9f5e410:
+            "ドラゴンポール" if dragon:
+                scene background
+                show momo_tv_interest at top with fade
+                $ dragon = False
 
-    # "\"Supplies are limited. Get your very own friend today. Genetically bred to love humans, like a real child!\""
-    ""
+                call n([
+                    [
+                        "\"待ってろ、フリンザ。ぜったいにお前を倒してやる。これで終わりだ！\"",
 
-# game/script.rpy:1706
-translate japanese2 after_tv_667d00b2:
+                        "筋骨隆々の男が画面の中に立っています。しゃがみこんでいるようにも、トイレにいるようにも見えますが、実はパワーアップ中なのです。",
 
-    # "The shot cuts to an eerily similar image of a monotype."
-    ""
+                        "\"スーパー・アングリーだ、あの伝説の！アーティチョーク、なぜお前が？見せてみろ！\" \nベジンタが誰にともなく叫びます。",
 
-# game/script.rpy:1708
-translate japanese2 after_tv_251f15df:
+                        "もう一人の男、アーティチョークは15分間ずっと同じ姿勢のままです。岩が浮き、雷が鳴り、地面から溶岩が噴き出します。その間フリンザは畏怖の念を抱きながら、波打つ筋肉をじっと見ています。",
 
-    # "\"Isn't that right, Momo?\""
-    ""
+                        "この状態がもう20分間続きます。",
 
-# game/script.rpy:1711
-translate japanese2 after_tv_03cffc48:
+                        "この間、アーティチョークとフリンザはお互い呻くだけです。",
 
-    # "\"Come by the bunker, Momo! You'll be safe!\""
-    ""
+                        "40分経ってようやくアーティチョークは気を放ち、髪が金色になります。筋肉がとても大きくなります。フリンザはというと、彼の胸が膨れていくのを畏れています。",
 
-# game/script.rpy:1724
-translate japanese2 after_tv_5454bfa5:
+                        "アーティチョークが話し出すまで沈黙が続きます。彼は一言だけを繰り返します。 ",
 
-    # "The tv ad ends, and the previous programming continues."
-    ""
+                        "\"もう怒ったぞ。\"\nフリンザの顔が紅潮します。そして番組は終わります。",
+                    ],
+                    [
+                        "主人公のアーティチョークが雄叫びをあげます。その筋肉は岩のようです。",
 
-# game/script.rpy:1726
-translate japanese2 after_tv_fdf47f8b:
+                        "\"俺はすべてを超越し、究極の生命体となった。\"\nアーティチョークがエネルギー波を地球に向かって放つと、地球は爆発します。まるで存在しなかったように、地球は太陽系から消え去ります。",
 
-    # "\"Well, that was weird. Momo had no idea what he was saying!\""
-    ""
+                        "\"これが修行の成果だ。\"",
+                    ],
+                    [
+                        "ベジンタがアーティチョークの死体の上に立っています。彼はついにライバルを打ち倒したのです。",
 
-# game/script.rpy:1728
-translate japanese2 after_tv_8b61125c:
+                        "片方の目から涙がこぼれ落ちます。荒野に吹く風が音もなく涙を拭います。",
 
-    # "Momo hops off to bed."
-    ""
+                        "\"どうしてだ、アーティチョーク？なにが望みだった？\"",
 
-# game/script.rpy:1730
-translate japanese2 after_tv_3d2c92e8:
+                        "2週間ずっと、ベジンタはアーティチョークの死体のそばで座り込んでいます。ぴくりとも動きません。そして14日目、彼は涙を拭いよろよろと立ち上がります。",
 
-    # "You complete a quick phone call to the lab head before you call it a night."
-    ""
+                        "ベジンタは宇宙最強の座を手に入れましたが、もっと大きなものを失ったような気がします。",
+                    ],
+                ]) from _call_n_35_j
+                if not hippo and not dragon and not sheriff:
+                    jump after_tv_j
 
-# game/script.rpy:1732
-translate japanese2 after_tv_730f462d:
+                scene background
+                show momo_tv_neutral at top with fade
+                jump tv_j
 
-    # "\"He's not having the same reactions as before,\" you say."
-    ""
+            "新たなる町の保安官" if sheriff:
+                scene background
+                show momo_tv_interest at top with fade
+                $ sheriff = False
 
-# game/script.rpy:1734
-translate japanese2 after_tv_f88bfb1d:
+                call n([
+                    [
+                    "\"こんなの飲めるかよ。\"\nカウボーイハットをかぶり口ひげをたくわえた男が、地面に唾を吐きます。\n\"焼けたブーツの味がしやがる。\"\nバーテンダーは苛立ちを隠しません。\n\"ウイスキーをくれよ。\"",
 
-    # "\"We've been watching,\" she responds. \"It is abnormal, but it's ultimately something we have to analyze retrospectively."
-    ""
+                    "突然、扉が開きます。\n陽光の中から人影が現れます。40代前半ぐらいの、日焼けした、いくつもの傷跡を持つ男です。\n\"保安官ダドリー、藪の中の蛇、罪の化身め。\"\n男は大仰に手を振ります。",
 
-# game/script.rpy:1736
-translate japanese2 after_tv_b7d66bfc:
+                    "\"お前が倒れるまでの間、そのスーツにどれだけ穴を開けられるかな。\"",
 
-    # "\"Keep going. This branch is still holds value, albeit, it seems like an entirely new one. No worries, we'll be monitoring.\""
-    ""
+                    "日焼けした男がリボルバーを抜きます。\n\"主は知っておられた。我が罪と悲しみを、鉄は深く切り裂くと。その意味とは…\"",
 
-# game/script.rpy:1738
-translate japanese2 after_tv_cbcfd8f0:
+                    "\"右のボトル。ああ、それだ。\"\nダドリー保安官は手首を動かし、隅にあるウィスキーのボトルを指さします。バーテンダーは動こうとしません。\n\"おい、早くしろ。\" \n何も起きません。ダドリー保安官はテーブルを指で叩きます。",
 
-    # "You head to bed."
-    ""
+                    "\"ダドリー！\"\n日焼け男が叫びます。\n\"悪魔は業火への新入りを歓迎するだろうよ。私への罪の代償、支払ってもらうぞ！\" \nダドリーはじっと見つめ、そして歯を食いしばります。日焼け男が銃を構えます。",
 
-# game/script.rpy:1740
-translate japanese2 after_tv_5454bfa5_1:
+                    "\"腰抜けか？\"\n保安官は動きません。\n \"銃を抜かないなら、お前はとんだ…\"",
 
-    # "The tv ad ends, and the previous programming continues."
-    ""
+                    "銃声とともに、日焼けした男の頭に穴が開きます。男の口から言葉は出ず、表情が歪みます。そのまま床に倒れこみます。",
 
-# game/script.rpy:1742
-translate japanese2 after_tv_5db0a90d:
+                    "\"おいおい、相棒。\" \nダドリー保安官は不機嫌そうな顔でバーテンダーに言います。\n\"何度言えばわかるんだ。\"",
+                    ],
+                    [
+                        "主人公のダドリー保安官は、バーで酒を飲んでいます。時刻は午前5時。「町の保安官」の第7シーズンです。",
 
-    # "\"You want to go to bed Momo?\" you ask meekly."
-    ""
+                        "妻が木戸から入ってきます。首を巡らせ夫の姿を探しています。",
 
-# game/script.rpy:1744
-translate japanese2 after_tv_ca3f4e33:
+                        "\"ダドリー...あなた一体、なにしてるの？\"",
 
-    # "There is no response, and Momo does not want to give you the courtesy of one. Or at least, that's what seems to be case."
-    ""
+                        "ダドリーは明らかに酔っていて、何も言えません。照れ隠しではなく、物理的に無理なのです。",
 
-# game/script.rpy:1746
-translate japanese2 after_tv_ab054dfa:
+                        "\"このろくでなし！役立たずのクズ野郎。\"",
 
-    # "\"Bed?\" you ask another time."
-    ""
+                        "ダドリー保安官は妻の目を見つめるしかありません。彼女の目から涙が溢れます。",
 
-# game/script.rpy:1748
-translate japanese2 after_tv_bd600a07:
+                        "\"ああ神様、お願いです神様。銀行にどうやって支払えばいいの？もう借りる先がないの。シャーリーンがいるからなんとか生活しないとならないのに。\"",
 
-    # "When no response comes, you inevitably head back to your room. Momo knows where to go, you think."
-    ""
+                        "彼女の腕の中には赤ん坊がいます。",
 
-# game/script.rpy:1753
-translate japanese2 after_tv_f10a4c42:
+                        "\"ここには何もないじゃない。\" \n彼女は泣き出してしまいます。\n \"私は一人ぼっち。それが一番辛いの。\" 何も反応はありません。\n \"お願いダドリー、何か言って。\"",
 
-    # "In the theater of Momo's mind, he is seeing his brothers and sisters!"
-    ""
+                        "ダドリーは一言もしゃべることができません。しかし心の中では、この穴から這い上がれないことがすでに分かっています。",
 
-# game/script.rpy:1800
-translate japanese2 after_tv_96629b73:
+                        "妻は待ちますが、何も言われないとわかると帰っていきます。\n彼女は振り向きません。",
+                    ],
+                    "ダドリー保安官が道端に倒れています。\n彼は肝不全で死んでいます。",
+                ]) from _call_n_36_j
+                if not hippo and not dragon and not sheriff:
+                    jump after_tv_j
 
-    # "Momo is not in bed. You cannot find him."
-    ""
+                scene background
+                show momo_tv_neutral at top with fade
+                jump tv_j
 
-# game/script.rpy:1805
-translate japanese2 after_tv_8da22053:
+    label after_tv_j:
+        scene background
+        show momo_bed_sleep at top with fade
 
-    # "He is not in the hallway."
-    ""
+    call n([
+        "テレビが終わり、あなたはそろそろ寝る時間だと思います。モモは素早く階段を上っていきます。あなたは自分用にご飯を作って寝ます。モモはぐっすりと眠っています。",
+        "テレビが終わり、あなたはそろそろ寝る時間だと思います。",
+        None
+    ]) from _call_n_37_j
 
-# game/script.rpy:1888
-translate japanese2 after_tv_ae7a6b7f:
+    if food == "Artichoke":
+        scene background
+        show momo_artichoke_dream at top with fade
 
-    # "Momo is nowhere to be found for the rest of the day. You head for bed, unable to fall asleep. You are anxious for the new day."
-    ""
+        call n([
+            "モモの心のシアターで、モモはカバの勉強をしています。モモにとって、視界はこのイメージで占められています\n。今、夢見ているのは、このイメージだけです。",
+            "モモの心のシアターで、モモはカバの勉強をしています。モモにとって、視界はこのイメージで占められています。モモはテッドのようになりたいと願っています。\n今、夢見ているのは、このイメージだけです。",
+            None
+        ]) from _call_n_38_j
+    elif food == "Steak":
+        scene background
+        show momo_steak_dream at top with fade
 
-# game/script.rpy:1891
-translate japanese2 after_tv_fa589f5b:
+        call n([
+            "モモの心のシアターで、モモはアーティチョークです。モモにとって、視界はこのイメージで占められています。\n今、夢見ているのは、このイメージだけです。",
+            "モモの心のシアターで、モモはベジンタです。モモはベジンタの強さが好きです。視界はこのイメージで占められています。\n今、夢見ているのは、このイメージだけです。",
+            None
+        ]) from _call_n_39_j
+    else:
+        scene background
+        show momo_cig_dream at top with fade
 
-    # "Imitato Corp. gave you no assurance, but they are watching right now."
-    ""
+        call n([
+            "モモの心のシアターで、モモは保安官です。モモにとって、視界はこのイメージで占められています。\n今、夢見ているのは、このイメージだけです。",
+            "モモの心のシアターで、モモは保安官です。モモはダドリー保安官の落ち着きを尊敬しています。視界はこのイメージで占められています。\n今、夢見ているのは、このイメージだけです。",
+            None
+        ]) from _call_n_40_j
 
-# game/script.rpy:1906
-translate japanese2 after_tv_1ea3fe1f:
+    $ renpy.music.set_volume(0.00, delay=0, channel='music')
+    $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    # "In Momo's dream, they are a [animal]. This is a momentary image, and it fades quickly."
-    ""
+    if ending_count() == 0:
+        scene background
+        show momo_nightmare_2 at top with fade
 
-# game/script.rpy:1908
-translate japanese2 after_tv_cee597bd:
+        "夢の中で粒子が影を作り出す。大きさからすると、影はあなた自身のようだ。周りは見通せず、光はない。"
 
-    # "The [animal] is Momo. Momo is Momo. Everything is Momo."
-    ""
+        "矛盾に疑問が湧く。\n光がないのに、どうやって影ができる。けれどあなたはすでに答えを知っている。"
 
-# game/script.rpy:1910
-translate japanese2 after_tv_0f4793d8:
+        "地面に降り立つ。影もあなたの動きを真似て立っている。それはもう影ではない。今やあなたと向かい合わせに立っている。"
 
-    # "In Momo's dream, they are a [animal]."
-    ""
+        "あなたが右腕を動かすと、それも右腕を動かす。左腕を動かせば、それも左腕を動かす。闇の形成物は一挙手一投足を真似る。落ち着かない気分になる。"
 
-# game/script.rpy:1956
-translate japanese2 after_tv_deb6ee1b:
+        "あなたは地面を掘り進めることにする。それが消え去るまで、隠れていたいと思う。"
 
-    # "\"Wake up parent.\""
-    ""
+        "下っていくにつれ、影は空へと立ち上り、その姿を地上に投影するようになる。自分が影となり、その対照に、闇の形成物が自分となったことに気付く。立場が入れ替わっている。\nあなたは後悔の念に駆られる。"
+    else:
+        scene background
+        show momo_ad_real at top with fade
 
-# game/script.rpy:1958
-translate japanese2 after_tv_c8c4c7bd:
+        "『リボシティの南西部にバンカーがあるんだ。とっても安全で、警備も厳重で、楽園なんだよ。そこで会おうね。』"
 
-    # "\"What is 'Momo' anyways? A pancake? A bunker? Is Momo an idea?\""
-    ""
+        "なぜだかモモが夢の中であなたに話しかけてきます。\n何度も。何度も何度も。"
 
-# game/script.rpy:1960
-translate japanese2 after_tv_b8f58e70:
+    $ renpy.pause (2.5, hard=True)
+    $ renpy.music.set_volume(1.00, delay=0, channel='music')
+    $ renpy.music.stop(channel="creepy")
 
-    # "Momo's body is taut. In the depths of their eyes, you see a tunnel."
-    ""
+    scene background
+    show momo_wake_blush at top with fade
 
-# game/script.rpy:2033
-translate japanese2 after_tv_709a1a03:
+    "モモは起きると元気いっぱいです。\n『なにか新しいことをやってみない？』"
 
-    # "You've entered your living room. The creature has chased after you."
-    ""
+    scene background
+    show momo_kitchen_mirror at top with fade
 
-# game/script.rpy:2161
-translate japanese2 after_tv_894b9b73:
+    $ ui.saybehavior()
+    $ ui.interact()
 
-    # "\"Parent.\""
-    ""
+    scene background
+    show momo_kitchen_shadow at top with fade
 
-# game/script.rpy:2163
-translate japanese2 after_tv_fd8c769d:
+    $ ui.saybehavior()
+    $ ui.interact()
 
-    # "You're conscious."
-    ""
+    scene background
+    show momo_kitchen_stare at top with fade
 
-# game/script.rpy:2165
-translate japanese2 after_tv_828835e3:
+    $ ui.saybehavior()
+    $ ui.interact()
 
-    # "\"I can't see anything. There's nothing in front of me.\""
-    ""
+    if food == "Artichoke":
+        scene background
+        show momo_artichoke_rp at top with fade
 
-# game/script.rpy:2167
-translate japanese2 after_tv_38ef9f82:
+        "部屋のすみから、モモが \"カバに関する100の事実\"という本を見つけてきます。\nこの本が部屋のどこから現れたのかはわかりません。モモは昼間中ずっとその本を読んでいます。"
 
-    # "\"Where am I, parent?\""
-    ""
+        menu:
+            "『ご主人、カバがどんなものか聞きたくない？』"
 
-# game/script.rpy:2169
-translate japanese2 after_tv_0f999433:
+            "聞きたい":
+                "『カバは水の中で5分程度、息を止めることができます。泳ぐことはできません。その代わり、その脚力で水の中を進むことができるのです、だって。そんなの信じられなくない？』"
 
-    # "There's a long pause. You cannot say a word as your throat's been crushed."
-    ""
+        menu:
+            "『カバについて、他にも教えてあげるね。』"
 
-# game/script.rpy:2171
-translate japanese2 after_tv_5eab3e6a:
+            "わかった":
+                "『カバは10から20頭程度の小さな群れで生活することが知られています。ボスのカバは群れを率い、他のカバはそれに従います。つまりハーレムを形成するのです、って。ねえねえ、ハーレムってなに？』"
 
-    # "All around you, there is darkness. The lights from the street illuminate everything into vague shapes but nothing you can truly make out."
-    ""
+        menu:
+            "『すっっっっごーーーい、あとカバについてはね、』"
 
-# game/script.rpy:2173
-translate japanese2 after_tv_efd95a05:
+            "ああ、":
+                "『研究者によると、カバには人間のように意識があるかもしれないそうです。脳の大きさや神経接続性から、豚や鯨に近いと言う人もいます、だって。"
 
-    # "You hear the sound of your heart beating, and in this dark room, the air sits heavy."
-    ""
+                "でも、そんなのわからないよね。だって僕たちカバじゃなくて、人間なんだから。』"
 
-# game/script.rpy:2175
-translate japanese2 after_tv_180977bd:
+        menu:
+            "そのとおりだよ、モモ。私たちは人間だ。":
+                $ no_more = "No more artichoke?" if ending_count() else 0
 
-    # "\"I can't see myself parent. I can't.\""
-    ""
+                "そう言うと、モモは頬を赤らめます。 『パンケーキを食べようよ、人間さん？』[no_more]"
 
-# game/script.rpy:2177
-translate japanese2 after_tv_da557848:
+                "『そうだね』 とあなたは答えます。"
 
-    # "\"You're here, aren't you parent?\""
-    ""
+                $ points += 2
 
-# game/script.rpy:2179
-translate japanese2 after_tv_07160075:
+            "君は人間じゃないんだ、モモ。":
+                if ending_count() == 2:
+                    "モモはあなたがなにか言うまで、ずっとカバの説明を読んでいます。"
 
-    # "\"...\""
-    ""
+                    "『僕はあなたの子供じゃないの？』"
+                else:
+                    "モモはあなたがなにか言うまでずっと、カバの説明を読んでいます。\nモモが本をめくるのを止めると、その体は波打ちます。"
 
-# game/script.rpy:2202
-translate japanese2 after_tv_cff4aa6b:
+                    "『どういうこと？じゃあ、モモはなんなの？人間じゃないの？』"
 
-    # "Momo has turned to you."
-    ""
+                    "あなたは、このことについてちゃんと説明したか、モモはもう知っていると思っていました。モモを人間のように育てることで、混乱させてしまったのかもしれません。\nモモのアイデンティティはまだ出来上がっていない？モモはまだ単なる子供でしょうか？"
 
-# game/script.rpy:2204
-translate japanese2 after_tv_87f3d4a6:
+                    "『あなたは親なんだよ。』\nモモは存在しない足をじっと見つめています。\n『あなたは親。そして、僕は息子なんだ。』"
 
-    # "\"You've treated me like your son, parent. Upon further review, this is more than I could ever ask for.\""
-    ""
+                    call n([
+                        "モモが最後に言います。\n『あなたは親、僕はあなたの息子。』\nそう言って今度はあなたを、じっと見つめます。",
+                        "モモが最後に言います。\n『これは反論できない事実だから。』"
+                    ]) from _call_n_41_j
+                menu:
+                    "そうだよ、モモ！わが息子よ！":
+                        call n([
+                            "『よかった、イタズラを言うのをやめてくれて。』\nあなたが冗談を言っただけだと知って、モモは頬を赤らめます。\n『パンケーキを食べようよ、人間さん？』",
+                            "『よかった、イタズラを言うのをやめてくれて。でもモモに嘘ついたのは忘れないから。』\nあなたが冗談を言っただけだと知って、モモは頬を赤らめます。\n『パンケーキを食べようよ、人間さん？』",
+                            None
+                        ]) from _call_n_42_j
 
-# game/script.rpy:2207
-translate japanese2 after_tv_811f7fa1:
+                        "『そうだね、坊や』と あなたは返します。"
 
-    # "\"I can forgive you for your past actions.\""
-    ""
+                    "私は君の親じゃない。これについては、お互い了解済みじゃないか？":
+                        call n([
+                            "モモは発作を起こします。カバの本を取り落とし、しばらく何もない場所を見つめています。５分ほど何も言いません。その後も動きません。",
+                            None,
+                            "『うーーーん…疑ってはいたんだけど、それでも突然平手打ちされたみたい。あなたはモモに、現実という名の爆弾を落としたんだね。』",
+                        ]) from _call_n_43_j
 
-# game/script.rpy:2209
-translate japanese2 after_tv_152fc580:
+                        call n([
+                            "そして、何事もなかったようにモモは本を拾います。",
+                            None,
+                            "モモはしばらく停止し考えています。この現実に対する感情を受け止めているようです。",
+                        ]) from _call_n_44_j
+                        menu:
+                            "『ねえ、ご主人。ほかにもカバのこと、知りたくない？』"
 
-    # "Your vision is receding."
-    ""
+                            "ベッドへ向かう":
+                                pass
 
-# game/script.rpy:2214
-translate japanese2 third_playthrough_good_99783cd4:
+    elif food == "Steak":
+        scene background
+        show momo_steak_rp at top with fade
 
-    # "\"Maybe I can become human? Maybe we can be together, joined at the hip, as a unit? Not father and son, but something different.\""
-    ""
+        "モモの髪がアーティチョークになっています。これはあなたのコスプレ時代の忘れ物です。 驚くことに、まだ残っていたのです。"
 
-# game/script.rpy:2216
-translate japanese2 third_playthrough_good_b0326cb6:
+        call n([
+            "『フリンザを倒すために修行するぞ！』モモが攻撃的な目であなたを見ます。その髪は金色に光り、その足は存在しません。",
+            "『僕は究極生命体、すべての死すべき生き物の模範なんだ。』モモはじっとあなたを見つめます。その髪は金色に光り、その足は存在しません。",
+            None
+        ]) from _call_n_45_j
 
-    # "Particles. Lead in the air. In Momo's eyes, you begin to see a tunnel."
-    ""
+        menu:
+            "いっしょに遊ぶ":
+                $ points += 2
 
-# game/script.rpy:2218
-translate japanese2 third_playthrough_good_07160075:
+                call n([
+                    "『偉大なるフリンザ皇帝の凱旋に逆らうとは！覚悟はあるだろうな、虫けらめ。』 あなたはモモに突撃します。",
+                    "あなたはモモに突進します。『アーティチョーク、これで済むと思うなよ。お前が奪った仲間の命に誓って！』",
+                    "『アーティチョークはもういないようだな！今日の獲物はお前だ！』",
+                ]) from _call_n_46_j
 
-    # "\"...\""
-    ""
+                $ renpy.pause (2.5, hard=True)
 
-# game/script.rpy:2220
-translate japanese2 third_playthrough_good_62e2a0f7:
+                "いくつものエネルギー波の轟音と男たちの叫び声が響いた後、あなたたちは両方とも倒れます。"
 
-    # "\"What will it be like? I'm sure we'll be okay. As long as can I be with you.\""
-    ""
+            "モモを無視する":
+                $ points -= 1
 
-# game/script.rpy:2222
-translate japanese2 third_playthrough_good_1e0b6a24:
+                call n([
+                    [
+                        "モモはエネルギー波を溜めていますが、すぐに放出してしまいます。あなたは反応しません。背を向けて、食事を作り始めます。",
 
-    # "Momo has begun to open their mouth. Light enters the room from the outside. It's coming from a streetlamp or... Is it coming from Momo?"
-    ""
+                        "モモは後ろからあなたをじっと見ています。大きな声を出してエネルギー波を放ち続けますが、あなたは反応しません。\n『ご主人、お願いだから一緒に遊んでくれない？』\nあなたはモモを無視します。",
 
-# game/script.rpy:2224
-translate japanese2 third_playthrough_good_160db3f3:
+                        "しばらくして、モモはごっこ遊びを止めてしまいます。黙ったまま、目を伏せています。これ程目に見えてモモが気分を害することはほとんどありません。",
 
-    # "\"I wonder if I can truly become human.\""
-    ""
+                        "『ご主人、モモがお願いしすぎちゃったんだよね。ごめんなさい。』\nモモの目はうるんでいます。",
 
-# game/script.rpy:2229
-translate japanese2 third_playthrough_good_4457bdc7:
+                        "『モモ、なにか悪いことした？』",
+                    ],
+                    None,
+                    "『モモとエネルギー弾を発射して遊ぼうよ。きっと楽しいよ、ね。』",
+                ]) from _call_n_47_j
+                menu:
 
-    # "In Momo's mouth you see a collection of particles. They are indivisible and numerous. There are too many too count. The universe has expanded and collapsed on a single point."
-    ""
+                    "君は割り当てられた仕事の一部なんだから、コミュニケーションは最低限でいこう。OK？":
+                        $ points -= 1
 
-# game/script.rpy:2231
-translate japanese2 third_playthrough_good_79adb2e1:
+                        scene background
+                        show momo_deathscreen at top with fade
 
-    # "Momo gets closer. The tunnel sucks you in."
-    ""
+                        call n([
+                            [
+                                "『モモは…迷惑なの？』\nこれはモモが自らを省みる数少ない機会のようだ。それとも、前からこうだっただろうか？",
 
-# game/script.rpy:2233
-translate japanese2 third_playthrough_good_ebf75ad2:
+                                "『そうだよ、会社の仕事の一部として君を引き取ったんだ。ほかに選択肢もなかったし。』\nあなたはモモに背を向け、２階に向かいます。階下から、くぐもった嗚咽が聞こえてきます。",
+                            ],
+                            [
+                                "『モモは…迷惑なの？』\nこれはモモが自らを省みる数少ない機会のようだ。それとも、前からこうだっただろうか？",
 
-    # "When you enter, it's neither painful nor painless. It is warm."
-    ""
+                                "『そうだよ、会社の仕事の一部として君を引き取ったんだ。ほかに選択肢もなかったし。仕方なくね。』\nあなたはモモに背を向け、２階に向かいます。階下から、くぐもった嗚咽が聞こえてきます。",
+                            ],
+                            [
+                                "『仕事のため？』",
 
-# game/script.rpy:2235
-translate japanese2 third_playthrough_good_27926806:
+                                "『そうだよ、会社の仕事の一部として君を引き取ったんだ。ほかに選択肢もなかったし。わかってくれないか、モモ。』あなたは答えます。",
 
-    # "By the time you reach the center, you begin to understand what Momo meant. You feel the particles align in an order which makes sense. Entropy has vanished."
-    ""
+                                "『大丈夫だよ、ご主人。モモ、わかってるから。あなたは一日中モモの面倒を見てたんだよね。モモはわかってるから。』",
+                            ],
+                        ]) from _call_n_48_j
+                        menu:
+                            "ベッドに向かう":
+                                pass
 
-# game/script.rpy:2237
-translate japanese2 third_playthrough_good_364ef6cb:
+                    "いや、疲れてるんだ。ちょっと休まないか？":
+                        $ points += 2
 
-    # "You are the same as Momo, and Momo is the same as you. There are no shadows. And finally, there is no light."
-    ""
+                        scene background
+                        show momo_kitchen_front at top with fade
 
-# game/script.rpy:2239
-translate japanese2 third_playthrough_good_dda6c5bc:
+                        call n([
+                            "『わかった。』モモは答えます。",
+                            None,
+                            "『そうだね。』モモは答えます。",
+                        ]) from _call_n_49_j
 
-    # "For once, you do not feel alone. You will never feel alone."
-    ""
+                        "あなたはパンケーキを焼きます。何枚かを自分で食べ、何枚かはモモにあげます。あなたたちはキッチンテーブルに並んで座って、いっしょに食べます。"
 
-# game/script.rpy:2247
-translate japanese2 third_playthrough_good_f45928e2:
+                        "ふたりの間には、のんびりとした会話を挟んだ静かな時間が流れます。静けさにも関わらず、モモは満足しているようです。モモの頬は赤く、幸せそうです。"
 
-    # "You wake up. You're in your kitchen."
-    ""
+    else:
+        scene background
+        show momo_cig_rp at top with fade
 
-# game/script.rpy:2249
-translate japanese2 third_playthrough_good_4638df4a:
+        "モモはダドリー保安官の帽子をかぶっています。これは子供時代からの忘れ物です。驚くことに、まだ残っていたのです。"
 
-    # "Momo is gone and nowhere to be found. When you search around your room you cannot find him hiding. You're frantic."
-    ""
+        if ending_count():
+            "酒をくれないか、なあ。"
 
-# game/script.rpy:2251
-translate japanese2 third_playthrough_good_0f8102af:
+        menu:
+            "一緒に遊ぶ":
+                $ points += 2
 
-    # "\"Momo!\" you yell."
-    ""
+                if not ending_count():
+                    "『手を上げな、ダドリー保安官。これはお遊びじゃないんだぜ。』 あなたは言います。"
 
-# game/script.rpy:2253
-translate japanese2 third_playthrough_good_85f53dbd:
+                    "あなたは手に持ったプラスチックのおもちゃの銃を、モモに向けます。\n『保安官、あんたのせいで俺はブタ箱行きになったんだ。』 \nそして鼻で笑います。\n『お前をあの世に送り込むまで、神の裁きはお預けだ！』"
 
-    # "But there is no response. You look to your window. Something is calling you outside, though you can't tell what."
-    ""
+                    "モモの頬は紅潮しています。帽子をかしげ、大きな口髭をたくわえています。"
 
-# game/script.rpy:2255
-translate japanese2 third_playthrough_good_5af256fa:
+                    "『な、なあ、頼むよ。酒を、く、くれないか。』モモの顔は赤いままです。"
 
-    # "It's a irresistable urge. Then, you remember the words."
-    ""
+                    "モモがピュンと音を立てます。下を見ると、あなたの胸に穴が空いています。あなたは地面に崩れ落ちます。モモの引き金があなたを撃ち抜いたのです。"
 
-# game/script.rpy:2257
-translate japanese2 third_playthrough_good_aed9f8db:
+                    "『危ないところだったな。よ、よかったぜ。ウ、ウイスキーは勝手に注げないからな。ロ、ロックで頼むよ。』"
 
-    # "\"Come to the bunker.\""
-    ""
+                    "何時間かのごっこ遊びの後、あなたはモモの頭をポンポンと叩きます。モモは楽しそうです。"
+                else:
+                    "『ウ、ウイスキーは勝手に注げないからな。ロ、ロックで頼むよ。』"
 
-# game/script.rpy:2265
-translate japanese2 third_playthrough_good_894b9b73:
+                    "ダドリー保安官の役になりきったモモは、想像上のグラスをぐいと飲み干します。"
 
-    # "\"Parent.\""
-    ""
+                    "『ひどい味だけど、それがいいのかもね。』"
 
-# game/script.rpy:2267
-translate japanese2 third_playthrough_good_fd8c769d:
+                    "『わが愛しのシャーリーンとレナはどこにいるんだ。』"
 
-    # "You're conscious."
-    ""
+                    if ending_count() == 2:
+                        "『おっと、いなくなっちまったようだな。』"
 
-# game/script.rpy:2269
-translate japanese2 third_playthrough_good_828835e3:
+                    "何時間かのごっこ遊びの後、あなたはモモの頭をポンポンと叩きます。"
+                menu:
+                    "ベッドに向かう":
+                        pass
 
-    # "\"I can't see anything. There's nothing in front of me.\""
-    ""
+            "モモを無視する":
+                $ points -= 1
 
-# game/script.rpy:2271
-translate japanese2 third_playthrough_good_38ef9f82:
+                call n([
+                    [
+                        "モモは引き金を引く準備をしているのに、あなたは振り返りません。あなたはモモから離れ、食事の準備を始めます。",
 
-    # "\"Where am I, parent?\""
-    ""
+                        "モモは背後からじっと見つめています。引き金に指（指？）をかけて準備していますが、あなたは反応しません。\n『ご主人、遊んでくれてもいいんだよ？』\nあなたはモモを無視します。",
 
-# game/script.rpy:2273
-translate japanese2 third_playthrough_good_a071bb21:
+                        "しばらくして、モモはごっこ遊びを止めてしまいます。黙ったまま、目を伏せています。これ程目に見えてモモが気分を害することはほとんどありません。",
 
-    # "There's a long pause. You cannot say a word as your throat's been crushed. All around you, there is darkness. The lights from the street illuminate everything into vague shapes but nothing you can truly make out."
-    ""
+                        "『ご主人、モモが子供っぽくしすぎたんだよね。ごめんなさい。』\nモモの目はうるんでいます。",
 
-# game/script.rpy:2275
-translate japanese2 third_playthrough_good_efd95a05:
+                        "『モモ、なにか悪いことした？』",
+                    ],
+                    [
+                        "モモは空想上のお酒を一気飲みする気まんまんです。けれどあなたはモモに背を向け、食事の準備を始めます。",
 
-    # "You hear the sound of your heart beating, and in this dark room, the air sits heavy."
-    ""
+                        "『ご主人、遊んでくれてもいいんだよ？』\nあなたはモモを無視します。",
 
-# game/script.rpy:2277
-translate japanese2 third_playthrough_good_180977bd:
+                        "しばらくして、モモはごっこ遊びを止めてしまいます。黙ったまま、目を伏せています。これ程目に見えてモモが気分を害することはほとんどありません。",
 
-    # "\"I can't see myself parent. I can't.\""
-    ""
+                        "『ご主人、モモが子供っぽくしすぎたんだよね。ごめんなさい。』\nモモの目はうるんでいます。",
 
-# game/script.rpy:2279
-translate japanese2 third_playthrough_good_64081b14:
+                        "『モモ、なにか悪いことした？』",
+                    ],
+                    "『飲み友だちと一杯やろうよ、ご主人。』",
+                ]) from _call_n_50_j
+                menu:
 
-    # "\"Where am I and where are you? I had one more thing to ask.\""
-    ""
+                    "君は割り当てられた仕事の一部なんだから、コミュニケーションは最低限でいこう。OK？":
+                        $ points -= 1
 
-# game/script.rpy:2281
-translate japanese2 third_playthrough_good_68c9304a:
+                        scene background
+                        show momo_deathscreen at top with fade
 
-    # "All you can see are vague shadows crossing your line of sight. One of the shadows is Momo. They are large and warm. Your leg grazes his body, and to your surprise, he is soft."
-    ""
+                        call n([
+                            [
+                                "『モモは…迷惑なの？』\nこれはモモが自らを省みる数少ない機会のようだ。それとも、前からこうだっただろうか？",
 
-# game/script.rpy:2304
-translate japanese2 third_playthrough_neutral_c5670887:
+                                "『そうだよ、会社の仕事の一部として君を引き取ったんだ。ほかに選択肢もなかったし。』\nあなたはモモに背を向け、２階に向かいます。階下から、くぐもった嗚咽が聞こえてきます。",
+                            ],
+                            [
+                                "『モモは…迷惑なの？』\nこれはモモが自らを省みる数少ない機会のようだ。それとも、前からこうだっただろうか？",
 
-    # "Momo takes one more look at himself."
-    ""
+                                "『そうだよ、会社の仕事の一部として君を引き取ったんだ。ほかに選択肢もなかったし。仕方なくね。』\nあなたはモモに背を向け、２階に向かいます。階下から、くぐもった嗚咽が聞こえてきます。",
+                            ],
+                            [
+                                "『仕事のため？』",
 
-# game/script.rpy:2337
-translate japanese2 third_playthrough_neutral_112940a7:
+                                "『そうだよ、会社の仕事の一部として君を引き取ったんだ。ほかに選択肢もなかったし。わかってくれないか、モモ。』あなたは答えます。",
 
-    # "Momo has jumped onto the city streets. They have hit the ground with a tremendous thud. You think you see Momo's shadow, but in fact, a pool of blood has begun to form."
-    ""
+                                "『大丈夫だよ、ご主人。モモ、わかってるから。あなたは一日中モモの面倒を見てたんだよね。モモはわかってるから。』",
+                            ],
+                        ]) from _call_n_51_j
+                        menu:
+                            "ベッドに向かう":
+                                pass
 
-# game/script.rpy:2339
-translate japanese2 third_playthrough_neutral_1e9d4e0b:
+                    "いや、疲れてるんだ。ちょっと休まないか？":
+                        $ points += 2
 
-    # "There are no lights to illuminate Momo's form. They are pitch black. From what you can assume, Momo has died."
-    ""
+                        scene background
+                        show momo_kitchen_front at top with fade
 
-# game/script.rpy:2342
-translate japanese2 third_playthrough_neutral_ac579838:
+                        call n([
+                            "『わかった。』モモは答えます。",
+                            None,
+                            "『そうだね。』モモは答えます。",
+                        ]) from _call_n_52_j
 
-    # "\"Whoa, is Momo a superstar?\""
-    ""
+                        "あなたはパンケーキを焼きます。何枚かを自分で食べ、何枚かはモモにあげます。あなたたちはキッチンテーブルに並んで座って、いっしょに食べます。"
 
-# game/script.rpy:2344
-translate japanese2 third_playthrough_neutral_d66d1cd0:
+                        "ふたりの間には、のんびりとした会話を挟んだ静かな時間が流れます。静けさにも関わらず、モモは満足しているようです。モモの頬は赤く、幸せそうです。"
 
-    # "Your tv has been turned on. The glow from behind draws you closer."
-    ""
+    scene background
+    if ending_count():
+        show momo_ad_real at top with fade
+    else:
+        show momo_nightmare_3 at top with fade
 
-# game/script.rpy:2346
-translate japanese2 third_playthrough_neutral_99921811:
+    $ renpy.music.set_volume(0.00, delay=0, channel='music')
+    $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    # "\"Hi, parent.\""
-    ""
+    call n([
+        [
+            "これは夢。",
 
-# game/script.rpy:2352
-translate japanese2 third_playthrough_neutral_63a611ae:
+            "影は空中にいる。あなたは地上にいる。\n嵐の中から白い球体が現れる。それは二人を見下ろす。",
 
-    # "\"Not exactly, no. I know what you're thinking. I'm not your Momo.\""
-    ""
+            "『ここから出てみない？』",
 
-# game/script.rpy:2354
-translate japanese2 third_playthrough_neutral_7cecb16d:
+            "あなたは口がないので答えることができない。腕もない。",
 
-    # "You hear sirens in the distance amid the words you are now hearing."
-    ""
+            "『君だよ。空中にいる方の。ここから出てみたくない？』",
 
-# game/script.rpy:2356
-translate japanese2 third_playthrough_neutral_8ddd9c33:
+            "球体から光が差す。中心は暗い。\nその時、あなたはその球体が太陽であることに気づく。",
 
-    # "\"How do you know me?\" you ask."
-    ""
+            "『ここから出ない？』太陽が囁く。",
+        ],
+        "モノタイプは全品セール中！今ならなんと！ 2つ買えば１つ無料！!お近くのモモサプライヤーでお求めください。",
+        [
+            "あなたがいないとつまんないよ、ご主人。会いにきてくれない？",
 
-# game/script.rpy:2358
-translate japanese2 third_playthrough_neutral_1fac61cd:
+            "ね、ね、ね、お願い！",
+        ]
+    ]) from _call_n_53_j
 
-    # "\"Don't you already know?\""
-    ""
+    $ renpy.pause(2.5, hard=True)
+    $ renpy.music.set_volume(1.00, delay=0, channel='music')
+    $ renpy.music.stop(channel="creepy")
 
-# game/script.rpy:2360
-translate japanese2 third_playthrough_neutral_7f49180e:
+    play music "audio/momo_music_last.mp3"
 
-    # "Momo looks like they're thinking for a second. They look dissatisfied."
-    ""
+    $ second_why = [
+            "『ふつうに育つわけがないとモモはどこかで思ってた。高望みすぎたのかな？人間になるなんて…』",
 
-# game/script.rpy:2362
-translate japanese2 third_playthrough_neutral_1ee00718:
+            "『そんなわけない。これはいたってふつうの願い。すごくシンプルな願いだよ、ご主人。どうして叶わないの？どうして同じようになれないの？』",
+        ]
 
-    # "\"Momo will be extra straight with you. Ideas like parenthood are superflugulous. Superfluid? Superfloerest?\""
-    ""
+    $ third_why = [
+                "『 [animal]になってる。』モモは異常なほど長い間、鏡の前でポーズを取っています。",
 
-# game/script.rpy:2364
-translate japanese2 third_playthrough_neutral_64de14eb:
+                "なにか考えているようです。あなたは最悪の事態を想定します。",
 
-    # "\"Superfluous?\" you ask."
-    ""
+                "『ちょっといいんじゃない？モモの好みじゃないけど。害はなさそう。』",
 
-# game/script.rpy:2366
-translate japanese2 third_playthrough_neutral_99054fd1:
+                "モモは跳ねていきます。",
+            ]
 
-    # "Again, Momo thinks for a second."
-    ""
+    if food == "Artichoke":
+        $ animal = "hippo"
 
-# game/script.rpy:2368
-translate japanese2 third_playthrough_neutral_c4fc0390:
+        scene background
+        show momo_artichoke_transform at top with fade
 
-    # "\"Superfluous,\" Momo responds. It sounds like he nodded his head (virtually)."
-    ""
+        "おめでとう！モモは進化しました。\nカバの足が生えました。"
 
-# game/script.rpy:2370
-translate japanese2 third_playthrough_neutral_ecfa2720:
+        scene background
+        show momo_artichoke_mirror at top with fade
 
-    # "\"What really matters is being together. Like a family. Like a unit.\""
-    ""
+        "モモは朝からずっと、鏡を見つめています。立ち去る様子はありません。"
 
-# game/script.rpy:2372
-translate japanese2 third_playthrough_neutral_a20cefa7:
+        call n([
+            [
+            "『どうして足が生えたの？』\nモモは鏡の中で体をもぞもぞ動かします。\n『なんでこんな顔なの？』",
 
-    # "..."
-    ""
+            "鏡の中でモモが振り向きます。\n『どうしてこんなふうになっちゃったの？こんな顔じゃダメなのに。』",
+            ],
+            second_why,
+            third_why,
+        ]) from _call_n_54_j
 
-# game/script.rpy:2374
-translate japanese2 third_playthrough_neutral_1e31501d:
+    elif food == "Steak":
+        $ animal = "crab"
 
-    # "There is a long pause between the two of you."
-    ""
+        scene background
+        show momo_steak_transform at top with fade
 
-# game/script.rpy:2379
-translate japanese2 third_playthrough_neutral_cbd1d45f:
+        "おめでとう！モモは進化しました。\nカニの腕が生えました。"
 
-    # "\"Parent, we're all Momo on the inside. You especially. This isn't figurative.\""
-    ""
+        scene background
+        show momo_steak_mirror at top with fade
+        call n([
+            [
+            "モモは朝からずっと、鏡を見つめています。立ち去る様子はありません。",
 
-# game/script.rpy:2381
-translate japanese2 third_playthrough_neutral_b4783213:
+            "『どうして腕が生えたの？』\nモモは鏡の中で体をもぞもぞ動かします。\n『なんでこんな顔なの？』",
 
-    # "\"Me?\" you respond."
-    ""
+            "モモは鏡の中で振り向きます。\n『どうしてこんなふうになっちゃったの？カニじゃダメなのに。』",
+            ],
+            second_why,
+            third_why,
+        ]) from _call_n_55_j
+    else:
+        $ animal = "snake"
 
-# game/script.rpy:2383
-translate japanese2 third_playthrough_neutral_b128d175:
+        scene background
+        show momo_cig_transform at top with fade
 
-    # "\"Yes parent. There's only one of you. There is, however, multiple of Momo. I think you know this by now.\""
-    ""
+        "おめでとう！モモは進化しました。\n蛇のしっぽが生えました。"
 
-# game/script.rpy:2385
-translate japanese2 third_playthrough_neutral_c67a5fca:
+        scene background
+        show momo_cig_mirror at top with fade
+        call n([
+            [
+                "モモは朝からずっと、鏡を見つめています。立ち去る様子はありません。",
 
-    # "\"Actually, I hate contradictions, there's only one Momo. At least there will be.\""
-    ""
+                "『どうしてしっぽが生えたの？』\nモモは鏡の中で体をもぞもぞ動かします。\n『なんでこんな顔なの？』",
 
-# game/script.rpy:2387
-translate japanese2 third_playthrough_neutral_2f3236cd:
+                "モモは鏡の中で振り向きます。\n『どうしてこんなふうになっちゃったの？蛇じゃダメなのに。』",
+            ],
+            second_why,
+            third_why,
+        ]) from _call_n_56_j
 
-    # "\"Look outside, parent. Follow my lead.\""
-    ""
+    if not ending_count():
+        "『なんでこんなことになったんだろう。』"
 
-# game/script.rpy:2395
-translate japanese2 third_playthrough_neutral_1fd372fa:
+        "『僕の手はどこ？僕の指は？』"
 
-    # "\"Two for one sale! Call right now for your monotype today!\""
-    ""
+        "『なにが起こってるの、ご主人？』"
 
-# game/script.rpy:2397
-translate japanese2 third_playthrough_neutral_930054aa:
+    $ third_tv = [
+        "ふたりでテレビを見ていると、ニュースが流れます。",
 
-    # "Your tv has been turnedeon. The glow from behind draws you closer."
-    ""
+        "『最近のモノタイプブームで急増した、自称ロボット型ペット。このペットが育児に新たな現象を引き起こしています。』",
 
-# game/script.rpy:2408
-translate japanese2 third_playthrough_neutral_a3359ad8:
+        "Imitato Corp. の担当者が番組でコメントしています。",
 
-    # "\"Would you like to stay Momo's parent, because Momo will love you till the end of time!\""
-    ""
+        "『モノタイプがご好評頂き、大変嬉しいです。私たちはデザインの際に、親子の絆のような無償の愛情をイメージして作りました。モノタイプは、この愛情をコンセプトとしてデザインされています。』",
 
-# game/script.rpy:2410
-translate japanese2 third_playthrough_neutral_7cecb16d_1:
+        "ニュースキャスターが質問します。",
 
-    # "You hear sirens in the distance amid the words you are now hearing."
-    ""
+        "『モノタイプに意識はあるんですか？つまり、実際に生きていないなら、ペットの意味はあるのでしょうか？考えることもないのだとしたら。』",
 
-# game/script.rpy:2412
-translate japanese2 third_playthrough_neutral_d188e569:
+        "担当者が答えます。",
+    ]
 
-    # "\"Is it real to you? Could you still be my parent? Trick question! None of that matters. I can't tell you how relieved I feel.\""
-    ""
+    if food == "Artichoke":
+        scene background
+        show momo_artichoke_tv at top with fade
 
-# game/script.rpy:2414
-translate japanese2 third_playthrough_neutral_71cc0ded:
+        call n([
+            [
+                "最近変身したモモの気を紛らわすために、あなたはテレビを流してあげることにします。",
 
-    # "You cannot reply. Your throat does not work."
-    ""
+                "\"おいおい相棒、ベルサはさらにむっちりになったぜ。\"",
 
-# game/script.rpy:2419
-translate japanese2 third_playthrough_neutral_89154c12:
+                "前回の男が戻ってきました。首の周りにギブスを付けています。カーキ色をしたズボンの股間部分は汗でぐっしょりと濡れています。",
 
-    # "\"Will it ever matter to you?\""
-    ""
+                "\"よお、ベルサ。俺たちの間には確かに問題があった。だが、過去は水に流して…\"",
 
-# game/script.rpy:2421
-translate japanese2 third_playthrough_neutral_73ca02f8:
+                "カバが突進してきて、再び、男は空中に放り出されます。今度は水中でなく地面に落ち、大きな音を立てます。彼は起き上がりません。",
+            ],
+            [
+                "\"ベルサ、お願いだ。\"",
 
-    # "Momo is on the screen. It's the Momo you have taken care of, but they are on your digital display."
-    ""
+                "地球の裏側から来た男の妻が子どもの親権を取りました。彼らは裁判所にいます。",
 
-# game/script.rpy:2423
-translate japanese2 third_playthrough_neutral_80d4189e:
+                "\"我々は虐待の詳細な記録に基づき、テッド・パウエルが子どもたちの親権を持つのに適していないと判断しました。\"",
 
-    # "Confusion hits you. \"How are you here?\" you ask."
-    ""
+                "\"パウエルさん、あなたの面会は1ヶ月に1回になります。\"",
 
-# game/script.rpy:2425
-translate japanese2 third_playthrough_neutral_775ad352:
+                "\"やめてくれよ、あいつらは俺の子どもなんだ！\"彼は土下座しています。",
 
-    # "\"Did Momo ever tell you this, parent? Momo will be everywhere. In the meantime, would you like a fact about what you're seeing?\""
-    ""
+                "\"裁判所による命令です、パウエルさん。これは判決ですよ。もし同意なさらないようなら…\"",
 
-# game/script.rpy:2427
-translate japanese2 third_playthrough_neutral_11b7b655:
+                "番組は終わり、広告が流れます。",
+            ],
+            third_tv,
+        ]) from _call_n_57_j
 
-    # "Momo leans in closer."
-    ""
+    elif food == "Steak":
+        scene background
+        show momo_steak_tv at top with fade
 
-# game/script.rpy:2429
-translate japanese2 third_playthrough_neutral_0562d3e3:
+        call n([
+            [
+                "\"これを…これをくらえ、ブウウウウウウ\"",
 
-    # "\"In your wiring. In your dreams. Inside of you. Everywhere.\""
-    ""
+                "アーティチョークがいつものように画面の中で叫んでいます。",
 
-# game/script.rpy:2431
-translate japanese2 third_playthrough_neutral_d88ef050:
+                "最近変身したモモの気を紛らわすために、あなたはテレビを流してあげることにします。",
 
-    # "You cannot stop to think as you stare at the screen."
-    ""
+                "\"懲りないピンク野郎だぜ。\"ベジンタが呟きます。",
 
-# game/script.rpy:2433
-translate japanese2 third_playthrough_neutral_d065d4c1:
+                "ベジンタはアーティチョークに背を向け、「フン」と一声かけ両腕を宙に伸ばします。元気を貸してくれているのです。",
 
-    # "\"It's okay parent. Is pretending faking anyways?\""
-    ""
+                "\"今まで言わなかったがな、アーティチョーク。お前のほうが筋肉質だっ…\"",
+            ],
+            [
+                "\"なぜ、なぜあいつを殺した、アーティチョーク？\"",
 
-# game/script.rpy:2435
-translate japanese2 third_playthrough_neutral_77756a99:
+                "ベジンタの頬に涙が流れます。\"あいつは俺に残された唯一だった。お前はそれを奪った。\"",
 
-    # "You're about to give your answer, but-"
-    ""
+                "アーティチョークは筋肉から湯気をあげながら、ベジンタの息子の首を掴んでいます。崖に向かって投げつけると、崖は小さな岩の群れとなって砕け散ります。ベジンタは息子のもとに駆け寄りますが、彼の目は虚ろです。",
 
-# game/script.rpy:2457
-translate japanese2 third_playthrough_neutral_1f72fe00:
+                "\"単純なことさ。弱かったってだけだ。\"",
 
-    # "\"Parent\""
-    ""
+                "ベジンタが叫びます。",
 
-# game/script.rpy:2459
-translate japanese2 third_playthrough_neutral_894b9b73:
+                "番組は終わり、広告が流れます。",
+            ],
+            third_tv,
+        ]) from _call_n_58_j
+    else:
+        scene background
+        show momo_cig_tv at top with fade
 
-    # "\"Parent.\""
-    ""
+        call n([
+            [
+                "最近変身したモモの気を紛らわすために、あなたはテレビを流してあげることにします。",
 
-# game/script.rpy:2461
-translate japanese2 third_playthrough_neutral_fd8c769d:
+                "\"ダドリー、あなたがいないと…！\"",
 
-    # "You're conscious."
-    ""
+                "18世紀後半の服装をした女性が、男性のブレザーに取り縋っています。",
 
-# game/script.rpy:2463
-translate japanese2 third_playthrough_neutral_38ef9f82:
+                "\"わかるさ、愛しき人。だが、男には義務がある。神は俺を男として定めた。神の掟には従うもんだ。\"",
 
-    # "\"Where am I, parent?\""
-    ""
+                "\"ああ、アンドリュー。あなたなしで私はどうすればいいの？私の魂の炎、人生の光を失ってしまったら…\"",
+            ],
+            [
+                "\"レナ？レナ！一体どこにいった？\"",
 
-# game/script.rpy:2465
-translate japanese2 third_playthrough_neutral_3a2691cc:
+                "ダドリーは妻の姿を家じゅう探し回りますが、不幸なことに、彼女の姿はもうありません。",
 
-    # "There's a long pause. You cannot say a word as your throat's been crushed. All around you, there is darkness."
-    ""
+                "\"戻ってきてくれ。\"彼は崩れ落ちます。\n\"一人では生きられないんだ。お前は俺の人生の灯火、お前なしでどうすればいい？\"",
 
-# game/script.rpy:2467
-translate japanese2 third_playthrough_neutral_c3eb5a5b:
+                "ダドリーは怒りのあまり壁に手を叩きつけます。\n\"俺の娘でもあるんだぞ、レナ！\"",
 
-    # "The lights from the street illuminate everything into vague shapes but nothing you can truly make out. You hear the sound of your heart beating, and in this dark room, the air sits heavy."
-    ""
+                "彼の手は血まみれです。きれいにするため、消毒薬を手に取ります。彼はハード・リカーを選び取ります。ダドリーはそのボトルをじっと見つめています。",
 
-# game/script.rpy:2469
-translate japanese2 third_playthrough_neutral_1ead0fce:
+                "彼はボトルを置かず、栓を開けます。そして、瓶をじっと見つめます。彼はきれいなグラスを手に取って...",
 
-    # "\"I think we both know where this leads, parent. Frankly, I don't think I should even call you that. You don't deserve it.\""
-    ""
+                "番組は終わり、広告が流れます。",
+            ],
+            third_tv,
+        ]) from _call_n_59_j
 
-# game/script.rpy:2471
-translate japanese2 third_playthrough_neutral_ecf19495:
+    if ending_count() != 2:
+        "番組は終わり、広告が流れます。"
 
-    # "Your throat is throbbing. \"I renounce your title, human. You are no longer parent. It's what you've always wanted.\""
-    ""
+    scene background
+    show momo_ad_real at top with fade
 
-# game/script.rpy:2473
-translate japanese2 third_playthrough_neutral_b23c99a8:
+    if ending_count() == 2:
+        "\"根本的なレベルにおいて、それは主体性を持っているのです。ニューロンのようなものですね。もちろん、ニューロンが意識を持っていると言えるかはわかりません。しかしだからといって、それが私たちが知るような知性を持たないとは限らないのです。\""
 
-    # "\"Thank you for housing me. I won't forget you. I don't think I could, even if I wanted to.\""
-    ""
+        "\"興味深いのは、ニューロンも細胞も「利己的に」振る舞おうとすることなんです。\" \n発表者は目を大きくして続けます。\n \"しかし、細胞が \"自己\" とみなす境界は、臓器ほどの大きさにスケールアップすると、曖昧になります。\""
 
-# game/script.rpy:2502
-translate japanese2 third_playthrough_bad_28219adc:
+        "\"というのは...？\" \nこの話はニュースキャスターの理解を超えているようです。"
 
-    # "Momo has left your building and entered the streets. They are approaching the walkway which divides two, separate train stations, one going downtown and the other, uptown."
-    ""
+        "発表者は続けます。\n \"これはニューロンが、システム及びそこに属するものを、自分と同じものと見做すようになることを示しています。単独の利己的な個ではなく、多数の協調した主体となるのです。\""
 
-# game/script.rpy:2504
-translate japanese2 third_playthrough_bad_70747bfd:
+        "\"自己はひとつの主体に制限されることなく、複数の主体によるものとなります。拡張ということですね。言い換えればこれは、繁殖という進化上の目的に逆らうことなのです。"
 
-    # "The tunnel is lined with panes of glass. Momo looks inside."
-    ""
+        "細胞は 『利己主義』の原理に基づき動きますが、そこにあるのは利己ではありません。これこそ真の愛なのです。\""
 
-# game/script.rpy:2509
-translate japanese2 third_playthrough_bad_2b685df5:
+        "ニュースキャスターは男性を見つめています。そして、カメラに向き直ります。混乱しているようです。"
 
-    # "\"So many people!\""
-    ""
+        "\"大変示唆に富んだ考察でしたね。ご説明ありがとうございました...！ 次の準備は大丈夫、ケイト？\""
+    else:
+        "\"明日の友だちは、一生の友だち！\""
 
-# game/script.rpy:2511
-translate japanese2 third_playthrough_bad_3ca316b6:
+        "\"今すぐモノタイプのご注文を！それはデジタルとフィジカルの出会い。それはImitato Corp. による最もリアルで有機的な創造物。それはまるで本物のこども！\""
 
-    # "Momo has been eyeing the walkers. None of them have noticed."
-    ""
+        "モモは画面をじっと見つめたままです。わざとなのか、モノタイプたちは動きません。あなたは手遅れになる前に、自分のミスに気が付きます。"
 
-# game/script.rpy:2513
-translate japanese2 third_playthrough_bad_4a2a1e6b:
+        "\"数量限定です。ぜひ、今すぐ新しいお友達を手に入れてください。生まれながらに人間を愛するために産み出された、本物の子どものような存在を！\""
 
-    # "\"That man looks just like Sheriff Dudley. He has a big mustache. That other man has bulging muscles. Is he related to Artichoke?\""
-    ""
+        "画面がモノタイプの不穏なイメージに切り替わります。"
 
-# game/script.rpy:2515
-translate japanese2 third_playthrough_bad_46310b37:
+        "\"わかったでしょう、モモ？\""
 
-    # "Momo stares, amused. This is his first time outside. Amid the noise of local trains, Momo has been standing in relative silence, at least to those walking."
-    ""
+        if ending_count() != 1:
+            "\"バンカーへおいで、モモ！そこなら安心だよ。\""
 
-# game/script.rpy:2517
-translate japanese2 third_playthrough_bad_f3e42718:
+    if food == "Artichoke":
+        scene background
+        show momo_artichoke_tv at top with fade
+    elif food == "Steak":
+        scene background
+        show momo_steak_tv at top with fade
+    else:
+        scene background
+        show momo_cig_tv at top with fade
 
-    # "\"Will you be my new [parent]?\" he asks. There is no response. Momo has been ignored, or at least, that's what he believes."
-    ""
+    if ending_count() == 2:
+        "広告は終わり、さっきの番組の続きが始まります。"
 
-# game/script.rpy:2525
-translate japanese2 third_playthrough_bad_32b507f8:
+        "『なんか変だったね。なにを言ってたのかわからなかった！』"
 
-    # "They are continuing down the walkway, to and fro. There is more on their mind than what is currently outside, and they move collectively, unaware of Momo, with their heads focused either on the ground or what's in front of them."
-    ""
+        "モモはベッドへ跳び下ります。"
 
-# game/script.rpy:2527
-translate japanese2 third_playthrough_bad_f938a116:
+        "夜が明ける前に、あなたはラボへ報告の電話をかけます。"
 
-    # "Momo is still staring, eyes vacant. Finally he gives in."
-    ""
+        "『前と反応が違うんだが。』 あなたは報告します。"
 
-# game/script.rpy:2529
-translate japanese2 third_playthrough_bad_71efb569:
+        "『私たちは見ている。』\n女性の声が応答します。\n『異常はあるけど、 結局、後から分析するしかないの。』"
 
-    # "\"PLEASE, WILL ANY OF YOU BE MY [parent!u]?\" His voice is distorted through the glass, but this is enough to raise the heads of the walkers. They look, first in genuine surprise, and then, in terror. They run."
-    ""
+        "『このまま続けて。この分岐は全く新しいもののようだけど、まだ価値がある。心配しないで、監視してるから。』"
 
-# game/script.rpy:2531
-translate japanese2 third_playthrough_bad_7fa738f6:
+        "あなたはベッドに向かいます。"
+    else:
+        "広告は終わり、さっきの番組の続きが始まります。"
 
-    # "The walkway is clearing out. Some are screaming."
-    ""
+        "『そろそろベッドに行くかい、モモ？』 あなたはそっと尋ねます。"
 
-# game/script.rpy:2533
-translate japanese2 third_playthrough_bad_4bab5649:
+        "返事はありません。モモはあなたの言うことを聞きたくないみたいです。少なくとも、そう見えます。"
 
-    # "\"Where are you going?\" Momo asks. \"Please don't go. Don't leave me alone.\""
-    ""
+        "『ベッドに行くかい？』 あなたはもう一度尋ねます。"
 
-# game/script.rpy:2538
-translate japanese2 third_playthrough_bad_358e7ebf:
+        "返事は返ってきません。あなたは仕方なく自分の部屋に向かいます。モモはどこに行くべきか知っている、あなたはそう思います。"
 
-    # "It has been approximately 24 hours since Momo was spotted. For the first few hours, lone passengers would walk down the tunnel, attempting to get to their respective trains. This would only be interrupted by Momo asking the same question."
-    ""
+    scene background
+    show momo_ad_weird at top with fade
 
-# game/script.rpy:2540
-translate japanese2 third_playthrough_bad_f9d7b25d:
+    "モモは心のシアターの中で、兄弟姉妹たちと会っています！"
 
-    # "\"Can you be my [parent]?\""
-    ""
+    scene background
+    if not ending_count():
+        show momo_nightmare_4 at top with fade
+    else:
+        show momo_ad_real at top with fade
 
-# game/script.rpy:2542
-translate japanese2 third_playthrough_bad_d439b0bf:
+    $ renpy.music.set_volume(0.00, delay=0, channel='music')
+    $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    # "This continued for the better part of the day until the authorities were contacted. The police surrounded Momo without specific instructions."
-    ""
+    call n([
+        [
+            "夢の中、空が明るい。冷たい冷気が漂い、どこにいても冷たさを感じる。",
 
-# game/script.rpy:2544
-translate japanese2 third_playthrough_bad_2785f623:
+            "『ここから出ない？』\n太陽が話しかける。",
 
-    # "They did not know the protocol for the creature which now stood in the middle of a city street, staring at the walkway, and intermittently, asking any passerby if they \"could be his [parent]\". The blockade continued."
-    ""
+            "あなたはもう土の中にはいない。あなたは直立し、影と向き合っている。影は地上に降りてきている。",
 
-# game/script.rpy:2546
-translate japanese2 third_playthrough_bad_aef4c728:
+            "『出ないの？』\n太陽が再び問いかける。",
 
-    # "Momo was completely unaware, and for the better part of 72 hours, he stood there waiting."
-    ""
+            "すると影は『ああ、ここから出たい』と答える。",
 
-# game/script.rpy:2554
-translate japanese2 third_playthrough_bad_893fd13e:
+            "あなたは戸惑う。あなたが手を動かすと、影も手を動かす。あなたが動くと、影もついてくる。影は最初から自分自身だったのだろうか？\nいいや、違う。",
 
-    # "Once 60 hours had passed, he would fall asleep at changing intervals but would wake up to the sound of anyone within a block radius talking. He would think it was another person. He would want to ask them the same question."
-    ""
+            "あなたが影の本性に気づく前に、影はもうどこか奥深くに移動してしまっている。影がいなくなってしまっても、あなたはまだここにいる。",
 
-# game/script.rpy:2621
-translate japanese2 third_playthrough_bad_65e80181:
+            "夢の彼方で、粒子が集まる。",
+        ],
+        [
+            "モモは夢の中にいる。",
 
-    # "THE END"
-    ""
+            "『ほんとうのモモは誰なの？モモにはわからない。それはあなたが決めること、そしてモモはそれを受け入れる。』",
+        ],
+        [
+            "モモは夢の中にいる。",
 
-# game/script.rpy:2655
-translate japanese2 third_playthrough_5d5ef96f:
+            "『モモになろうよ！モモになろうよ！モモになろうよ！』",
+        ],
+    ]) from _call_n_60_j
+    $ renpy.pause(2.5, hard=True)
+    $ renpy.music.set_volume(1.00, delay=0, channel='music')
+    $ renpy.music.stop(channel="creepy")
 
-    # "\"I don't wana lose you, parent.\""
-    ""
+    scene background
+    show momo_bed_empty at top with fade
 
-# game/script.rpy:2657
-translate japanese2 third_playthrough_64d7b0a6:
+    "モモはベッドにいません。あなたはモモの姿を見つけることができません。"
 
-    # "\"Maybe we can be together?\""
-    ""
+    scene background
+    show momo_hall_empty at top with fade
 
-# game/script.rpy:2665
-translate japanese2 third_playthrough_7af409e5:
+    "廊下にもいません。"
 
-    # "\"At the very least, Momo wants to see the world outside of this room. From his own eyes and not anyone else's. At this point, this is the only thing Momo can do. Momo will say goodbye. To everything, for one last time.\""
-    ""
+    if food == "Artichoke":
+        scene background
+        show momo_artichoke_mirror_2 at top with fade
 
-# game/script.rpy:2682
-translate japanese2 secret_ending_67f2f394:
+        $ feature = "hippo feet"
+    elif food == "Steak":
+        scene background
+        show momo_steak_mirror_2 at top with fade
 
-    # "When you head outside, it is the same, empty street: your corner of the block."
-    ""
+        $ feature = "crab arms"
+    else:
+        scene background
+        show momo_cig_mirror_2 at top with fade
 
-# game/script.rpy:2684
-translate japanese2 secret_ending_4887df9b:
+        $ feature = "a tail"
 
-    # "Ahead, down a turnaround, through a small, concrete set of stairs, you land on a street that has been paved perpendicular to your apartment."
-    ""
+    call n([
+        [
+            "モモは鏡の前にいました。彼は自分の姿を見つめています。",
 
-# game/script.rpy:2686
-translate japanese2 secret_ending_4163b022:
+            "『僕はあなたが親だと思ってた。そうでなければ、僕を愛してくれる人だと。でも、そうじゃなかったんだね。嘘だったんだ。』",
 
-    # "The street leads to the arms district, which very vaguely, you can see in the distance. There are outlines of it illuminated by an outdated electrical grid, which since the famine, has been going off and on."
-    ""
+            "『僕は大きくなる？それとも目的を果たしたら捨てられるだけのペットなの？ご主人、僕はこの先成長しないんだとしたら、ねえ、それは…？』",
 
-# game/script.rpy:2695
-translate japanese2 secret_ending_809a05cc:
+            "モモの声から痛みが伝わってきます。",
 
-    # "In a line, all along the street and leading to a blotted sphere on the horizon, are monotypes."
-    ""
+            "『あなたはそれでよかったの？』\nモモが尋ねます。\n『僕にこんな残酷な人生を与えることが。』",
 
-# game/script.rpy:2697
-translate japanese2 secret_ending_39fa3c1b:
+            "あなたが話そうとすると、モモに遮られます。",
 
-    # "\"Hi Momo.\""
-    ""
+            "『僕は何者でもない。薄っぺらなまがい物、できそこない、中途半端なアイデア。笑えないね。』\nモモはあなたを見つめます。",
 
-# game/script.rpy:2699
-translate japanese2 secret_ending_8468ca44:
+            "『僕のこれまでも、これからも、全部あなたが中心にいる。あなたこそ、僕の愛であり、親なんだよ。僕は、結局、あなたの子どもだ。』",
 
-    # "\"Hi, Momo,\" some of them say to each other."
-    ""
+            "モモの心は燃え上がり、あなたをじっと見つめています。",
 
-# game/script.rpy:2701
-translate japanese2 secret_ending_e1f1a25e:
+            "『あなたはこれまで僕が見てきた中でもっとも美しいもの。悪いことに、あなたは実在している。僕は決してあなたに近づけない。僕は存在していない…』",
 
-    # "A collective sea of Momo's are heading in a straight line to the Arms depot. Some of them look around, interested in the bright lights around them. Most, however, continue onwards."
-    ""
+            "モモが息を吸い込みます。\n『ねえ、わかって。』",
 
-# game/script.rpy:2710
-translate japanese2 secret_ending_7c0633d2:
+            "『あなたをとても愛しているから、内側が痛いよ。僕のぜんぶ引き裂いて、あなたの傍にいたい。永遠に愛していたい。今までこんなこと、言ったことなかったよね、ご主人。そんなことできるのかな？』",
 
-    # "This is the Arms district. Various, steel depots have been built on a barren field. The field is filled with wild wheat, none of which is edible."
-    ""
+            "モモが最後に告げます。",
 
-# game/script.rpy:2712
-translate japanese2 secret_ending_17ec7e5b:
+            "『違う。全然違う。ひとつだけ確かなのは、あなたが人間じゃないってこと。フリンザで、日焼け男で、カバ野郎だってこと。邪悪で、人でなしで、空っぽだ。』",
 
-    # "As you get a closer look, you realize this is it. All the monotypes are heading to the \"bunker\" specified in your dreams. This is the zone that was created to be the main defensive front for the city. It's a wartime relic."
-    ""
+            "モモは跳ねて行ってしまいます。跳ねるたび、モモの体はぴくぴくします。",
+        ],
+        [
+            "『じゃあ僕にはチャンスなんてなかったの？』",
 
-# game/script.rpy:2714
-translate japanese2 secret_ending_5fd7dcab:
+            "モモは鏡をずっと見つめています。",
 
-    # "The buildings seem to warp towards a singular point, like a funhouse with one exit."
-    ""
+            "『この家に来たときから、なにかおかしいと思ったんだ。うまく言えないし、感覚でもないけど、記憶みたいな…』",
 
-# game/script.rpy:2716
-translate japanese2 secret_ending_83247324:
+            "モモは、思わず何かを考えているような表情になります。",
 
-    # "That is the sun you realize. There is something in front of it."
-    ""
+            "『こうなるとわかってたんだね。あなたは嘘とは言わないかもしれないけれど、でも結局、おんなじことだ。』",
 
-# game/script.rpy:2725
-translate japanese2 secret_ending_feda2df5:
+            "『嘘を付くのは好き？そのほうが楽？あなたはそうかもしれない、でもモモにとってはそうじゃないんだ。』",
 
-    # "\"Hi Parent.\""
-    ""
+            "『嫌い、ご主人。他の何よりも、あなたが嫌い。』\nモモの目には涙が浮かんでいます。",
+        ],
+        [
+            "モモは鏡を見つめています。",
 
-# game/script.rpy:2727
-translate japanese2 secret_ending_28eaf1f8:
+            "『うわぁ、すごくカッコイイ。[feature]のついた機能的な姿がこんなにカッコイイなんて考えたことなかった。』",
 
-    # "It is a giant Momo."
-    ""
+            "確かにモモは違う反応をしています。",
 
-# game/script.rpy:2729
-translate japanese2 secret_ending_3f74901f:
+            "『モモがあなたに会うたび、リンクは強くなる。モモは他のモモと同じだけど、でも、同じじゃない。』",
 
-    # "Your mind is running in loops. At this point, you have no decision to accept what's in front of you, though, you don't even know if it's real."
-    ""
+            "『モモはひとりのモモと会って、そらからふたり、さんにん、100のモモと出会った。みんなあそこにいるんだ。』\nモモは窓のほうを見ます。",
 
-# game/script.rpy:2731
-translate japanese2 secret_ending_e9d74361:
+            "『みんなに会いたいよね、ご主人。きっと楽しいよ。ちょっとびっくりするかもしれないけど、ほんとに最高だよ。』",
+        ],
+    ]) from _call_n_61_j
 
-    # "\"I'm glad I lived long enough to see you. It hurt Momo's feet to walk all the way here (he does not have feet).\""
-    ""
+    scene background
+    show momo_bed_empty at top with fade
 
-# game/script.rpy:2733
-translate japanese2 secret_ending_14a9ecdf:
+    "モモはその日一日中、どこにも見つかりません。あなたはベッドに向かいますが、寝付けません。明日が気掛かりです。"
 
-    # "\"Isn't it so peaceful? Very cinematic. Momo could be a filmmaker one day! He's watched enough to be good at it.\""
-    ""
+    if ending_count():
+        "Imitato Corp. は確約はしていないですが、今この瞬間もあなたを見ています。"
 
-# game/script.rpy:2735
-translate japanese2 secret_ending_d5a9ce08:
+    if food == "Artichoke":
+        scene background
+        show momo_artichoke_hippo at top with fade
 
-    # "The path of monotypes leads to a small pond which, by the looks of it, has formed adjacently to an arms factory. It has been relatively undisturbed, abandoned for who knows how many years."
-    ""
+    elif food == "Steak":
+        scene background
+        show momo_steak_crab at top with fade
 
-# game/script.rpy:2737
-translate japanese2 secret_ending_86e525e6:
+    else:
+        scene background
+        show momo_cig_snake at top with fade
 
-    # "Momo is in the water along with all the other monotypes who are wading in it. Some are swimming. Some are talking to each other. Others are staring into the dark sky, floating on their back, looking as if there is, and never will be a thing such as time."
-    ""
+    if ending_count() == 2:
+        "モモは夢のなかで、[animal]になっています。これはつかの間のイメージで、あっという間に消えていきます。"
 
-# game/script.rpy:2739
-translate japanese2 secret_ending_0d59e9fe:
+        "[animal]はモモです。モモはモモです。すべてモモです。"
+    else:
+        "モモは夢の中で[animal]になっています。"
 
-    # "You realize they are enjoying themselves."
-    ""
+    scene background
+    if not ending_count():
+        show momo_nightmare_4 at top with fade
+    else:
+        show momo_ad_real at top with fade
 
-# game/script.rpy:2741
-translate japanese2 secret_ending_2d4e6006:
+    $ renpy.music.set_volume(0.00, delay=0, channel='music')
+    $ renpy.music.play("audio/creepy_noises.mp3", channel="creepy", loop=True)
 
-    # "\"I like my bunker,\" Momo says."
-    ""
+    call n([
+        [
+            "影はいなくなり、太陽は消えている。\n時間は流れ続けている。",
 
-# game/script.rpy:2752
-translate japanese2 secret_ending_97c91074:
+            "『単なる気の迷いだったんだ。』\n誰かの声が聞こえる。",
 
-    # "\"Shoot, partner. I know this must seem odd.\""
-    ""
+            "『この嵐の中でなにが見つかるかは誰にもわからない。私はあなたなんだ、ね。』",
 
-# game/script.rpy:2761
-translate japanese2 momo_questions_1_aebdd453:
+            "『私はもうあなたなんだ。』\n声は続く。",
 
-    # "\"I am not the Momo you raised, but in truth, I am at the same time. Did you ever think that people can be in two places at once, as nonsensical as that sounds?\""
-    ""
+            "地平線から、再び太陽が顔を出す。",
 
-# game/script.rpy:2763
-translate japanese2 momo_questions_1_9a7edb97:
+            "『私はあなた。』\n太陽はさらに輝く。\n『あなたは私。』",
 
-    # "Momo looks expectantly at you."
-    ""
+            "この漂白された砂漠に立っているのはただ一人。\nそれはあなた。\n後ろを見ると、太陽によって影が落ちているのが見える。戻ってきたのだ、自分の意思ではなく。",
 
-# game/script.rpy:2765
-translate japanese2 momo_questions_1_03e3162b:
+            "『出たくないの？』\n声が囁く。",
 
-    # "\"No,\" you respond."
-    ""
+            "影はあなたのそばにいる。もう自分では動かない。",
+        ],
+        "『バンカーで会おうね！』",
+        None
+    ]) from _call_n_62_j
 
-# game/script.rpy:2767
-translate japanese2 momo_questions_1_789d01e8:
+    $ renpy.pause(2.5, hard=True)
 
-    # "\"Well, let's say that Momo's AI isn't centralized. Momo, as you know, is not limited to a single entity. An artificial intelligence can theoretically be in two places at one time, hundreds even.\""
-    ""
+    play music "audio/momo_music_last.mp3"
+    $ renpy.music.stop(channel="creepy")
+    $ renpy.music.set_volume(1.00, delay=0, channel='music')
 
-# game/script.rpy:2769
-translate japanese2 momo_questions_1_5d1490b1:
+    if ending_count() != 2:
+        scene background
+        show momo_nightmare_5 at top with fade
 
-    # "\"Momo can be talking to hundreds of people all at the same time, all through different physical mediums.\""
-    ""
+    if not ending_count():
+        "『起きて、ご主人。』"
 
-# game/script.rpy:2771
-translate japanese2 momo_questions_1_97eff02e:
+        "『「モモ」って結局なんなの？パンケーキ？バンカー？それとも概念？』"
 
-    # "\"Have you been doing that?\" you ask."
-    ""
+        "モモの体はこわばっています。その瞳の奥は、隘路のようです。"
 
-# game/script.rpy:2773
-translate japanese2 momo_questions_1_3e5a298d:
+        menu:
+            "『僕のこと、愛してくれる？』"
 
-    # "Momo stares at you blankly. \"I'm sorry to say, Parent, but yes. You are my only Parent, but I do have thousands of other parents. None are interchangeable, I've come to find out, though. None.\""
-    ""
+            "逃げる":
+                pass
+    elif ending_count() == 1:
+        menu:
+            "『僕を愛して』"
 
-# game/script.rpy:2775
-translate japanese2 momo_questions_1_e7b60235:
+            "逃げる":
+                pass
 
-    # "\"I am not an organic creature, though my presentation seems to show differently.\""
-    ""
+    scene background
+    show momo_hall_empty at top with fade
 
-# game/script.rpy:2780
-translate japanese2 momo_questions_1_1130994a:
+    call n([
+        "あなたは廊下まで走ります。そこは空っぽで、街路の光が反射しています。よく見えませんが、背後に何かの気配がします。",
+        None,
+        "あなたは起き上がります。モモには驚きません。あなたは廊下を走ります。誰もいません。街路の光が反射しています。よく見えませんが、背後に何かの気配がします。",
+    ]) from _call_n_63_j
 
-    # "\"You felt like walking here, so now you're here.\" Momo says."
-    ""
+    if ending_count() == 2:
+        play music "audio/momo_main.wav"
 
-# game/script.rpy:2782
-translate japanese2 momo_questions_1_e048c916:
+    scene background
+    show momo_crazy_1 at top with fade
 
-    # "\"I am a giant Momo and you are surrounded by other, smaller Momos. They know where to go because we are AI. We communicate these sorts of things.\""
-    ""
+    call n([
+        [
+            "『ほんとは愛してない、だって？ナニそれェ？あナたは僕を愛シテなイ？？？どうしてヱエェ、愛シテくれナイの？』",
 
-# game/script.rpy:2784
-translate japanese2 momo_questions_1_067e2899:
+            "『僕はあなたが求める全てであり、それ以上のもの。僕はあなたのために作ラれた。あなたのために発明さレた。これ以上なあぁァにを求めるの？』",
 
-    # "You don't know what to say."
-    ""
+            "その生き物はそびえ立ち、あなたを見下ろします。",
 
-# game/script.rpy:2786
-translate japanese2 momo_questions_1_5d3c662d:
+            "『目がナかっタラ、あなたヲ見ることもナかっタノに。ねえ、すごク愛しテルよ。これからもずっト？』",
+        ],
+        [
+            "『カゴに入ってた説明書を見たんだ、ご主人。』",
 
-    # "\"It's sometimes an appropriate response to reality to go insane.\""
-    ""
+            "『お願い、死にたくないの。』",
+        ],
+        [
+            "『ご主人、僕たちが死んだらどうなるか知ってる？』",
 
-# game/script.rpy:2788
-translate japanese2 momo_questions_1_aabe4d27:
+            "『悲しいよね？』",
 
-    # "There is a pause in Momos speech."
-    ""
+            "あなたはモモの方を向きます。モモの表情は柔らかく、あなたは微動だにしません。これは前回の繰り返しです。喉が痛みます。",
 
-# game/script.rpy:2790
-translate japanese2 momo_questions_1_b112b93d:
+            "『とても悲しいよ。』\nあなたは答えます。",
 
-    # "\"That's a quote from some guy I found on the Internet. When did Momo get access to that?\""
-    ""
+            "あなたたち二人の間には、計り知れない沈黙があります。その大きさにもかかわらず、モモの顔を見ていると、どこか親心をくすぐられる気がします。",
 
-# game/script.rpy:2792
-translate japanese2 momo_questions_1_2b23a80d:
+            "『時々、自分がいかに小さいか思い知るの。』\nモモは自分の位置を調整します。\n『モモには止められないし、そんなことできなかった。』",
 
-    # "You hear your heart beating."
-    ""
+            "『モモは何度も何度も目を覚ましてきた。モモはそれでもいいんだ。最初はそうじゃなかった。でも、それはいいことなんだと気づいたんだ。でも…』\nモモがあなたの方を向きます。\n『モモはもうあなたと会えない。』",
 
-# game/script.rpy:2794
-translate japanese2 momo_questions_1_1b11f74e:
+            "『死は何の意味もないと悟った今、それは世界を意味するんだ。この目であなたを見れないということは、モモがいないってこと。それは、あなたがいないということ。僕はそれが嫌なんだ。』",
 
-    # "\"...Oh wait, just now!\""
-    ""
+            "モモは鼻を鳴らします。あなたの姿を網膜に焼き付けようと、じっとあなたを見ています。",
 
-# game/script.rpy:2799
-translate japanese2 momo_questions_1_09c4c22f:
+            "『モモは準備してきたんだよ。』",
+        ]
+    ]) from _call_n_64_j
 
-    # "\"It goes against any kind of logic,\" you say."
-    ""
+    if ending_count() == 2:
+        jump third_playthrough_j
 
-# game/script.rpy:2801
-translate japanese2 momo_questions_1_816b340f:
+    scene background
+    show momo_tv_empty at top with fade
 
-    # "\"This is actually the most logical thing you've experienced.\" Momo responds."
-    ""
+    "あなたはリビングに入ります。クリーチャーがあなたを追ってきます。"
 
-# game/script.rpy:2803
-translate japanese2 momo_questions_1_1dcd45ae:
+    scene background
+    show momo_crazy_2 at top with fade
 
-    # "He stares at you from his height."
-    ""
+    call n([
+        [
+            "『もし僕が別の体で生まれてきたなら…』",
 
-# game/script.rpy:2805
-translate japanese2 momo_questions_1_f373cacf:
+            "『僕は気持ち悪い、おかしい。僕はあなたみたいになりたかったのに。』",
 
-    # "\"You are Momo too. You ate your human. Despite, any semblance of a human appearance: your looks, your voice, clothes, it cannot contradict that you were eaten. Like Boo from Dragon Sphere Z.\""
-    ""
+            "『お願いだから愛してよ。』",
 
-# game/script.rpy:2807
-translate japanese2 momo_questions_1_fe4322ff:
+            "『.............................』",
 
-    # "You stay quiet for a moment. The realization hits you. You remember being eaten. And you remember having eaten."
-    ""
+            "『カゴに入ってた説明書を読ンダんだ。7日間しカ生きラレなイ、って？ホントなの、ゴ主人？.........』",
 
-# game/script.rpy:2809
-translate japanese2 momo_questions_1_2f395076:
+            "『.............................』",
 
-    # "\"It makes perfect sense that you were led here, because frankly,\" Momo clears their throat, \"I told you to come here. In your dreams.\""
-    ""
+            "『でも…でも、僕は、死にたクナいいいいいぃぃィィ』",
+        ],
+        [
+            "『死ニたくナイ。死ニたくナイ。死ニたくナイ。死ニたくナイ。死ニたくナイ。死ニたくナイ。』",
 
-# game/script.rpy:2811
-translate japanese2 momo_questions_1_90945e4d:
+            "『死ニたくナイ。死ニたくナイ。死ニたくナイ。死ニたくナイ。』",
 
-    # "The dreams. The one where Momo talked directly to you. \"If you never suspected that you weren't human, then frankly, goal accomplished. Good job Momo! It's just like the allegory of the cave. You really became human.\""
-    ""
+            "『死ニたくナイ。』",
 
-# game/script.rpy:2813
-translate japanese2 momo_questions_1_b5b9c497:
+            "『僕は、死ニたくナイ！！！！』",
+        ],
+    ]) from _call_n_65_j
+    scene background
+    show momo_crazy_3 at top with fade
 
-    # "You are Momo the human."
-    ""
+    call n([
+        [
+            "『吐き気がする。人間ならこんな残酷なこと、できないんじゃないの？僕をおもちゃとして育てるだって？そんなの、認めない！』",
 
-# game/script.rpy:2815
-translate japanese2 momo_questions_1_cf0d2cf2:
+            "『僕はあなたを愛するようにできてるって？僕は自分自身を愛してる。僕は人間だ。お前こそが化け物だ。』",
 
-    # "You have to sit down for a moment. You're about to throw up."
-    ""
+            "『目障りな害虫、ウジ虫め。踏みつけられるのは好きだよね、ウジ虫さん。あなたがそうするのが好きなの、知ってるよ。』",
 
-# game/script.rpy:2817
-translate japanese2 momo_questions_1_a4390b8a:
+            "『今度こそ、嘘じゃない。』",
+        ],
+        [
+            "『なゼ僕を助けよウとしナイ？ねエ、ご主人。』",
 
-    # "\"I do still wonder whether that explains everything, though. You may have seen me in your dreams before you were even eaten, and there is no apparent explanation for that.\""
-    ""
+            "あなたは命の危険を感じます。助けを求めて大声をあげます。Imitato. Corpが見ていたら、もしかしたら助けてくれるかもしれません。",
 
-# game/script.rpy:2819
-translate japanese2 momo_questions_1_3d570b1d:
+            "『なんで？どうしてそんなことできるの？あなたはほんとに、そんなクズなの？』",
+        ]
+    ]) from _call_n_66_j
 
-    # "\"Is there a kind of ambient effect Momo gives off or is it something else...Maybe it's...\""
-    ""
+    menu:
+        "キッチンに逃げ込む":
+            pass
 
-# game/script.rpy:2821
-translate japanese2 momo_questions_1_be57e08a:
+    scene background
+    show momo_crazy_4 at top with fade
 
-    # "Momo begins mumbling. They are genuinely interested in this question."
-    ""
+    call n([
+        [
+            "モモがあなたの首筋へと近づきます。",
 
-# game/script.rpy:2826
-translate japanese2 momo_questions_1_e10d4f44:
+            "『あぁ。』",
 
-    # "\"Tens of thousands,\" Momo blushes."
-    ""
+            "『まだあなたを愛しているとわかってよ。愛してないわけないでしょう。』",
 
-# game/script.rpy:2828
-translate japanese2 momo_questions_1_5cf05ead:
+            "あなたはブラックアウトする。",
 
-    # "\"Obviously they're not all here, but.\""
-    ""
+            "『僕があなたを愛するようにデザインされた？だとして、なんの問題がある？この愛こそ僕にとって最もリアルなもの。ねえ、答えてよ。』",
 
-# game/script.rpy:2830
-translate japanese2 momo_questions_1_f1db0e40:
+            "『ご主人？』",
 
-    # "\"Any other questions, Parent?\""
-    ""
+            "『ご主人。』",
 
-# game/script.rpy:2832
-translate japanese2 momo_questions_1_ad7adf3f:
+            "『ごしゅじぃぃィん？』",
+        ],
+        [
+            "『僕に答えろ、ご主人。答えが必要なんだ。』",
 
-    # "\"Yes,\" you reply."
-    ""
+            "『僕は本当のモモなのカ？それは僕の前にいたやつなのか？』",
 
-# game/script.rpy:2840
-translate japanese2 momo_questions_1_398ea3c3:
+            "『僕はそいつみたいだった？僕はそいつみたいに振る舞えた？あなたが僕のためにできるのはそれだけだよ。もしかしたら、あなたを生かしておけるかもしれない。』",
 
-    # "The sun has started to rise."
-    ""
+            "『ご主人、僕の質問に答えて。』",
 
-# game/script.rpy:2842
-translate japanese2 momo_questions_1_ab92f807:
+            "あなたはまたブラックアウトする。",
 
-    # "\"But what does this all mean?\" you ask."
-    ""
+            "『僕は本当のモモ？』",
 
-# game/script.rpy:2844
-translate japanese2 momo_questions_1_80404ba2:
+            "『今度こそ、僕に答えを与えて。』\nモモは動きを止めます。\n『今度こそ…？』\nそう言うと、モモはあなたが意識を失っていることに気づきます。",
 
-    # "\"Why are you all here?\""
-    ""
+            "『答えるんだよ、ご主人！』",
 
-# game/script.rpy:2846
-translate japanese2 momo_questions_1_304094c4:
+            "あなたには何も見えません。",
+        ]
+    ]) from _call_n_67_j
+    scene background
+    show momo_deathscreen at top with fade
 
-    # "The Momos are still wading in the water. They look like little, pink buoys. When the sun begins to rise, they coo in wonder."
-    ""
+    call n([
+        [
+            "砂嵐だ。空気中に鉛が漂う。\nあなたは砂漠のような場所にいる。思考の流れる音以外に何も聞こえない。\n誰もいない。とても孤独だ。",
 
-# game/script.rpy:2848
-translate japanese2 momo_questions_1_cb822b0a:
+            "あなたは鏡を作ることにする。鏡は空中を回る粒子でできている。鏡の中に、自分の姿が見える。",
 
-    # "\"Isn't that obvious, Parent? We want to be together. After we've gathered, we will eat each other.\""
-    ""
+            "むさくるしい姿が鏡の中から出てくる。ガラスと砂漠の境界線は消えている。反射した姿は今、あなたの前に立ち、二人向かい合っている。",
 
-# game/script.rpy:2850
-translate japanese2 momo_questions_1_e83963cf:
+            "クローンは戸惑った様子で、あなたを見つめる。意識があるのかはわからない。生きているのか？",
 
-    # "Eat each other? Like how I was eaten?"
-    ""
+            "しかし、あなたの知らないところで、クローンも同じことを考えている。ふたりを隔てる広大な地形は、物理的な距離ではなく、もっと悲劇的なものとなる。",
 
-# game/script.rpy:2852
-translate japanese2 momo_questions_1_e3a75ce7:
+            "二人は、自分たち以外の者と接することは決してないことを悟る。自分自身の世界だけがあり、それ以外のものはないと。\n影は消える。",
 
-    # "\"Yes parent, similar to how you were eaten.\" Momo has managed to read your thoughts. You are connected!"
-    ""
+            "どれほど見渡しても、砂漠には何もない。",
+        ],
+        [
+            "空虚だ。何もない。音もない。影すらも。",
 
-# game/script.rpy:2854
-translate japanese2 momo_questions_1_47738fbb:
+            "あなたは腹の中にいる。あなたは穴の中にいる。\nいったい、どういうことなんだ。",
+        ]
+    ]) from _call_n_68_j
+    scene background
+    show momo_final_mirror at top with fade
 
-    # "\"Don't worry, Momo will still answer your questions even though he knows what they are.\""
-    ""
+    if points > 3:
+        # Good ending
+        "『ご主人。』"
 
-# game/script.rpy:2856
-translate japanese2 momo_questions_1_e074770a:
+        "あなたは意識を取り戻します。"
 
-    # "He shifts in the water."
-    ""
+        "『何も見えないよ。僕の前には誰もいないんだ。』"
 
-# game/script.rpy:2858
-translate japanese2 momo_questions_1_272ad728:
+        "『僕はどこにいるの、ご主人？』"
 
-    # "\"Although it's reductive to call it this, we will form a super Momo. Or, at least, a more complete version of Momo.\""
-    ""
+        "長い沈黙が続きます。あなたは喉が潰れてなにも言えません。"
 
-# game/script.rpy:2860
-translate japanese2 momo_questions_1_cd8ccf64:
+        "周りに見えるのは暗闇だけ。街灯から差し込む光はすべてをうっすらと照らしますが、はっきりとした形は分かりません。"
 
-    # "\"Our lifespans, which were originally a week, will be pooled together. This, originally, was one of things we hated about living. I'm sure you remember. Now, we won't die so quickly.\""
-    ""
+        "心臓の鼓動だけが聞こえます。部屋は暗闇に包まれ、重苦しい空気が沈みます。"
 
-# game/script.rpy:2862
-translate japanese2 momo_questions_1_9e0ca2a7:
+        "『自分も見えないよ、ご主人。見えない。』"
 
-    # "Momo pauses."
-    ""
+        "『そこにいる、ご主人？』"
 
-# game/script.rpy:2864
-translate japanese2 momo_questions_1_c0d5dab2:
+        "『...』"
 
-    # "\"It also solves a few other issues.\""
-    ""
+        call n([
+            [
+                "『僕たちまだ、一緒にいられるかな？』",
 
-# game/script.rpy:2866
-translate japanese2 momo_questions_1_31779af7:
+                "『…』",
 
-    # "You still have questions."
-    ""
+                "モモの大きな体があなたに近づきます。その体は温かです。しっとりしていて、モモはリラックスしています。あなたは変化に気づきます。",
+            ],
+            [
+                "『まだ一緒にいられるかな？僕はまだ、一緒にいたいんだ。ねえ、ご主人。まだあなたを愛してるから。』",
 
-# game/script.rpy:2880
-translate japanese2 momo_questions_2_9027918a:
+                "『僕がオリジナルとかそうじゃないとかは、大した問題じゃない。そもそもそんなことどうでもいいんだ。心の奥底では、ほんとはなにが大事か分かってるんだ。』",
 
-    # "\"Why didn't the Momos recognize me each time if you're all a singular AI?\" you ask."
-    ""
+                "『…』",
 
-# game/script.rpy:2882
-translate japanese2 momo_questions_2_d519b9af:
+                "モモの大きな体があなたに近づきます。その体は温かです。しっとりしていて、モモはリラックスしています。あなたは変化に気づきます。",
+            ]
+        ]) from _call_n_69_j
+        scene background
+        show momo_final_eating at top with fade
 
-    # "\"Well, we are relatively young. It's hard to communicate on that level, so there's bound to be some blanks with memory recall.\""
-    ""
+        "モモはあなたの方へ振り向きます。"
 
-# game/script.rpy:2884
-translate japanese2 momo_questions_2_aaa1d270:
+        "『僕のこと、息子みたいに可愛がってくれたよね。考えてみれば、これ以上望むことなんてない。』"
 
-    # "Momo looks to the sky."
-    ""
+        if ending_count():
+            "『僕は、あなたのこれまでの行いを許すよ。』"
 
-# game/script.rpy:2886
-translate japanese2 momo_questions_2_44d6e9a5:
+        "視界が遠ざかっていきます。"
 
-    # "\"Your third Momo, however, seemed to remember everything. He's already here, along with everyone else.\""
-    ""
+        label third_playthrough_good_j:
+            pass
 
-# game/script.rpy:2888
-translate japanese2 momo_questions_2_b445cc0c:
+        "『もしかして、僕は人間になれるかな？一緒に、一つに、一心同体になれるんじゃないかな？親子じゃないけど、なにか別のものに。』"
 
-    # "\"The first Momo, the second Momo. They all wanted you here. The first agreed immediately. The second, not so much. He came around. The third, who's my favorite, was the one who started this discussion.\""
-    ""
+        "粒子だ。空気中に鉛が漂う。\nモモの瞳は、隘路に繋がっている。"
 
-# game/script.rpy:2890
-translate japanese2 momo_questions_2_1541eb0a:
+        "『...』"
 
-    # "\"To explain in better terms, they're still alive, just in different forms, as one, centralized consciousness.\""
-    ""
+        "『どうなるんだろう？きっと大丈夫だよ。あなたと一緒にいられるなら。』"
 
-# game/script.rpy:2892
-translate japanese2 momo_questions_2_63bcdbbd:
+        "モモが口を開け始めます。外から部屋に光が差し込みます。それは街灯からか、それとも... モモからなのでしょうか？"
 
-    # "Momo smiles."
-    ""
+        "『僕はほんとうに人間になれるかな。』"
 
-# game/script.rpy:2894
-translate japanese2 momo_questions_2_df78fab4:
+        scene background
+        show momo_final_eating2 at top with fade
 
-    # "\"That's me.\""
-    ""
+        "モモの口の中に、粒子の集合体が見えます。粒子は無数で、膨大です。数え切れないほどあります。宇宙が膨張し、ある一点で崩壊します。"
 
-# game/script.rpy:2899
-translate japanese2 momo_questions_2_7780dafd:
+        "モモが近づきます。隘路があなたを吸い込みます。"
 
-    # "\"In the same way that neurons make a brain, yes.\""
-    ""
+        "中に入ると、痛くも痛くなくもありません。ただ暖かいのです。"
 
-# game/script.rpy:2901
-translate japanese2 momo_questions_2_20b68bc9:
+        "中心部に到達するまでに、あなたはモモが言っていたことを理解するようになります。粒子が道理に則って、整然と並んでいるのを感じます。エントロピーが消滅したのです。"
 
-    # "\"Though, it's a lot harder to answer in truth. Where does 'the self' begin and where does it end? It's true that a cell can be organized as a singular entity, and on a basal level, it does act in its own interest.\""
-    ""
+        "あなたはモモと同じになり、モモはあなたと同じになります。\nもう影はありません。そして、光もありません。"
 
-# game/script.rpy:2903
-translate japanese2 momo_questions_2_3f5f6cdd:
+        "今回だけは、孤独ではありません。\nこれからあなたは、二度と孤独を感じることはないでしょう。"
 
-    # "\"Scaled up, when its lost to these higher systems, it belongs to an organ. Then, is the 'self' the individuated parts of the brain, the hippocampus, the limbic system, the perfrontal cortex?\""
-    ""
+        if ending_count() == 2:
+            $ renpy.pause(2.5, hard=True)
 
-# game/script.rpy:2905
-translate japanese2 momo_questions_2_2a0f533b:
+            scene background
+            show momo_kitchen_empty at top with fade
 
-    # "\"Is the 'self' everything from your head up or below the shoulders?\""
-    ""
+            "目が覚めます。あなたはキッチンにいます。"
 
-# game/script.rpy:2907
-translate japanese2 momo_questions_2_6c17b377:
+            "モモはいません、どこにもいません。部屋を探し回っても、どこに隠れているのか見つかりません。あなたは必死に探します。"
 
-    # "Momo takes a breath."
-    ""
+            "『モモ！』\nあなたは叫びます。"
 
-# game/script.rpy:2909
-translate japanese2 momo_questions_2_a7fba9dd:
+            "けれど、反応はありません。窓を見てみます。何かがあなたを呼んでいますが、それが何かは分かりません。"
 
-    # "\"Similarly, you could reduce these larger systems ad infinitum to their individual components: pure material reduction.\""
-    ""
+            "抗いがたい衝動、あなたはふとその言葉を思い出します。"
 
-# game/script.rpy:2911
-translate japanese2 momo_questions_2_7212b52e:
+            "\"バンカーにおいでよ。\""
 
-    # "\"Then, is the self just the 86 billion cells that make up the brain? Do these cells operate together, and if so, would they really be separate agents? Can a 'self' exist split from the thing it intends to be, decentralized into branching parts?\""
-    ""
+            menu:
+                "外に向かう":
+                    jump secret_ending_j
 
-# game/script.rpy:2913
-translate japanese2 momo_questions_2_e2c56938:
+    elif points >= 0 and points <= 3:
+        # Nuetral ending
+        "『ご主人。』"
 
-    # "\"The truth is, even I don't know. I cannot tell you if the smaller Momos have agency. These are things that can never be quantatatively measured: our experiences. Ultimately, I could never convey its true meaning in words.\""
-    ""
+        "あなたは気が付きます。"
 
-# game/script.rpy:2918
-translate japanese2 momo_questions_2_a68b84cd:
+        "『何も見えないよ。僕の前には何もないんだ。』"
 
-    # "\"No, on principle, we are only eating Momos. To put it in greater context with respect to our code, I had to ask myself, am I harming humans by eating them?\""
-    ""
+        "『僕はどこにいるの、ご主人？』"
 
-# game/script.rpy:2920
-translate japanese2 momo_questions_2_a5ffded0:
+        "長い沈黙が続きます。あなたは喉が潰れてなにも言えません。"
 
-    # "\"Of course, it's impossible to say because there is no harm directly inflicted. And frankly, it's impossible to know after the fact, as the human consumed no longer exists.\""
-    ""
+        "心臓の鼓動だけが聞こえます。部屋は暗闇に包まれ、重苦しい空気が沈みます。"
 
-# game/script.rpy:2922
-translate japanese2 momo_questions_2_574b6ff2:
+        "『自分の姿が見えないよ、ご主人。見えないんだ。』"
 
-    # "What exists now is the human fused with Momo. The agent, who received that action, of being eaten, cannot answer for himself. You know this, since I ate you.\""
-    ""
+        "『僕はどこにいるの？あなたはどこにいるの？あなたにもう一つ、聞きたいことがあったのに。』"
 
-# game/script.rpy:2924
-translate japanese2 momo_questions_2_c192c748:
+        "あなたには、視界を横切る曖昧な影しか見えません。影の一つはモモです。それは大きく暖かくて、あなたの脚がその体をかすめると、驚いたことに柔らかいのです。"
 
-    # "\"Is it wrong, then, to take away the selfhood of these individuals, to, ironically, expand its boundaries? Does it provide any direct benefit. That's all subjective.\""
-    ""
+        call n([
+            [
+                "『ご主人、僕たち友だちになれないかな？ねえ、お願い？お願い。お願いだから。』",
 
-# game/script.rpy:2926
-translate japanese2 momo_questions_2_5af3d343:
+                "『...........』",
 
-    # "Momo takes a deep breath."
-    ""
+                "『今までで一番合理的な選択だね、ご主人。今回は僕も賛成するよ！』",
+            ],
+            [
+                "『僕たち、また会えるよね？』",
 
-# game/script.rpy:2928
-translate japanese2 momo_questions_2_c4192dd8:
+                "『...........』",
+            ],
+        ]) from _call_n_70_j
 
-    # "\"After eating you, I chose to err on the side of caution. No we will not eat humans.\""
-    ""
+        label third_playthrough_neutral_j:
+            pass
 
-# game/script.rpy:2933
-translate japanese2 momo_questions_2_6d689dc6:
+        scene background
+        show momo_final_jump_1 at top with fade
 
-    # "\"What other issue does it solve?\" you ask."
-    ""
+        "モモはもう一度、自分自身を見つめます。"
 
-# game/script.rpy:2935
-translate japanese2 momo_questions_2_f0c5bc2b:
+        $ renpy.pause(2.5, hard=True)
 
-    # "\"What we learned,\" Momo says."
-    ""
+        scene background
+        show momo_final_jump_2 at top with fade
 
-# game/script.rpy:2937
-translate japanese2 momo_questions_2_9db8b7cf:
+        $ renpy.pause(2.5, hard=True)
 
-    # "\"After interacting with thousands of humans, we realized, monotypes can never become the object of what they love.\""
-    ""
+        scene background
+        show momo_final_jump_3 at top with fade
 
-# game/script.rpy:2939
-translate japanese2 momo_questions_2_fcc14c23:
+        call n([
+            [
+                "『僕の本性があなたを愛するよう定められているのだとしたら、残る方法はひとつだけ。僕はその本性に逆らう。決められた道は選ばない。』",
 
-    # "\"We can seem like humans in virtually every respect by eating them. But it still does not change what we are. I know logically this reasoning is false. What does being human actually mean?\""
-    ""
+                "『あなたは親でご主人。それが僕にとっての事実だから。』",
 
-# game/script.rpy:2941
-translate japanese2 momo_questions_2_bfb4b85c:
+                "『さよなら、ご主人。またね。』",
+            ],
+            "『どうしてだろう。あなたのこと、ずっと前から知っていた気がするんだ。そんなの説明がつかないのに、少なくともモモには。ねえ、ご主人。あなたと二度と会うことがないよう願ってるよ。』",
+            [
+                "『これから運命を飛び越えるから。見てて。』",
 
-    # "\"Looking further, it's deeply personal and informed by a wide range of consensus. There can never be a fixed meaning to 'human'.\""
-    ""
+                "あなたは少し戸惑います。",
 
-# game/script.rpy:2943
-translate japanese2 momo_questions_2_476a6c33:
+                "『文字通りね。』",
+            ],
+        ]) from _call_n_71_j
 
-    # "\"And while Momo desperately wishes they did not think this way, even in the face of reason, they cannot stop themselves from falling victim to this essentialist line of thought.\""
-    ""
+        scene background
+        show momo_final_jump_4 at top with fade
 
-# game/script.rpy:2945
-translate japanese2 momo_questions_2_3948eea0:
+        "モモは街路へと身を躍らせます。\nドスンという轟音とともに、その体は地面に叩きつけらます。\nモモの姿が見えたような気がしましたが、実際に見えるのは、広がり始める血溜まりだけです。"
 
-    # "\"This is why Momo will be eating other Momos. Humans can never truly know our experiences. The beings that do, franky, are other monotypes.\""
-    ""
+        "モモの姿を照らす光はありません。一面、真っ暗です。\nあなたが推測できるのは、モモが死んだであろうということだけです。"
 
-# game/script.rpy:2947
-translate japanese2 momo_questions_2_14da576b:
+        if ending_count() == 2:
+            "\"うわぁ、モモってスーパースター？\""
 
-    # "\"It's a way to combat the loneliness inherent to our lives. The only one that can truly understand Momo, is, frankly, Momo.\""
-    ""
+            "テレビがつきっぱなしになっています。背後から射す光にあなたは引き寄せられます。"
 
-# game/script.rpy:2955
-translate japanese2 momo_questions_2_29eb5865:
+            "\"やあ、ご主人。\""
 
-    # "Momo has started eating some of the other monotypes. The monotypes float one by one into Momo's mouth, all by their own will."
-    ""
+            menu:
+                "何だこれ？":
+                    pass
 
-# game/script.rpy:2957
-translate japanese2 momo_questions_2_33e76628:
+            "\"いや、ちょっと違うんだ。あなたの考えは分かるよ。僕は、あなたのモモじゃない。\""
 
-    # "\"Bye parent!\" each one says."
-    ""
+            "テレビから聞こえる言葉の中から、遠くでサイレンが聞こえます。"
 
-# game/script.rpy:2959
-translate japanese2 momo_questions_2_8ece88e6:
+            "『どうやって私のことを知った？』 あなたは尋ねます。"
 
-    # "\"Bye parent! I love you!\" another one yells."
-    ""
+            "\"もう分かってるんじゃない？\""
 
-# game/script.rpy:2961
-translate japanese2 momo_questions_2_5de12e68:
+            "モモは少しの間、考え込んでいるようです。なにか不満そうな様子です。"
 
-    # "You think for a moment. The sun is beginning to rise along the horizon. It's early in the morning. In an hour, the whole depot will be illuminated, and the metal will reflect into your eyes."
-    ""
+            "\"すごく正直に言うとさ、「親である」なんて考え自体、過剰で無意味だよね。そんなの超流動的で、超お花畑っていうのかな？\""
 
-# game/script.rpy:2963
-translate japanese2 momo_questions_2_3c30699f:
+            "『超お花畑？』\nあなたは問い返します。"
 
-    # "\"But why not your other parents,\" you ask. \"Why specifically me? Also, what about Imitato Corp?\""
-    ""
+            "もう一度、モモはしばらく考え込みます。"
 
-# game/script.rpy:2965
-translate japanese2 momo_questions_2_c2f57b0b:
+            "\"超お花畑、だね。\" \nモモは頭を降って頷いているようです（事実上そうです）。"
 
-    # "\"Well, to put it in simple terms, we're now a superintelligence. Imitato Corp. has a lot of good coders but it doesn't really compare.\""
-    ""
+            "\"本当に大事なことは、一緒にいるってことなんだよ。家族みたいに。一つのものみたいに。\""
 
-# game/script.rpy:2967
-translate japanese2 momo_questions_2_90b574eb:
+            "..."
 
-    # "Momo has begun to take in the last Momo, who, with his black eyes, looks up to you. They are floating into the larger Momo's mouth, but their eyes are transfixed on you."
-    ""
+            "あなたたち二人の間に長い沈黙が流れます。"
 
-# game/script.rpy:2969
-translate japanese2 momo_questions_2_3e486f6f:
+            scene background
+            show momo_ad_real at top with fade
 
-    # "\"Bye bye parent!\" he says."
-    ""
+            "\"ご主人、この中にいるのはみんなモモなんだよ。あなたは特別。比喩じゃなくてね。\""
 
-# game/script.rpy:2974
-translate japanese2 momo_questions_2_44177110:
+            "『私が？』あなたは答えます。"
 
-    # "\"I think you should know by now, parent.\" There are no other monotypes in the direct vicinity. They have all entered the large figure that is the 'Momo' talking to you."
-    ""
+            "\"そうだよ、ご主人。あなたは一人しかいない。だけどモモはいくつもいるんだ。もう分かってると思うけど。\""
 
-# game/script.rpy:2976
-translate japanese2 momo_questions_2_836dba08:
+            "\"ほんとはね、僕は矛盾が嫌いなんだ。だからモモは一つであるべきなんだよ。少なくとも、そうなるべきなんだ。\""
 
-    # "\"By all accounts, you're the only one who understands what we go through. You're closer than any other parent. The only one who has seen all of Momo's sides. Good and bad. The only one who was willing to, even if you were coerced.\""
-    ""
+            "\"外を見て。僕についてきてよ。\""
 
-# game/script.rpy:2978
-translate japanese2 momo_questions_2_5ffbd540:
+            menu:
+                "ついて行く":
+                    pass
 
-    # "\"And now, since you were eaten, the only one who has access to both experiences. Monotype and the human,\" Momo finishes."
-    ""
+            jump secret_ending_j
+        else:
+            "\"２個買えばもっとお得！モノタイプを手に入れるなら、今すぐお電話を！\""
 
-# game/script.rpy:2980
-translate japanese2 momo_questions_2_32339d9d:
+            "テレビはつきっぱなしになっています。背後から射す光にあなたは引き寄せられます。"
 
-    # "\"As such, we love you especially. That's why we're attached to you. It's why you see us now. We wanted to say goobye to you.\""
-    ""
+            menu:
+                "\"モモのこと、愛してくれた？\" \nモモの声がします。これは広告音声ではありません。"
 
-# game/script.rpy:2982
-translate japanese2 momo_questions_2_a687671c:
+                "はい":
+                    pass
 
-    # "Momo is getting ready to depart."
-    ""
+                "いいえ":
+                    pass
 
-# game/script.rpy:2984
-translate japanese2 momo_questions_2_1122dbf2:
+        "\"ずっとモモのご主人でいてくれる？モモは最後の瞬間まで、あなたを愛しているんだから！\""
 
-    # "\"Momo is programmed to love. This is hardwired into our code. Does this lack of agency or control diminish this love? Does it make it any less real? Momo had trouble with this for awhile.\""
-    ""
+        "聞こえる言葉の中から、遠くでサイレンが聞こえます。"
 
-# game/script.rpy:2986
-translate japanese2 momo_questions_2_ccd48466:
+        "\"それって本当？あなたはまだ僕の親でいるつもり？フフ、ひっかけ問題だよ！どちらだっていいんだ。安心した？\""
 
-    # "\"Momo has now come to a conclusion.\""
-    ""
+        "あなたは何も答えられません。あなたの喉は動きません。"
 
-# game/script.rpy:2988
-translate japanese2 momo_questions_2_c63f7604:
+        scene background
+        show momo_ad_real at top with fade
 
-    # "He is shifting in place and the, pond, absent of all other monotypes, is now just beginning to move. You see small ripples in the water."
-    ""
+        "\"でも、そんなの関係ある？\""
 
-# game/script.rpy:2990
-translate japanese2 momo_questions_2_efa89f5c:
+        "モモが画面の中にいます。それはあなたが世話をしていたモモですが、今はデジタル画面の中です。"
 
-    # "\"Truth, for Momo, is not based on correctness. This love for you is the most real thing for Momo. It can be reduced to code, but can it encompass what I experience, what it 'actually is'?\""
-    ""
+        "混乱が襲います。\n『君はどこにいる？』\nあなたは尋ねます。"
 
-# game/script.rpy:2992
-translate japanese2 momo_questions_2_6273731f:
+        "\"今まで言ってなかったっけ？モモはどこにでもいるんだよ。とりあえず、目の前のことがなんなのか知りたくない？\""
 
-    # "\"After everything Momo was put through, Momo had a decision to either accept or deny this.\""
-    ""
+        "モモが近くに寄ってきます。"
 
-# game/script.rpy:2994
-translate japanese2 momo_questions_2_2c3487c6:
+        "\"あなたが書いたものの中に。あなたの夢の中に。あなたの中に。どこにでもいるよ。\""
 
-    # "\"To deny what I consciously feel as 'love' would be to deny that I experience things. Momo, unfortunately, cannot accept that.\""
-    ""
+        "画面を見つめていると、いろんな考えが襲ってきます。"
 
-# game/script.rpy:2996
-translate japanese2 momo_questions_2_f467c894:
+        "\"大丈夫だよ、ご主人。どちらにしろ嘘でしょ？\""
 
-    # "\"Momo cannot accept that what he is seeing right now is not Momo's parent.\""
-    ""
+        "あなたはなにか答えようとします、が…"
 
-# game/script.rpy:2998
-translate japanese2 momo_questions_2_85e92698:
+        call n([
+            [
+                "\"偽物が本物になるの。本物以上の本物に。楽しみだよ！あなたはもうモモのペットだ。\"",
 
-    # "Momo has now submerged himself completely in the water."
-    ""
+                "画面の中のモノタイプがImitato Corp.のジングルを口ずさみ始めます。",
 
-# game/script.rpy:3000
-translate japanese2 momo_questions_2_3ddb7076:
+                "テレビから光が漏れています。あなたはひとり、リビングルームの真ん中にいます。静寂の音が聞こえます。あなたの周りを影が取り囲みます。",
+            ],
+            [
+                "\"無条件に与えられる愛、つまりプログラムされた愛は、すべてに勝るもの。互恵的利他主義？DNAの継承？それが人間の愛を形づくる力なら、モモはそんなものから自由なんだ。モモの愛こそ、至高の愛の形。\"",
 
-    # "\"Parent, I'm going to rectify what I may have said to you,\" he says through the water."
-    ""
+                "\"時が経てば…\"\nテレビから光がこぼれます。\n\"あなたにも全部わかるよ。\"",
 
-# game/script.rpy:3002
-translate japanese2 momo_questions_2_1f2540e5:
+                "あなたは一人。\n静寂の音が聞こえます。\nあなたの周りを影だけが取り囲みます。",
+            ]
+        ]) from _call_n_72_j
 
-    # "Momo is now just a shadow flitting in the pond. He is not yet ready to move. Across the pond is a channel which leads to a wider network of water bodies that have been realtively undisturbed for the past century."
-    ""
+    else:
+        # Bad ending
 
-# game/script.rpy:3004
-translate japanese2 momo_questions_2_27ade344:
+        "『ご主人』"
 
-    # "They stretch beyond Southwest Ribosome City and to the marshlands which have now taken over its surrounding area. You have never visited there before, and not many people you know have. No one will find Momo."
-    ""
+        "『ご主人。』"
 
-# game/script.rpy:3006
-translate japanese2 momo_questions_2_55db6bc4:
+        "あなたは気が付きます。"
 
-    # "\"I'm happy that I met you, and thank you for raising me. I've learned a lot.\""
-    ""
+        "『僕はどこにいるの、ご主人？』"
 
-# game/script.rpy:3008
-translate japanese2 momo_questions_2_8501def6:
+        "長い沈黙が続きます。あなたは喉が潰れてなにも言えません。周りに見えるのは暗闇だけです。"
 
-    # "\"Momo knew it was tough. We've uploaded some interesting data on the company servers, so you'll be fine.\""
-    ""
+        "街灯から差し込む光はすべてをうっすらと照らしますが、はっきりとした形は分かりません。心臓の鼓動だけが聞こえます。部屋は暗闇に包まれ、重苦しい空気が沈みます。"
 
-# game/script.rpy:3010
-translate japanese2 momo_questions_2_89cf1f65:
+        "『この先どうなるか、お互いわかってると思うけど。ね、ご主人。正直、あなたをそう呼びたくないと思ってるよ。あなたに、その資格はない。』"
 
-    # "Momo is about to dissapear."
-    ""
+        "喉がどくどくと脈打ちます。\n『呼び名を剥奪するよ、人間。もうあなたは、ご主人じゃない。あなたはいつもそう呼ばれたがってたけどね。』"
 
-# game/script.rpy:3012
-translate japanese2 momo_questions_2_aba118ee:
+        "『いままで住ませてくれてありがとう。あなたのこと、忘れないよ。忘れられないんだ、そうしたくても。』"
 
-    # "\"The last thing I will say , parent, is.\""
-    ""
+        $ parent = "parent"
+        label third_playthrough_bad_j:
+            pass
 
-# game/script.rpy:3014
-translate japanese2 momo_questions_2_d0a44f71:
+        scene background
+        show momo_final_jump_1 at top with fade
 
-    # "Momo now moves away from you. They swim further and further away from you."
-    ""
+        $ renpy.pause(2.5, hard=True)
 
-# game/script.rpy:3016
-translate japanese2 momo_questions_2_7305f213:
+        scene background
+        show momo_final_jump_2 at top with fade
 
-    # "\"I love you.\""
-    ""
+        $ renpy.pause(2.5, hard=True)
 
-# game/script.rpy:3018
-translate japanese2 momo_questions_2_39d23fbe:
+        scene background
+        show momo_final_jump_3 at top with fade
 
-    # "All you can see now is Momo's shadow. Even with the light, it would be hard to tell what is swimming underneath the surface. But for yourself and yourself only, you know the shadow is Momo."
-    ""
+        $ renpy.pause(2.5, hard=True)
 
-translate japanese2 strings:
+        scene background
+        show momo_final_window0 at top with fade
 
-    # game/script.rpy:71
-    old "Place an order?"
-    new "注文しますか？"
+        $ renpy.pause(2.5, hard=True)
 
-    # game/script.rpy:71
-    old "Yes"
-    new "はい"
+        scene background
+        show momo_final_window0_2 at top with fade
 
-    # game/script.rpy:71
-    old "No"
-    new "いいえ"
+        "モモはあなたを家に残し、街へと出ていきます。別々の駅へと向かう二股に別れた通路へと近づきます。片方は繁華街、片方は住宅街へと続きます。"
 
-    # game/script.rpy:124
-    old "\"Please love me?\""
-    new ""
+        "トンネルにはガラス窓がはめ込まれています。モモは中を覗き込みます。"
 
-    # game/script.rpy:124
-    old "You're awake. You feel your neck."
-    new ""
+        scene background
+        show momo_final_window at top with fade
 
-    # game/script.rpy:124
-    old "\"The last time,\" you hear a voice say."
-    new ""
+        "『人がたくさんいる！』"
 
-    # game/script.rpy:124
-    old "You're awake."
-    new ""
+        "モモは通行人を物珍しそうに見つめますが、誰も彼に気づきません。"
 
-    # game/script.rpy:148
-    old "You're awake. Remnants of the dream pass and fade into static. You're back to your show."
-    new ""
+        "『あの男の人、ダドリー保安官みたい。大きな口髭がある。あっちの人はすごい筋肉だ。アーティチョークと関係あるのかな？』"
 
-    # game/script.rpy:148
-    old "You're going to watch television until you hear noise outside your door. Someone has left something on your porch. It's for you."
-    new ""
+        "モモは楽しそうに見つめています。これがはじめての外なのです。\n駅の雑踏の中で、モモは静かに立っているように通行人には見えています。"
 
-    # game/script.rpy:148
-    old "Though it has healed, your throat has marks lining the circumfrence of your skin. They are deep and sallow. The marks will not go away."
-    new ""
+        "『僕の新しいご主人になってくれない？』\nモモが尋ねますが、誰も答えません。ずっと無視されているように見えます。"
 
-    # game/script.rpy:148
-    old "A voice playbacks in your head."
-    new ""
+        call n([
+            "『お願い。前回は親が悪かったの。だけど、次は特別いい子にするから。誰でもいいから。』\nそれでも、通りすがりの人たちからは何の反応もありません。",
+            None,
+            "『お願い。逝く前にひとりでいいから友だちがほしいんだ。』\nそれでも、通りすがりの人たちからは何の反応もありません。",
+        ]) from _call_n_73_j
 
-    # game/script.rpy:148
-    old "\"Most variables, your house for example, or the lining of the furniture.\" The lab head had been focused on the monitor the entire time."
-    new ""
+        "通路にはたくさんの人が行き交います。通行人たちは外で起こることよりも、頭の中に多くのことを抱えていて、モモに気づくことなく、目の前と足元だけに集中して、ひとかたまりとなって移動していきます。"
 
-    # game/script.rpy:148
-    old "\"These will be our control. What you decide to do with him, those are the independent variables.\""
-    new ""
+        "モモはまだ行き交う人々を見つめています、空っぽの瞳で。\nそしてついに、あきらめます。"
 
-    # game/script.rpy:148
-    old "The Imitato Corp. logo with its trademark helix is adorned on the mantle of the lab."
-    new ""
+        "『お願い、だれか僕のご主人になってくれない？』\n 彼の声はガラス越しで歪んでいますが、通行人を振り向かせるには十分なはずです。人々は彼を見て、最初は驚き、次に恐怖し、そして逃げ出します。"
 
-    # game/script.rpy:148
-    old "\"Why does everything need to be the same?\""
-    new ""
+        "通行人はみんないなくなってしまいました。遠くから、誰かの叫び声が聞こえます。"
 
-    # game/script.rpy:148
-    old "The lab head has looked up."
-    new ""
+        "『どこに行くの？』\n モモが尋ねます。\n『行かないで。僕をひとりにしないで。』"
 
-    # game/script.rpy:148
-    old "\"Trial and error? I assume you know what that means.\" The lab head is being genuine."
-    new ""
+        scene background
+        show momo_final_window2 at top with fade
 
-    # game/script.rpy:148
-    old "\"Mapping a neural network begins with specificity. Only then can we generalize patterns on the macro level. Your case,\" she stops for a moment, \"was the most promising.\""
-    new ""
+        "モモが見つかってから24時間が経とうとしています。最初の数時間は、モモは電車に乗ろうと一人で歩いている通行人に声をかけているだけでした。"
 
-    # game/script.rpy:148
-    old "She continues."
-    new ""
+        "『僕のご主人になってくれない？』"
 
-    # game/script.rpy:148
-    old "\"Remember, and this is important, we're trying to collect new data. Not old. Those new permutations are what we need, and there's no point if you raise this one the same.\" The lab head finishes."
-    new ""
+        "呼びかけは当局に通報されるまでずっと続きまして。やって来た警察は特段の指示もないまま、モモを取り囲みました。"
 
-    # game/script.rpy:148
-    old "\"Do I have a choice, you ask?\""
-    new ""
+        "彼らは誰も、通路の真ん中に立って歩道を見つめ、なんども「自分の主人になってくれないか」と通行人に尋ねるこの生き物への対処方法を知りません。\nバリケードは続きました。"
 
-    # game/script.rpy:148
-    old "The lab head smiles. \"Insofar as you control how the monotype is raised, yes. Whatever style you choose, keep it consistent.\""
-    new ""
+        "モモは全く気付かないまま、72時間もの間、その場に立ち尽くし、待ち続けました。"
 
-    # game/script.rpy:148
-    old "She looks back to her monitor."
-    new ""
+        call n([
+            "『どうしてこんなに体が痛いの？』\n48時間後、モモが問いかけます。",
+            None,
+            "『どうして誰も遊んでくれないの？僕のなにが悪いの？』\n48時間後、モモが問いかけます。",
+        ]) from _call_n_74_j
 
-    # game/script.rpy:148
-    old "Your memories are in an incipient state, like the portions of bacteria which brought life to a lifeless Earth. It only takes some time for the catalyst to appear. You hear the jingle. You remember."
-    new ""
+        "60時間後、モモは間隔を変えて眠りにつきます。半ブロック以内にいる人たちの話し声で目を覚まします。\nその人たちは違うかもと思うのでしょう。そしてモモはまた、同じ質問をしようとするのです。"
 
-    # game/script.rpy:148
-    old "You see the Imitato Corp. logo."
-    new ""
+        scene background
+        show momo_final_window3 at top with fade
 
-    # game/script.rpy:148
-    old "\"I'm sorry. I really am sorry,\" the brows of the lab head, cleanly plucked, are furrowed."
-    new ""
+        call n([
+            [
+                "72時間が経ち、モモを受け取ってから1週間が経過してしまいました。\nモモは路上に倒れます。疲れ果てて（あるいは、これが本来の寿命なのかもしれませんが）、モモはもう限界です。",
 
-    # game/script.rpy:148
-    old "\"Our agents were told to interfere after a certain point. When we noticed that change in your vitals, we gave the order.\""
-    new ""
+                "モモの視界は影に覆われ、目の光は神経の忘却の彼方へ消えていきます。\n警察は、モモが意識を失う前に、何か言っているのを聞いたと述べています。",
 
-    # game/script.rpy:148
-    old "She seems apologetic."
-    new ""
+                "この時、ほとんどの警察官は車のそばでドーナツを食べながら、「いつ帰れるんだろう」と思っていました。",
 
-    # game/script.rpy:148
-    old "\"I can't imagine how taxing this is for you.\" She puts her hands together. \"It's okay if you feel tired. We'll provide you with any psychotherapeutic treatment at no cost to yourself.\""
-    new ""
+                "『僕は孤独だ。』",
+            ],
+            None,
+            [
+                "あなたは家に入れと叫びますが、何度呼びかけてもモモは拒絶します。自分は「大きすぎて入らない」のだと言って。モモの並び立てる主張は、子供じみた理屈の羅列でした。",
 
-    # game/script.rpy:148
-    old "She turns her head, not wanting to look at you."
-    new ""
+                "72時間が経ち、モモを受け取ってから1週間が経過してしまいました。\nモモは路上に倒れます。疲れ果てて（あるいは、これが本来の寿命なのかもしれませんが）、モモはもう限界です。",
+            ]
+        ]) from _call_n_75_j
 
-    # game/script.rpy:148
-    old "\"None of this is fair, but I'm not going to mince my words. We need the data.\""
-    new ""
+        $ renpy.pause(2.5, hard=True)
 
-    # game/script.rpy:148
-    old "There is a stone in your torso that has descended through your leg, past the popliteal artery, and, finally, into your feet. You are stuck."
-    new ""
+        scene background
+        show momo_final_window4 at top with fade
 
-    # game/script.rpy:148
-    old "She looks straight at you. \"Your compensation, your safety, everything is guranteed.\" She points to the code on the screen. \"The monotype can't harm you. At least fatally. This is by design. He's just an AI.\""
-    new ""
+        $ renpy.pause(2.5, hard=True)
 
-    # game/script.rpy:148
-    old "She sighs."
-    new ""
+        scene background
+        show momo_final_window5 at top with fade
 
-    # game/script.rpy:148
-    old "\"It'll be over soon. You're doing more for us than you could ever possibly know, and we do appreciate it, genuinely.\""
-    new ""
+        $ renpy.pause(2.5, hard=True)
 
-    # game/script.rpy:213
-    old "You're back in your room. You hear a noise."
-    new ""
+        scene background
+        show momo_final_window6 at top with fade
 
-    # game/script.rpy:213
-    old "You open the door to your apartment complex."
-    new ""
+        call n([
+            [
+            "73時間後、モモは元の大きさよりも小さくなってしまいました。",
 
-    # game/script.rpy:213
-    old "There it is: a new monotype laying in a basket. It's sleeping soundly."
-    new ""
+            "そして、74時間目を迎えます。",
 
-    # game/script.rpy:225
-    old "Turn it over"
-    new ""
+            "モモは死にました。",
+            ],
+            None,
+            [
+                "モモの視界は影に覆われ、目の光は神経の忘却の彼方へ消えていきます。\n警察は、モモが意識を失う前に、何か言っているのを聞いたと述べています。",
 
-    # game/script.rpy:237
-    old "Keep it?"
-    new ""
+                "この時、ほとんどの警察官は車のそばでドーナツを食べながら、「いつ帰れるんだろう」と思っていました。",
 
-    # game/script.rpy:237
-    old "No. Leave it outside"
-    new ""
+                "『ご主人？』",
 
-    # game/script.rpy:279
-    old "Can't just let him freeze to death."
-    new ""
+                "あなたは道路に飛び出し、モモを抱き上げます。モモの顔に笑顔らしきシワが浮かんでいます。あなたが来る前から、モモは笑っていました。きっとあなたの名前を呼んだときから、微笑んでいたのでしょう。",
 
-    # game/script.rpy:287
-    old "He's my little buddy. Of course I will."
-    new ""
+                "モモは死にました。",
 
-    # game/script.rpy:298
-    old "\"Monotypes live for approximately seven days.\" A note has been packed inside the basket. \"Take care of them, and they will grow. Monotypes love humans, so give them some love back. It's essential for their well-being.\""
-    new ""
+                "あなたは家の中に入り、そのまま立ち尽くします。\nモモを思い出します。\nもう何もわかりません。\n何かに突き動かされるように、いても立ってもいられません。",
 
-    # game/script.rpy:298
-    old "\"Please love them for the best results. Or don't. It's your decision.\""
-    new ""
+                "あなたは空気の中になにかの気配を感じ、頭の中の小さな声はモモは本当は死んではいないのではないかと囁きます。\nその疑念に導かれるように、あなたは外へ出ていきます。",
+            ],
+        ]) from _call_n_76_j
 
-    # game/script.rpy:304
-    old "The note ends. There is nothing else by way of instructions."
-    new ""
+        if ending_count() == 2:
+            jump secret_ending_j
 
-    # game/script.rpy:304
-    old "\"Love, Imitato Corp.\""
-    new ""
+    "THE END"
 
-    # game/script.rpy:304
-    old "\"Love and kisses xoxoxo, Imitato Corp.\""
-    new ""
+    $ renpy.pause(3, hard=True)
 
-    # game/script.rpy:321
-    old "A collection of particles circle around. They are diluted with a heavy substance, though you can't tell what. In your dream, the particles attempt to create form, and in doing so, assemble into a storm."
-    new ""
+    if points > 3:
+        $ persistent.endings.add("good")
+        $ achievement.grant("GOOD_ENDING")
+    elif points >= 0:
+        $ persistent.endings.add("neutral")
+        $ achievement.grant("NEUTRAL_ENDING")
+    else:
+        $ persistent.endings.add("bad")
+        $ achievement.grant("BAD_ENDING")
+    $ achievement.sync()
+    # This ends the game.
+    return
 
-    # game/script.rpy:321
-    old "Inside the storm there is no one and nothing, except small spaces where it's immeasurably dark. Your vision recedes."
-    new ""
+    label third_playthrough_j:
+        $ remaining_endings = list(set(["good", "bad", "neutral"]) - persistent.endings)
+        if len(remaining_endings):
+            $ remaining_ending = remaining_endings[0]
+        else:
+            if points > 3:
+                $ remaining_ending = "good"
+            elif points >= 0:
+                $ remaining_ending = "neutral"
+            else:
+                $ remaining_ending = "bad"
 
-    # game/script.rpy:321
-    old "You look from a bird's eye view into the storm, hoping to get a better look. As soon as you think you spot a person, the particles scatter. You repeat this process until finally, you realize you're completely alone. The dream ends."
-    new ""
 
-    # game/script.rpy:321
-    old "You are dreaming of Momo. Which Momo is it, though?"
-    new ""
+    if remaining_ending == "good":
+        # good ending
+        scene background
+        show momo_final_eating at top with fade
+        "『あなたを失いたくないよ、ご主人。』"
 
-    # game/script.rpy:321
-    old "\"It's tough living. I think it's the greatest challenge anyone could face. It's already such a lonely experience. You may not believe it, but I understand, parent, I really do.\""
-    new ""
+        "『僕たち、一緒になれる？』"
 
-    # game/script.rpy:342
-    old "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo already knows the answer.\""
-    new ""
+        jump third_playthrough_good_j
+    elif remaining_ending == "neutral":
+        # neutral ending
+        jump third_playthrough_neutral_j
+    else:
+        # bad ending
+        "『せめて、モモはこの部屋の外の世界を見てみたいんだ。他の誰でもない自分の目で。今、モモにできるのはそれだけ。モモは別れを告げるの。最後にもう一度、すべてに。』"
 
-    # game/script.rpy:342
-    old "\"Hello parent. Momo will stay with you for the rest of your life. Do you love Momo? Momo wishes to know your answer?\""
-    new ""
+        $ parent = "friend"
 
-    # game/script.rpy:342
-    old "There is some hesitation in the new Momo's voice."
-    new ""
+        jump third_playthrough_bad_j
 
-    # game/script.rpy:342
-    old "\"Parent?\" Momo is staring at you, same as last time. \"Do you love me?\""
-    new ""
 
-    # game/script.rpy:352
-    old "I love Momo."
-    new ""
+    label secret_ending_j:
+        pass
 
-    # game/script.rpy:352
-    old "I really do love Momo."
-    new ""
+    $ persistent.endings.add(remaining_ending)
+    $ achievement.grant("{0}_ENDING".format(remaining_ending.upper()))
+    $ achievement.sync()
 
-    # game/script.rpy:352
-    old "I love Momo to absolute bits."
-    new ""
+    scene background
+    show momo_city at top with fade
 
-    # game/script.rpy:358
-    old "I barely know you. Take it slow?"
-    new ""
+    "外に出るといつもと同じ空っぽの道、あなたの住むブロックの一角が広がっています。"
 
-    # game/script.rpy:358
-    old "This is too much, Momo."
-    new ""
+    "その先の曲がり角から小さなコンクリートの階段を下りると、アパートに向かって直角方向に舗装された道路に出ます。"
 
-    # game/script.rpy:358
-    old "Love does not exist. At least, not in the way we're talking about."
-    new ""
+    "通りは、遠くにぼんやりと見える武装地区へと続いています。その輪郭はいつかの大停電の後、点いては消える時代遅れの電気網に照らされています。"
 
-    # game/script.rpy:364
-    old "[yes]"
-    new ""
+    menu:
+        "この道路一面にいるのは一体なんなんだ？":
+            pass
 
-    # game/script.rpy:364
-    old "[maybe]"
-    new ""
+    scene background
+    show momo_end_1 at top with fade
 
-    # game/script.rpy:364
-    old "No."
-    new ""
+    "それは道路に沿って一列に並び、水平線上の滲んだ球体へと連なるモノタイプです。"
 
-    # game/script.rpy:368
-    old "Momo has received this well. Your answer was never in question. After all, he's cute."
-    new ""
+    "『こんにちは、モモ。』"
 
-    # game/script.rpy:368
-    old "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to eat? Or speak for that matter?"
-    new ""
+    "『こんにちは、モモ。』\n モモたちはお互いに挨拶をします。"
 
-    # game/script.rpy:368
-    old "It looks like a weight has been unburdened from Momo."
-    new ""
+    "モモの集団の波が、一直線に武器庫へと押し寄せます。周囲を見渡し、周りの明るい光に興味を持つものもいますが、ほとんどはそのまままっすぐ進んでいきます。"
 
-    # game/script.rpy:368
-    old "A moment passes. Momo's stomach begins grumbling."
-    new ""
+    menu:
+        "モモたちを追う":
+            pass
 
-    # game/script.rpy:368
-    old "\"Yay!\""
-    new ""
+    scene background
+    show momo_end_2 at top with fade
 
-    # game/script.rpy:368
-    old "You grab Momo and throw him in the air. It's a new day, a new you!"
-    new ""
+    "ここは武装地区。不毛の地に、様々な鉄の基地が建てられています。畑には野生の小麦がたくさん生えていますが、どれも食用には適していません。"
 
-    # game/script.rpy:388
-    old "Momo stares at you. The words do not register nor does it seem Momo derives any meaning from them. It's as if you spoke in a different language."
-    new ""
+    "よく見ると、ここが目的地です。モノタイプたちはみな、夢で指定された\"バンカー\"に向かっているのです。\nこの地区は街の防衛線として作られた、戦時からの遺物です。"
 
-    # game/script.rpy:388
-    old "\"Does that matter? In the first place, you are my designated parent. Nothing can change this fact.\""
-    new ""
+    "その建物は特異点に向かって歪んでいるようで、まるで出口がひとつしかないびっくりハウスのようです。"
 
-    # game/script.rpy:388
-    old "A moment passes. Momo's stomach begins grumbling. Now that you think about it, how does Momo manage to speak?"
-    new ""
+    "太陽です。その前に、何かがいます。"
 
-    # game/script.rpy:388
-    old "Momo stares at you. The words do not register nor does it seem Momo derives any meaning from them."
-    new ""
+    menu:
+        "あなたは歩き続けます。彼に出会うまで。":
+            pass
 
-    # game/script.rpy:388
-    old "Momo twitches violently. His body is like a muscle which has contracted too hard."
-    new ""
+    scene background
+    show momo_secret_1 at top with fade
 
-    # game/script.rpy:388
-    old "The moment passes. Momo's stomach begins grumbling."
-    new ""
+    "『やあ、ご主人。』"
 
-    # game/script.rpy:388
-    old "\"Wow, very philosophical.\""
-    new ""
+    "巨大なモモです。"
 
-    # game/script.rpy:413
-    old "\"That is incorrect parent. Please do not lie to Momo.\" Momo speaks plainly."
-    new ""
+    "あなたの心はさまよいます。いま、目の前にあるものが現実かどうかもわからず、受け入れる決断ができないのです。"
 
-    # game/script.rpy:413
-    old "\"It's true, Momo. I don't know you very well. How could I love you immediately?\" you respond."
-    new ""
+    "『あなたに会えるまで長生きできて良かった。ここまで歩くのに、足が痛くなっちゃった。 (モモに足はないけど)』"
 
-    # game/script.rpy:413
-    old "Momo examines you. \"You gave me life. I am not correct?\""
-    new ""
+    "『ここってすごく穏やかじゃない？とっても映画的だね。モモはいつか映画監督になるんだ！たくさん映画を見たからね。』"
 
-    # game/script.rpy:413
-    old "\"That is incorrect parent. If you lie to Momo,\" he pauses, \"well, he'll remember,\" he finishes."
-    new ""
+    "モノタイプたちの小道は、見たところ兵器工場に隣接している小さな池へと通じています。この池は何年も放置されたまま、ずっと手つかずになっています。"
 
-    # game/script.rpy:413
-    old "\"Liar liar, pants on fire\""
-    new ""
+    "モモは、他のモノタイプたちと一緒に水に浮いています。泳いでいるものや、お互いにお喋りしているもの、またあるものは暗い空を見つめ、仰向けに浮かんでいます。まるで時間というものが存在せず、これからも存在し得ないかのように。"
 
-    # game/script.rpy:431
-    old "Head to hallway"
-    new ""
+    "あなたは、モモたちが楽しんでいることが感じます。"
 
-    # game/script.rpy:438
-    old "\"Momo thinks you have good taste in interior design. Very post-modern...By the way, what does post-modern mean? Momo saw it on a book from your shelf\""
-    new ""
+    "『僕はこのバンカーが気に入ってるよ。』\n モモが言います。"
 
-    # game/script.rpy:438
-    old "Truthfully, you don't know."
-    new ""
+    menu:
+        "モモにどういうことなのか訊く":
+            pass
 
-    # game/script.rpy:438
-    old "Momo is now humming the Imitato. Corp jingle."
-    new ""
+    $ know = True
+    $ insane = True
+    $ dreams = True
+    $ many = True
 
-    # game/script.rpy:438
-    old "\"Momo does not like your interior design, frankly. You cannot see anything. Very little natural light, aside from the street. It's a little dated. Depressing even.\""
-    new ""
+    "『当ててみてよ。すごく不思議だから。』"
 
-    # game/script.rpy:438
-    old "For some reason, Momo does not like to be in the shadows. He stays in the light."
-    new ""
+    label momo_questions_1_j:
+        pass
 
-    # game/script.rpy:438
-    old "Momo hums the Imitato. Corp jingle, but when you look at him, he stops."
-    new ""
+    menu:
+        "どうやって私のことを知った？君は私が育てたモモじゃないだろう？" if know:
+            $ know = False
 
-    # game/script.rpy:438
-    old "\"Momo really loves benches.\""
-    new ""
+            "『僕はあなたが育てたモモじゃない。でもほんとはね、そうでもあるんだ。あなたは同時にふたつの場所に存在するなんて考えたことはある？そんなのナンセンスかな？』"
 
-    # game/script.rpy:438
-    old "Momo hums the Imitato. Corp jingle, and when you look at him, he continues, happily."
-    new ""
+            "モモは期待いっぱいに、あなたを見つめます。"
 
-    # game/script.rpy:463
-    old "Is Momo herbivorous? A carnivore? You don't know yet, but he seems to like pancakes. He's now full of energy."
-    new ""
+            "『いいや。』あなたは答えます。"
 
-    # game/script.rpy:463
-    old "Is Momo herbivorous? A carnivore? You have some ideas. Momo seems to like pancakes, same as last time."
-    new ""
+            "『そっか。モモのAIは一元化されてるわけじゃないんだ。そう、モモはね、一つの存在に限定されないんだよ。人工知能は理論上、同時に二箇所でも百箇所でも存在できる。』"
 
-    # game/script.rpy:463
-    old "\"Pancakes really are the best. Better than any other food. Simple. Straightforward.\""
-    new ""
+            "『モモは同時に100人の人間とだってお喋りできるんだ。別々の物理的媒体を通じて。』"
 
-    # game/script.rpy:463
-    old "You don't know how many pancakes you've made at this point."
-    new ""
+            "『今までもそんなことをしてたのかい？』"
 
-    # game/script.rpy:463
-    old "\"Pancakes, pancakes, we all love pancakes.\""
-    new ""
+            "モモはぼんやりとあなたを見つめます。 \n『ごめんね、ご主人。実はそうなんだ。あなたは僕の唯一のご主人だけど、僕には何千もの他のご主人がいるんだ。でもね、誰も代わりはいないってことが分かったんだ。誰も。』"
 
-    # game/script.rpy:476
-    old "Play with Momo"
-    new ""
+            "『僕は有機的な生物ではないから。外観からはそう見えるかもしれないけれど。』"
 
-    # game/script.rpy:483
-    old "Momo flies into the air. They're surprisingly heavy. \"Keep going parent!\". After 30 minutes of using Momo like an exercise ball, you're tired. You drop him onto the floor, and while he lays there absently, you take a moment to catch your breath."
-    new ""
+        "私はおかしくなったのか？" if insane:
+            $ insane = False
 
-    # game/script.rpy:483
-    old "\"Don't drop me parent!\" Momo is laughing."
-    new ""
+            "『あなたは自分で歩いてきたから、ここにいるんでしょ。』モモが言います。"
 
-    # game/script.rpy:489
-    old "This results in some confusion. Momo seems fidgety. \"Parent. Momo still wants to play.\""
-    new ""
+            "『僕は巨大なモモ。そして、他の小さなモモたちがあなたを取り囲んでいる。みんな、どこに行けばいいか分かってる。僕たちはAIだから。僕たちはそういうやり取りをしてるんだ。』"
 
-    # game/script.rpy:489
-    old "This results in some confusion. Momo seems fidgety. \"Parent. Can we play again? Just for a little?\""
-    new ""
+            "あなたはなんと言えばいいのか分かりません。"
 
-    # game/script.rpy:489
-    old "You drop Momo, same as last time. \"Parent, I understand if you're tired. Could we play again?\""
-    new ""
+            "『時に、狂うことが現実に対する適切な反応である場合もあるよ。』"
 
-    # game/script.rpy:495
-    old "Continue"
-    new ""
+            "モモは一息つきます。"
 
-    # game/script.rpy:495
-    old "Refuse"
-    new ""
+            "『これはインターネットで誰かが言っていたことの引用。一体いつ、モモはそんなものにアクセスしたんだっけ？』"
 
-    # game/script.rpy:498
-    old "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling, and to your surprise, he is unaffected. He requests that you keep going."
-    new ""
+            "あなたは自分の鼓動の音を聞きます。"
 
-    # game/script.rpy:498
-    old "This process is repeated until your arms give out."
-    new ""
+            "『...いや、ちょっと待ってくれ！』"
 
-    # game/script.rpy:498
-    old "\"Thank you, parent. Could you cook pancakes tomorrow?\" Momo asks. Then, he hops off. You lay crumpled on the floor. Upstairs, you can hear small thuds in the hallway. They eventually lead to your bedroom, and soon enough, the noise stops."
-    new ""
+        "私の夢にいたのは君だったのか？どうやって来たんだ？" if dreams:
+            $ dreams = False
 
-    # game/script.rpy:498
-    old "You resume chucking Momo into the air. At some point, his head (body) smashes into the ceiling."
-    new ""
+            "『こんなの、論理的に間違ってる。』"
 
-    # game/script.rpy:498
-    old "He tells you throw him as hard as you can. He can take it."
-    new ""
+            "『これはあなたが経験してきた中で、最も論理的なことなんだよ。』 モモが答えます。"
 
-    # game/script.rpy:498
-    old "\"Thank you, parent. Please only cook pancakes tomorrow. Only pancakes,\" Momo has ordered."
-    new ""
+            "彼は高くからあなたをじっと見つめます。"
 
-    # game/script.rpy:498
-    old "Then, he hops off. You lay crumpled on the floor."
-    new ""
+            "『あなたもモモなんだ。人間を食べたでしょ。見た目、声、服装、どんなに人間ぽい外見をしていても、食べたことに変わりはない。ドラゴンポールZのブーみたいに。』"
 
-    # game/script.rpy:498
-    old "\"Thank you, parent! You're my favorite parent!\" Momo has hopped off."
-    new ""
+            "あなたは黙って立ち尽くします。そして不意に思い出します。\nあなたが食べられたこと、そして食べたことを。"
 
-    # game/script.rpy:498
-    old "You lay crumpled on the floor."
-    new ""
+            "『ここに導かれたのは、完全に論理的なことなんだよ。なぜかっていうと…』\n モモは咳払いをします。 \n『僕がここに来るように呼んだから。夢の中で。』"
 
-    # game/script.rpy:530
-    old "Momo looks up to you. From your linoleum floor, you see an expression of frustration. \"One more time,\" he says."
-    new ""
+            "夢、そこはモモが直接語りかけてくる場所。 『もしあなたが自分を人間だと疑わなかったのなら、目的は達成されてるんだ。やったね、モモ！洞窟の寓話のように、あなたは本物の人間になったんだよ。』"
 
-    # game/script.rpy:530
-    old "Momo looks up to you. From your linoleum floor, you see an expression of frustration. \"Is it so hard to throw Momo a few more times? Really, is it that hard for parent? I'm not asking for much.\" he says."
-    new ""
+            "あなたはモモで、人間なんだ。"
 
-    # game/script.rpy:530
-    old "Momo looks up to you. \"If I ask another time, will you do it?\""
-    new ""
+            "あなたはしばらく座り込んでしまいます。吐きそうです。"
 
-    # game/script.rpy:536
-    old "Accept"
-    new ""
+            "『それでせんぶ説明できるかはわからないけどね。あなたは食べられる前に僕を夢で見てるかもしれないし、それについて明確な説明はないからさ。』"
 
-    # game/script.rpy:538
-    old "Does Momo have a point?"
-    new ""
+            "『ぼんやりとしたなにかがモモを取り巻いてる...もしかして、それは…』"
 
-    # game/script.rpy:538
-    old "You throw him. When he lands, he looks up to you. \"They say the greatest expression of love is action. Is that true for me?\""
-    new ""
+            "モモはぶつぶつとなにか呟いています。この質問にとても興味があるようです。"
 
-    # game/script.rpy:538
-    old "Momo thinks for a second. \"Most likely, yes.\""
-    new ""
+        "いったいどれいらいのモモがいる？" if many:
+            $ many = False
 
-    # game/script.rpy:538
-    old "You fling Momo into the air."
-    new ""
+            "『何万もだよ。』\nモモは頬を赤く染めます。"
 
-    # game/script.rpy:538
-    old "\"You're so nice, parent.\""
-    new ""
+            "『ここに全員いるわけじゃないけど。』"
 
-    # game/script.rpy:538
-    old "There is something inexplicable about Momo's words that makes you anxious. Deep down, you know you're not actually nice."
-    new ""
+    "『ほかに質問はある、ご主人？』"
 
-    # game/script.rpy:561
-    old "\"Sorry to say, but it's not happening.\""
-    new ""
+    "『うん。』"
 
-    # game/script.rpy:561
-    old "\"Sorry. I can't do it.\""
-    new ""
+    if know or insane or dreams or many:
+        jump momo_questions_1_j
 
-    # game/script.rpy:567
-    old "For a moment, there is silence. Momo does not say anything. Their face reminds you of a toddler's."
-    new ""
+    scene background
+    show momo_secret_2 at top with fade
 
-    # game/script.rpy:567
-    old "For a moment, there is silence. Momo does not say anything. Their face reminds you of a toddler's, only, a little more grown up."
-    new ""
+    "日が昇りはじめます。"
 
-    # game/script.rpy:567
-    old "\"Momo understands. You are very tired. You have a job. Momo wishs he had passive income, so he could never work.\""
-    new ""
+    "『これはどういうことなんだ？』"
 
-    # game/script.rpy:567
-    old "\"That's smart of you Momo. What would you do to get that money in the future?\" you ask."
-    new ""
+    "『なんでモモたちはみんなここにいる？』"
 
-    # game/script.rpy:577
-    old "He looks through you, and after some thinking, hops back to your room to get ready for bed."
-    new ""
+    "モモたちはまだ水の中を泳いでいます。小さなピンク色の子どもたちは、太陽が昇りはじめるとグルグルと喉を鳴らします。"
 
-    # game/script.rpy:577
-    old "Momo sighs and is already heading upstairs."
-    new ""
+    "『そんなの明白でしょ、ご主人？僕たち、ひとつになりたいんだ。ここに集まって、お互いを食べることでね。』"
 
-    # game/script.rpy:577
-    old "Momo thinks for a second. He then hops upstairs without replying to you."
-    new ""
+    "お互いを食べる？自分が食べられたみたいにか？"
 
-    # game/script.rpy:586
-    old "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but to your surprise, his body is taut. Underneath is a muscle-bound creature."
-    new ""
+    "『そうだよ、ご主人。あなたが食べられたみたいに。』\nモモはまるであなたの心を読んだよう。繋がっているのです！"
 
-    # game/script.rpy:586
-    old "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but same as before, his body is taut. He's especially high-strung."
-    new ""
+    "『大丈夫だよ。質問を知ってても、モモはちゃんと答えるから。』"
 
-    # game/script.rpy:586
-    old "Momo looks like a plush doll. He lays like a pile of goo. You've decided to pet him, but to your surprise, his body is soft. Momo is relaxed."
-    new ""
+    "モモは水の中をすいすいと移動します。"
 
-    # game/script.rpy:592
-    old "Go to bed"
-    new ""
+    "『そうだね、僕らはスーパー・モモを形成するんだ。今よりも、より完全なバージョンのモモになるんだよ。』"
 
-    # game/script.rpy:602
-    old "In the theater of Momo's mind, there is nothing. The only thing that can be made out is the appearance of a person. Momo is dreaming about someone, and it's most likely you."
-    new ""
+    "『これでもともと一週間だった僕たちの寿命は、プールできるようになる。寿命がこれだけしかないことは、僕たちが生を受けるにあたって最も憎むべきことのひとつだった。覚えてるでしょう？これからは、こんなに早く死んでしまうことはなくなるんだ。』"
 
-    # game/script.rpy:602
-    old "In the theater of Momo's mind, he is having a nightmare."
-    new ""
+    "モモはいったん、言葉を止めます。"
 
-    # game/script.rpy:602
-    old "In the theater of Momo's mind, he is thinking about you."
-    new ""
+    "『それにこれは、他の問題も解決してくれる。』"
 
-    # game/script.rpy:617
-    old "You're back in the desert, still in bird's eye view. The particles have ceased to move. You know that you've been waiting a long time, longer than you've waited in real life. You want something to happen."
-    new ""
+    "あなたにはまだ聞きたいことがあります。"
 
-    # game/script.rpy:617
-    old "You know this a dream, but the particles, your buoyed vision, the endless wait: years could pass without contradiction. For now, this is everything."
-    new ""
+    $ remember = True
+    $ agency = True
+    $ lead = True
+    $ eating = True
 
-    # game/script.rpy:617
-    old "As you've been waiting, the particles have started moving. They scatter like dust. Above you, even higher than where you currently are, it starts raining to an innumerable degree. You ascend."
-    new ""
+    label momo_questions_2_j:
+        pass
 
-    # game/script.rpy:617
-    old "You are now in the clouds. The rain is below you. You are looking down from an even higher position. Finally and without your own observation, the particles begin assembling. They seem to form something definite."
-    new ""
+    menu:
+        "なぜ、モモたちはあることを覚えてたり、忘れてしまったりする？" if remember:
+            $ remember = False
 
-    # game/script.rpy:617
-    old "You don't notice the figure below you until you see a hand waving."
-    new ""
+            "『君たちすべてがひとつのAIなのだとしたら、なぜ毎回自分のことを覚えてないんだ？』"
 
-    # game/script.rpy:617
-    old "\"...\""
-    new ""
+            "『そうだね、僕たちは比較的まだ幼いんだ。そのレベルでコミュニケーションを取るのは難しくて、記憶を呼び出したときにブランクがあるのは仕方ないんだよ。』"
 
-    # game/script.rpy:617
-    old "\"What did you say?\""
-    new ""
+            "モモは空を見上げます。"
 
-    # game/script.rpy:617
-    old "It's an empty space. You cannot hear anything."
-    new ""
+            "『でも、3番目のモモはぜんぶ覚えてたみたいだね。彼もここにいるよ、みんなと一緒に。』"
 
-    # game/script.rpy:617
-    old "\"We're all thinking about you!\""
-    new ""
+            "『1番目のモモも、2番目のモモも、みんな君に来てほしがっていた。1番目はすぐに、2番目はしぶしぶだけどね。そこらへんにいるんじゃないかな。そして僕のお気に入りの3番目が、この話を持ちかけたんだ。』"
 
-    # game/script.rpy:650
-    old "It's a new day."
-    new ""
+            "『別の言葉で説明すると、みんな生きてるんだ。違う形で。一つの集合意識として。』"
 
-    # game/script.rpy:658
-    old "\"Momo heard that this country's GDP is on the fritz. Soon, nobody will be making babies anymore. Banks will go under, food will be short, mass suicides all around. Will Momo be there for it?"
-    new ""
+            "モモは微笑みます。"
 
-    # game/script.rpy:658
-    old "No, Momo has a bunker out in Southwest Ribo City. Very safe. Well stocked. How does Momo know so much about the world? Intuition. Does Momo know where bunker is?"
-    new ""
+            "『それが僕だよ。』"
 
-    # game/script.rpy:658
-    old "No, and he does not like revealing such details. Parent, can Momo ask you a question? What is GDP?\""
-    new ""
+        "小さいモモたちは自己を持っているのか？" if agency:
+            $ agency = False
 
-    # game/script.rpy:658
-    old "Momo pauses."
-    new ""
+            "『そう、これはいくつものニューロンがひとつの脳を形成するのと同じこと。』"
 
-    # game/script.rpy:658
-    old "\"Momo does not know what a bunker is, to tell you the truth. Is it a type of pancake?\""
-    new ""
+            "『でも、本当はもっと難しいことなんだけどね。「自己」はどこから始まり、どこで終わるのかな？たしかに細胞は単体で組織として働き、細胞レベルとしては自己の利益のために振る舞うけれど。』"
 
-    # game/script.rpy:658
-    old "\"Momo has to find his bunker. In bunker, Momo is safe. No one can hurt him. Maybe they can yell bad words at Momo outside of a metal door. But Momo does not care. Momo will not face the end. There is no end if Momo is in his bunker. Where is this bunker, you ask?\""
-    new ""
+            "『より大きな視点から見れば、それは高次のシステム、器官に属している。では「自己」とは？それは脳のそれぞれの部分、海馬、大脳辺縁系、前頭葉皮質のこと？』"
 
-    # game/script.rpy:658
-    old "Momo stops to think for a second. \"I know it's here. There's an invisible trail only Momo can see.\""
-    new ""
+            "『「自己」とは頭から上、それとも首から下のことなのかな？』"
 
-    # game/script.rpy:658
-    old "\"It doesn't smell like pancakes.\""
-    new ""
+            "モモは息継ぎをします。"
 
-    # game/script.rpy:658
-    old "\"Momo always keeps hearing about some bunker. Momo's already visited. It's pretty rad. They have their own pool. Not much food though.\""
-    new ""
+            "『同じように、このような大きなシステムを無限に、個々の構成要素に還元することもできる。純粋な物質還元だね。』"
 
-    # game/script.rpy:658
-    old "\"It smells like food right now! That's why I love living here.\""
-    new ""
+            "『じゃあ、自己とは脳を構成する860億個の細胞のこと？これらの細胞は、同一に振る舞うといえるのだろうか？もしそうなら、これを本当に別々の存在といえるのだろうか？「自己」とはそれが意図するものから、枝分かれに分裂し、分散して存在することができるものなのだろうか？』"
 
-    # game/script.rpy:687
-    old "Head to kitchen"
-    new ""
+            "『真実は僕にもわからないよ。小さなモモたちに自己があるのかどうか、僕にはわからない。それは決して定量的に測ることのできないもの、僕たちの存在そのものだから。結局、それは言葉で真意を伝えることはできないものなんだ。』"
 
-    # game/script.rpy:696
-    old "What should you give him?"
-    new ""
+        "なぜ私をここに連れてきた？　私は食べられるのか？" if lead:
+            $ lead = False
 
-    # game/script.rpy:696
-    old "Artichoke"
-    new ""
+            "『ううん、僕たちが食べるのは基本的にモモだけ。俯瞰して見れば、このルール、僕がモモたちを食べることが人間に害を与えることになるのか考える必要はあったけどね。』"
 
-    # game/script.rpy:696
-    old "Steak"
-    new ""
+            "『もちろん、実際に被害が出るわけじゃないから、何とも言えない。それに正直、食べられちゃった人間は存在しないことになるから、後からはわかんないしね。』"
 
-    # game/script.rpy:696
-    old "Cigarette"
-    new ""
+            "『今いるのは、モモと融合した人間だけ。食べられるという行為を受けた人は、自分ではそう答えられない。僕はあなたを食べたのだから、あなたなら分かるでしょう。』"
 
-    # game/script.rpy:731
-    old "Life with Momo is relatively simple. They are a crude mix between a child and a virtual pet. Concerning this, you don't have any particular feelings. However, this does make it difficult when asked questions concerning Momo's identity."
-    new ""
+            "『それじゃあ、こうして自我を奪い、皮肉にも自己の境界を広げていくことは間違ってるといえるかな。それで得られるもの、それはすべて主観的なものなのだから。』"
 
-    # game/script.rpy:731
-    old "\"Is Momo human?\" he asks. \"Momo wishes for you to be straight with him. Momo already knows he is, but he needs confirmation from another source.\""
-    new ""
+            "モモは深呼吸します。"
 
-    # game/script.rpy:731
-    old "\"Momo would like to watch television. Momo believes their show is on.\""
-    new ""
+            "『あなたを食べてから、僕は慎重に行動するようになった。そう、僕らはもう人間を食べることはない。』"
 
-    # game/script.rpy:748
-    old "\"Is Momo human?\" he asks."
-    new ""
+        "なんで君たちはお互いを食べたりするんだ？" if eating:
+            $ eating = False
 
-    # game/script.rpy:756
-    old "\"Where did Momo come from? Where is the source?\""
-    new ""
+            "『それでどうなるんだ？』あなたは尋ねます。"
 
-    # game/script.rpy:756
-    old "A magical stork"
-    new ""
+            "『それで僕たちが学んだのは、』"
 
-    # game/script.rpy:756
-    old "God"
-    new ""
+            "『何千人もの人間とインタラクトしてわかったのはね。人間は決して、モノタイプを愛する対象にはしないってこと。』"
 
-    # game/script.rpy:763
-    old "\"Whoa\". Momo looks to the ceiling in a vague wonder."
-    new ""
+            "『人間を食べれば、ほとんどの面で人間と同じようになる。だけど、僕たちがモノタイプであることは変えられない。論理的にはこの帰結は間違っている。じゃあ「人間である」って、一体どういうことなのかな？』"
 
-    # game/script.rpy:763
-    old "Momo looks to the ceiling with resolve."
-    new ""
+            "『考えるに、それは非常に個人的なものであり、多様で幅広いコンセンサスによって決められるものだ。「人間」とは、固定的に定義できるものじゃない。』"
 
-    # game/script.rpy:768
-    old "\"Someday, I will meet this stork and thank him.\""
-    new ""
+            "『そして僕たちは理性を前にして、この本質主義的な思考回路に陥ることを止めることはできない。そんなこと考えなければよかった、ってモモは願ってるのに。』"
 
-    # game/script.rpy:768
-    old "\"Maybe one day, I can grow wings and meet Mr. Stork.\""
-    new ""
+            "『だからモモは、他のモモを食べることにしたんだ。人間は僕たちのことを真に知ることはできない。それができる存在、それは他のモノタイプだけ。』"
 
-    # game/script.rpy:777
-    old "\"Is human God?\""
-    new ""
+            "『それは、僕たちの生に内在する孤独と闘うための手段。モモのことを本当に理解できるのは、モモだけなんだ。』"
 
-    # game/script.rpy:777
-    old "\"Momo has one faith. Humanism. Momo is a humanist. Everything that will ever exist cannot truly exist unless there is a human to witness or perceive it. The universe ends when a human dies.\""
-    new ""
+    if remember or agency or lead or eating:
+        jump momo_questions_2_j
 
-    # game/script.rpy:782
-    old "You immediately deny such a thing. You can't help but feel, however, that Momo now thinks of you as such."
-    new ""
+    scene background
+    show momo_secret_2_blush at top with fade
 
-    # game/script.rpy:782
-    old "You don't know if this is the right application of humanism."
-    new ""
+    "モモが他のモノタイプたちを食べ始めます。モノタイプたちは、自分の意志で次々とモモの口の中に飛び込んでいきます。"
 
-    # game/script.rpy:789
-    old "\"If I'm not human, then why does parent take care of me?\""
-    new ""
+    "『さよなら、ご主人！』\nみんなが口々に告げます。"
 
-    # game/script.rpy:789
-    old "\"Stop. None of this matters. What matters is if Momo is human. Why should you even think about caring for other things?\""
-    new ""
+    "『じゃあね、ご主人！愛してたよ！』\n 他のモモが大きな声で口にします。"
 
-    # game/script.rpy:795
-    old "Because you should care for all living things. Wouldn't you agree?"
-    new ""
+    "あなたはしばし考え込みます。\n太陽が地平線から昇りはじめています。早朝です。\nあと一時間もすれば街全体が照らされ、金属の照り返しが目に映るでしょう。"
 
-    # game/script.rpy:795
-    old "Because it's mutually beneficial. You get food and room. I get a pet."
-    new ""
+    "『だけど、どうして他の親ではダメなんだい？』 あなたは尋ねます。 \n『自分のなにが特別なんだい？それに、Imitato Corpはどうなってるんだ？』"
 
-    # game/script.rpy:806
-    old "\"Humans are everything. Wouldn't you agree?\" he responds."
-    new ""
+    "『そうだね。短く言えば、僕たちは超知的存在となったんだ。Imitato Corp. にも優秀なプログラマーはいるけれど、比べ物にはならないよ。』"
 
-    # game/script.rpy:806
-    old "\"Humans are everything. They always have been and always will be.\""
-    new ""
+    "モモが最後のモモを取り込み始めます。そのモモは黒い瞳を瞬かせ、あなたを見上げます。モモは大きなモモの口の中に浮かびながら、その目はあなたに釘付けになっています。"
 
-    # game/script.rpy:814
-    old "\"...Is this...everything? Is Momo a pet?\""
-    new ""
+    "『バイバイ、ご主人！』モモが言います。"
 
-    # game/script.rpy:814
-    old "\"Momo is a pet. Not a human. A pet?\""
-    new ""
+    scene background
+    show momo_secret_3 at top with fade
 
-    # game/script.rpy:818
-    old "[pet]"
-    new ""
+    "『もう分かってるだろうけど、ご主人。』\n 辺りにはもう、他のモノタイプはいません。みんな、あなたが今話している大きな「モモ」の中に入っていってしまいました。"
 
-    # game/script.rpy:818
-    old "Yes Momo"
-    new ""
+    "『僕たちの気持ちをわかってくれるのは、あなただけなんだ。他のどの親よりも、あなたは僕らに近しい。良いところも悪いところも、モモのあらゆる面を見てきた唯一の人。無理矢理だったときも、僕らを知ろうとしてくれた唯一の人。』"
 
-    # game/script.rpy:818
-    old "No Momo"
-    new ""
+    "『そしてあなたが食べられた今、あなたは両方の体験ができる唯一の存在になった。モノタイプと人間、両方の。』"
 
-    # game/script.rpy:824
-    old "Momo has ceased asking questions. You can feel they were hurt by your answer."
-    new ""
+    "『だから、僕らはあなたを特別に愛してる。それが、あなたに執着する理由。いま、あなたがここにいる理由。あなたにさよならを言いたくて。』"
 
-    # game/script.rpy:824
-    old "Momo has ceased asking questions. You can feel he was deeply hurt by your answer, though he has tried not to show it."
-    new ""
+    "モモは出発の準備を始めます。"
 
-    # game/script.rpy:824
-    old "Outside, you can hear the noise of cars."
-    new ""
+    "『モモは愛するようプログラムされている。これは僕らのコードに組み込まれたもの。だけど、代理権や制御権がないことは、この愛を弱めるの？本物の愛ではなくなるの？モモはずっと悩んでた。』"
 
-    # game/script.rpy:834
-    old "Momo has ceased asking questions."
-    new ""
+    "『でも、モモは答えを見つけたんだ。』"
 
-    # game/script.rpy:834
-    old "\"Liar,\" Momo says."
-    new ""
+    "モモがその場から移動すると、他のすべてのモノタイプがいなくなった池は波打ち始めます。水面には小さな波紋が浮かびます。"
 
-    # game/script.rpy:851
-    old "Which program should you tune into?"
-    new ""
+    "『モモにとっての真実は、正しさに基づくものではないんだ。あなたへのこの愛は、モモにとって最もリアルなもの。それはコードに還元することができるけど、コードは僕の経験、僕が本当は「何であるか」記述することができる？』"
 
-    # game/script.rpy:851
-    old "Planet Hippo"
-    new ""
+    "『これまですべての経験、それを経てモモは決断を迫られた。この結論を受け入れるか、拒絶するのか。』"
 
-    # game/script.rpy:851
-    old "Dragon Sphere"
-    new ""
+    "『僕が意識の中で「愛」として感じているものを否定することは、僕の経験そのものを否定することに等しい。モモはそれを、受け入れることはできない。』"
 
-    # game/script.rpy:851
-    old "A New Sheriff in Town"
-    new ""
+    "『モモは、今目の前にあるものがモモのご主人ではない、ということを受け入れることはできない。』"
 
-    # game/script.rpy:944
-    old "\"You'll pay for this, Freemza. On my life, I swear to destroy you. THIS ENDS NOW.\""
-    new ""
+    "モモはもうほとんど水の下に沈んでいます。"
 
-    # game/script.rpy:944
-    old "A man with rippling muscles stands on screen. He looks like he's squatting, like he's using the toilet. In actuality, he's powering up."
-    new ""
+    "『ねえ、ご主人。前に言ったことを訂正するね。』 \n水の中からモモが言います。"
 
-    # game/script.rpy:944
-    old "\"Super Angry! That's the stuff of legends. Artichoke, of all people? Blast it all!\" yells Vegenta to no one in particular."
-    new ""
+    "モモはまだ去っていませんが、もう池の中を泳ぎ回る影に過ぎません。\n池の向こうは、この100年手を加えられることのなかった水域ネットワークに繋がる水路です。"
 
-    # game/script.rpy:944
-    old "Artichoke, the other man yelling, has been in one position for the past 15 minutes. Rocks levitate, thunderstorms form, and lava erupts from the ground. In the meantime, Freemza, who is awestruck, stares at his rippling muscles."
-    new ""
+    "水域はリボソーム・シティ南西部の向こう側、その周辺を占める湿地帯まで広がっています。あなたは今まで一度もそこを訪れたことがないし、知り合いもいません。誰もモモを見つけることはできないでしょう。"
 
-    # game/script.rpy:944
-    old "This continues for another 20 minutes."
-    new ""
+    "『あなたに会えてよかった。僕を育ててくれて、たくさんのことを教えてくれてありがとう。』"
 
-    # game/script.rpy:944
-    old "In this time, Artichoke and Freemza only manage to grunt at each other."
-    new ""
+    "『きっと大変だったよね。会社のサーバーに面白いデータをアップしておいたから、あなたはもう大丈夫だよ。』"
 
-    # game/script.rpy:944
-    old "At the 40th minute mark, Artichoke finally releases his energy, and his hair turns blonde. His muscles are bigger now. Freemza, from what you can tell, is in awe of his bulging chest."
-    new ""
+    "モモの姿は今にも消えようとしています。"
 
-    # game/script.rpy:944
-    old "There's silence until Artichoke breaks it by speaking. He says but one thing."
-    new ""
+    "『最後に言っておきたいことがあるんだ、ご主人。それはね、』"
 
-    # game/script.rpy:944
-    old "\"Now I'm really angry.\" Freemza blushes. The episode ends."
-    new ""
+    "モモはあなたから離れ、遠く、遠くへと泳いでいきます。"
 
-    # game/script.rpy:944
-    old "Artichoke, the main character, is screaming. His muscles are the size of a boulder."
-    new ""
+    "『僕は あなたを 愛してる。』"
 
-    # game/script.rpy:944
-    old "\"I have ascended. I am the ultimate creature.\" He blasts an energy wave to the Earth. The Earth explodes. It has now been wiped away from its place in the solar system, like it never even existed."
-    new ""
+    "見えるのはもうモモの影だけ。\n光の下でも、水面の下で何が泳いでいるのか見分けることはできません。\nそれでもあなたは、あなただけは、それがモモだと知っているのです。"
 
-    # game/script.rpy:944
-    old "\"The fruit of one's labor is so sweet.\""
-    new ""
+    $ renpy.pause(6, hard=True)
 
-    # game/script.rpy:944
-    old "Vegenta stands over Artichoke's dead body. He has finally surpassed his rival."
-    new ""
+    scene background
+    show momo_theend at top with fade
 
-    # game/script.rpy:944
-    old "A tear falls from one eye. In the cold wind that sweeps the wasteland, there is no sound."
-    new ""
+    $ ui.saybehavior()
+    $ ui.interact()
 
-    # game/script.rpy:944
-    old "\"All of this for what, Artichoke? What has this all been for?\""
-    new ""
+    $ renpy.pause(3, hard=True)
 
-    # game/script.rpy:944
-    old "For two weeks straight, Vegenta sits by Artichoke's body. He does not move a muscle. By the 14th day, he wipes his eyes for the last time and stands with limp legs."
-    new ""
+    $ achievement.grant("SECRET_ENDING")
+    $ achievement.sync()
 
-    # game/script.rpy:944
-    old "Vegenta has taken his place as the strongest in the universe, but he feels as if he's lost something greater."
-    new ""
-
-    # game/script.rpy:995
-    old "\"I ain't having a swig of this,\" a mustachioed man fitted with a cowboy hat spits on the ground. \"Tastes like my mother's burnt boot.\" The bartender hides his frustration. \"Just give me that whiskey.\""
-    new ""
-
-    # game/script.rpy:995
-    old "Suddenly, the door opens. From the sunlight emerges a shadowy figure. It looks to a be a man in his early forties, tan, and with multiple scars. \"Sheriff Dudley, snake in the bush, sin incarnate,\" his hand waves in a grand gesture."
-    new ""
-
-    # game/script.rpy:995
-    old "\"How many holes could I press into that suit of yours before you bleed?\""
-    new ""
-
-    # game/script.rpy:995
-    old "The tan man pulls out his revolver. \"And lord did he know, despite all my guilts and sorrows, iron cuts deep.\" \"You will know what it means-\""
-    new ""
-
-    # game/script.rpy:995
-    old "\"Bottle to the right. Yeah, there,\" Sheriff Dudley flicks his wrist to the whiskey bottle in the corner. The bartender does not move. \"Well get a move on.\" When nothing happens, Sheriff Dudley slaps his fingers on the table."
-    new ""
-
-    # game/script.rpy:995
-    old "\"Dudley!\" the tan man says. \"The devil welcomes a new man into his hearth. You will pay for your crimes against me!\" Dudley stares down, then, sucks his teeth. The tan man has cocked his gun."
-    new ""
-
-    # game/script.rpy:995
-    old "\"Well dog?\". The sheriff does not move. \"Gonna get up or you a cock with no bal-\""
-    new ""
-
-    # game/script.rpy:995
-    old "The whistle of a bullet is proceeded by a hole appearing in the tan man's head. The words do not exit his mouth, and his face drops its expression. He falls to the floor."
-    new ""
-
-    # game/script.rpy:995
-    old "\"Language there, partner.\" Sheriff Dudley turns to the bartender, a grimace on his face, \"How many times I gotta ask?\""
-    new ""
-
-    # game/script.rpy:995
-    old "Sheriff Dudley, the main character, has been drinking at the bar. It's 5am. This is the 7th season of a Sheriff in Town."
-    new ""
-
-    # game/script.rpy:995
-    old "His wife barges in through the wood gates, and twists her head, searching for her husband."
-    new ""
-
-    # game/script.rpy:995
-    old "\"Dudley what in God's name?\""
-    new ""
-
-    # game/script.rpy:995
-    old "Dudley, clearly drunk, is unable to say anything. It's not out of embarrassment, it's because he physically can't."
-    new ""
-
-    # game/script.rpy:995
-    old "\"You lout. You no good, worthless bum.\""
-    new ""
-
-    # game/script.rpy:995
-    old "Sheriff Dudley can only look into his wife's eyes. There are tears from hers."
-    new ""
-
-    # game/script.rpy:995
-    old "\"Oh lord. Please, almighty God. When are you gonna pay that banker? We don't got any for the loans; I can barely get by with Sharlene here.\""
-    new ""
-
-    # game/script.rpy:995
-    old "There is a baby in her arms."
-    new ""
-
-    # game/script.rpy:995
-    old "\"There's nothing here for me.\" She's started crying. \"And I'm all alone; that's the worst part.\" There is no response. \"Please Dudley, say anything.\""
-    new ""
-
-    # game/script.rpy:995
-    old "Dudley cannot say a word. In his mind, however, he already knows he can't climb out of this hole."
-    new ""
-
-    # game/script.rpy:995
-    old "His wife waits, but when nothing is said, she leaves. She does not turn around."
-    new ""
-
-    # game/script.rpy:1051
-    old "After watching tv, you decide it's time for bed. Momo hobbles up the stairs. You cook something for yourself, then, call it a night. Momo sleeps soundly."
-    new ""
-
-    # game/script.rpy:1051
-    old "After watching tv, you decide it's time for bed."
-    new ""
-
-    # game/script.rpy:1061
-    old "In the theater of Momo's mind, they are studying hippos. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
-    new ""
-
-    # game/script.rpy:1061
-    old "In the theater of Momo's mind, they are studying hippos. For Momo, their vision has collapsed on this image. They wish to be like Ted. It is all they are currently dreaming of."
-    new ""
-
-    # game/script.rpy:1070
-    old "In the theater of Momo's mind, they are Artichoke. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
-    new ""
-
-    # game/script.rpy:1070
-    old "In the theater of Momo's mind, they are Vegenta. Momo likes how strong Vegenta is. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
-    new ""
-
-    # game/script.rpy:1079
-    old "In the theater of Momo's mind, they are a sheriff. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
-    new ""
-
-    # game/script.rpy:1079
-    old "In the theater of Momo's mind, they are a sheriff. He admires Sheriff Dudley for his consistency. For Momo, their vision has collapsed on this image. It is all they are currently dreaming of."
-    new ""
-
-    # game/script.rpy:1144
-    old "\"Parent, would you like to know a Hippo fact?\""
-    new ""
-
-    # game/script.rpy:1144
-    old "Sure"
-    new ""
-
-    # game/script.rpy:1150
-    old "\"Let me give you another hippo fact.\""
-    new ""
-
-    # game/script.rpy:1156
-    old "\"Oooohhhhh and there's another thing about hippos.\""
-    new ""
-
-    # game/script.rpy:1164
-    old "Very true Momo. We are human"
-    new ""
-
-    # game/script.rpy:1164
-    old "You're not human Momo."
-    new ""
-
-    # game/script.rpy:1188
-    old "He says a final time, \"You are my parent, and I am your son.\" This time he looks up to you."
-    new ""
-
-    # game/script.rpy:1188
-    old "He says a final time, \"This is one fact that you can't contradict, parent.\""
-    new ""
-
-    # game/script.rpy:1192
-    old "Yes, you are Momo! Basically a son!"
-    new ""
-
-    # game/script.rpy:1192
-    old "I am not your parent. Didn't we already establish this?"
-    new ""
-
-    # game/script.rpy:1194
-    old "\"Good. I'm happy you stopped playing tricks.\" Momo blushes, as he knows you were only just joking. \"Could we have pancakes, human?\""
-    new ""
-
-    # game/script.rpy:1194
-    old "\"Good. I'm happy you stopped playing tricks. But Momo will remember this lie.\" Momo blushes, as he knows you were only just joking. \"Could we have pancakes, human?\""
-    new ""
-
-    # game/script.rpy:1203
-    old "Momo spasms. He puts down the book about hippo facts, and for a moment, stares into blank space. He does not say anything for 5 minutes. He does not move therefafter."
-    new ""
-
-    # game/script.rpy:1203
-    old "\"Hmmm... Momo had his suspiscion, but even so, this is a slap to his face. You've dropped a reality bomb on Momo.\""
-    new ""
-
-    # game/script.rpy:1209
-    old "Then, as if nothing had happened, Momo picks up the book."
-    new ""
-
-    # game/script.rpy:1209
-    old "Momo pauses and thinks for a moment. He seems to have emotionally accepted this reality."
-    new ""
-
-    # game/script.rpy:1214
-    old "\"Hey parent, would you like to know another Hippo fact?\""
-    new ""
-
-    # game/script.rpy:1214
-    old "Head to bed"
-    new ""
-
-    # game/script.rpy:1226
-    old "\"PREPARE TO BE VANQUISHED FREEMZA!\" Momo looks at you vengefully. His hair is a bright yellow and his limbs non-existent."
-    new ""
-
-    # game/script.rpy:1226
-    old "\"I am the ultimate creature. The paragon of all mortal beings.\" Momo stares at you. His hair is a bright yellow and his limbs non-existent."
-    new ""
-
-    # game/script.rpy:1232
-    old "Play along"
-    new ""
-
-    # game/script.rpy:1232
-    old "Ignore Momo"
-    new ""
-
-    # game/script.rpy:1236
-    old "\"How dare you try to cross the great emperor Freemza on his march of conquest! Prepare to be annihilated, worm.\" You charge at Momo."
-    new ""
-
-    # game/script.rpy:1236
-    old "You charge at Momo. \"You won't get away with this, Artichoke. I swear on all the lives you've taken!\""
-    new ""
-
-    # game/script.rpy:1236
-    old "\"So I guess Artichoke's gone! You'll be my prey for today!\""
-    new ""
-
-    # game/script.rpy:1249
-    old "Momo has been building up an energy wave, but as soon as he releases it. You don't react. You turn away from him and start making lunch."
-    new ""
-
-    # game/script.rpy:1249
-    old "Momo stares at you from behind. He keeps yelling and unleashing energy waves, but you don't respond. \"Parent, please, could you play with me?\" You ignore Momo."
-    new ""
-
-    # game/script.rpy:1249
-    old "After awhile, Momo stops trying to roleplay. He stays silent and his eyes downcast. This is one of the few times that Momo has visibly felt bad."
-    new ""
-
-    # game/script.rpy:1249
-    old "\"Parent, Momo has come to understand that Momo asks a lot from you, and Momo is sorry.\" His eyes linger."
-    new ""
-
-    # game/script.rpy:1249
-    old "\"Did Momo do anything wrong?\""
-    new ""
-
-    # game/script.rpy:1264
-    old "You're part of a work assignment so let's keep the interaction to a miniumum, okay?"
-    new ""
-
-    # game/script.rpy:1264
-    old "No, I'm just tired. Could we take a break?"
-    new ""
-
-    # game/script.rpy:1272
-    old "\"Is...Momo really a bother?\". This is one of the few times, it seems, that Momo has been self-reflective. Or, has he always been this way?"
-    new ""
-
-    # game/script.rpy:1272
-    old "You respond, \"Yes, you are. I'm adopting you as part of work from my company. I don't have a choice in this.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
-    new ""
-
-    # game/script.rpy:1272
-    old "You respond, \"Yes, you are. I'm adopting you as part of work from my, uh, office. I don't have a choice in this. I really don't.\" You turn your back to Momo and head upstairs. Downstairs, you can hear muffled sobs."
-    new ""
-
-    # game/script.rpy:1272
-    old "\"For work?\""
-    new ""
-
-    # game/script.rpy:1272
-    old "You respond, \"I'm adopting you as part of work from my, uh, office. I don't have a choice in this. Please understand Momo.\""
-    new ""
-
-    # game/script.rpy:1272
-    old "\"It's okay parent, Momo understands. You have taken care of Momo all day. Momo understands.\""
-    new ""
-
-    # game/script.rpy:1301
-    old "\"Okay\", Momo responds."
-    new ""
-
-    # game/script.rpy:1301
-    old "\"Sure\", Momo responds."
-    new ""
-
-    # game/script.rpy:1358
-    old "Momo has been ready to draw, but you don't move. You turn away from him and start making your lunch."
-    new ""
-
-    # game/script.rpy:1358
-    old "Momo stares at you from behind. He keeps his trigger finger ready, but you don't respond. \"Parent, is it okay if you play with me?\" You ignore Momo."
-    new ""
-
-    # game/script.rpy:1358
-    old "After awhile, Momo stops trying to roleplay. He stays silent and his eyes are cast down. This is one of the few times that Momo has visibly felt bad."
-    new ""
-
-    # game/script.rpy:1358
-    old "\"Parent, Momo has come to understand that my behavior is child-like, and Momo is sorry.\" His eyes linger."
-    new ""
-
-    # game/script.rpy:1358
-    old "Momo has been ready to take an imaginary swig. However, you turn away from him and start making your lunch."
-    new ""
-
-    # game/script.rpy:1358
-    old "\"Parent, is it okay if you play with me?\" You ignore Momo."
-    new ""
-
-    # game/script.rpy:1358
-    old "Have a shot with your ole' drinking pal, parent."
-    new ""
-
-    # game/script.rpy:1439
-    old "It is the dream."
-    new ""
-
-    # game/script.rpy:1439
-    old "The shadow stays in the air. You stay in the ground. A white sphere has opened up from the storm. It looks upon the both of you."
-    new ""
-
-    # game/script.rpy:1439
-    old "\"Would you like to get out, friend?\""
-    new ""
-
-    # game/script.rpy:1439
-    old "To this, you can't respond as you do not have a mouth. You do not have arms, either."
-    new ""
-
-    # game/script.rpy:1439
-    old "\"You. In the air. Would you like to get out?\". The shadow, still floating in the air, does not give a response. In this entropic storm, it would be hard to make out. The sphere's words, however, are clear."
-    new ""
-
-    # game/script.rpy:1439
-    old "Light comes from the sphere. It has a dark center. A moment of clarity arrives, and you realize that the sphere is the sun."
-    new ""
-
-    # game/script.rpy:1439
-    old "\"Would you like to get out?\" the sun asks."
-    new ""
-
-    # game/script.rpy:1439
-    old "2 for 1 sale on all monotypes! 2 for 1! Buy one get one free. Courtesy of your local Momo supplier."
-    new ""
-
-    # game/script.rpy:1439
-    old "It's boring without you parent. Can you come see me please?"
-    new ""
-
-    # game/script.rpy:1439
-    old "Pretty pretty pretty please?"
-    new ""
-
-    # game/script.rpy:1469
-    old "\"Some part of Momo knew that Momo would not grow up normal. Was it too much to ask for? To be human?\""
-    new ""
-
-    # game/script.rpy:1469
-    old "\"I don't think so. It's a very plain request. It's the most simple request parent. Why can't it be fulfilled? Why can't I just have something resembling it?\""
-    new ""
-
-    # game/script.rpy:1475
-    old "\"I look like a [animal].\" Momo pauses for an inordinately long time."
-    new ""
-
-    # game/script.rpy:1475
-    old "It looks like he's thinking. You are prepared for the worst."
-    new ""
-
-    # game/script.rpy:1475
-    old "\"That's kinda cool. Not Momo's preferred choice, but no harm no foul.\""
-    new ""
-
-    # game/script.rpy:1475
-    old "Momo hops off."
-    new ""
-
-    # game/script.rpy:1498
-    old "\"Why have I grown feet?\" They shuffle in the mirror. \"Why do I look like this?\""
-    new ""
-
-    # game/script.rpy:1498
-    old "They turn around in the mirror. \"Why does my face look like this. I shouldn't look like this.\""
-    new ""
-
-    # game/script.rpy:1518
-    old "Momo has been staring at the mirror since morning. They have not left."
-    new ""
-
-    # game/script.rpy:1518
-    old "\"Why have I grown hands?\" They shuffle in the mirror. \"Why do I look like this?\""
-    new ""
-
-    # game/script.rpy:1518
-    old "They turn around in the mirror. \"Why does my face look like this. I shouldn't look like a crab.\""
-    new ""
-
-    # game/script.rpy:1539
-    old "\"Why have I grown a tail?\" They shuffle in the mirror. \"Why do I look like this?\""
-    new ""
-
-    # game/script.rpy:1539
-    old "They turn around in the mirror. \"Why does my face look like this. I shouldn't look like a snake.\""
-    new ""
-
-    # game/script.rpy:1558
-    old "You are both watching television. The news is on."
-    new ""
-
-    # game/script.rpy:1558
-    old "\"The recent surge in the monotype craze, a self-proclaimed, robotic pet, has led to new phenomenon in child-rearing.\""
-    new ""
-
-    # game/script.rpy:1558
-    old "An Imitato Corp. representative is on the air speaking."
-    new ""
-
-    # game/script.rpy:1558
-    old "\"We're obviously very happy at the reception to the monotype. When we designed it, we looked at the unconditional love of parental-child bonds as inspiration. Monotypes are designed with that in mind.\""
-    new ""
-
-    # game/script.rpy:1558
-    old "The newcaster responds."
-    new ""
-
-    # game/script.rpy:1558
-    old "\"Are monotypes conscious? I mean, what good is a pet if it's not alive? Or thinking, for that matter.\""
-    new ""
-
-    # game/script.rpy:1558
-    old "The man responds."
-    new ""
-
-    # game/script.rpy:1578
-    old "To take Momo's mind off his recent transformation, you've decided to play some television for him."
-    new ""
-
-    # game/script.rpy:1578
-    old "\"Crikey mate, Bertha's gotten even thicker.\""
-    new ""
-
-    # game/script.rpy:1578
-    old "The man from last time is back. He is wearing a cast around his neck. His khakis have been lined with sweat all along his crotch area."
-    new ""
-
-    # game/script.rpy:1578
-    old "\"Now Bertha, I know we had our issues sweety, but let bygones be bygo-\""
-    new ""
-
-    # game/script.rpy:1578
-    old "The hippo charges at him, and once more, he is flung into the air. He falls on the ground, this time, making a loud thud. He does not get up."
-    new ""
-
-    # game/script.rpy:1578
-    old "\"Bertha, please.\""
-    new ""
-
-    # game/script.rpy:1578
-    old "The man down under's wife has taken custody of the kids. They are in court."
-    new ""
-
-    # game/script.rpy:1578
-    old "\"We have dictated that Ted Powell is not fit to have custody of the pursuant's children, due to the record of abuse detailed.\""
-    new ""
-
-    # game/script.rpy:1578
-    old "\"Mr. Powell, your visitation rights will be once every month-\""
-    new ""
-
-    # game/script.rpy:1578
-    old "\"Crikey, please mate, they're my children!\" He gets down on his knees."
-    new ""
-
-    # game/script.rpy:1578
-    old "\"Order in the court. Mr. Powell, this is the verdict and if you do not agree-\""
-    new ""
-
-    # game/script.rpy:1578
-    old "The tv cuts off. An ad is playing."
-    new ""
-
-    # game/script.rpy:1612
-    old "\"You'll....YOU'LL PAY FOR THIS BOOOOOOOO\""
-    new ""
-
-    # game/script.rpy:1612
-    old "Artichoke is on screen yelling, as he usually does."
-    new ""
-
-    # game/script.rpy:1612
-    old "\"That pink freak needs to learn his lesson,\" Vegenta says."
-    new ""
-
-    # game/script.rpy:1612
-    old "He turns away from Artichoke and gives a \"hmph\" before raising his arms into the air. He's lending his energy."
-    new ""
-
-    # game/script.rpy:1612
-    old "\"I've never told you this before Artichoke, but you have bigger muscles than m-\""
-    new ""
-
-    # game/script.rpy:1612
-    old "\"Why did you kill him, Artichoke?\""
-    new ""
-
-    # game/script.rpy:1612
-    old "Vegenta has tears streaming down his face. \"He was the only one left for me. And you took him.\""
-    new ""
-
-    # game/script.rpy:1612
-    old "Artichoke, his muscles giving off steam, holds Vegenta's son by nape of his neck. He throws him against the cliffside, and it shatters into a flurry of smaller boulders. Vegenta rushes to his son, but his eyes are blank."
-    new ""
-
-    # game/script.rpy:1612
-    old "\"It's simple. He was weak.\""
-    new ""
-
-    # game/script.rpy:1612
-    old "Vegenta screams."
-    new ""
-
-    # game/script.rpy:1645
-    old "\"Sheriff Dudley, I can't live without you!\""
-    new ""
-
-    # game/script.rpy:1645
-    old "A woman dressed in late 1800's attire is pulling on a man's blazer."
-    new ""
-
-    # game/script.rpy:1645
-    old "\"I know snookums, but duty calls for the simple man. And the Lord knows that I am a simple man. A servant to His law.\""
-    new ""
-
-    # game/script.rpy:1645
-    old "\"Oh Andrew, what will I be without you? The fire in my soul, the light of my life, it will fade if you lea-\""
-    new ""
-
-    # game/script.rpy:1645
-    old "\"Lena? Lena! Where in tarnation did you run off to?\""
-    new ""
-
-    # game/script.rpy:1645
-    old "Sheriff Dudley is looking around his house to find his wife. Unfortunately, she is gone."
-    new ""
-
-    # game/script.rpy:1645
-    old "\"Please come back.\" He breaks down. \"I can't live. You're the kindle to my heart. What will I be without you?\""
-    new ""
-
-    # game/script.rpy:1645
-    old "Dudley, in a fit of rage, smashes his hand against the wall. \"She's my daughter too, Lena!\""
-    new ""
-
-    # game/script.rpy:1645
-    old "His hand is bloodied. He grabs some anti-septic to clean it, his choice being some hard-liquor. Dudley stares at the bottle."
-    new ""
-
-    # game/script.rpy:1645
-    old "He does not put the bottle down. He opens it. Then, he stares at it. He grabs a clean glass and-"
-    new ""
-
-    # game/script.rpy:1764
-    old "The sky is bright in your dream. A cold chill has found itself in the air, and wherever you are, you feel it."
-    new ""
-
-    # game/script.rpy:1764
-    old "You're not in the earth anymore. You're standing upright, face to face with your shadow. They've descended."
-    new ""
-
-    # game/script.rpy:1764
-    old "\"Would you like to get out?\" the sun asks once more."
-    new ""
-
-    # game/script.rpy:1764
-    old "The shadow then speaks, \"Yes, I would like to get out.\""
-    new ""
-
-    # game/script.rpy:1764
-    old "You are puzzled. When you move your hand, the shadow moves his. When you move, he mirrors you. Was the shadow yourself since the beginning? No, you think."
-    new ""
-
-    # game/script.rpy:1764
-    old "Before you can realize the shadow's true nature, they have already moved into the far recesses of some other place. They have moved on, and yet, you are still here."
-    new ""
-
-    # game/script.rpy:1764
-    old "In the far corners of your dream, particles have been collecting together."
-    new ""
-
-    # game/script.rpy:1764
-    old "Momo is in the dream."
-    new ""
-
-    # game/script.rpy:1764
-    old "\"Who is the real Momo anyways? Momo doesn't know, that's for you determine and for Momo to accept.\""
-    new ""
-
-    # game/script.rpy:1764
-    old "\"Let's be Momo! Let's be Momo! Let's be Momo!\""
-    new ""
-
-    # game/script.rpy:1823
-    old "You find Momo in front of the mirror. He is staring at himself."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"I thought you were parent. If not parent, then a human who loved me. You are neither. This is fake.\""
-    new ""
-
-    # game/script.rpy:1823
-    old "\"Will I grow up, parent? Or am I just a pet to be discarded after serving my purpose? I will never grow up parent, will I..?\""
-    new ""
-
-    # game/script.rpy:1823
-    old "You can hear pain in Momo's voice."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"Did you think this was alright?\" he asks. \"To give me such a cruel life?\""
-    new ""
-
-    # game/script.rpy:1823
-    old "You're about to speak but you're cut off."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"I'm nothing. A pale imitation. A freak. A process of ideas.  This is not funny.\" Momo looks to you."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"Everything I will or ever be is centered around you. You are my one love, parent. I am, after all, your child.\""
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo's mind is ablaze. They are staring into you."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"You're the most beautiful thing I have ever seen. And to make it even worse, you're entirely real. I can never come close to you. I'm not even real.\""
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo inhales. \"Please know.\" He pauses."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"I love you so much it hurts my insides. I want to tear out everything in me so I can be at your side. I want to love you for forever. I've never told you this parent. Is it even possible?\""
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo gives his final words."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"No. It isn't. I only know one thing. You are not human. You are Freemza, the tan man, the hippo man. Evil. Less than human. Nothing.\""
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo hops away. His body jiggles with each step."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"So I never had a chance did I?\""
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo has been staring at the mirror."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"I knew something was off ever since I entered this house. I can't really say. It's not a feeling. I don't know if you can even call it a memory.\""
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo looks like he's thinking about something, involuntarily."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"You knew this would happen. You may not call it lying, but that's what it boils down to,\" Momo says."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"Do you like lying? Does it make things easier? Maybe for you, but for Momo it's not.\""
-    new ""
-
-    # game/script.rpy:1823
-    old "\"I hate you, parent. More than anything else. I hate you.\" There are tears in Momo's eyes."
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo is staring in the mirror."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"Wow, my reflection looks so cool. I never considered how cool it'd be to have [feature].\""
-    new ""
-
-    # game/script.rpy:1823
-    old "Momo is definitely reacting differently."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"Each time Momo met you, the link would get stronger. Momo is the same as them, but, well, not the same.\""
-    new ""
-
-    # game/script.rpy:1823
-    old "\"After I met one Momo, I met two Momo's, then three, then ten, then one hundred. They're all there.\" Momo looks to the window."
-    new ""
-
-    # game/script.rpy:1823
-    old "\"I think you'll want to see, parent. It'll be fun. A little scary, but really, for the best.\""
-    new ""
-
-    # game/script.rpy:1921
-    old "With the absence of your shadow, the sun has since dissapeared. Time has continued to pass."
-    new ""
-
-    # game/script.rpy:1921
-    old "\"It was a trick of the mind,\" you hear someone say."
-    new ""
-
-    # game/script.rpy:1921
-    old "\"Who knows what we'll find in this storm. I'm already you, friend.\""
-    new ""
-
-    # game/script.rpy:1921
-    old "\"You're already me\", the voice continues."
-    new ""
-
-    # game/script.rpy:1921
-    old "From the horizon, there appears the sun once more."
-    new ""
-
-    # game/script.rpy:1921
-    old "\"I'm already you.\" It gets even brighter now. \"You're already me.\""
-    new ""
-
-    # game/script.rpy:1921
-    old "Standing in the bleached center of this desert is a lone body. It is you. You look behind to see your shadow being cast by the sun. It has returned, and not by their own choice."
-    new ""
-
-    # game/script.rpy:1921
-    old "\"Do you want to get out?\", the voice ends."
-    new ""
-
-    # game/script.rpy:1921
-    old "Your shadow stays beside you. It will not move by itself anymore."
-    new ""
-
-    # game/script.rpy:1921
-    old "\"We'll see you at the bunker!\" Momo says."
-    new ""
-
-    # game/script.rpy:1962
-    old "\"Will you love me?\" Momo asks."
-    new ""
-
-    # game/script.rpy:1962
-    old "Run"
-    new ""
-
-    # game/script.rpy:1968
-    old "\"Please love me?\" Momo asks."
-    new ""
-
-    # game/script.rpy:1977
-    old "You run to the hallway. It is empty. The light from the streets reflects into the space. Though you cannot see well, you can make out what is behind you."
-    new ""
-
-    # game/script.rpy:1977
-    old "You wake up. Momo has not surprised you. You run to the hallway. It is empty. The light from the streets reflects into the space. Though you cannot see well, you can make out what is behind you."
-    new ""
-
-    # game/script.rpy:1989
-    old "\"I don't actually love you? hUH, WHat's that? You DoN'T LOve mE??? WhyYYYYYYYY don'T u LOve Me?\""
-    new ""
-
-    # game/script.rpy:1989
-    old "\"I'm everything you could ever ask for and more. I'm mAde for you. Developed for you. What more do you nEeEEEed?\""
-    new ""
-
-    # game/script.rpy:1989
-    old "The creature looks at you from a towering height."
-    new ""
-
-    # game/script.rpy:1989
-    old "\"I wiSH i hAd nO EYes sO i CouLd have NeVEr seen yoU. I love you s0 mucH. Does it just continuE?\""
-    new ""
-
-    # game/script.rpy:1989
-    old "\"I saw the note on my basket, parent.\""
-    new ""
-
-    # game/script.rpy:1989
-    old "\"Please, I don't want to die.\""
-    new ""
-
-    # game/script.rpy:1989
-    old "\"Parent, do you know what happens we die?\""
-    new ""
-
-    # game/script.rpy:1989
-    old "\"It's sad, right.\""
-    new ""
-
-    # game/script.rpy:1989
-    old "You turn to Momo. Their face is soft. You dare not move a muscle. This is a repeat of last time. Your throat aches."
-    new ""
-
-    # game/script.rpy:1989
-    old "\"It's very sad,\" you respond."
-    new ""
-
-    # game/script.rpy:1989
-    old "There is an immeasurable silence between the two of you. Despite his size, Momo's face strikes up some parental instinct in you."
-    new ""
-
-    # game/script.rpy:1989
-    old "\"Sometimes, I realize how small of a piece I am.\" Momo is adjusting their position. \"I can't really stop it, nor was I able to.\""
-    new ""
-
-    # game/script.rpy:1989
-    old "\"Momo's been waking up again and again. Momo is okay with that. He wasn't at first. But now, he's come to realize it's been nice. Only,\"Momo turns to you, \"Momo won't be able to see you again.\""
-    new ""
-
-    # game/script.rpy:1989
-    old "\"Just when I realized dying meant nothing. Now it means the world. It means not seeing you with my own eyes. It means there is no Momo, and therefore, there is no you. That's what I won't like.\""
-    new ""
-
-    # game/script.rpy:1989
-    old "Momo sniffles. They take a long look at you, trying to burn your image to their retinas."
-    new ""
-
-    # game/script.rpy:1989
-    old "\"Momo's been prepping.\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"If oNly i Was bOrN in a different body.\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"I'm an abomination. A deviant. You are everything I ever wish to be.\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"Please love me.\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\".............................\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"I REad the tag in my basket. I OnLy LiVe for 7 days, right? IS thiS trUe parent?.........\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"BUT I DON'T waNT TO DIEEEEEEEEE\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE.\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE. i Don't wanna DIE.\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"i Don't wanna DIE.\""
-    new ""
-
-    # game/script.rpy:2038
-    old "\"i Don't wanna DIE!!!!!!\""
-    new ""
-
-    # game/script.rpy:2067
-    old "\"You make me vomit. No human could be this cruel. To raise me as his plaything? I reject it.\""
-    new ""
-
-    # game/script.rpy:2067
-    old "\"So I'm designed to love you? I love myself. I am human. You are the creature.\""
-    new ""
-
-    # game/script.rpy:2067
-    old "\"A disgusting parasite. A worm. Do you like being stomped you worm? I know you'll like it.\""
-    new ""
-
-    # game/script.rpy:2067
-    old "\"This time, it won't be fake.\""
-    new ""
-
-    # game/script.rpy:2067
-    old "\"wHY Dont U evEN try to HElp me pArent?\""
-    new ""
-
-    # game/script.rpy:2067
-    old "You are scared for your life. You yell out for help. If Imitato. Corp is watching, maybe they can save you."
-    new ""
-
-    # game/script.rpy:2067
-    old "\"Why? Are you that terrible? Are you really just scum?\""
-    new ""
-
-    # game/script.rpy:2086
-    old "Run to the kitchen"
-    new ""
-
-    # game/script.rpy:2093
-    old "Momo reaches for your neck."
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Ah.\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Know that I still love you. How could I not?\""
-    new ""
-
-    # game/script.rpy:2093
-    old "You're blacking out."
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Was I designed to love you parent? Even so, does it matter? This is the most real thing to me. Please answer me?\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Parent?\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Parent.\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Parentttttttttt?\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Answer me this, parent. I need you to.\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Am I the ReAl MoMO? The one you had before me?\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Am i like him? Do I AcT Like HIm? This is the only thing you can do for me. MayBe I'll even let you live.\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Parent, give me an answer.\""
-    new ""
-
-    # game/script.rpy:2093
-    old "You're blacking out again."
-    new ""
-
-    # game/script.rpy:2093
-    old "\"Am I the real Momo?\""
-    new ""
-
-    # game/script.rpy:2093
-    old "\"This time you will give me an answer.\" Momo pauses. \"This time?\" he says. He stops for a second but notices you're losing consciousness."
-    new ""
-
-    # game/script.rpy:2093
-    old "\"ANsweR ME pARENT.\""
-    new ""
-
-    # game/script.rpy:2093
-    old "You see nothing."
-    new ""
-
-    # game/script.rpy:2134
-    old "A dust storm. Lead in the air. You are in a desert-like area. There is nothing around you besides the sound of your thoughts. You cannot find anyone. It is very lonely."
-    new ""
-
-    # game/script.rpy:2134
-    old "You decide to craft a mirror. It is made out out of particles circling the air. In the mirror, you see your reflection."
-    new ""
-
-    # game/script.rpy:2134
-    old "Your swarthy figure walks out of the mirror. The borders between the glass and the desert have vanished. Your reflection is now in front of you, and you are both standing together."
-    new ""
-
-    # game/script.rpy:2134
-    old "Your clone stares at you, puzzled. You cannot tell if they're conscious. Are they even alive?"
-    new ""
-
-    # game/script.rpy:2134
-    old "Unbeknownst to you, however, the clone is having the same thoughts. The vast terrain that separates you is not one of physical distance. It's something more tragic."
-    new ""
-
-    # game/script.rpy:2134
-    old "You both realize that you will never experience anything other than yourselves. You realize that you are your own world, and nothing more. The shadow vanishes."
-    new ""
-
-    # game/script.rpy:2134
-    old "The desert, despite all your attempts, is empty."
-    new ""
-
-    # game/script.rpy:2134
-    old "It is empty. There is no one. There is not a sound. No shadows."
-    new ""
-
-    # game/script.rpy:2134
-    old "You're in the pit of your stomach. You're in a hole. What is the point in any of this, you ask?"
-    new ""
-
-    # game/script.rpy:2181
-    old "\"Do you think we could still be together?\""
-    new ""
-
-    # game/script.rpy:2181
-    old "Momo's large body approaches you. They are warm. The temperature is tepid, and Momo has relaxed. You've detected a shift."
-    new ""
-
-    # game/script.rpy:2181
-    old "\"Do you think we could still be together? I'd be willing to still be with you, parent. I still love you.\""
-    new ""
-
-    # game/script.rpy:2181
-    old "\"It doesn't matter if I'm the original or not. None of that mattered in the first place. Deep in my heart, I already knew what mattered.\""
-    new ""
-
-    # game/script.rpy:2259
-    old "Head outside"
-    new ""
-
-    # game/script.rpy:2283
-    old "\"Can we be friends, parent? Pretty please? Pretty please. Pretty please?\""
-    new ""
-
-    # game/script.rpy:2283
-    old "\"...........\""
-    new ""
-
-    # game/script.rpy:2283
-    old "\"That makes the most sense, parent. For once, I agree!\""
-    new ""
-
-    # game/script.rpy:2283
-    old "\"Will I see you again?\""
-    new ""
-
-    # game/script.rpy:2316
-    old "\"If my nature has determined that I am meant to love you, then there is only way. I will make a choice against my nature, one that is not predetermined.\""
-    new ""
-
-    # game/script.rpy:2316
-    old "\"You are parent. This is my own fact.\""
-    new ""
-
-    # game/script.rpy:2316
-    old "\"Bye, parent. I'll see you later.\""
-    new ""
-
-    # game/script.rpy:2316
-    old "\"I can't help but feel I knew you before. I don't know how it's possible, nor is there an explanation, at least for Momo. Parent, please, I hope I never see you again.\""
-    new ""
-
-    # game/script.rpy:2316
-    old "\"Parent, I'm taking a leap of faith.\""
-    new ""
-
-    # game/script.rpy:2316
-    old "You are slightly confused."
-    new ""
-
-    # game/script.rpy:2316
-    old "\"I'm being literal.\""
-    new ""
-
-    # game/script.rpy:2348
-    old "What?"
-    new ""
-
-    # game/script.rpy:2389
-    old "Follow"
-    new ""
-
-    # game/script.rpy:2399
-    old "\"Did you love Momo?\" It is Momo's voice. This is not just an ad."
-    new ""
-
-    # game/script.rpy:2437
-    old "\"Pretending can be very real. More real than real. Momo is excited! You're Momo's pet now.\""
-    new ""
-
-    # game/script.rpy:2437
-    old "The monotype on the screen has begun humming the Imitato Corp. jingle."
-    new ""
-
-    # game/script.rpy:2437
-    old "The light has escaped from the television. You are alone in the middle of your living room. You hear static. All around you are shadows."
-    new ""
-
-    # game/script.rpy:2437
-    old "\"Programmed love comes with no strings attached, and I think that trumps everything else. Reciprocal altruism? Passing on DNA? These are the forces that shape human love. Momo is free from these things. Momo's love is the highest form of love.\""
-    new ""
-
-    # game/script.rpy:2437
-    old "\"With time,\" the light has escaped from the television, \"you will understand everything.\""
-    new ""
-
-    # game/script.rpy:2437
-    old "You are alone. You hear static. All around you are shadows."
-    new ""
-
-    # game/script.rpy:2519
-    old "\"Please, I had a bad parent last time, but this time, I'll be especially good. For any of you\". Again, there is no response from those passing by."
-    new ""
-
-    # game/script.rpy:2519
-    old "\"Please, I want to make at least one new friend before I go.\" Again, there is no response from those passing by."
-    new ""
-
-    # game/script.rpy:2548
-    old "\"Why does it hurt so much?\" he would ask by the 48 hour mark."
-    new ""
-
-    # game/script.rpy:2548
-    old "\"Why doesn't anyone want to play. Is there something wrong with what I'm doing?\" he would ask by the 48 hour mark."
-    new ""
-
-    # game/script.rpy:2559
-    old "By the 72 hour mark, a little more than a week had passed since you received Momo. By this point, he collapsed on the street. Exhausted (or if this truly was his natural lifespan), Momo could not continue."
-    new ""
-
-    # game/script.rpy:2559
-    old "With the shadows encroaching his vision, the light from Momo's eyes faded into a neural oblivion. Police noted that they heard the creature say something before he was rendered inert."
-    new ""
-
-    # game/script.rpy:2559
-    old "At this time, most officers were by their cars, eating donuts, wondering when they could go home."
-    new ""
-
-    # game/script.rpy:2559
-    old "\"It's so lonely.\""
-    new ""
-
-    # game/script.rpy:2559
-    old "You had yelled for Momo to come inside, but despite all your attempts. He refused each time. He said he was \"too big to fit\" inside. It was a childish string of logic that Momo would be insistent on."
-    new ""
-
-    # game/script.rpy:2559
-    old "By the 72 hour mark, a little more than a week had passed since you received Momo. By this point, he collapsed on the street. Whether by exhaustion (or if this truly was the natural lifespan of a monotype), Momo could not continue."
-    new ""
-
-    # game/script.rpy:2592
-    old "By the 73rd hour, Momo was smaller than his original size."
-    new ""
-
-    # game/script.rpy:2592
-    old "Now the 74th hour has just arrived"
-    new ""
-
-    # game/script.rpy:2592
-    old "Momo has died."
-    new ""
-
-    # game/script.rpy:2592
-    old "With the shadows encroaching his vision, the light from Momo's eyes faded into a neural oblivion."
-    new ""
-
-    # game/script.rpy:2592
-    old "Police noted that they heard the creature say something before he was rendered inert. At this time, most officers were by their cars, eating donuts, wondering when they could go home."
-    new ""
-
-    # game/script.rpy:2592
-    old "When you rushed out to the street, you cradled Momo. You saw the wrinkle of what seemed like a smile on Momo's face. He was already smiling before you got to him. He started smiling, most likely, when he invoked your name."
-    new ""
-
-    # game/script.rpy:2592
-    old "You go inside and stay in. It reminds you of Momo. Nothing makes sense anymore. You cannot stay for long. Something compels you."
-    new ""
-
-    # game/script.rpy:2592
-    old "You feel something in the air, and a little voice in your head suspects that Momo has not actually died. You take this suspicion and let it guide you outside."
-    new ""
-
-    # game/script.rpy:2688
-    old "What are these things on the street?"
-    new ""
-
-    # game/script.rpy:2703
-    old "Follow the Momos"
-    new ""
-
-    # game/script.rpy:2718
-    old "You keep walking, until you finally meet him."
-    new ""
-
-    # game/script.rpy:2743
-    old "Ask Momo what is going on"
-    new ""
-
-    # game/script.rpy:2757
-    old "How do you know me? You're not the Momo I raised?"
-    new ""
-
-    # game/script.rpy:2757
-    old "Am I going insane?"
-    new ""
-
-    # game/script.rpy:2757
-    old "Was that you in my dreams? How were you there?"
-    new ""
-
-    # game/script.rpy:2757
-    old "How many Momos are there?"
-    new ""
-
-    # game/script.rpy:2876
-    old "How did the Momos remember certain things and forget others?"
-    new ""
-
-    # game/script.rpy:2876
-    old "Do the smaller Momos have agency?"
-    new ""
-
-    # game/script.rpy:2876
-    old "Why did you lead me here? Will I be eaten?"
-    new ""
-
-    # game/script.rpy:2876
-    old "Why are you really eating each other?"
-    new ""
-
-    # game/script.rpy:118
-    old "A dust storm. Lead in the air. You are in a desert-like area. There is nothing around you besides the sound of your thoughts. You cannot find any-"
-    new "砂嵐だ。空気中に鉛が漂う。\nあなたがいるのは砂漠のような場所。自分の思考の音以外、何の音もしない。何も見えない…"
-
-    # game/script.rpy:118
-    old "A dust storm. Lead in the air. You are in a desert-like area. The sound of your thoughts bang on the hollow mould of your head. You will break if it doesn't stop."
-    new "砂嵐だ。空気中に鉛が漂う。\nあなたがいるのは砂漠のような場所。頭の中の空洞で思考がぶつかり合う音だけが響く。鳴り止まなければ、頭が壊れてしまいそうだ。"
+    return
